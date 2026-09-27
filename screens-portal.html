@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SoviCare</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-14 -10 128 153'%3E%3Cpath fill='%23264653' d='M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z'/%3E%3Cpath fill='%23219EBC' d='M100 2H58A42 42 0 0 0 100 44Z'/%3E%3Cpath fill='%232A9D8F' d='M58 48A41 41 0 0 1 58 130Z'/%3E%3Cpath fill='%23FFBE0B' d='M0 131V89A42 42 0 0 1 42 131Z'/%3E%3C/svg%3E">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: 'Inter', sans-serif; color: #264653; background: #D6E2E9; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, h4, p, ul, ol, li, figure, figcaption { margin: 0; padding: 0; }
+  ul, ol { list-style: none; }
+  a { color: #219EBC; text-decoration: none; }
+  a:hover { color: #264653; }
+  section[id] { scroll-margin-top: 20px; }
+  ::selection { background: #FFBE0B; color: #264653; }
+</style>
+<script src="./download-chips.js"></script>
+</helmet>
+
+<div style="display: grid; grid-template-columns: 262px minmax(0, 1fr); min-height: 100vh;">
+
+  <aside style="position: sticky; top: 0; align-self: start; height: 100vh; overflow-y: auto; background: #264653; padding: 30px 0 56px;">
+    <div style="padding: 0 22px 26px;">
+      <div style="display: flex; align-items: center; gap: 11px;">
+        <svg viewBox="0 0 100 133" style="width: 23px; height: 31px; flex: none;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+        <div style="font: 400 21px/1 'DM Serif Display', serif; color: #F2F7F9;">SoviCare</div>
+      </div>
+      <div style="margin-top: 12px; font: 600 9.5px/1.5 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.15em; color: #7E9AA6;">Screens · Portal<br>Patient surface</div>
+    </div>
+
+    <nav style="display: flex; flex-direction: column; gap: 22px; padding: 0 14px;">
+      <div style="display: flex; flex-direction: column; gap: 1px;">
+        <div style="padding: 0 11px 8px; font: 700 9px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #4C7284;">Six screens</div>
+        <a href="#p1" style="padding: 8px 11px; border-radius: 8px; font: 400 13.5px/1.3 'Inter', sans-serif; color: #A8C2CD;" style-hover="background: #33586A; color: #F2F7F9;">01 · Dashboard</a>
+        <a href="#p2" style="padding: 8px 11px; border-radius: 8px; font: 400 13.5px/1.3 'Inter', sans-serif; color: #A8C2CD;" style-hover="background: #33586A; color: #F2F7F9;">02 · My Treatment</a>
+        <a href="#p3" style="padding: 8px 11px; border-radius: 8px; font: 400 13.5px/1.3 'Inter', sans-serif; color: #A8C2CD;" style-hover="background: #33586A; color: #F2F7F9;">03 · Orders &amp; Billing</a>
+        <a href="#p4" style="padding: 8px 11px; border-radius: 8px; font: 400 13.5px/1.3 'Inter', sans-serif; color: #A8C2CD;" style-hover="background: #33586A; color: #F2F7F9;">04 · Messages</a>
+        <a href="#p5" style="padding: 8px 11px; border-radius: 8px; font: 400 13.5px/1.3 'Inter', sans-serif; color: #A8C2CD;" style-hover="background: #33586A; color: #F2F7F9;">05 · Explore care</a>
+        <a href="#p6" style="padding: 8px 11px; border-radius: 8px; font: 400 13.5px/1.3 'Inter', sans-serif; color: #A8C2CD;" style-hover="background: #33586A; color: #F2F7F9;">06 · Profile</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 1px; padding-top: 18px; border-top: 1px solid #33586A;">
+        <div style="padding: 0 11px 8px; font: 700 9px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #4C7284;">Elsewhere</div>
+        <a href="brand-book.html" style="padding: 8px 11px; border-radius: 8px; font: 400 13.5px/1.3 'Inter', sans-serif; color: #A8C2CD;" style-hover="background: #33586A; color: #F2F7F9;">← Brand Book</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main style="min-width: 0;">
+
+    <section style="position: relative; overflow: hidden; padding: 78px 60px 68px; background: #264653;">
+      <svg viewBox="0 0 400 400" style="position: absolute; top: -90px; right: -70px; width: 420px; height: 420px; opacity: 0.17;">
+        <path fill="#219EBC" d="M200 0A200 200 0 0 1 400 200H200Z"></path>
+        <path fill="#2A9D8F" d="M200 200A200 200 0 0 1 0 400V200Z"></path>
+        <path fill="#FFBE0B" d="M200 200H400V400A200 200 0 0 1 200 200Z"></path>
+      </svg>
+      <div style="position: relative; max-width: 800px;">
+        <div style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.18em; color: #FFBE0B;">Screens · Portal</div>
+        <h1 style="margin-top: 26px; font: 400 clamp(42px, 5.4vw, 72px)/1.04 'DM Serif Display', serif; color: #F2F7F9; letter-spacing: -0.015em; text-wrap: balance;">Where the care actually happens.</h1>
+        <p style="margin-top: 24px; max-width: 58ch; font: 400 17px/1.65 'Inter', sans-serif; color: #A8C2CD; text-wrap: pretty;">Six patient screens. The portal is a place a man returns to, so the serif appears once per screen — in the page title — and never again below it.</p>
+      </div>
+    </section>
+
+    <div style="padding: 0 60px 110px; max-width: 1500px;">
+
+      <section id="p1" style="padding: 72px 0 0;">
+        <div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 10px;">
+          <span style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #2A9D8F;">01</span>
+          <h2 style="font: 400 40px/1.08 'DM Serif Display', serif; color: #264653;">Dashboard</h2>
+        </div>
+        <p style="max-width: 68ch; margin-bottom: 28px; font: 400 15.5px/1.7 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">One thing needs attention, so exactly one thing is Yellow. Everything else on the screen is allowed to be quiet.</p>
+
+        <div style="border-radius: 20px; overflow: hidden; border: 1px solid #B9CEDA; display: grid; grid-template-columns: 250px minmax(0, 1fr); min-height: 720px; background: #F2F7F9;">
+
+          <div style="background: #264653; display: flex; flex-direction: column; padding: 26px 0 22px;">
+            <div style="padding: 0 20px 22px; display: flex; flex-direction: column; align-items: center; gap: 12px; border-bottom: 1px solid #33586A;">
+              <div style="display: flex; align-items: center; gap: 9px; align-self: flex-start;">
+                <svg viewBox="0 0 100 133" style="width: 17px; height: 23px; flex: none;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+                <div style="font: 400 18px/1 'DM Serif Display', serif; color: #F2F7F9;">SoviCare</div>
+              </div>
+              <div style="margin-top: 10px; width: 62px; height: 62px; border-radius: 999px; background: #219EBC; display: grid; place-items: center; font: 500 20px/1 'Inter', sans-serif; color: #F2F7F9;">DW</div>
+              <div style="text-align: center;">
+                <div style="font: 600 15px/1.3 'Inter', sans-serif; color: #F2F7F9;">Dana Winters</div>
+                <div style="margin-top: 4px; font: 500 10px/1 'Inter', sans-serif; letter-spacing: 0.12em; color: #7E9AA6;">PATIENT SOV-96267</div>
+              </div>
+            </div>
+            <div style="padding: 18px 14px 0;">
+              <div style="display: flex; align-items: center; gap: 9px; padding: 11px 14px; border-radius: 999px; background: #33586A;">
+                <svg viewBox="0 0 100 100" style="width: 12px; height: 12px; flex: none;"><circle cx="42" cy="42" r="30" fill="none" stroke="#7E9AA6" stroke-width="11"></circle><path d="M64 64L92 92" stroke="#7E9AA6" stroke-width="11" stroke-linecap="round"></path></svg>
+                <span style="flex: 1; font: 400 13.5px/1 'Inter', sans-serif; color: #7E9AA6;">Search</span>
+                <span style="font: 500 11px/1 'Inter', sans-serif; color: #4C7284;">⌘K</span>
+              </div>
+            </div>
+            <nav style="margin-top: 16px; padding: 0 14px; display: flex; flex-direction: column; gap: 2px;">
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px; background: #219EBC;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#F2F7F9" d="M50 0v50H0A50 50 0 0 1 50 0Z"></path><path fill="#F2F7F9" d="M50 50h50a50 50 0 0 1-50 50Z" opacity="0.55"></path></svg><span style="font: 500 14.5px/1 'Inter', sans-serif; color: #F2F7F9;">Home</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#7E9AA6" d="M50 0A50 50 0 0 1 100 50H50Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">My Treatment</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#7E9AA6" d="M50 50v50A50 50 0 0 1 0 50Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Orders &amp; Billing</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#7E9AA6" d="M50 50h50a50 50 0 0 1-50 50Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Messages</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><circle cx="50" cy="50" r="42" fill="none" stroke="#7E9AA6" stroke-width="12"></circle></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Help</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><circle cx="50" cy="32" r="20" fill="#7E9AA6"></circle><path fill="#7E9AA6" d="M16 96a34 34 0 0 1 68 0Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Profile</span></div>
+            </nav>
+            <div style="margin-top: auto; padding: 20px 14px 0;">
+              <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 16px; background: #33586A;">
+                <svg viewBox="0 0 100 100" style="width: 26px; height: 26px; flex: none;"><circle cx="50" cy="50" r="50" fill="#FFBE0B"></circle><path fill="#264653" d="M50 50v50A50 50 0 0 1 0 50Z"></path></svg>
+                <div style="flex: 1; min-width: 0;">
+                  <div style="font: 600 13px/1.3 'Inter', sans-serif; color: #F2F7F9;">Daily Essentials</div>
+                  <div style="margin-top: 3px; font: 400 11.5px/1.3 'Inter', sans-serif; color: #7E9AA6; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Starting soon · per label</div>
+                </div>
+              </div>
+              <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #33586A; display: flex; align-items: center; gap: 10px; padding-left: 16px;">
+                <span style="font: 400 13.5px/1 'Inter', sans-serif; color: #7E9AA6;">Sign out</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: 40px 40px 48px; overflow: hidden;">
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+              <div>
+                <div style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.18em; color: #2A9D8F;">Good afternoon</div>
+                <h3 style="margin-top: 14px; font: 400 42px/1.06 'DM Serif Display', serif; color: #264653;">Good afternoon, Dana</h3>
+                <p style="margin-top: 12px; font: 400 15.5px/1.6 'Inter', sans-serif; color: #55747F;">One thing needs your attention below.</p>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px; padding-top: 8px;"><svg viewBox="0 0 100 100" style="width: 13px; height: 13px;"><circle cx="50" cy="50" r="42" fill="none" stroke="#219EBC" stroke-width="12"></circle></svg><span style="font: 500 13.5px/1 'Inter', sans-serif; color: #219EBC;">Need help?</span></div>
+            </div>
+
+            <div style="position: relative; overflow: hidden; margin-top: 30px; display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; padding: 26px 30px; border-radius: 18px; background: #FFBE0B;">
+              <svg viewBox="0 0 100 100" style="position: absolute; bottom: 0; left: 0; width: 74px; height: 74px;"><path fill="#264653" d="M0 100V0A100 100 0 0 1 100 100Z" opacity="0.12"></path></svg>
+              <div style="position: relative; display: flex; align-items: center; gap: 18px;">
+                <svg viewBox="0 0 100 100" style="width: 38px; height: 38px; flex: none;"><circle cx="50" cy="50" r="50" fill="#264653"></circle><path fill="#FFBE0B" d="M50 24a26 26 0 0 1 0 52Z"></path></svg>
+                <div>
+                  <div style="font: 600 17px/1.3 'Inter', sans-serif; color: #264653;">Upload your ID to start treatment</div>
+                  <p style="margin-top: 6px; max-width: 62ch; font: 400 14.5px/1.55 'Inter', sans-serif; color: #6B5406; text-wrap: pretty;">We need to verify your identity before your clinician can review and ship your treatment. It takes about a minute.</p>
+                </div>
+              </div>
+              <button style="position: relative; border: none; cursor: pointer; padding: 14px 26px; border-radius: 999px; background: #264653; font: 500 14.5px/1 'Inter', sans-serif; color: #F2F7F9;">Verify my ID</button>
+            </div>
+
+            <div style="margin-top: 18px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(0, 0.95fr); gap: 16px; align-items: start;">
+              <div style="padding: 26px 26px 28px; border-radius: 18px; background: #FFFFFF; min-height: 178px; display: flex; flex-direction: column;">
+                <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 14px;">
+                  <span style="font: 600 16px/1.3 'Inter', sans-serif; color: #264653;">Current plan</span>
+                  <span style="font: 600 9.5px/1 'Inter', sans-serif; letter-spacing: 0.14em; color: #7E9AA6;">MY TREATMENT</span>
+                </div>
+                <p style="margin-top: 12px; font: 400 14.5px/1.6 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">No active plan yet — browse the care available to you.</p>
+                <span style="margin-top: auto; padding-top: 18px; font: 500 14px/1 'Inter', sans-serif; color: #219EBC;">Explore care →</span>
+              </div>
+              <div style="padding: 26px 26px 28px; border-radius: 18px; background: #FFFFFF; min-height: 178px; display: flex; flex-direction: column;">
+                <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 14px;">
+                  <span style="font: 600 16px/1.3 'Inter', sans-serif; color: #264653;">Last order</span>
+                  <span style="font: 600 9.5px/1 'Inter', sans-serif; letter-spacing: 0.14em; color: #7E9AA6;">ORDERS &amp; BILLING</span>
+                </div>
+                <div style="margin-top: 14px; font: 500 15px/1.4 'Inter', sans-serif; color: #264653;">Daily Essentials Bundle</div>
+                <div style="margin-top: 10px; display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+                  <span style="font: 400 14px/1 'Inter', sans-serif; color: #55747F;">$59.00 · Aug 6, 2026</span>
+                  <span style="padding: 6px 12px; border-radius: 999px; background: #E4F4F1; font: 600 10.5px/1 'Inter', sans-serif; letter-spacing: 0.06em; color: #1F7A6F;">APPROVED</span>
+                </div>
+                <span style="margin-top: auto; padding-top: 18px; font: 500 14px/1 'Inter', sans-serif; color: #219EBC;">Track order →</span>
+              </div>
+              <div style="position: relative; overflow: hidden; border-radius: 18px; background: #C3D6DE; min-height: 372px; grid-row: span 2;">
+                <img src="assets/people/05.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 18%;">
+                <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(38,70,83,0.92) 24%, rgba(38,70,83,0) 60%);"></div>
+                <svg viewBox="0 0 300 400" style="position: absolute; inset: 0; width: 100%; height: 100%;"><path fill="#FFBE0B" d="M300 0v78A78 78 0 0 1 222 0Z"></path></svg>
+                <div style="position: absolute; left: 26px; right: 26px; bottom: 26px;">
+                  <div style="font: 400 25px/1.15 'DM Serif Display', serif; color: #F2F7F9; text-wrap: balance;">Feeling more like yourself.</div>
+                  <p style="margin-top: 9px; font: 400 13.5px/1.55 'Inter', sans-serif; color: #A8C2CD;">Your care team is with you at every step.</p>
+                </div>
+              </div>
+              <div style="grid-column: span 2; padding: 26px 26px 28px; border-radius: 18px; background: #FFFFFF; min-height: 178px; display: flex; flex-direction: column;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap;">
+                  <span style="font: 600 9.5px/1 'Inter', sans-serif; letter-spacing: 0.14em; color: #7E9AA6;">NEXT DOSE</span>
+                  <button style="border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 9px; padding: 11px 20px; border-radius: 999px; background: #2A9D8F; font: 500 13.5px/1 'Inter', sans-serif; color: #F2F7F9;"><svg viewBox="0 0 100 100" style="width: 12px; height: 12px;"><path fill="#F2F7F9" d="M50 0A50 50 0 0 1 100 50H50Z"></path></svg>Log dose</button>
+                </div>
+                <p style="margin-top: 16px; max-width: 60ch; font: 400 14.5px/1.6 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">No doses are scheduled right now — your dosing plan lives under My Treatment.</p>
+              </div>
+            </div>
+
+            <div style="margin-top: 18px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; padding: 18px 24px; border-radius: 18px; background: #E1EDF2;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <svg viewBox="0 0 100 100" style="width: 30px; height: 30px; flex: none;"><circle cx="50" cy="50" r="50" fill="#2A9D8F"></circle><path fill="#F2F7F9" d="M50 0v50H0A50 50 0 0 1 50 0Z"></path></svg>
+                <span style="font: 600 15px/1 'Inter', sans-serif; color: #264653;">Quick links</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                <span style="padding: 10px 18px; border-radius: 999px; background: #FFFFFF; font: 400 13.5px/1 'Inter', sans-serif; color: #264653;">My Treatment</span>
+                <span style="padding: 10px 18px; border-radius: 999px; background: #FFFFFF; font: 400 13.5px/1 'Inter', sans-serif; color: #264653;">Orders &amp; Billing</span>
+                <span style="padding: 10px 18px; border-radius: 999px; background: #FFFFFF; font: 400 13.5px/1 'Inter', sans-serif; color: #264653;">Messages</span>
+                <span style="padding: 10px 18px; border-radius: 999px; background: #FFFFFF; font: 400 13.5px/1 'Inter', sans-serif; color: #264653;">Profile</span>
+                <span style="padding: 10px 18px; border-radius: 999px; background: #FFFFFF; font: 400 13.5px/1 'Inter', sans-serif; color: #264653;">Explore care</span>
+                <span style="padding: 10px 18px; border-radius: 999px; background: #FFFFFF; font: 400 13.5px/1 'Inter', sans-serif; color: #264653;">Help</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="p2" style="padding: 76px 0 0; margin-top: 76px; border-top: 1px solid #B9CEDA;">
+        <div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 10px;">
+          <span style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #2A9D8F;">02</span>
+          <h2 style="font: 400 40px/1.08 'DM Serif Display', serif; color: #264653;">My Treatment</h2>
+        </div>
+        <p style="max-width: 68ch; margin-bottom: 28px; font: 400 15.5px/1.7 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Tabs are pills on a Mist track. The empty state below the fold is filled with the doctor's actual note rather than an illustration.</p>
+
+        <div style="border-radius: 20px; overflow: hidden; border: 1px solid #B9CEDA; display: grid; grid-template-columns: 250px minmax(0, 1fr); min-height: 600px; background: #F2F7F9;">
+          <div style="background: #264653; display: flex; flex-direction: column; padding: 26px 0 22px;">
+            <div style="padding: 0 20px 22px; display: flex; flex-direction: column; align-items: center; gap: 12px; border-bottom: 1px solid #33586A;">
+              <div style="display: flex; align-items: center; gap: 9px; align-self: flex-start;">
+                <svg viewBox="0 0 100 133" style="width: 17px; height: 23px; flex: none;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+                <div style="font: 400 18px/1 'DM Serif Display', serif; color: #F2F7F9;">SoviCare</div>
+              </div>
+              <div style="margin-top: 10px; width: 62px; height: 62px; border-radius: 999px; background: #219EBC; display: grid; place-items: center; font: 500 20px/1 'Inter', sans-serif; color: #F2F7F9;">DW</div>
+              <div style="text-align: center;">
+                <div style="font: 600 15px/1.3 'Inter', sans-serif; color: #F2F7F9;">Dana Winters</div>
+                <div style="margin-top: 4px; font: 500 10px/1 'Inter', sans-serif; letter-spacing: 0.12em; color: #7E9AA6;">PATIENT SOV-96267</div>
+              </div>
+            </div>
+            <nav style="margin-top: 20px; padding: 0 14px; display: flex; flex-direction: column; gap: 2px;">
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#7E9AA6" d="M50 0v50H0A50 50 0 0 1 50 0Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Home</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px; background: #219EBC;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#F2F7F9" d="M50 0A50 50 0 0 1 100 50H50Z"></path></svg><span style="font: 500 14.5px/1 'Inter', sans-serif; color: #F2F7F9;">My Treatment</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#7E9AA6" d="M50 50v50A50 50 0 0 1 0 50Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Orders &amp; Billing</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#7E9AA6" d="M50 50h50a50 50 0 0 1-50 50Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Messages</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><circle cx="50" cy="50" r="42" fill="none" stroke="#7E9AA6" stroke-width="12"></circle></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Help</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><circle cx="50" cy="32" r="20" fill="#7E9AA6"></circle><path fill="#7E9AA6" d="M16 96a34 34 0 0 1 68 0Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Profile</span></div>
+            </nav>
+          </div>
+
+          <div style="padding: 40px 40px 48px;">
+            <h3 style="font: 400 42px/1.06 'DM Serif Display', serif; color: #264653;">My Treatment</h3>
+            <p style="margin-top: 12px; font: 400 15.5px/1.6 'Inter', sans-serif; color: #55747F;">What you're taking, when, and what your doctor said.</p>
+
+            <div style="margin-top: 26px; display: inline-flex; align-items: center; gap: 4px; padding: 5px; border-radius: 999px; background: #E1EDF2;">
+              <span style="padding: 10px 20px; border-radius: 999px; background: #FFFFFF; font: 500 13.5px/1 'Inter', sans-serif; color: #264653;">My Plan</span>
+              <span style="padding: 10px 20px; border-radius: 999px; font: 400 13.5px/1 'Inter', sans-serif; color: #55747F;">Dosing</span>
+              <span style="padding: 10px 20px; border-radius: 999px; font: 400 13.5px/1 'Inter', sans-serif; color: #55747F;">Check-Ins</span>
+              <span style="padding: 10px 20px; border-radius: 999px; font: 400 13.5px/1 'Inter', sans-serif; color: #55747F;">Doctor's Notes</span>
+            </div>
+
+            <div style="margin-top: 26px; padding: 30px 30px 32px; border-radius: 20px; background: #FFFFFF;">
+              <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+                <div>
+                  <div style="font: 600 17px/1.3 'Inter', sans-serif; color: #264653;">Programs</div>
+                  <p style="margin-top: 7px; font: 400 14.5px/1.6 'Inter', sans-serif; color: #55747F;">Your active programs, their protocols, and where each refill stands.</p>
+                </div>
+                <span style="font: 500 14px/1 'Inter', sans-serif; color: #219EBC;">Add another program</span>
+              </div>
+
+              <div style="margin-top: 24px; padding: 24px 26px 26px; border-radius: 16px; background: #F2F7F9;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <svg viewBox="0 0 100 100" style="width: 28px; height: 28px; flex: none;"><circle cx="50" cy="50" r="50" fill="#FFBE0B"></circle><path fill="#264653" d="M50 50v50A50 50 0 0 1 0 50Z"></path></svg>
+                    <span style="font: 600 16px/1.3 'Inter', sans-serif; color: #264653;">Daily Essentials</span>
+                  </div>
+                  <span style="padding: 6px 13px; border-radius: 999px; background: #E1EDF2; font: 600 10.5px/1 'Inter', sans-serif; letter-spacing: 0.06em; color: #55747F;">SUBSCRIPTION INACTIVE</span>
+                </div>
+                <p style="margin-top: 14px; font: 400 14.5px/1.6 'Inter', sans-serif; color: #55747F;">D3+K2 · Magnesium · Omega-3 · per label · daily</p>
+                <div style="margin-top: 20px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                  <button style="cursor: pointer; display: inline-flex; align-items: center; gap: 9px; padding: 11px 22px; border-radius: 999px; background: #FFFFFF; border: 1.5px solid #C3D6DE; font: 500 13.5px/1 'Inter', sans-serif; color: #264653;">View plan →</button>
+                  <span style="font: 500 13.5px/1 'Inter', sans-serif; color: #219EBC;">Dosing</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
+              <div style="padding: 26px 26px 28px; border-radius: 18px; background: #FFFFFF;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 14px;">
+                  <span style="font: 500 12.5px/1 'Inter', sans-serif; color: #7E9AA6;">Total testosterone</span>
+                  <span style="padding: 6px 12px; border-radius: 999px; background: #E4F4F1; font: 600 10.5px/1 'Inter', sans-serif; color: #1F7A6F;">IN RANGE</span>
+                </div>
+                <div style="margin-top: 16px; font: 400 40px/1 'DM Serif Display', serif; color: #264653;">612 <span style="font: 400 14px/1 'Inter', sans-serif; color: #7E9AA6;">ng/dL</span></div>
+                <div style="margin-top: 16px; height: 6px; border-radius: 999px; background: #E1EDF2; position: relative;"><span style="position: absolute; left: 22%; width: 46%; top: 0; bottom: 0; border-radius: 999px; background: #2A9D8F;"></span><span style="position: absolute; left: 52%; top: -3px; width: 12px; height: 12px; border-radius: 999px; background: #264653;"></span></div>
+                <p style="margin-top: 14px; font: 400 13px/1.55 'Inter', sans-serif; color: #55747F;">Reference 300–1000 · drawn Jul 28, 2026</p>
+              </div>
+              <div style="padding: 26px 26px 28px; border-radius: 18px; background: #FFFFFF;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 14px;">
+                  <span style="font: 500 12.5px/1 'Inter', sans-serif; color: #7E9AA6;">Vitamin D</span>
+                  <span style="padding: 6px 12px; border-radius: 999px; background: #FFF3D6; font: 600 10.5px/1 'Inter', sans-serif; color: #8A6400;">LOW</span>
+                </div>
+                <div style="margin-top: 16px; font: 400 40px/1 'DM Serif Display', serif; color: #264653;">24 <span style="font: 400 14px/1 'Inter', sans-serif; color: #7E9AA6;">ng/mL</span></div>
+                <div style="margin-top: 16px; height: 6px; border-radius: 999px; background: #E1EDF2; position: relative;"><span style="position: absolute; left: 30%; width: 48%; top: 0; bottom: 0; border-radius: 999px; background: #2A9D8F;"></span><span style="position: absolute; left: 18%; top: -3px; width: 12px; height: 12px; border-radius: 999px; background: #FFBE0B;"></span></div>
+                <p style="margin-top: 14px; font: 400 13px/1.55 'Inter', sans-serif; color: #55747F;">Reference 30–80 · drawn Jul 28, 2026</p>
+              </div>
+              <div style="padding: 26px 26px 28px; border-radius: 18px; background: #264653;">
+                <div style="font: 600 9.5px/1 'Inter', sans-serif; letter-spacing: 0.14em; color: #7E9AA6;">DOCTOR'S NOTE</div>
+                <p style="margin-top: 16px; font: 400 15.5px/1.6 'Inter', sans-serif; color: #F2F7F9; text-wrap: pretty;">"Your D is low enough to explain some of the fatigue. Start the D3+K2 and we'll redraw in twelve weeks."</p>
+                <div style="margin-top: 18px; font: 400 13px/1.5 'Inter', sans-serif; color: #A8C2CD;">Dr. Marcus Hale, MD · Aug 1, 2026</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="p3" style="padding: 76px 0 0; margin-top: 76px; border-top: 1px solid #B9CEDA;">
+        <div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 10px;">
+          <span style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #2A9D8F;">03</span>
+          <h2 style="font: 400 40px/1.08 'DM Serif Display', serif; color: #264653;">Orders &amp; Billing</h2>
+        </div>
+        <p style="max-width: 68ch; margin-bottom: 28px; font: 400 15.5px/1.7 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">The shipping tracker uses the quadrant as its step marker — filled quadrants behind, hollow circles ahead.</p>
+
+        <div style="border-radius: 20px; overflow: hidden; border: 1px solid #B9CEDA; display: grid; grid-template-columns: 250px minmax(0, 1fr); min-height: 600px; background: #F2F7F9;">
+          <div style="background: #264653; display: flex; flex-direction: column; padding: 26px 0 22px;">
+            <div style="padding: 0 20px 22px; display: flex; flex-direction: column; align-items: center; gap: 12px; border-bottom: 1px solid #33586A;">
+              <div style="display: flex; align-items: center; gap: 9px; align-self: flex-start;">
+                <svg viewBox="0 0 100 133" style="width: 17px; height: 23px; flex: none;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+                <div style="font: 400 18px/1 'DM Serif Display', serif; color: #F2F7F9;">SoviCare</div>
+              </div>
+              <div style="margin-top: 10px; width: 62px; height: 62px; border-radius: 999px; background: #219EBC; display: grid; place-items: center; font: 500 20px/1 'Inter', sans-serif; color: #F2F7F9;">DW</div>
+              <div style="text-align: center;">
+                <div style="font: 600 15px/1.3 'Inter', sans-serif; color: #F2F7F9;">Dana Winters</div>
+                <div style="margin-top: 4px; font: 500 10px/1 'Inter', sans-serif; letter-spacing: 0.12em; color: #7E9AA6;">PATIENT SOV-96267</div>
+              </div>
+            </div>
+            <nav style="margin-top: 20px; padding: 0 14px; display: flex; flex-direction: column; gap: 2px;">
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#7E9AA6" d="M50 0v50H0A50 50 0 0 1 50 0Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Home</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#7E9AA6" d="M50 0A50 50 0 0 1 100 50H50Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">My Treatment</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px; background: #219EBC;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#F2F7F9" d="M50 50v50A50 50 0 0 1 0 50Z"></path></svg><span style="font: 500 14.5px/1 'Inter', sans-serif; color: #F2F7F9;">Orders &amp; Billing</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#7E9AA6" d="M50 50h50a50 50 0 0 1-50 50Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Messages</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><circle cx="50" cy="50" r="42" fill="none" stroke="#7E9AA6" stroke-width="12"></circle></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Help</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><circle cx="50" cy="32" r="20" fill="#7E9AA6"></circle><path fill="#7E9AA6" d="M16 96a34 34 0 0 1 68 0Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Profile</span></div>
+            </nav>
+          </div>
+
+          <div style="padding: 40px 40px 48px;">
+            <h3 style="font: 400 42px/1.06 'DM Serif Display', serif; color: #264653;">Orders &amp; Billing</h3>
+            <p style="margin-top: 12px; font: 400 15.5px/1.6 'Inter', sans-serif; color: #55747F;">Where your medication is, what you're paying, and your subscription.</p>
+
+            <div style="margin-top: 26px; display: inline-flex; align-items: center; gap: 4px; padding: 5px; border-radius: 999px; background: #E1EDF2;">
+              <span style="padding: 10px 20px; border-radius: 999px; background: #FFFFFF; font: 500 13.5px/1 'Inter', sans-serif; color: #264653;">Orders</span>
+              <span style="padding: 10px 20px; border-radius: 999px; font: 400 13.5px/1 'Inter', sans-serif; color: #55747F;">Payments</span>
+              <span style="padding: 10px 20px; border-radius: 999px; font: 400 13.5px/1 'Inter', sans-serif; color: #55747F;">My Subscription</span>
+            </div>
+
+            <div style="margin-top: 26px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding: 20px 26px; border-radius: 16px; background: #FFF3D6;">
+              <svg viewBox="0 0 100 100" style="width: 26px; height: 26px; flex: none;"><circle cx="50" cy="50" r="50" fill="#FFBE0B"></circle><path fill="#264653" d="M50 50v50A50 50 0 0 1 0 50Z"></path></svg>
+              <div style="flex: 1; min-width: 0;">
+                <div style="font: 600 15.5px/1.3 'Inter', sans-serif; color: #264653;">A refill needs attention</div>
+                <p style="margin-top: 5px; font: 400 14px/1.55 'Inter', sans-serif; color: #6B5406;">Your subscription is not active. <span style="color: #264653; font-weight: 500;">Go to My Subscription</span></p>
+              </div>
+            </div>
+
+            <div style="margin-top: 30px; font: 600 9.5px/1 'Inter', sans-serif; letter-spacing: 0.14em; color: #7E9AA6;">REFILLS</div>
+            <div style="margin-top: 14px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; padding: 22px 26px; border-radius: 18px; background: #FFFFFF;">
+              <div style="display: flex; align-items: center; gap: 14px;">
+                <svg viewBox="0 0 100 100" style="width: 28px; height: 28px; flex: none;"><circle cx="50" cy="50" r="50" fill="#FFBE0B"></circle><path fill="#264653" d="M50 50v50A50 50 0 0 1 0 50Z"></path></svg>
+                <div>
+                  <div style="font: 600 15.5px/1.3 'Inter', sans-serif; color: #264653;">Daily Essentials</div>
+                  <p style="margin-top: 5px; font: 400 14px/1.5 'Inter', sans-serif; color: #55747F;">Your subscription is not active.</p>
+                </div>
+              </div>
+              <button style="border: none; padding: 11px 22px; border-radius: 999px; background: #E1EDF2; font: 500 13.5px/1 'Inter', sans-serif; color: #96AEBA;">Request refill</button>
+            </div>
+
+            <div style="margin-top: 30px; font: 600 9.5px/1 'Inter', sans-serif; letter-spacing: 0.14em; color: #7E9AA6;">IN PROGRESS</div>
+            <div style="margin-top: 14px; padding: 26px 30px 30px; border-radius: 18px; background: #FFFFFF;">
+              <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+                <div>
+                  <div style="font: 600 15.5px/1.3 'Inter', sans-serif; color: #264653;">Daily Essentials Bundle</div>
+                  <p style="margin-top: 5px; font: 400 14px/1.5 'Inter', sans-serif; color: #7E9AA6;">Aug 6, 2026</p>
+                </div>
+                <span style="padding: 6px 13px; border-radius: 999px; background: #E4F4F1; font: 600 10.5px/1 'Inter', sans-serif; letter-spacing: 0.06em; color: #1F7A6F;">APPROVED</span>
+              </div>
+              <div style="margin-top: 26px; display: grid; grid-template-columns: repeat(4, 1fr); align-items: start;">
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                  <div style="display: flex; align-items: center; gap: 0;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><circle cx="50" cy="50" r="50" fill="#2A9D8F"></circle></svg><span style="flex: 1; height: 2px; background: #2A9D8F;"></span></div>
+                  <span style="font: 500 13px/1 'Inter', sans-serif; color: #264653;">Confirmed</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                  <div style="display: flex; align-items: center; gap: 0;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><circle cx="50" cy="50" r="43" fill="none" stroke="#C3D6DE" stroke-width="14"></circle></svg><span style="flex: 1; height: 2px; background: #DDE8ED;"></span></div>
+                  <span style="font: 400 13px/1 'Inter', sans-serif; color: #7E9AA6;">Processing</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                  <div style="display: flex; align-items: center; gap: 0;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><circle cx="50" cy="50" r="43" fill="none" stroke="#C3D6DE" stroke-width="14"></circle></svg><span style="flex: 1; height: 2px; background: #DDE8ED;"></span></div>
+                  <span style="font: 400 13px/1 'Inter', sans-serif; color: #7E9AA6;">Shipped</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                  <svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><circle cx="50" cy="50" r="43" fill="none" stroke="#C3D6DE" stroke-width="14"></circle></svg>
+                  <span style="font: 400 13px/1 'Inter', sans-serif; color: #7E9AA6;">Delivered</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 30px; font: 600 9.5px/1 'Inter', sans-serif; letter-spacing: 0.14em; color: #7E9AA6;">ORDER HISTORY</div>
+            <div style="margin-top: 14px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; padding: 22px 26px; border-radius: 18px; background: #FFFFFF;">
+              <div>
+                <div style="font: 600 15.5px/1.3 'Inter', sans-serif; color: #264653;">Daily Essentials Bundle</div>
+                <p style="margin-top: 5px; font: 400 14px/1.5 'Inter', sans-serif; color: #7E9AA6;">Aug 6, 2026</p>
+              </div>
+              <div style="display: flex; align-items: center; gap: 16px;">
+                <span style="font: 400 20px/1 'DM Serif Display', serif; color: #264653;">$59.00</span>
+                <span style="padding: 6px 13px; border-radius: 999px; background: #E4F4F1; font: 600 10.5px/1 'Inter', sans-serif; letter-spacing: 0.06em; color: #1F7A6F;">APPROVED</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="p4" style="padding: 76px 0 0; margin-top: 76px; border-top: 1px solid #B9CEDA;">
+        <div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 10px;">
+          <span style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #2A9D8F;">04</span>
+          <h2 style="font: 400 40px/1.08 'DM Serif Display', serif; color: #264653;">Messages</h2>
+        </div>
+        <p style="max-width: 68ch; margin-bottom: 28px; font: 400 15.5px/1.7 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Topic routing carries a quadrant per topic — the same four colours, reused as a wayfinding code rather than decoration.</p>
+
+        <div style="border-radius: 20px; overflow: hidden; border: 1px solid #B9CEDA; display: grid; grid-template-columns: 250px minmax(0, 1fr); min-height: 640px; background: #F2F7F9;">
+          <div style="background: #264653; display: flex; flex-direction: column; padding: 26px 0 22px;">
+            <div style="padding: 0 20px 22px; display: flex; flex-direction: column; align-items: center; gap: 12px; border-bottom: 1px solid #33586A;">
+              <div style="display: flex; align-items: center; gap: 9px; align-self: flex-start;">
+                <svg viewBox="0 0 100 133" style="width: 17px; height: 23px; flex: none;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+                <div style="font: 400 18px/1 'DM Serif Display', serif; color: #F2F7F9;">SoviCare</div>
+              </div>
+              <div style="margin-top: 10px; width: 62px; height: 62px; border-radius: 999px; background: #219EBC; display: grid; place-items: center; font: 500 20px/1 'Inter', sans-serif; color: #F2F7F9;">DW</div>
+              <div style="text-align: center;">
+                <div style="font: 600 15px/1.3 'Inter', sans-serif; color: #F2F7F9;">Dana Winters</div>
+                <div style="margin-top: 4px; font: 500 10px/1 'Inter', sans-serif; letter-spacing: 0.12em; color: #7E9AA6;">PATIENT SOV-96267</div>
+              </div>
+            </div>
+            <nav style="margin-top: 20px; padding: 0 14px; display: flex; flex-direction: column; gap: 2px;">
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#7E9AA6" d="M50 0v50H0A50 50 0 0 1 50 0Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Home</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#7E9AA6" d="M50 0A50 50 0 0 1 100 50H50Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">My Treatment</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#7E9AA6" d="M50 50v50A50 50 0 0 1 0 50Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Orders &amp; Billing</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px; background: #219EBC;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#F2F7F9" d="M50 50h50a50 50 0 0 1-50 50Z"></path></svg><span style="font: 500 14.5px/1 'Inter', sans-serif; color: #F2F7F9;">Messages</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><circle cx="50" cy="50" r="42" fill="none" stroke="#7E9AA6" stroke-width="12"></circle></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Help</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><circle cx="50" cy="32" r="20" fill="#7E9AA6"></circle><path fill="#7E9AA6" d="M16 96a34 34 0 0 1 68 0Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Profile</span></div>
+            </nav>
+          </div>
+
+          <div style="padding: 40px 40px 48px;">
+            <h3 style="font: 400 42px/1.06 'DM Serif Display', serif; color: #264653;">Messages</h3>
+            <p style="margin-top: 12px; font: 400 15.5px/1.6 'Inter', sans-serif; color: #55747F;">No messages yet.</p>
+
+            <div style="margin-top: 28px; display: grid; grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr); gap: 20px; align-items: start;">
+              <div style="position: relative; overflow: hidden; border-radius: 20px; background: #264653; min-height: 420px; padding: 32px 30px; display: flex; flex-direction: column; justify-content: space-between;">
+                <svg viewBox="0 0 300 400" style="position: absolute; bottom: 0; left: 0; width: 150px; height: 200px; opacity: 0.2;"><path fill="#2A9D8F" d="M0 400V260A140 140 0 0 1 140 400Z"></path></svg>
+                <div style="position: relative;">
+                  <div style="font: 600 9.5px/1 'Inter', sans-serif; letter-spacing: 0.14em; color: #7E9AA6;">YOUR MESSAGES</div>
+                  <p style="margin-top: 18px; font: 400 22px/1.3 'DM Serif Display', serif; color: #F2F7F9; text-wrap: pretty;">Nothing here yet — which usually means nothing is wrong.</p>
+                </div>
+                <div style="position: relative;">
+                  <p style="font: 400 13.5px/1.6 'Inter', sans-serif; color: #A8C2CD; text-wrap: pretty;">Replies typically arrive within one business day. Anything clinical goes to a licensed provider, not support.</p>
+                </div>
+              </div>
+
+              <div style="padding: 34px 34px 38px; border-radius: 20px; background: #FFFFFF;">
+                <div style="font: 600 19px/1.3 'Inter', sans-serif; color: #264653;">What can we help with?</div>
+                <p style="margin-top: 9px; max-width: 52ch; font: 400 14.5px/1.6 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Pick a topic so we can route you to the right team. Anything clinical goes to your care team.</p>
+
+                <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 10px;">
+                  <div style="display: flex; align-items: center; gap: 15px; padding: 17px 20px; border-radius: 14px; background: #F2F7F9; cursor: pointer;">
+                    <svg viewBox="0 0 100 100" style="width: 30px; height: 30px; flex: none;"><circle cx="50" cy="50" r="50" fill="#219EBC"></circle><path fill="#F2F7F9" d="M50 0A50 50 0 0 1 100 50H50Z"></path></svg>
+                    <div style="flex: 1; min-width: 0;"><div style="font: 600 15px/1.3 'Inter', sans-serif; color: #264653;">Billing or payment</div><div style="margin-top: 4px; font: 400 13.5px/1.4 'Inter', sans-serif; color: #7E9AA6;">A charge, refund, or payment method</div></div>
+                    <span style="font: 400 16px/1 'Inter', sans-serif; color: #A9C6D2;">→</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 15px; padding: 17px 20px; border-radius: 14px; background: #F2F7F9; cursor: pointer;">
+                    <svg viewBox="0 0 100 100" style="width: 30px; height: 30px; flex: none;"><circle cx="50" cy="50" r="50" fill="#2A9D8F"></circle><path fill="#F2F7F9" d="M50 50h50a50 50 0 0 1-50 50Z"></path></svg>
+                    <div style="flex: 1; min-width: 0;"><div style="font: 600 15px/1.3 'Inter', sans-serif; color: #264653;">Shipping or delivery</div><div style="margin-top: 4px; font: 400 13.5px/1.4 'Inter', sans-serif; color: #7E9AA6;">Track an order or report a problem</div></div>
+                    <span style="font: 400 16px/1 'Inter', sans-serif; color: #A9C6D2;">→</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 15px; padding: 17px 20px; border-radius: 14px; background: #F2F7F9; cursor: pointer;">
+                    <svg viewBox="0 0 100 100" style="width: 30px; height: 30px; flex: none;"><circle cx="50" cy="50" r="50" fill="#FFBE0B"></circle><path fill="#264653" d="M50 50v50A50 50 0 0 1 0 50Z"></path></svg>
+                    <div style="flex: 1; min-width: 0;"><div style="font: 600 15px/1.3 'Inter', sans-serif; color: #264653;">Refill timing</div><div style="margin-top: 4px; font: 400 13.5px/1.4 'Inter', sans-serif; color: #7E9AA6;">When your next refill ships</div></div>
+                    <span style="font: 400 16px/1 'Inter', sans-serif; color: #A9C6D2;">→</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 15px; padding: 17px 20px; border-radius: 14px; background: #E1EDF2; border: 1.5px solid #219EBC; cursor: pointer;">
+                    <svg viewBox="0 0 100 100" style="width: 30px; height: 30px; flex: none;"><circle cx="50" cy="50" r="50" fill="#264653"></circle><path fill="#FFBE0B" d="M50 0v50H0A50 50 0 0 1 50 0Z"></path></svg>
+                    <div style="flex: 1; min-width: 0;"><div style="font: 600 15px/1.3 'Inter', sans-serif; color: #264653;">Medication or side effects</div><div style="margin-top: 4px; font: 400 13.5px/1.4 'Inter', sans-serif; color: #1E6A94;">We'll route this to your care team</div></div>
+                    <span style="font: 400 16px/1 'Inter', sans-serif; color: #219EBC;">→</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 15px; padding: 17px 20px; border-radius: 14px; background: #F2F7F9; cursor: pointer;">
+                    <svg viewBox="0 0 100 100" style="width: 30px; height: 30px; flex: none;"><circle cx="50" cy="50" r="50" fill="#C3D6DE"></circle><circle cx="50" cy="38" r="15" fill="#264653"></circle><path fill="#264653" d="M24 82a26 26 0 0 1 52 0Z"></path></svg>
+                    <div style="flex: 1; min-width: 0;"><div style="font: 600 15px/1.3 'Inter', sans-serif; color: #264653;">Account or profile</div><div style="margin-top: 4px; font: 400 13.5px/1.4 'Inter', sans-serif; color: #7E9AA6;">Login, contact info, or preferences</div></div>
+                    <span style="font: 400 16px/1 'Inter', sans-serif; color: #A9C6D2;">→</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 15px; padding: 17px 20px; border-radius: 14px; background: #F2F7F9; cursor: pointer;">
+                    <svg viewBox="0 0 100 100" style="width: 30px; height: 30px; flex: none;"><circle cx="50" cy="50" r="50" fill="#C3D6DE"></circle><path fill="#264653" d="M44 30h12v14h14v12H56v14H44V56H30V44h14Z"></path></svg>
+                    <div style="flex: 1; min-width: 0;"><div style="font: 600 15px/1.3 'Inter', sans-serif; color: #264653;">Something else</div><div style="margin-top: 4px; font: 400 13.5px/1.4 'Inter', sans-serif; color: #7E9AA6;">Describe it in your own words</div></div>
+                    <span style="font: 400 16px/1 'Inter', sans-serif; color: #A9C6D2;">→</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="p5" style="padding: 76px 0 0; margin-top: 76px; border-top: 1px solid #B9CEDA;">
+        <div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 10px;">
+          <span style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #2A9D8F;">05</span>
+          <h2 style="font: 400 40px/1.08 'DM Serif Display', serif; color: #264653;">Explore care</h2>
+        </div>
+        <p style="max-width: 68ch; margin-bottom: 28px; font: 400 15.5px/1.7 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">The one in-portal screen allowed to sell. It still leads with what a clinician has to approve, not with a price.</p>
+
+        <div style="border-radius: 20px; overflow: hidden; border: 1px solid #B9CEDA; display: grid; grid-template-columns: 250px minmax(0, 1fr); min-height: 600px; background: #F2F7F9;">
+          <div style="background: #264653; display: flex; flex-direction: column; padding: 26px 0 22px;">
+            <div style="padding: 0 20px 22px; display: flex; flex-direction: column; align-items: center; gap: 12px; border-bottom: 1px solid #33586A;">
+              <div style="display: flex; align-items: center; gap: 9px; align-self: flex-start;">
+                <svg viewBox="0 0 100 133" style="width: 17px; height: 23px; flex: none;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+                <div style="font: 400 18px/1 'DM Serif Display', serif; color: #F2F7F9;">SoviCare</div>
+              </div>
+              <div style="margin-top: 10px; width: 62px; height: 62px; border-radius: 999px; background: #219EBC; display: grid; place-items: center; font: 500 20px/1 'Inter', sans-serif; color: #F2F7F9;">DW</div>
+              <div style="text-align: center;">
+                <div style="font: 600 15px/1.3 'Inter', sans-serif; color: #F2F7F9;">Dana Winters</div>
+                <div style="margin-top: 4px; font: 500 10px/1 'Inter', sans-serif; letter-spacing: 0.12em; color: #7E9AA6;">PATIENT SOV-96267</div>
+              </div>
+            </div>
+            <nav style="margin-top: 20px; padding: 0 14px; display: flex; flex-direction: column; gap: 2px;">
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#7E9AA6" d="M50 0v50H0A50 50 0 0 1 50 0Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Home</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px; background: #219EBC;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#F2F7F9" d="M50 0A50 50 0 0 1 100 50H50Z"></path></svg><span style="font: 500 14.5px/1 'Inter', sans-serif; color: #F2F7F9;">My Treatment</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#7E9AA6" d="M50 50v50A50 50 0 0 1 0 50Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Orders &amp; Billing</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#7E9AA6" d="M50 50h50a50 50 0 0 1-50 50Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Messages</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><circle cx="50" cy="50" r="42" fill="none" stroke="#7E9AA6" stroke-width="12"></circle></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Help</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><circle cx="50" cy="32" r="20" fill="#7E9AA6"></circle><path fill="#7E9AA6" d="M16 96a34 34 0 0 1 68 0Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Profile</span></div>
+            </nav>
+          </div>
+
+          <div style="padding: 40px 40px 48px;">
+            <h3 style="font: 400 42px/1.06 'DM Serif Display', serif; color: #264653;">Explore care</h3>
+            <p style="margin-top: 12px; max-width: 60ch; font: 400 15.5px/1.6 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Programs you're eligible to start. A licensed clinician reviews every request before anything ships.</p>
+
+            <div style="margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(268px, 1fr)); gap: 16px;">
+              <div style="position: relative; overflow: hidden; border-radius: 18px; background: #FFFFFF; display: flex; flex-direction: column;">
+                <div style="position: relative; aspect-ratio: 16 / 9; background: #C3D6DE;">
+                  <img src="assets/people/01.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 18%;">
+                  <svg viewBox="0 0 300 170" style="position: absolute; inset: 0; width: 100%; height: 100%;"><path fill="#264653" d="M0 170v-72a72 72 0 0 1 72 72Z"></path></svg>
+                </div>
+                <div style="padding: 24px 24px 26px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+                  <div style="font: 600 16.5px/1.3 'Inter', sans-serif; color: #264653;">TRT Optimization</div>
+                  <p style="font: 400 14px/1.6 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Provider-managed testosterone replacement therapy, adjusted from your labs.</p>
+                  <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                    <span style="padding: 5px 11px; border-radius: 999px; background: #E4F4F1; font: 600 10.5px/1 'Inter', sans-serif; color: #1F7A6F;">CLINICIAN REVIEWED</span>
+                    <span style="padding: 5px 11px; border-radius: 999px; background: #E1EDF2; font: 600 10.5px/1 'Inter', sans-serif; color: #55747F;">LABS REQUIRED</span>
+                  </div>
+                  <button style="margin-top: auto; align-self: flex-start; border: none; cursor: pointer; padding: 12px 24px; border-radius: 999px; background: #264653; font: 500 13.5px/1 'Inter', sans-serif; color: #F2F7F9;">See if I'm eligible</button>
+                </div>
+              </div>
+              <div style="position: relative; overflow: hidden; border-radius: 18px; background: #FFFFFF; display: flex; flex-direction: column;">
+                <div style="position: relative; aspect-ratio: 16 / 9; background: #C3D6DE;">
+                  <img src="assets/people/08.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 22%;">
+                  <svg viewBox="0 0 300 170" style="position: absolute; inset: 0; width: 100%; height: 100%;"><path fill="#2A9D8F" d="M0 170v-72a72 72 0 0 1 72 72Z"></path></svg>
+                </div>
+                <div style="padding: 24px 24px 26px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+                  <div style="font: 600 16.5px/1.3 'Inter', sans-serif; color: #264653;">GLP-1 Metabolic Support</div>
+                  <p style="font: 400 14px/1.6 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Medical weight management with a titration plan your clinician sets.</p>
+                  <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                    <span style="padding: 5px 11px; border-radius: 999px; background: #E4F4F1; font: 600 10.5px/1 'Inter', sans-serif; color: #1F7A6F;">CLINICIAN REVIEWED</span>
+                    <span style="padding: 5px 11px; border-radius: 999px; background: #E1EDF2; font: 600 10.5px/1 'Inter', sans-serif; color: #55747F;">LABS REQUIRED</span>
+                  </div>
+                  <button style="margin-top: auto; align-self: flex-start; border: none; cursor: pointer; padding: 12px 24px; border-radius: 999px; background: #264653; font: 500 13.5px/1 'Inter', sans-serif; color: #F2F7F9;">See if I'm eligible</button>
+                </div>
+              </div>
+              <div style="position: relative; overflow: hidden; border-radius: 18px; background: #FFFFFF; display: flex; flex-direction: column;">
+                <div style="position: relative; aspect-ratio: 16 / 9; background: #FFBE0B; display: grid; place-items: center;">
+                  <svg viewBox="0 0 300 170" style="position: absolute; inset: 0; width: 100%; height: 100%;"><path fill="#264653" d="M300 0v78a78 78 0 0 1-78-78Z" opacity="0.16"></path></svg>
+                  <svg viewBox="0 0 100 133" style="position: relative; width: 44px; height: 59px;"><path fill="#264653" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#264653" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#F2F7F9" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#264653" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+                </div>
+                <div style="padding: 24px 24px 26px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+                  <div style="font: 600 16.5px/1.3 'Inter', sans-serif; color: #264653;">Daily Essentials</div>
+                  <p style="font: 400 14px/1.6 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Pharmacist-curated supplements. The one program that needs no visit.</p>
+                  <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                    <span style="padding: 5px 11px; border-radius: 999px; background: #FFF3D6; font: 600 10.5px/1 'Inter', sans-serif; color: #8A6400;">NO VISIT NEEDED</span>
+                  </div>
+                  <button style="margin-top: auto; align-self: flex-start; border: none; cursor: pointer; padding: 12px 24px; border-radius: 999px; background: #264653; font: 500 13.5px/1 'Inter', sans-serif; color: #F2F7F9;">Add to my plan</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="p6" style="padding: 76px 0 0; margin-top: 76px; border-top: 1px solid #B9CEDA;">
+        <div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 10px;">
+          <span style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #2A9D8F;">06</span>
+          <h2 style="font: 400 40px/1.08 'DM Serif Display', serif; color: #264653;">Profile</h2>
+        </div>
+        <p style="max-width: 68ch; margin-bottom: 28px; font: 400 15.5px/1.7 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Read-only rows sit on Paper; anything editable gets a white field. The difference is legible before you click.</p>
+
+        <div style="border-radius: 20px; overflow: hidden; border: 1px solid #B9CEDA; display: grid; grid-template-columns: 250px minmax(0, 1fr); min-height: 600px; background: #F2F7F9;">
+          <div style="background: #264653; display: flex; flex-direction: column; padding: 26px 0 22px;">
+            <div style="padding: 0 20px 22px; display: flex; flex-direction: column; align-items: center; gap: 12px; border-bottom: 1px solid #33586A;">
+              <div style="display: flex; align-items: center; gap: 9px; align-self: flex-start;">
+                <svg viewBox="0 0 100 133" style="width: 17px; height: 23px; flex: none;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+                <div style="font: 400 18px/1 'DM Serif Display', serif; color: #F2F7F9;">SoviCare</div>
+              </div>
+              <div style="margin-top: 10px; width: 62px; height: 62px; border-radius: 999px; background: #219EBC; display: grid; place-items: center; font: 500 20px/1 'Inter', sans-serif; color: #F2F7F9;">DW</div>
+              <div style="text-align: center;">
+                <div style="font: 600 15px/1.3 'Inter', sans-serif; color: #F2F7F9;">Dana Winters</div>
+                <div style="margin-top: 4px; font: 500 10px/1 'Inter', sans-serif; letter-spacing: 0.12em; color: #7E9AA6;">PATIENT SOV-96267</div>
+              </div>
+            </div>
+            <nav style="margin-top: 20px; padding: 0 14px; display: flex; flex-direction: column; gap: 2px;">
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#7E9AA6" d="M50 0v50H0A50 50 0 0 1 50 0Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Home</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#7E9AA6" d="M50 0A50 50 0 0 1 100 50H50Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">My Treatment</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#7E9AA6" d="M50 50v50A50 50 0 0 1 0 50Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Orders &amp; Billing</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#7E9AA6" d="M50 50h50a50 50 0 0 1-50 50Z"></path></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Messages</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><circle cx="50" cy="50" r="42" fill="none" stroke="#7E9AA6" stroke-width="12"></circle></svg><span style="font: 400 14.5px/1 'Inter', sans-serif; color: #A8C2CD;">Help</span></div>
+              <div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 999px; background: #219EBC;"><svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><circle cx="50" cy="32" r="20" fill="#F2F7F9"></circle><path fill="#F2F7F9" d="M16 96a34 34 0 0 1 68 0Z"></path></svg><span style="font: 500 14.5px/1 'Inter', sans-serif; color: #F2F7F9;">Profile</span></div>
+            </nav>
+          </div>
+
+          <div style="padding: 40px 40px 48px;">
+            <h3 style="font: 400 42px/1.06 'DM Serif Display', serif; color: #264653;">Profile</h3>
+            <p style="margin-top: 12px; font: 400 15.5px/1.6 'Inter', sans-serif; color: #55747F;">Your contact details, shipping address, and how we reach you.</p>
+
+            <div style="margin-top: 28px; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 18px; align-items: start;">
+              <div style="padding: 30px 30px 32px; border-radius: 20px; background: #FFFFFF;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+                  <span style="font: 600 17px/1.3 'Inter', sans-serif; color: #264653;">Contact</span>
+                  <span style="font: 500 13.5px/1 'Inter', sans-serif; color: #219EBC;">Edit</span>
+                </div>
+                <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 16px;">
+                  <div style="display: flex; flex-direction: column; gap: 7px;">
+                    <label style="font: 500 12.5px/1 'Inter', sans-serif; color: #55747F;">Full name</label>
+                    <input type="text" value="Dana Winters" style="width: 100%; padding: 15px 18px; border-radius: 14px; border: 1.5px solid #C3D6DE; background: #FFFFFF; font: 400 15px/1 'Inter', sans-serif; color: #264653; outline: none;">
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 7px;">
+                    <label style="font: 500 12.5px/1 'Inter', sans-serif; color: #55747F;">Email</label>
+                    <input type="text" value="dana@example.com" style="width: 100%; padding: 15px 18px; border-radius: 14px; border: 1.5px solid #C3D6DE; background: #FFFFFF; font: 400 15px/1 'Inter', sans-serif; color: #264653; outline: none;">
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 7px;">
+                    <label style="font: 500 12.5px/1 'Inter', sans-serif; color: #55747F;">Phone</label>
+                    <input type="text" value="+1 (555) 010 - 2200" style="width: 100%; padding: 15px 18px; border-radius: 14px; border: 1.5px solid #C3D6DE; background: #FFFFFF; font: 400 15px/1 'Inter', sans-serif; color: #264653; outline: none;">
+                  </div>
+                </div>
+
+                <div style="margin-top: 28px; padding-top: 26px; border-top: 1px solid #DDE8ED;">
+                  <span style="font: 600 17px/1.3 'Inter', sans-serif; color: #264653;">Notifications</span>
+                  <div style="margin-top: 18px; display: flex; flex-direction: column; gap: 14px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+                      <span style="font: 400 14.5px/1.4 'Inter', sans-serif; color: #264653;">Text me when an order ships</span>
+                      <span style="width: 46px; height: 27px; border-radius: 999px; background: #2A9D8F; display: flex; align-items: center; justify-content: flex-end; padding: 3px; flex: none;"><span style="width: 21px; height: 21px; border-radius: 999px; background: #FFFFFF;"></span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+                      <span style="font: 400 14.5px/1.4 'Inter', sans-serif; color: #264653;">Email me my lab results</span>
+                      <span style="width: 46px; height: 27px; border-radius: 999px; background: #2A9D8F; display: flex; align-items: center; justify-content: flex-end; padding: 3px; flex: none;"><span style="width: 21px; height: 21px; border-radius: 999px; background: #FFFFFF;"></span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+                      <span style="font: 400 14.5px/1.4 'Inter', sans-serif; color: #264653;">Product news and offers</span>
+                      <span style="width: 46px; height: 27px; border-radius: 999px; background: #C3D6DE; display: flex; align-items: center; justify-content: flex-start; padding: 3px; flex: none;"><span style="width: 21px; height: 21px; border-radius: 999px; background: #FFFFFF;"></span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 18px;">
+                <div style="padding: 28px 28px 30px; border-radius: 20px; background: #FFFFFF;">
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+                    <span style="font: 600 17px/1.3 'Inter', sans-serif; color: #264653;">Shipping address</span>
+                    <span style="font: 500 13.5px/1 'Inter', sans-serif; color: #219EBC;">Edit</span>
+                  </div>
+                  <div style="margin-top: 18px; padding: 18px 20px; border-radius: 14px; background: #F2F7F9;">
+                    <p style="font: 400 14.5px/1.7 'Inter', sans-serif; color: #264653;">1408 Wilcox Avenue<br>Los Angeles, CA 90028</p>
+                  </div>
+                  <p style="margin-top: 14px; font: 400 12.5px/1.6 'Inter', sans-serif; color: #7E9AA6; text-wrap: pretty;">All shipments arrive in plain packaging with no branding on the outside.</p>
+                </div>
+
+                <div style="position: relative; overflow: hidden; padding: 28px 28px 30px; border-radius: 20px; background: #264653;">
+                  <svg viewBox="0 0 100 100" style="position: absolute; top: 0; right: 0; width: 76px; height: 76px;"><path fill="#2A9D8F" d="M100 0v100A100 100 0 0 0 100 0Z" opacity="0.4"></path></svg>
+                  <div style="position: relative;">
+                    <div style="font: 600 9.5px/1 'Inter', sans-serif; letter-spacing: 0.14em; color: #7E9AA6;">IDENTITY</div>
+                    <div style="margin-top: 14px; font: 600 16px/1.35 'Inter', sans-serif; color: #F2F7F9;">Verified Aug 6, 2026</div>
+                    <p style="margin-top: 10px; font: 400 13.5px/1.6 'Inter', sans-serif; color: #A8C2CD; text-wrap: pretty;">Required once, by law, before a clinician can prescribe. We never share it outside your care team.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+</x-dc>
+</body>
+</html>

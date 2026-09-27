@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SoviCare</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#F2F7F9"/><g transform="translate(34 23) scale(0.32)"><path fill="#264653" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"/><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"/><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"/><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"/></g></svg></template>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-14 -10 128 153'%3E%3Cpath fill='%23264653' d='M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z'/%3E%3Cpath fill='%23219EBC' d='M100 2H58A42 42 0 0 0 100 44Z'/%3E%3Cpath fill='%232A9D8F' d='M58 48A41 41 0 0 1 58 130Z'/%3E%3Cpath fill='%23FFBE0B' d='M0 131V89A42 42 0 0 1 42 131Z'/%3E%3C/svg%3E">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; color: #264653; background: #F2F7F9; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, p, ul, li, figure, figcaption { margin: 0; padding: 0; }
+  ul { list-style: none; }
+  a { color: #219EBC; text-decoration: none; }
+  a:hover { color: #264653; }
+  button { font-family: inherit; }
+  :focus-visible { outline: 2px solid #219EBC; outline-offset: 3px; }
+  @keyframes sc-step-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+</helmet>
+
+<div data-document-role="page" data-label="Assessment" style="min-height: 100vh; background: #F2F7F9; display: flex; flex-direction: column; align-items: center; padding: 48px 24px 72px;">
+
+  <div style="width: 100%; max-width: 1180px; display: flex; flex-direction: column; gap: 24px;">
+
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 24px;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="font: 700 11.5px/1.4 'Inter', sans-serif; letter-spacing: 0.18em; text-transform: uppercase; color: #7E9AA6;">Men's longevity, made simple.</div>
+        <h1 style="font-family: 'DM Serif Display', serif; font-size: clamp(34px, 4.6vw, 52px); line-height: 1.08; font-weight: 400; color: #264653;">Start with answers, not <span style="font-family: 'DM Serif Display', serif; font-style: italic;">assumptions</span>.</h1>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start;">
+        <div style="display: flex; flex-wrap: wrap; gap: 24px;">
+          <div style="display: flex; align-items: center; gap: 8px; font: 400 12.5px/1.45 'Inter', sans-serif; color: #55747F;">
+            <svg viewBox="0 0 20 20" style="width: 15px; height: 15px; flex: none; fill: none; stroke: #7E9AA6; stroke-width: 1.5;"><circle cx="10" cy="10" r="7.5"></circle><path d="M10 6v4.4l3 1.8" stroke-linecap="round"></path></svg>Takes about two minutes
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; font: 400 12.5px/1.45 'Inter', sans-serif; color: #55747F;">
+            <svg viewBox="0 0 20 20" style="width: 15px; height: 15px; flex: none; fill: none; stroke: #7E9AA6; stroke-width: 1.5;"><rect x="4" y="9" width="12" height="8" rx="2"></rect><path d="M7 9V7a3 3 0 0 1 6 0v2" stroke-linecap="round"></path></svg>Private and discreet
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; font: 400 12.5px/1.45 'Inter', sans-serif; color: #55747F;">
+            <svg viewBox="0 0 20 20" style="width: 15px; height: 15px; flex: none; fill: none; stroke: #7E9AA6; stroke-width: 1.5;"><circle cx="10" cy="7" r="3"></circle><path d="M4.5 16.5a5.5 5.5 0 0 1 11 0" stroke-linecap="round"></path></svg>Provider-reviewed next step
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #D6E2E9; font: 500 11.5px/1.4 'Inter', sans-serif; color: #55747F;">
+          <svg viewBox="0 0 20 20" style="width: 13px; height: 13px; flex: none; fill: none; stroke: #7E9AA6; stroke-width: 1.6;"><circle cx="10" cy="10" r="7.5"></circle><path d="M10 9.2v4.2M10 6.6v.1" stroke-linecap="round"></path></svg>
+          Assessment only. Not a diagnosis.
+        </div>
+      </div>
+    </div>
+
+    <div style="position: relative; overflow: hidden; background: #FFFFFF; border: 1px solid #C6D6DF; border-radius: 14px; min-height: 620px; display: flex; flex-direction: column;">
+
+      <div style="position: absolute; right: -120px; top: -120px; width: 300px; height: 300px; border-radius: 999px 0 0 0; background: #F2F7F9; pointer-events: none;"></div>
+
+      <sc-if value="{{ showBar }}" hint-placeholder-val="{{ true }}">
+      <div style="position: relative; display: flex; align-items: center; gap: 18px; padding: 20px 36px; border-bottom: 1px solid #DDE8ED;">
+        <div style="display: grid; place-items: center; width: 26px; height: 26px; flex: none; background: #264653; color: #F2F7F9; font: 600 12.5px/1 'Inter', sans-serif;">{{ stepNumber }}</div>
+        <div style="font: 700 11.5px/1.4 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #264653;">{{ stepLabel }}</div>
+        <div style="display: flex; align-items: center; gap: 7px; margin-left: 8px;">
+          <sc-for list="{{ dots }}" as="dot" hint-placeholder-count="6">
+            <span style="{{ dot.style }}"></span>
+          </sc-for>
+        </div>
+        <div style="margin-left: auto; font: 500 12.5px/1.4 'Inter', sans-serif; color: #7E9AA6;">{{ counter }}</div>
+      </div>
+      </sc-if>
+
+      <div style="position: relative; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; padding: 48px 36px;">
+
+        <div style="display: flex; align-items: center; gap: 11px;">
+          <svg viewBox="0 0 100 133" style="width: 20px; height: 27px; flex: none;"><path fill="#264653" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+          <span style="font: 400 22px/1 'DM Serif Display', serif; color: #264653;">SoviCare</span>
+        </div>
+
+        <div style="{{ paneStyle }}" data-pane="1">
+
+          <div style="display: grid; place-items: center; width: 96px; height: 96px; border-radius: 999px; background: #F2F7F9; border: 1px solid #DDE8ED;">{{ stepIcon }}</div>
+
+          <h2 style="font-family: 'DM Serif Display', serif; font-size: 26px; line-height: 1.35; font-weight: 400; color: #264653; text-align: center; max-width: 30ch; text-wrap: pretty;">{{ stepTitle }}</h2>
+
+          <sc-if value="{{ stepHelper }}" hint-placeholder-val="{{ true }}">
+            <p style="font: 400 14px/1.55 'Inter', sans-serif; color: #55747F; text-align: center; max-width: 56ch; margin-top: -8px; text-wrap: pretty;">{{ stepHelper }}</p>
+          </sc-if>
+
+          <sc-if value="{{ isIntro }}">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; margin-top: 8px;">
+              <button type="button" onClick="{{ begin }}" style="display: inline-grid; place-items: center; height: 46px; padding: 0 30px; border: 0; border-radius: 999px; font: 500 14px/1 'Inter', sans-serif; background: #264653; color: #F2F7F9; cursor: pointer; transition: background .18s ease;" style-hover="background: #1C3742;">Start with answers</button>
+              <div style="font: 400 12.5px/1.45 'Inter', sans-serif; color: #7E9AA6;">No obligation to purchase. You choose what happens next.</div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isOptions }}">
+            <div style="{{ gridStyle }}">
+              <sc-for list="{{ options }}" as="opt" hint-placeholder-count="5">
+                <button type="button" onClick="{{ opt.pick }}" style="{{ opt.style }}">
+                  <sc-if value="{{ opt.bars }}">
+                    <span style="display: flex; align-items: flex-end; gap: 3px; height: 34px;">
+                      <sc-for list="{{ opt.bars }}" as="bar" hint-placeholder-count="4">
+                        <span style="{{ bar.style }}"></span>
+                      </sc-for>
+                    </span>
+                  </sc-if>
+                  <sc-if value="{{ opt.icon }}">{{ opt.icon }}</sc-if>
+                  <span style="{{ opt.labelStyle }}">{{ opt.label }}</span>
+                  <sc-if value="{{ opt.sub }}">
+                    <span style="font: 400 11.5px/1.4 'Inter', sans-serif; color: #7E9AA6;">{{ opt.sub }}</span>
+                  </sc-if>
+                </button>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isSlider }}">
+            <div style="width: 100%; max-width: 560px; display: flex; flex-direction: column; gap: 14px; margin-top: 12px;">
+              <div style="position: relative; display: flex; align-items: center; justify-content: space-between; padding: 0 6px;">
+                <div style="position: absolute; left: 12px; right: 12px; top: 50%; height: 2px; background: #D6E2E9;"></div>
+                <sc-for list="{{ sliderStops }}" as="stop" hint-placeholder-count="5">
+                  <button type="button" onClick="{{ stop.pick }}" aria-label="{{ stop.aria }}" style="{{ stop.hitStyle }}">
+                    <span style="{{ stop.dotStyle }}"></span>
+                  </button>
+                </sc-for>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; font: 400 12.5px/1.45 'Inter', sans-serif; color: #55747F;">
+                <span>Very little</span>
+                <span>Moderate</span>
+                <span>A lot</span>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isResult }}">
+            <div style="width: 100%; max-width: 900px; display: flex; flex-direction: column; align-items: center; gap: 28px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; width: 100%;">
+                <sc-for list="{{ summary }}" as="row" hint-placeholder-count="3">
+                  <div style="display: flex; flex-direction: column; gap: 7px; padding: 20px 22px; border-radius: 14px; background: #F2F7F9; border: 1px solid #DDE8ED;">
+                    <span style="font: 700 11.5px/1.4 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #7E9AA6;">{{ row.label }}</span>
+                    <span style="font: 500 14px/1.5 'Inter', sans-serif; color: #264653;">{{ row.value }}</span>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px;">
+                <button type="button" onClick="{{ noop }}" style="display: inline-grid; place-items: center; height: 46px; padding: 0 30px; border: 0; border-radius: 999px; font: 500 14px/1 'Inter', sans-serif; background: #FFBE0B; color: #264653; cursor: pointer; transition: background .18s ease;" style-hover="background: #E9AD05;">See my options</button>
+                <button type="button" onClick="{{ noop }}" style="display: inline-grid; place-items: center; height: 46px; padding: 0 30px; border: 1.5px solid #264653; border-radius: 999px; font: 500 14px/1 'Inter', sans-serif; background: transparent; color: #264653; cursor: pointer; transition: background .18s ease, color .18s ease;" style-hover="background: #264653; color: #F2F7F9;">Talk to a clinician</button>
+              </div>
+              <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 26px; font: 400 12.5px/1.45 'Inter', sans-serif; color: #7E9AA6;">
+                <span>Assessment only. Not a diagnosis.</span>
+                <span>A licensed provider reviews your answers before anything is offered.</span>
+              </div>
+            </div>
+          </sc-if>
+
+        </div>
+      </div>
+
+      <sc-if value="{{ showFooter }}" hint-placeholder-val="{{ true }}">
+      <div style="position: relative; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 18px 36px; border-top: 1px solid #DDE8ED; background: #FFFFFF;">
+        <button type="button" onClick="{{ back }}" style="{{ backStyle }}">Back</button>
+        <sc-if value="{{ needsContinue }}">
+          <button type="button" onClick="{{ next }}" style="{{ continueStyle }}">Continue</button>
+        </sc-if>
+        <sc-if value="{{ autoNote }}">
+          <span style="font: 400 12.5px/1.45 'Inter', sans-serif; color: #7E9AA6;">{{ autoNote }}</span>
+        </sc-if>
+      </div>
+      </sc-if>
+
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 26px; font: 400 12.5px/1.45 'Inter', sans-serif; color: #7E9AA6;">
+      <span>Labs where needed. Clear next steps.</span>
+      <span>Prescription options only where appropriate after provider review and eligibility.</span>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+const ICON = {
+  intro: 'M4.5 5h15v10h-9l-4 3.5V15h-2z',
+  compass: 'M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17zM9 15l2-4 4-2-2 4z',
+  target: 'M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17zM12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z',
+  calendar: 'M5 6.5h14v13H5zM8.5 4v4M15.5 4v4M5 10.5h14',
+  sliders: 'M6 4v6M6 14v6M12 4v9M12 17v3M18 4v3M18 11v9M3.5 12h5M9.5 15h5M15.5 8h5',
+  clock: 'M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17zM12 7.5v5l3.5 2',
+  bars: 'M5.5 19.5v-5M10.5 19.5v-9M15.5 19.5v-13M20 19.5v-3',
+  shield: 'M12 3.5 5.5 6v6c0 4 2.8 6.9 6.5 8.5 3.7-1.6 6.5-4.5 6.5-8.5V6z',
+  check: 'M4.5 12.5 9.5 17.5 19.5 6.5'
+};
+
+function icon(key, size, color) {
+  return React.createElement('svg', {
+    viewBox: '0 0 24 24',
+    style: { width: size + 'px', height: size + 'px', flex: 'none', fill: 'none', stroke: color, strokeWidth: 1.5, strokeLinecap: 'round', strokeLinejoin: 'round' }
+  }, React.createElement('path', { d: ICON[key] || ICON.check }));
+}
+
+const Q2 = {
+  'Energy and drive': ['Have more energy through the day', 'Recover better after effort', 'Sleep more soundly', 'Feel steadier in mood', 'Not sure'],
+  'Sexual health': ['Lower desire', 'Trouble getting or keeping an erection', 'Finishing sooner than I would like', 'Confidence or performance pressure', 'Not sure'],
+  'Weight and body composition': ['Lose weight', 'Change body composition', 'Improve metabolic markers', 'Feel less heavy through the day', 'Not sure'],
+  'Sleep and recovery': ['Fall asleep sooner', 'Stay asleep through the night', 'Wake up rested', 'Recover after training', 'Not sure'],
+  'Focus and mood': ['Concentrate for longer', 'Feel steadier in mood', 'Handle pressure better', 'Feel motivated again', 'Not sure'],
+  'Hair and aging': ['Slow hair loss', 'Improve skin and appearance', 'Feel younger in general', 'Not sure']
+};
+
+const CARE = {
+  'Energy and drive': 'Hormone Health',
+  'Sexual health': 'Sexual Health',
+  'Weight and body composition': 'Weight and Metabolic Health',
+  'Sleep and recovery': 'Longevity and Wellness',
+  'Focus and mood': 'Longevity and Wellness',
+  'Hair and aging': 'Hair and Appearance'
+};
+
+const DEFS = {
+  q1: {
+    label: 'Focus', icon: 'compass',
+    title: 'What feels most different lately?',
+    helper: 'Choose the one that matters most to you.',
+    kind: 'cards',
+    options: [
+      { label: 'Energy and drive', icon: 'sliders' },
+      { label: 'Sexual health', icon: 'target' },
+      { label: 'Weight and body composition', icon: 'bars' },
+      { label: 'Sleep and recovery', icon: 'clock' },
+      { label: 'Focus and mood', icon: 'compass' },
+      { label: 'Hair and aging', icon: 'shield' }
+    ]
+  },
+  q2: { label: 'Goal', icon: 'target', title: 'What would you most like to improve?', helper: 'Choose the option that matters most to you.', kind: 'list' },
+  freq: {
+    label: 'Frequency', icon: 'calendar',
+    title: 'How often does this happen?',
+    helper: 'Choose what feels closest.',
+    kind: 'scale',
+    options: [
+      { label: 'Occasionally', sub: 'rarely', bars: 1 },
+      { label: 'Sometimes', sub: '', bars: 2 },
+      { label: 'Often', sub: '', bars: 3 },
+      { label: 'Most times', sub: 'almost always', bars: 4 }
+    ]
+  },
+  control: { label: 'Control', icon: 'sliders', title: 'How much control do you usually feel you have?', helper: 'Slide to show how you feel most of the time.', kind: 'slider' },
+  duration: {
+    label: 'Duration', icon: 'clock',
+    title: 'How long have you noticed this change?',
+    helper: 'Choose the option that fits best.',
+    kind: 'list',
+    options: [
+      { label: 'Less than 6 months' }, { label: '6 to 12 months' },
+      { label: '1 to 3 years' }, { label: 'More than 3 years' }, { label: 'Not sure' }
+    ]
+  },
+  impact: {
+    label: 'Impact', icon: 'bars',
+    title: 'How much does this affect your day to day or confidence?',
+    helper: 'Select the option that fits best.',
+    kind: 'scale',
+    options: [
+      { label: 'Not really', bars: 1 }, { label: 'A little', bars: 2 },
+      { label: 'Somewhat', bars: 3 }, { label: 'Quite a bit', bars: 4 }, { label: 'A lot', bars: 5 }
+    ]
+  },
+  tried: {
+    label: 'History', icon: 'shield',
+    title: 'Have you already tried anything for it?',
+    helper: 'Choose the closest answer.',
+    kind: 'list',
+    options: [
+      { label: 'Nothing yet' }, { label: 'Lifestyle changes' }, { label: 'Supplements' },
+      { label: 'Prescription treatment' }, { label: 'Not sure' }
+    ]
+  },
+  health: {
+    label: 'Health check', icon: 'shield',
+    title: 'Are you currently taking prescription medication or being treated for a medical condition?',
+    helper: 'We ask because some options require a clinician to review your health information.',
+    kind: 'wide',
+    options: [{ label: 'No' }, { label: 'Yes' }, { label: 'Not sure' }]
+  }
+};
+
+const SLIDER_LABELS = ['Very little', 'A little', 'Moderate', 'Quite a lot', 'A lot'];
+const MICRO = ['freq', 'control'];
+const TRIGGER = 'Finishing sooner than I would like';
+
+class Component extends DCLogic {
+  state = { screen: 'intro', i: 0, micro: null, answers: {}, pending: null };
+
+  componentWillUnmount() { if (this.timer) clearTimeout(this.timer); }
+
+  steps() {
+    return ['q1', 'q2', 'duration', 'impact', 'tried', 'health'];
+  }
+
+  activeId() {
+    const s = this.state;
+    return s.micro == null ? this.steps()[Math.min(s.i, 5)] : MICRO[s.micro];
+  }
+
+  defFor(id) {
+    if (id !== 'q2') return DEFS[id];
+    const opts = (Q2[this.state.answers.q1] || Q2['Energy and drive']).map(l => ({ label: l }));
+    return Object.assign({}, DEFS.q2, { options: opts });
+  }
+
+  answer(id, value) {
+    const auto = id !== 'control';
+    this.setState(s => ({ answers: Object.assign({}, s.answers, { [id]: value }) }), () => {
+      if (!auto) return;
+      if (this.timer) clearTimeout(this.timer);
+      this.timer = setTimeout(() => this.advance(), 320);
+    });
+  }
+
+  advance() {
+    const s = this.state;
+    const last = this.steps().length - 1;
+    if (s.micro != null) {
+      if (s.micro < MICRO.length - 1) { this.setState({ micro: s.micro + 1 }); return; }
+      this.setState({ micro: null, i: s.i + 1 });
+      return;
+    }
+    if (this.steps()[s.i] === 'q2' && s.answers.q2 === TRIGGER) { this.setState({ micro: 0 }); return; }
+    if (s.i >= last) { this.setState({ screen: 'result' }); return; }
+    this.setState({ i: s.i + 1 });
+  }
+
+  goBack() {
+    const s = this.state;
+    if (s.screen === 'result') { this.setState({ screen: 'flow', i: this.steps().length - 1, micro: null }); return; }
+    if (s.micro != null) { this.setState({ micro: s.micro > 0 ? s.micro - 1 : null }); return; }
+    if (s.i === 0) { this.setState({ screen: 'intro' }); return; }
+    this.setState({ i: s.i - 1, micro: null });
+  }
+
+  renderVals() {
+    const s = this.state;
+    const steps = this.steps();
+    const isIntro = s.screen === 'intro';
+    const isResult = s.screen === 'result';
+    const id = this.activeId();
+    const def = this.defFor(id);
+    const current = s.answers[id];
+
+    const paneStyle = {
+      display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px',
+      width: '100%', animation: 'sc-step-in 220ms ease both'
+    };
+
+    const dots = steps.map((sid, n) => ({
+      style: {
+        width: n === s.i && !isResult ? '9px' : '8px',
+        height: n === s.i && !isResult ? '9px' : '8px',
+        borderRadius: '999px',
+        transition: 'background 220ms ease',
+        background: isResult || n < s.i ? '#2A9D8F' : n === s.i ? '#264653' : '#D6E2E9'
+      }
+    }));
+
+    const base = {
+      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+      gap: '9px', padding: '18px 16px', minHeight: '92px', cursor: 'pointer', textAlign: 'center',
+      background: '#FFFFFF', borderRadius: '14px', transition: 'border-color .18s ease, background .18s ease, transform .18s ease'
+    };
+
+    const optStyle = (sel, kind) => {
+      const st = Object.assign({}, base, {
+        border: sel ? '1.5px solid #2A9D8F' : '1px solid #D6E2E9',
+        background: sel ? '#F2F7F9' : '#FFFFFF',
+        transform: sel ? 'scale(1.02)' : 'none'
+      });
+      if (kind === 'list' || kind === 'wide') {
+        st.flexDirection = 'row';
+        st.minHeight = '52px';
+        st.padding = '0 22px';
+        st.gap = '12px';
+      }
+      if (kind === 'wide') { st.minHeight = '56px'; st.justifyContent = 'center'; }
+      return st;
+    };
+
+    const options = (def && def.options ? def.options : []).map((o, n) => {
+      const sel = current === o.label;
+      const out = {
+        label: o.label,
+        sub: o.sub || null,
+        style: optStyle(sel, def.kind),
+        labelStyle: { font: '500 14px/1.45 Inter, sans-serif', color: '#264653' },
+        icon: o.icon ? icon(o.icon, 22, sel ? '#2A9D8F' : '#55747F') : null,
+        bars: null,
+        pick: () => this.answer(id, o.label)
+      };
+      if (o.bars) {
+        out.bars = [1, 2, 3, 4, 5].slice(0, 5).map(k => ({
+          style: {
+            width: '5px',
+            height: 8 + k * 5 + 'px',
+            borderRadius: '2px',
+            background: k <= o.bars ? (sel ? '#2A9D8F' : '#264653') : '#DDE8ED'
+          }
+        })).slice(0, def.kind === 'scale' && def.options.length === 4 ? 4 : 5);
+        out.labelStyle = { font: '500 13px/1.4 Inter, sans-serif', color: '#264653' };
+      }
+      return out;
+    });
+
+    const sliderStops = SLIDER_LABELS.map((lab, n) => {
+      const sel = current === lab;
+      return {
+        aria: lab,
+        pick: () => this.answer('control', lab),
+        hitStyle: {
+          position: 'relative', width: '44px', height: '44px', display: 'grid', placeItems: 'center',
+          border: 0, background: 'transparent', cursor: 'pointer', padding: 0
+        },
+        dotStyle: {
+          width: sel ? '17px' : '13px', height: sel ? '17px' : '13px', borderRadius: '999px',
+          background: sel ? '#2A9D8F' : '#FFFFFF',
+          border: sel ? '1.5px solid #2A9D8F' : '1.5px solid #C6D6DF',
+          transition: 'all 200ms ease'
+        }
+      };
+    });
+
+    const cols = def && def.kind === 'cards' ? 3 : def && def.kind === 'scale' ? def.options.length : def && def.kind === 'wide' ? 3 : 1;
+    const gridStyle = {
+      display: 'grid',
+      gridTemplateColumns: def && def.kind === 'list' ? 'minmax(280px, 460px)' : 'repeat(' + cols + ', minmax(0, 1fr))',
+      gap: '14px',
+      width: '100%',
+      maxWidth: def && def.kind === 'cards' ? '760px' : def && def.kind === 'wide' ? '620px' : def && def.kind === 'scale' ? '660px' : '460px',
+      marginTop: '4px'
+    };
+
+    const needsContinue = !isResult && def && (def.kind === 'slider') && !!current;
+    const backStyle = {
+      display: 'inline-grid', placeItems: 'center', height: '46px', padding: '0 26px',
+      border: '1.5px solid #C6D6DF', borderRadius: '999px', font: '500 14px/1 Inter, sans-serif',
+      background: 'transparent', color: '#55747F', cursor: 'pointer', transition: 'border-color .18s ease, color .18s ease'
+    };
+    const continueStyle = {
+      display: 'inline-grid', placeItems: 'center', height: '46px', padding: '0 30px', border: 0,
+      borderRadius: '999px', font: '500 14px/1 Inter, sans-serif', background: '#264653',
+      color: '#F2F7F9', cursor: 'pointer', transition: 'background .18s ease'
+    };
+
+    const a = s.answers;
+    const care = CARE[a.q1] || 'Hormone Health';
+    const summary = [
+      { label: 'What you told us', value: a.q2 || a.q1 || 'Not answered' },
+      { label: 'How long', value: a.duration || 'Not answered' },
+      { label: 'Recommended next step', value: 'Provider review · ' + care }
+    ];
+
+    let stepTitle, stepHelper, stepIcon, stepLabel, stepNumber, counter;
+    if (isIntro) {
+      stepTitle = 'Not sure where to start?';
+      stepHelper = 'Answer a few short questions so we can understand what you are experiencing and recommend the best next step.';
+      stepIcon = icon('intro', 34, '#219EBC');
+      stepLabel = 'Intro'; stepNumber = '0'; counter = '0 / ' + steps.length;
+    } else if (isResult) {
+      stepTitle = 'Your answers are in.';
+      stepHelper = 'Based on what you shared, it may be worth exploring ' + care + '. A licensed clinician can review whether options may be appropriate for you.';
+      stepIcon = icon('check', 34, '#2A9D8F');
+      stepLabel = 'Result'; stepNumber = '✓'; counter = steps.length + ' / ' + steps.length;
+    } else {
+      stepTitle = def.title;
+      stepHelper = def.helper;
+      stepIcon = icon(def.icon, 34, '#219EBC');
+      stepLabel = def.label;
+      stepNumber = String(s.i + 1);
+      counter = (s.i + 1) + ' / ' + steps.length;
+    }
+
+    return {
+      isIntro, isResult,
+      isOptions: !isIntro && !isResult && def && def.kind !== 'slider',
+      isSlider: !isIntro && !isResult && def && def.kind === 'slider',
+      showBar: !isIntro,
+      showFooter: !isIntro,
+      needsContinue,
+      autoNote: !isResult && def && def.kind !== 'slider' ? 'Selecting an answer moves you forward.' : null,
+      stepTitle, stepHelper, stepIcon, stepLabel, stepNumber, counter,
+      dots, options, sliderStops, gridStyle, paneStyle, summary,
+      backStyle, continueStyle,
+      begin: () => this.setState({ screen: 'flow', i: 0, micro: null }),
+      back: () => this.goBack(),
+      next: () => this.advance(),
+      noop: () => {}
+    };
+  }
+}
+</script>
+</body>
+</html>

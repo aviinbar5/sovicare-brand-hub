@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SoviCare</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-14 -10 128 153'%3E%3Cpath fill='%23264653' d='M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z'/%3E%3Cpath fill='%23219EBC' d='M100 2H58A42 42 0 0 0 100 44Z'/%3E%3Cpath fill='%232A9D8F' d='M58 48A41 41 0 0 1 58 130Z'/%3E%3Cpath fill='%23FFBE0B' d='M0 131V89A42 42 0 0 1 42 131Z'/%3E%3C/svg%3E">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: 'Inter', sans-serif; color: #264653; background: #D6E2E9; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, h4, p, ul, ol, li, figure, figcaption { margin: 0; padding: 0; }
+  ul, ol { list-style: none; }
+  a { color: #219EBC; text-decoration: none; }
+  a:hover { color: #264653; }
+  section[id] { scroll-margin-top: 20px; }
+  ::selection { background: #FFBE0B; color: #264653; }
+</style>
+<script src="./download-chips.js"></script>
+</helmet>
+
+<div style="display: grid; grid-template-columns: 262px minmax(0, 1fr); min-height: 100vh;">
+
+  <aside style="position: sticky; top: 0; align-self: start; height: 100vh; overflow-y: auto; background: #264653; padding: 30px 0 56px;">
+    <div style="padding: 0 22px 26px;">
+      <div style="display: flex; align-items: center; gap: 11px;">
+        <svg viewBox="0 0 100 133" style="width: 23px; height: 31px; flex: none;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+        <div style="font: 400 21px/1 'DM Serif Display', serif; color: #F2F7F9;">SoviCare</div>
+      </div>
+      <div style="margin-top: 12px; font: 600 9.5px/1.5 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.15em; color: #7E9AA6;">Screens · Funnel<br>Acquisition surface</div>
+    </div>
+
+    <nav style="display: flex; flex-direction: column; gap: 22px; padding: 0 14px;">
+      <div style="display: flex; flex-direction: column; gap: 1px;">
+        <div style="padding: 0 11px 8px; font: 700 9px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #4C7284;">Six screens</div>
+        <a href="#s1" style="padding: 8px 11px; border-radius: 8px; font: 400 13.5px/1.3 'Inter', sans-serif; color: #A8C2CD;" style-hover="background: #33586A; color: #F2F7F9;">01 · Lander</a>
+        <a href="#s2" style="padding: 8px 11px; border-radius: 8px; font: 400 13.5px/1.3 'Inter', sans-serif; color: #A8C2CD;" style-hover="background: #33586A; color: #F2F7F9;">02 · Programs</a>
+        <a href="#s3" style="padding: 8px 11px; border-radius: 8px; font: 400 13.5px/1.3 'Inter', sans-serif; color: #A8C2CD;" style-hover="background: #33586A; color: #F2F7F9;">03 · Assessment</a>
+        <a href="#s4" style="padding: 8px 11px; border-radius: 8px; font: 400 13.5px/1.3 'Inter', sans-serif; color: #A8C2CD;" style-hover="background: #33586A; color: #F2F7F9;">04 · Your details</a>
+        <a href="#s5" style="padding: 8px 11px; border-radius: 8px; font: 400 13.5px/1.3 'Inter', sans-serif; color: #A8C2CD;" style-hover="background: #33586A; color: #F2F7F9;">05 · Checkout</a>
+        <a href="#s6" style="padding: 8px 11px; border-radius: 8px; font: 400 13.5px/1.3 'Inter', sans-serif; color: #A8C2CD;" style-hover="background: #33586A; color: #F2F7F9;">06 · Confirmation</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 1px; padding-top: 18px; border-top: 1px solid #33586A;">
+        <div style="padding: 0 11px 8px; font: 700 9px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #4C7284;">Elsewhere</div>
+        <a href="brand-book.html" style="padding: 8px 11px; border-radius: 8px; font: 400 13.5px/1.3 'Inter', sans-serif; color: #A8C2CD;" style-hover="background: #33586A; color: #F2F7F9;">← Brand Book</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main style="min-width: 0;">
+
+    <section style="position: relative; overflow: hidden; padding: 78px 60px 68px; background: #264653;">
+      <svg viewBox="0 0 400 400" style="position: absolute; top: -90px; right: -70px; width: 420px; height: 420px; opacity: 0.17;">
+        <path fill="#219EBC" d="M200 0A200 200 0 0 1 400 200H200Z"></path>
+        <path fill="#2A9D8F" d="M200 200A200 200 0 0 1 0 400V200Z"></path>
+        <path fill="#FFBE0B" d="M200 200H400V400A200 200 0 0 1 200 200Z"></path>
+      </svg>
+      <div style="position: relative; max-width: 800px;">
+        <div style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.18em; color: #FFBE0B;">Screens · Funnel</div>
+        <h1 style="margin-top: 26px; font: 400 clamp(42px, 5.4vw, 72px)/1.04 'DM Serif Display', serif; color: #F2F7F9; letter-spacing: -0.015em; text-wrap: balance;">The first thing he ever sees.</h1>
+        <p style="margin-top: 24px; max-width: 58ch; font: 400 17px/1.65 'Inter', sans-serif; color: #A8C2CD; text-wrap: pretty;">Six screens from the acquisition flow, redrawn in the brand. The structure and the copy come from the built product; the shapes, type, colour and spacing come from the book.</p>
+      </div>
+    </section>
+
+    <div style="padding: 0 60px 110px; max-width: 1500px;">
+
+      <section id="s1" style="padding: 72px 0 0;">
+        <div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 10px;">
+          <span style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #2A9D8F;">01</span>
+          <h2 style="font: 400 40px/1.08 'DM Serif Display', serif; color: #264653;">Lander</h2>
+        </div>
+        <p style="max-width: 68ch; margin-bottom: 28px; font: 400 15.5px/1.7 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">The hero carries one serif sentence and one Deep Teal button. Everything below it is Inter. The quadrant sits behind the portrait, not on top of the headline.</p>
+
+        <div style="border-radius: 20px; overflow: hidden; border: 1px solid #B9CEDA; background: #F2F7F9;">
+
+          <header style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 18px 34px; background: #F2F7F9; border-bottom: 1px solid #DDE8ED;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <svg viewBox="0 0 100 133" style="width: 20px; height: 27px; flex: none;"><path fill="#264653" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+              <div style="font: 400 20px/1 'DM Serif Display', serif; color: #264653;">SoviCare</div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 26px;">
+              <span style="font: 400 14px/1 'Inter', sans-serif; color: #55747F;">Programs</span>
+              <span style="font: 400 14px/1 'Inter', sans-serif; color: #55747F;">How it works</span>
+              <button style="border: none; cursor: pointer; padding: 11px 22px; border-radius: 999px; background: #264653; font: 500 13.5px/1 'Inter', sans-serif; color: #F2F7F9;">Get started</button>
+            </div>
+          </header>
+
+          <div style="position: relative; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr); gap: 48px; align-items: center; padding: 74px 60px 78px; background: #F2F7F9;">
+            <div style="position: relative;">
+              <div style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.18em; color: #2A9D8F;">Clinician-guided care</div>
+              <h3 style="margin-top: 22px; font: 400 56px/1.06 'DM Serif Display', serif; color: #264653; letter-spacing: -0.015em; text-wrap: balance;">Care that meets you where you are</h3>
+              <p style="margin-top: 22px; max-width: 44ch; font: 400 16.5px/1.7 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Answer a few questions online. A licensed clinician reviews your request and, if appropriate, prescribes a personalized plan, delivered to your door.</p>
+              <div style="margin-top: 32px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                <button style="border: none; cursor: pointer; padding: 15px 30px; border-radius: 999px; background: #264653; font: 500 15px/1 'Inter', sans-serif; color: #F2F7F9;">Get started</button>
+                <button style="cursor: pointer; padding: 15px 30px; border-radius: 999px; background: transparent; border: 1.5px solid #A9C6D2; font: 500 15px/1 'Inter', sans-serif; color: #264653;">How it works</button>
+              </div>
+            </div>
+            <div style="position: relative; aspect-ratio: 5 / 4; border-radius: 18px; overflow: hidden; background: #C3D6DE;">
+              <img src="assets/people/05.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%;">
+              <svg viewBox="0 0 400 320" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;"><path fill="#264653" d="M0 320V212A108 108 0 0 1 108 320Z" opacity="0.94"></path></svg>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: center; gap: 46px; flex-wrap: wrap; padding: 20px 40px; background: #FFFFFF; border-top: 1px solid #DDE8ED; border-bottom: 1px solid #DDE8ED;">
+            <div style="display: flex; align-items: center; gap: 9px;"><svg viewBox="0 0 100 100" style="width: 13px; height: 13px;"><path fill="#219EBC" d="M50 0A50 50 0 0 1 100 50H50Z"></path></svg><span style="font: 400 13.5px/1 'Inter', sans-serif; color: #55747F;">Licensed clinicians</span></div>
+            <div style="display: flex; align-items: center; gap: 9px;"><svg viewBox="0 0 100 100" style="width: 13px; height: 13px;"><path fill="#2A9D8F" d="M50 50h50a50 50 0 0 1-50 50Z"></path></svg><span style="font: 400 13.5px/1 'Inter', sans-serif; color: #55747F;">Free online visit to start</span></div>
+            <div style="display: flex; align-items: center; gap: 9px;"><svg viewBox="0 0 100 100" style="width: 13px; height: 13px;"><path fill="#FFBE0B" d="M50 50v50A50 50 0 0 1 0 50Z"></path></svg><span style="font: 400 13.5px/1 'Inter', sans-serif; color: #55747F;">Cancel anytime</span></div>
+            <div style="display: flex; align-items: center; gap: 9px;"><svg viewBox="0 0 100 100" style="width: 13px; height: 13px;"><path fill="#264653" d="M50 0v50H0A50 50 0 0 1 50 0Z"></path></svg><span style="font: 400 13.5px/1 'Inter', sans-serif; color: #55747F;">Discreet delivery</span></div>
+          </div>
+
+          <div style="padding: 68px 60px; background: #F2F7F9;">
+            <h3 style="font: 400 38px/1.1 'DM Serif Display', serif; color: #264653;">How it works</h3>
+            <div style="margin-top: 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+              <div style="position: relative; overflow: hidden; padding: 30px 28px 34px; border-radius: 18px; background: #FFFFFF;">
+                <svg viewBox="0 0 100 100" style="position: absolute; top: 0; right: 0; width: 62px; height: 62px;"><path fill="#219EBC" d="M100 0v100A100 100 0 0 0 100 0Z" opacity="0.18"></path></svg>
+                <div style="position: relative; font: 400 40px/1 'DM Serif Display', serif; color: #219EBC;">01</div>
+                <div style="position: relative; margin-top: 18px; font: 600 16px/1.3 'Inter', sans-serif; color: #264653;">Online health check</div>
+                <p style="position: relative; margin-top: 9px; font: 400 14.5px/1.6 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">A short, private questionnaire. No charge to start.</p>
+              </div>
+              <div style="position: relative; overflow: hidden; padding: 30px 28px 34px; border-radius: 18px; background: #FFFFFF;">
+                <svg viewBox="0 0 100 100" style="position: absolute; top: 0; right: 0; width: 62px; height: 62px;"><path fill="#2A9D8F" d="M100 0v100A100 100 0 0 0 100 0Z" opacity="0.18"></path></svg>
+                <div style="position: relative; font: 400 40px/1 'DM Serif Display', serif; color: #2A9D8F;">02</div>
+                <div style="position: relative; margin-top: 18px; font: 600 16px/1.3 'Inter', sans-serif; color: #264653;">Clinician review</div>
+                <p style="position: relative; margin-top: 9px; font: 400 14.5px/1.6 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">A licensed clinician reviews your request, typically within 1 to 2 business days.</p>
+              </div>
+              <div style="position: relative; overflow: hidden; padding: 30px 28px 34px; border-radius: 18px; background: #FFFFFF;">
+                <svg viewBox="0 0 100 100" style="position: absolute; top: 0; right: 0; width: 62px; height: 62px;"><path fill="#FFBE0B" d="M100 0v100A100 100 0 0 0 100 0Z" opacity="0.3"></path></svg>
+                <div style="position: relative; font: 400 40px/1 'DM Serif Display', serif; color: #264653;">03</div>
+                <div style="position: relative; margin-top: 18px; font: 600 16px/1.3 'Inter', sans-serif; color: #264653;">Delivered to your door</div>
+                <p style="position: relative; margin-top: 9px; font: 400 14.5px/1.6 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">If approved, your plan ships discreetly with ongoing clinician support.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr); gap: 48px; align-items: center; padding: 68px 60px; background: #FFFFFF;">
+            <div style="position: relative; aspect-ratio: 6 / 5; border-radius: 18px; overflow: hidden; background: #C3D6DE;">
+              <img src="assets/people/02.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 28%;">
+              <svg viewBox="0 0 360 300" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;"><path fill="#2A9D8F" d="M360 0v104A104 104 0 0 1 256 0Z" opacity="0.92"></path></svg>
+            </div>
+            <div>
+              <h3 style="font: 400 38px/1.1 'DM Serif Display', serif; color: #264653; text-wrap: balance;">A program, not just a prescription</h3>
+              <p style="margin-top: 18px; max-width: 46ch; font: 400 16px/1.7 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Every membership includes the support around your care, not just the medication.</p>
+              <div style="margin-top: 26px; display: flex; flex-direction: column; gap: 1px; border-radius: 16px; overflow: hidden; background: #DDE8ED;">
+                <div style="display: flex; align-items: center; gap: 13px; padding: 16px 20px; background: #F2F7F9;"><svg viewBox="0 0 100 100" style="width: 13px; height: 13px; flex: none;"><path fill="#219EBC" d="M50 0A50 50 0 0 1 100 50H50Z"></path></svg><span style="font: 400 15px/1 'Inter', sans-serif; color: #264653;">Messaging with your care team</span></div>
+                <div style="display: flex; align-items: center; gap: 13px; padding: 16px 20px; background: #F2F7F9;"><svg viewBox="0 0 100 100" style="width: 13px; height: 13px; flex: none;"><path fill="#2A9D8F" d="M50 50h50a50 50 0 0 1-50 50Z"></path></svg><span style="font: 400 15px/1 'Inter', sans-serif; color: #264653;">A plan personalized to you</span></div>
+                <div style="display: flex; align-items: center; gap: 13px; padding: 16px 20px; background: #F2F7F9;"><svg viewBox="0 0 100 100" style="width: 13px; height: 13px; flex: none;"><path fill="#FFBE0B" d="M50 50v50A50 50 0 0 1 0 50Z"></path></svg><span style="font: 400 15px/1 'Inter', sans-serif; color: #264653;">Free, discreet delivery</span></div>
+                <div style="display: flex; align-items: center; gap: 13px; padding: 16px 20px; background: #F2F7F9;"><svg viewBox="0 0 100 100" style="width: 13px; height: 13px; flex: none;"><path fill="#264653" d="M50 0v50H0A50 50 0 0 1 50 0Z"></path></svg><span style="font: 400 15px/1 'Inter', sans-serif; color: #264653;">Progress tracking in your portal</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: 68px 60px; background: #F2F7F9;">
+            <h3 style="font: 400 38px/1.1 'DM Serif Display', serif; color: #264653;">Find your program</h3>
+            <p style="margin-top: 14px; max-width: 50ch; font: 400 15.5px/1.7 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Transparent self-pay. You're only charged if a clinician approves treatment.</p>
+            <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(268px, 1fr)); gap: 16px;">
+              <div style="display: flex; flex-direction: column; gap: 16px; padding: 28px 26px 30px; border-radius: 18px; background: #FFFFFF;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <svg viewBox="0 0 100 100" style="width: 26px; height: 26px; flex: none;"><circle cx="50" cy="50" r="50" fill="#264653"></circle><path fill="#FFBE0B" d="M50 50h50a50 50 0 0 1-50 50Z"></path></svg>
+                  <div style="font: 600 16.5px/1.2 'Inter', sans-serif; color: #264653;">TRT Optimization</div>
+                </div>
+                <p style="font: 400 14.5px/1.6 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Provider-managed testosterone replacement therapy</p>
+                <div style="font: 500 12px/1 'Inter', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; color: #7E9AA6;">Clinician reviewed</div>
+                <button style="border: none; cursor: pointer; margin-top: 4px; padding: 13px 24px; border-radius: 999px; background: #264653; font: 500 14px/1 'Inter', sans-serif; color: #F2F7F9;">Get started</button>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 16px; padding: 28px 26px 30px; border-radius: 18px; background: #FFFFFF;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <svg viewBox="0 0 100 100" style="width: 26px; height: 26px; flex: none;"><circle cx="50" cy="50" r="50" fill="#219EBC"></circle><path fill="#F2F7F9" d="M50 0A50 50 0 0 1 100 50H50Z"></path></svg>
+                  <div style="font: 600 16.5px/1.2 'Inter', sans-serif; color: #264653;">Peptide Therapy</div>
+                </div>
+                <p style="font: 400 14.5px/1.6 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Recovery-focused peptide protocols</p>
+                <div style="font: 500 12px/1 'Inter', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; color: #7E9AA6;">Clinician reviewed</div>
+                <button style="border: none; cursor: pointer; margin-top: 4px; padding: 13px 24px; border-radius: 999px; background: #264653; font: 500 14px/1 'Inter', sans-serif; color: #F2F7F9;">Get started</button>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 16px; padding: 28px 26px 30px; border-radius: 18px; background: #FFFFFF;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <svg viewBox="0 0 100 100" style="width: 26px; height: 26px; flex: none;"><circle cx="50" cy="50" r="50" fill="#FFBE0B"></circle><path fill="#264653" d="M50 50v50A50 50 0 0 1 0 50Z"></path></svg>
+                  <div style="font: 600 16.5px/1.2 'Inter', sans-serif; color: #264653;">Daily Essentials</div>
+                </div>
+                <p style="font: 400 14.5px/1.6 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Pharmacist-curated daily supplements — no visit needed</p>
+                <div style="font: 500 12px/1 'Inter', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; color: #7E9AA6;">No visit needed</div>
+                <button style="border: none; cursor: pointer; margin-top: 4px; padding: 13px 24px; border-radius: 999px; background: #264653; font: 500 14px/1 'Inter', sans-serif; color: #F2F7F9;">Get started</button>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 16px; padding: 28px 26px 30px; border-radius: 18px; background: #FFFFFF;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <svg viewBox="0 0 100 100" style="width: 26px; height: 26px; flex: none;"><circle cx="50" cy="50" r="50" fill="#2A9D8F"></circle><path fill="#F2F7F9" d="M50 0v50H0A50 50 0 0 1 50 0Z"></path></svg>
+                  <div style="font: 600 16.5px/1.2 'Inter', sans-serif; color: #264653;">HRT Balance</div>
+                </div>
+                <p style="font: 400 14.5px/1.6 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Personalized hormone replacement therapy</p>
+                <div style="font: 500 12px/1 'Inter', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; color: #7E9AA6;">Clinician reviewed</div>
+                <button style="border: none; cursor: pointer; margin-top: 4px; padding: 13px 24px; border-radius: 999px; background: #264653; font: 500 14px/1 'Inter', sans-serif; color: #F2F7F9;">Get started</button>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 16px; padding: 28px 26px 30px; border-radius: 18px; background: #FFFFFF;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <svg viewBox="0 0 100 100" style="width: 26px; height: 26px; flex: none;"><circle cx="50" cy="50" r="50" fill="#2A9D8F"></circle><path fill="#FFBE0B" d="M50 50h50a50 50 0 0 1-50 50Z"></path></svg>
+                  <div style="font: 600 16.5px/1.2 'Inter', sans-serif; color: #264653;">GLP-1 Metabolic Support</div>
+                </div>
+                <p style="font: 400 14.5px/1.6 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Medical weight management with semaglutide</p>
+                <div style="font: 500 12px/1 'Inter', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; color: #7E9AA6;">Clinician reviewed</div>
+                <button style="border: none; cursor: pointer; margin-top: 4px; padding: 13px 24px; border-radius: 999px; background: #264653; font: 500 14px/1 'Inter', sans-serif; color: #F2F7F9;">Get started</button>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: 68px 60px; background: #FFFFFF;">
+            <h3 style="font: 400 38px/1.1 'DM Serif Display', serif; color: #264653;">Common questions</h3>
+            <div style="margin-top: 28px; max-width: 720px; display: flex; flex-direction: column;">
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 0; border-bottom: 1px solid #DDE8ED;"><span style="font: 400 16px/1.4 'Inter', sans-serif; color: #264653;">How does the online visit work?</span><span style="font: 300 22px/1 'Inter', sans-serif; color: #219EBC;">+</span></div>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 0; border-bottom: 1px solid #DDE8ED;"><span style="font: 400 16px/1.4 'Inter', sans-serif; color: #264653;">Is insurance required?</span><span style="font: 300 22px/1 'Inter', sans-serif; color: #219EBC;">+</span></div>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 0; border-bottom: 1px solid #DDE8ED;"><span style="font: 400 16px/1.4 'Inter', sans-serif; color: #264653;">Can I cancel anytime?</span><span style="font: 300 22px/1 'Inter', sans-serif; color: #219EBC;">+</span></div>
+            </div>
+          </div>
+
+          <div style="position: relative; overflow: hidden; padding: 84px 60px; background: #264653; text-align: center;">
+            <svg viewBox="0 0 400 400" style="position: absolute; bottom: -160px; left: -90px; width: 380px; height: 380px; opacity: 0.16;"><path fill="#2A9D8F" d="M200 200A200 200 0 0 1 0 400V200Z"></path><path fill="#FFBE0B" d="M200 200H400V400A200 200 0 0 1 200 200Z"></path></svg>
+            <div style="position: relative; max-width: 700px; margin: 0 auto;">
+              <h3 style="font: 400 44px/1.1 'DM Serif Display', serif; color: #F2F7F9; text-wrap: balance;">The online visit is free. See if a program is right for you.</h3>
+              <button style="margin-top: 32px; border: none; cursor: pointer; padding: 16px 34px; border-radius: 999px; background: #FFBE0B; font: 500 15.5px/1 'Inter', sans-serif; color: #264653;">Get started</button>
+              <p style="margin-top: 20px; font: 400 13.5px/1.5 'Inter', sans-serif; color: #7E9AA6;">No charge to start. A licensed clinician makes the final call.</p>
+            </div>
+          </div>
+
+          <footer style="display: grid; grid-template-columns: minmax(0, 1.3fr) repeat(2, minmax(0, 1fr)); gap: 40px; padding: 48px 60px; background: #F2F7F9; border-top: 1px solid #DDE8ED;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 9px;">
+                <svg viewBox="0 0 100 133" style="width: 17px; height: 23px; flex: none;"><path fill="#264653" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+                <div style="font: 400 18px/1 'DM Serif Display', serif; color: #264653;">SoviCare</div>
+              </div>
+              <p style="margin-top: 14px; max-width: 34ch; font: 400 13.5px/1.6 'Inter', sans-serif; color: #7E9AA6; text-wrap: pretty;">Clinician-guided care, delivered. Transparent self-pay, no insurance needed.</p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 11px;">
+              <div style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.14em; color: #2A9D8F;">Company</div>
+              <span style="font: 400 13.5px/1 'Inter', sans-serif; color: #55747F;">Programs</span>
+              <span style="font: 400 13.5px/1 'Inter', sans-serif; color: #55747F;">How it works</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 11px;">
+              <div style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.14em; color: #2A9D8F;">Legal</div>
+              <span style="font: 400 13.5px/1 'Inter', sans-serif; color: #55747F;">Telehealth Consent</span>
+              <span style="font: 400 13.5px/1 'Inter', sans-serif; color: #55747F;">Terms of Use</span>
+              <span style="font: 400 13.5px/1 'Inter', sans-serif; color: #55747F;">Privacy Policy</span>
+              <span style="font: 400 13.5px/1 'Inter', sans-serif; color: #55747F;">HIPAA Acknowledgment</span>
+              <span style="font: 400 13.5px/1 'Inter', sans-serif; color: #55747F;">Refunds</span>
+            </div>
+          </footer>
+        </div>
+      </section>
+
+      <section id="s2" style="padding: 76px 0 0; margin-top: 76px; border-top: 1px solid #B9CEDA;">
+        <div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 10px;">
+          <span style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #2A9D8F;">02</span>
+          <h2 style="font: 400 40px/1.08 'DM Serif Display', serif; color: #264653;">Programs</h2>
+        </div>
+        <p style="max-width: 68ch; margin-bottom: 28px; font: 400 15.5px/1.7 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Same five programs, given room. Each card gets one quadrant colour, and the price is set in DM Serif Display so the number reads as a fact rather than a pitch.</p>
+
+        <div style="border-radius: 20px; overflow: hidden; border: 1px solid #B9CEDA; background: #F2F7F9;">
+          <header style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 18px 34px; background: #F2F7F9; border-bottom: 1px solid #DDE8ED;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <svg viewBox="0 0 100 133" style="width: 20px; height: 27px; flex: none;"><path fill="#264653" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+              <div style="font: 400 20px/1 'DM Serif Display', serif; color: #264653;">SoviCare</div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 26px;">
+              <span style="font: 500 14px/1 'Inter', sans-serif; color: #264653; border-bottom: 2px solid #219EBC; padding-bottom: 3px;">Programs</span>
+              <span style="font: 400 14px/1 'Inter', sans-serif; color: #55747F;">How it works</span>
+              <button style="border: none; cursor: pointer; padding: 11px 22px; border-radius: 999px; background: #264653; font: 500 13.5px/1 'Inter', sans-serif; color: #F2F7F9;">Get started</button>
+            </div>
+          </header>
+
+          <div style="padding: 56px 60px 24px; background: #F2F7F9;">
+            <div style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.18em; color: #2A9D8F;">Programs</div>
+            <h3 style="margin-top: 18px; max-width: 20ch; font: 400 48px/1.06 'DM Serif Display', serif; color: #264653; text-wrap: balance;">Five ways in. One care team.</h3>
+            <p style="margin-top: 18px; max-width: 52ch; font: 400 16px/1.7 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Transparent self-pay. You're only charged if a clinician approves treatment.</p>
+          </div>
+
+          <div style="padding: 30px 60px 70px; background: #F2F7F9; display: flex; flex-direction: column; gap: 14px;">
+            <div style="display: grid; grid-template-columns: 78px minmax(0, 1.5fr) minmax(0, 1fr) auto; gap: 28px; align-items: center; padding: 26px 30px; border-radius: 18px; background: #FFFFFF;">
+              <svg viewBox="0 0 100 100" style="width: 56px; height: 56px;"><circle cx="50" cy="50" r="50" fill="#264653"></circle><path fill="#FFBE0B" d="M50 50h50a50 50 0 0 1-50 50Z"></path></svg>
+              <div>
+                <div style="font: 600 19px/1.2 'Inter', sans-serif; color: #264653;">TRT Optimization</div>
+                <p style="margin-top: 7px; font: 400 14.5px/1.6 'Inter', sans-serif; color: #55747F;">Provider-managed testosterone replacement therapy</p>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <span style="align-self: flex-start; padding: 5px 11px; border-radius: 999px; background: #E4F4F1; font: 600 10.5px/1 'Inter', sans-serif; letter-spacing: 0.06em; color: #1F7A6F;">CLINICIAN REVIEWED</span>
+                <span style="font: 400 13px/1.5 'Inter', sans-serif; color: #7E9AA6;">Labs required · ships monthly</span>
+              </div>
+              <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 12px;">
+                <div style="font: 400 26px/1 'DM Serif Display', serif; color: #264653;">$149<span style="font: 400 13px/1 'Inter', sans-serif; color: #7E9AA6;">/mo</span></div>
+                <button style="border: none; cursor: pointer; padding: 11px 22px; border-radius: 999px; background: #264653; font: 500 13.5px/1 'Inter', sans-serif; color: #F2F7F9;">Get started</button>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 78px minmax(0, 1.5fr) minmax(0, 1fr) auto; gap: 28px; align-items: center; padding: 26px 30px; border-radius: 18px; background: #FFFFFF;">
+              <svg viewBox="0 0 100 100" style="width: 56px; height: 56px;"><circle cx="50" cy="50" r="50" fill="#219EBC"></circle><path fill="#F2F7F9" d="M50 0A50 50 0 0 1 100 50H50Z"></path></svg>
+              <div>
+                <div style="font: 600 19px/1.2 'Inter', sans-serif; color: #264653;">Peptide Therapy</div>
+                <p style="margin-top: 7px; font: 400 14.5px/1.6 'Inter', sans-serif; color: #55747F;">Recovery-focused peptide protocols</p>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <span style="align-self: flex-start; padding: 5px 11px; border-radius: 999px; background: #E4F4F1; font: 600 10.5px/1 'Inter', sans-serif; letter-spacing: 0.06em; color: #1F7A6F;">CLINICIAN REVIEWED</span>
+                <span style="font: 400 13px/1.5 'Inter', sans-serif; color: #7E9AA6;">Cold-chain shipping</span>
+              </div>
+              <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 12px;">
+                <div style="font: 400 26px/1 'DM Serif Display', serif; color: #264653;">$189<span style="font: 400 13px/1 'Inter', sans-serif; color: #7E9AA6;">/mo</span></div>
+                <button style="border: none; cursor: pointer; padding: 11px 22px; border-radius: 999px; background: #264653; font: 500 13.5px/1 'Inter', sans-serif; color: #F2F7F9;">Get started</button>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 78px minmax(0, 1.5fr) minmax(0, 1fr) auto; gap: 28px; align-items: center; padding: 26px 30px; border-radius: 18px; background: #FFFFFF;">
+              <svg viewBox="0 0 100 100" style="width: 56px; height: 56px;"><circle cx="50" cy="50" r="50" fill="#FFBE0B"></circle><path fill="#264653" d="M50 50v50A50 50 0 0 1 0 50Z"></path></svg>
+              <div>
+                <div style="font: 600 19px/1.2 'Inter', sans-serif; color: #264653;">Daily Essentials</div>
+                <p style="margin-top: 7px; font: 400 14.5px/1.6 'Inter', sans-serif; color: #55747F;">Pharmacist-curated daily supplements</p>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <span style="align-self: flex-start; padding: 5px 11px; border-radius: 999px; background: #FFF3D6; font: 600 10.5px/1 'Inter', sans-serif; letter-spacing: 0.06em; color: #8A6400;">NO VISIT NEEDED</span>
+                <span style="font: 400 13px/1.5 'Inter', sans-serif; color: #7E9AA6;">Ships in 2 business days</span>
+              </div>
+              <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 12px;">
+                <div style="font: 400 26px/1 'DM Serif Display', serif; color: #264653;">$59<span style="font: 400 13px/1 'Inter', sans-serif; color: #7E9AA6;">/mo</span></div>
+                <button style="border: none; cursor: pointer; padding: 11px 22px; border-radius: 999px; background: #264653; font: 500 13.5px/1 'Inter', sans-serif; color: #F2F7F9;">Get started</button>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 78px minmax(0, 1.5fr) minmax(0, 1fr) auto; gap: 28px; align-items: center; padding: 26px 30px; border-radius: 18px; background: #FFFFFF;">
+              <svg viewBox="0 0 100 100" style="width: 56px; height: 56px;"><circle cx="50" cy="50" r="50" fill="#2A9D8F"></circle><path fill="#F2F7F9" d="M50 0v50H0A50 50 0 0 1 50 0Z"></path></svg>
+              <div>
+                <div style="font: 600 19px/1.2 'Inter', sans-serif; color: #264653;">HRT Balance</div>
+                <p style="margin-top: 7px; font: 400 14.5px/1.6 'Inter', sans-serif; color: #55747F;">Personalized hormone replacement therapy</p>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <span style="align-self: flex-start; padding: 5px 11px; border-radius: 999px; background: #E4F4F1; font: 600 10.5px/1 'Inter', sans-serif; letter-spacing: 0.06em; color: #1F7A6F;">CLINICIAN REVIEWED</span>
+                <span style="font: 400 13px/1.5 'Inter', sans-serif; color: #7E9AA6;">Labs required</span>
+              </div>
+              <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 12px;">
+                <div style="font: 400 26px/1 'DM Serif Display', serif; color: #264653;">$139<span style="font: 400 13px/1 'Inter', sans-serif; color: #7E9AA6;">/mo</span></div>
+                <button style="border: none; cursor: pointer; padding: 11px 22px; border-radius: 999px; background: #264653; font: 500 13.5px/1 'Inter', sans-serif; color: #F2F7F9;">Get started</button>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 78px minmax(0, 1.5fr) minmax(0, 1fr) auto; gap: 28px; align-items: center; padding: 26px 30px; border-radius: 18px; background: #FFFFFF;">
+              <svg viewBox="0 0 100 100" style="width: 56px; height: 56px;"><circle cx="50" cy="50" r="50" fill="#2A9D8F"></circle><path fill="#FFBE0B" d="M50 50h50a50 50 0 0 1-50 50Z"></path></svg>
+              <div>
+                <div style="font: 600 19px/1.2 'Inter', sans-serif; color: #264653;">GLP-1 Metabolic Support</div>
+                <p style="margin-top: 7px; font: 400 14.5px/1.6 'Inter', sans-serif; color: #55747F;">Medical weight management with semaglutide</p>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <span style="align-self: flex-start; padding: 5px 11px; border-radius: 999px; background: #E4F4F1; font: 600 10.5px/1 'Inter', sans-serif; letter-spacing: 0.06em; color: #1F7A6F;">CLINICIAN REVIEWED</span>
+                <span style="font: 400 13px/1.5 'Inter', sans-serif; color: #7E9AA6;">Labs required · titration plan</span>
+              </div>
+              <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 12px;">
+                <div style="font: 400 26px/1 'DM Serif Display', serif; color: #264653;">$249<span style="font: 400 13px/1 'Inter', sans-serif; color: #7E9AA6;">/mo</span></div>
+                <button style="border: none; cursor: pointer; padding: 11px 22px; border-radius: 999px; background: #264653; font: 500 13.5px/1 'Inter', sans-serif; color: #F2F7F9;">Get started</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="s3" style="padding: 76px 0 0; margin-top: 76px; border-top: 1px solid #B9CEDA;">
+        <div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 10px;">
+          <span style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #2A9D8F;">03</span>
+          <h2 style="font: 400 40px/1.08 'DM Serif Display', serif; color: #264653;">Assessment</h2>
+        </div>
+        <p style="max-width: 68ch; margin-bottom: 28px; font: 400 15.5px/1.7 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">One question per screen. Progress is the mark filling in, not a bar — four questions, four quadrants. Options are 56px tall so a thumb can hit them.</p>
+
+        <div style="border-radius: 20px; overflow: hidden; border: 1px solid #B9CEDA; background: #FFFFFF;">
+          <header style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 18px 34px; border-bottom: 1px solid #DDE8ED;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <svg viewBox="0 0 100 133" style="width: 20px; height: 27px; flex: none;"><path fill="#264653" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+              <div style="font: 400 20px/1 'DM Serif Display', serif; color: #264653;">SoviCare</div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 11px;">
+              <svg viewBox="0 0 100 100" style="width: 18px; height: 18px;"><path fill="#2A9D8F" d="M50 0A50 50 0 0 1 100 50H50Z"></path><path fill="#2A9D8F" d="M50 50h50a50 50 0 0 1-50 50Z"></path><path fill="#C3D6DE" d="M50 50v50A50 50 0 0 1 0 50Z"></path><path fill="#C3D6DE" d="M50 0v50H0A50 50 0 0 1 50 0Z"></path></svg>
+              <span style="font: 500 13px/1 'Inter', sans-serif; color: #55747F;">Step 2 of 4</span>
+            </div>
+          </header>
+
+          <div style="padding: 76px 60px 88px; background: #F2F7F9; display: grid; place-items: center;">
+            <div style="width: 100%; max-width: 620px;">
+              <div style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.18em; color: #2A9D8F;">GLP-1 Metabolic Support</div>
+              <h3 style="margin-top: 20px; font: 400 40px/1.1 'DM Serif Display', serif; color: #264653; text-wrap: balance;">How have you been sleeping?</h3>
+              <p style="margin-top: 14px; font: 400 15.5px/1.7 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Your answers help a licensed clinician decide whether treatment may be appropriate for you.</p>
+              <div style="margin-top: 32px; display: flex; flex-direction: column; gap: 10px;">
+                <label style="display: flex; align-items: center; gap: 14px; padding: 18px 22px; border-radius: 14px; background: #FFFFFF; border: 1.5px solid #FFFFFF; cursor: pointer;"><span style="width: 20px; height: 20px; border-radius: 999px; border: 1.5px solid #A9C6D2; flex: none;"></span><span style="font: 400 15.5px/1 'Inter', sans-serif; color: #264653;">Straight through, most nights</span></label>
+                <label style="display: flex; align-items: center; gap: 14px; padding: 18px 22px; border-radius: 14px; background: #FFFFFF; border: 1.5px solid #219EBC; cursor: pointer;"><span style="width: 20px; height: 20px; border-radius: 999px; background: #219EBC; flex: none; display: grid; place-items: center;"><span style="width: 7px; height: 7px; border-radius: 999px; background: #FFFFFF;"></span></span><span style="font: 400 15.5px/1 'Inter', sans-serif; color: #264653;">Waking once or twice</span></label>
+                <label style="display: flex; align-items: center; gap: 14px; padding: 18px 22px; border-radius: 14px; background: #FFFFFF; border: 1.5px solid #FFFFFF; cursor: pointer;"><span style="width: 20px; height: 20px; border-radius: 999px; border: 1.5px solid #A9C6D2; flex: none;"></span><span style="font: 400 15.5px/1 'Inter', sans-serif; color: #264653;">Rarely a full night</span></label>
+                <label style="display: flex; align-items: center; gap: 14px; padding: 18px 22px; border-radius: 14px; background: #FFFFFF; border: 1.5px solid #FFFFFF; cursor: pointer;"><span style="width: 20px; height: 20px; border-radius: 999px; border: 1.5px solid #A9C6D2; flex: none;"></span><span style="font: 400 15.5px/1 'Inter', sans-serif; color: #264653;">I'd rather not say</span></label>
+              </div>
+              <div style="margin-top: 30px; display: flex; align-items: center; gap: 12px;">
+                <button style="cursor: pointer; padding: 15px 28px; border-radius: 999px; background: transparent; border: 1.5px solid #A9C6D2; font: 500 15px/1 'Inter', sans-serif; color: #264653;">Back</button>
+                <button style="border: none; cursor: pointer; padding: 15px 30px; border-radius: 999px; background: #264653; font: 500 15px/1 'Inter', sans-serif; color: #F2F7F9;">Continue</button>
+              </div>
+              <p style="margin-top: 26px; font: 400 12.5px/1.6 'Inter', sans-serif; color: #7E9AA6; text-wrap: pretty;">No charge to start. A licensed clinician makes the final call on whether treatment is appropriate.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="s4" style="padding: 76px 0 0; margin-top: 76px; border-top: 1px solid #B9CEDA;">
+        <div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 10px;">
+          <span style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #2A9D8F;">04</span>
+          <h2 style="font: 400 40px/1.08 'DM Serif Display', serif; color: #264653;">Your details</h2>
+        </div>
+        <p style="max-width: 68ch; margin-bottom: 28px; font: 400 15.5px/1.7 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Inputs take the book's 14px radius and 1.5px Mist border. The card sits on Paper, not white on white, so its edge is legible without a shadow.</p>
+
+        <div style="border-radius: 20px; overflow: hidden; border: 1px solid #B9CEDA; background: #F2F7F9;">
+          <header style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 18px 34px; background: #FFFFFF; border-bottom: 1px solid #DDE8ED;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <svg viewBox="0 0 100 133" style="width: 20px; height: 27px; flex: none;"><path fill="#264653" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+              <div style="font: 400 20px/1 'DM Serif Display', serif; color: #264653;">SoviCare</div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 11px;">
+              <svg viewBox="0 0 100 100" style="width: 18px; height: 18px;"><path fill="#2A9D8F" d="M50 0A50 50 0 0 1 100 50H50Z"></path><path fill="#2A9D8F" d="M50 50h50a50 50 0 0 1-50 50Z"></path><path fill="#2A9D8F" d="M50 50v50A50 50 0 0 1 0 50Z"></path><path fill="#C3D6DE" d="M50 0v50H0A50 50 0 0 1 50 0Z"></path></svg>
+              <span style="font: 500 13px/1 'Inter', sans-serif; color: #55747F;">Your details</span>
+            </div>
+          </header>
+
+          <div style="padding: 64px 60px 76px; display: grid; place-items: center;">
+            <div style="width: 100%; max-width: 620px; padding: 44px 42px 46px; border-radius: 20px; background: #FFFFFF;">
+              <h3 style="font: 400 32px/1.12 'DM Serif Display', serif; color: #264653;">Your details</h3>
+              <p style="margin-top: 12px; font: 400 14.5px/1.65 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">We need these to verify your identity and ship your plan. Nothing is shared outside your care team.</p>
+
+              <div style="margin-top: 30px; display: flex; flex-direction: column; gap: 18px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                  <div style="display: flex; flex-direction: column; gap: 7px;">
+                    <label style="font: 500 12.5px/1 'Inter', sans-serif; color: #55747F;">First name</label>
+                    <input type="text" value="Daniel" style="width: 100%; padding: 15px 18px; border-radius: 14px; border: 1.5px solid #C3D6DE; background: #FFFFFF; font: 400 15px/1 'Inter', sans-serif; color: #264653; outline: none;">
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 7px;">
+                    <label style="font: 500 12.5px/1 'Inter', sans-serif; color: #55747F;">Last name</label>
+                    <input type="text" value="Reyes" style="width: 100%; padding: 15px 18px; border-radius: 14px; border: 1.5px solid #C3D6DE; background: #FFFFFF; font: 400 15px/1 'Inter', sans-serif; color: #264653; outline: none;">
+                  </div>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 7px;">
+                  <label style="font: 500 12.5px/1 'Inter', sans-serif; color: #55747F;">Email</label>
+                  <input type="text" value="daniel@example.com" style="width: 100%; padding: 15px 18px; border-radius: 14px; border: 1.5px solid #C3D6DE; background: #FFFFFF; font: 400 15px/1 'Inter', sans-serif; color: #264653; outline: none;">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 7px;">
+                  <label style="font: 500 12.5px/1 'Inter', sans-serif; color: #219EBC;">Phone</label>
+                  <div style="display: flex; align-items: center; gap: 10px; padding: 4px 4px 4px 16px; border-radius: 14px; border: 1.5px solid #219EBC; background: #FFFFFF;">
+                    <span style="font: 400 15px/1 'Inter', sans-serif; color: #7E9AA6;">+1</span>
+                    <input type="text" value="(555) 010 - 2200" style="flex: 1; min-width: 0; padding: 11px 14px; border: none; background: transparent; font: 400 15px/1 'Inter', sans-serif; color: #264653; outline: none;">
+                  </div>
+                  <span style="font: 400 12.5px/1.4 'Inter', sans-serif; color: #7E9AA6;">Focus state — 1.5px Blue, no glow.</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 7px;">
+                  <label style="font: 500 12.5px/1 'Inter', sans-serif; color: #55747F;">Address</label>
+                  <input type="text" value="1408 Wilcox Avenue" style="width: 100%; padding: 15px 18px; border-radius: 14px; border: 1.5px solid #C3D6DE; background: #FFFFFF; font: 400 15px/1 'Inter', sans-serif; color: #264653; outline: none;">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 7px;">
+                  <label style="font: 500 12.5px/1 'Inter', sans-serif; color: #55747F;">Apt / suite (optional)</label>
+                  <input type="text" value="" style="width: 100%; padding: 15px 18px; border-radius: 14px; border: 1.5px solid #C3D6DE; background: #FFFFFF; font: 400 15px/1 'Inter', sans-serif; color: #264653; outline: none;">
+                </div>
+                <div style="display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.9fr) minmax(0, 0.8fr); gap: 14px;">
+                  <div style="display: flex; flex-direction: column; gap: 7px;">
+                    <label style="font: 500 12.5px/1 'Inter', sans-serif; color: #55747F;">City</label>
+                    <input type="text" value="Los Angeles" style="width: 100%; padding: 15px 18px; border-radius: 14px; border: 1.5px solid #C3D6DE; background: #FFFFFF; font: 400 15px/1 'Inter', sans-serif; color: #264653; outline: none;">
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 7px;">
+                    <label style="font: 500 12.5px/1 'Inter', sans-serif; color: #55747F;">State</label>
+                    <input type="text" value="CA" style="width: 100%; padding: 15px 18px; border-radius: 14px; border: 1.5px solid #C3D6DE; background: #FFFFFF; font: 400 15px/1 'Inter', sans-serif; color: #264653; outline: none;">
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 7px;">
+                    <label style="font: 500 12.5px/1 'Inter', sans-serif; color: #E76F51;">ZIP</label>
+                    <input type="text" value="900" style="width: 100%; padding: 15px 18px; border-radius: 14px; border: 1.5px solid #E76F51; background: #FFFFFF; font: 400 15px/1 'Inter', sans-serif; color: #264653; outline: none;">
+                    <span style="font: 400 12.5px/1.4 'Inter', sans-serif; color: #E76F51;">Full ZIP needed to check coverage.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-top: 32px; display: flex; align-items: center; gap: 12px;">
+                <button style="cursor: pointer; padding: 15px 28px; border-radius: 999px; background: transparent; border: 1.5px solid #A9C6D2; font: 500 15px/1 'Inter', sans-serif; color: #264653;">Back</button>
+                <button style="border: none; cursor: pointer; padding: 15px 30px; border-radius: 999px; background: #264653; font: 500 15px/1 'Inter', sans-serif; color: #F2F7F9;">Continue to checkout</button>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: 30px 60px 40px; background: #FFFFFF; border-top: 1px solid #DDE8ED;">
+            <p style="font: 400 12.5px/1.65 'Inter', sans-serif; color: #7E9AA6; text-wrap: pretty;">Use of this platform is subject to our <a href="#s4">Telehealth Consent to Treat Agreement</a>, <a href="#s4">Terms of Use</a>, <a href="#s4">Privacy Policy</a> and <a href="#s4">HIPAA Implied Acknowledgment</a>.<br>Demonstration prototype, not affiliated with any real provider. No real medical care is provided.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="s5" style="padding: 76px 0 0; margin-top: 76px; border-top: 1px solid #B9CEDA;">
+        <div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 10px;">
+          <span style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #2A9D8F;">05</span>
+          <h2 style="font: 400 40px/1.08 'DM Serif Display', serif; color: #264653;">Checkout</h2>
+        </div>
+        <p style="max-width: 68ch; margin-bottom: 28px; font: 400 15.5px/1.7 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Money is the one place the serif earns its keep — the total is set in DM Serif Display, everything around it in Inter. The summary column sticks to Deep Teal so the number sits on the darkest surface on screen.</p>
+
+        <div style="border-radius: 20px; overflow: hidden; border: 1px solid #B9CEDA; background: #F2F7F9;">
+          <header style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 18px 34px; background: #FFFFFF; border-bottom: 1px solid #DDE8ED;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <svg viewBox="0 0 100 133" style="width: 20px; height: 27px; flex: none;"><path fill="#264653" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+              <div style="font: 400 20px/1 'DM Serif Display', serif; color: #264653;">SoviCare</div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 11px;">
+              <svg viewBox="0 0 100 100" style="width: 18px; height: 18px;"><path fill="#2A9D8F" d="M50 0A50 50 0 0 1 100 50H50Z"></path><path fill="#2A9D8F" d="M50 50h50a50 50 0 0 1-50 50Z"></path><path fill="#2A9D8F" d="M50 50v50A50 50 0 0 1 0 50Z"></path><path fill="#2A9D8F" d="M50 0v50H0A50 50 0 0 1 50 0Z"></path></svg>
+              <span style="font: 500 13px/1 'Inter', sans-serif; color: #55747F;">Checkout</span>
+            </div>
+          </header>
+
+          <div style="padding: 60px 60px 76px; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr); gap: 22px; align-items: start;">
+
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="padding: 32px 32px 34px; border-radius: 20px; background: #FFFFFF;">
+                <h3 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #264653;">Choose your plan</h3>
+                <div style="margin-top: 22px; display: flex; flex-direction: column; gap: 10px;">
+                  <label style="display: flex; align-items: center; gap: 15px; padding: 20px 22px; border-radius: 14px; background: #F2F7F9; border: 1.5px solid #219EBC; cursor: pointer;">
+                    <span style="width: 20px; height: 20px; border-radius: 999px; background: #219EBC; flex: none; display: grid; place-items: center;"><span style="width: 7px; height: 7px; border-radius: 999px; background: #FFFFFF;"></span></span>
+                    <span style="flex: 1; min-width: 0;">
+                      <span style="display: block; font: 600 15.5px/1.3 'Inter', sans-serif; color: #264653;">Essentials Monthly</span>
+                      <span style="display: block; margin-top: 4px; font: 400 13.5px/1.4 'Inter', sans-serif; color: #7E9AA6;">All three, shipped monthly</span>
+                    </span>
+                    <span style="font: 500 15px/1 'Inter', sans-serif; color: #264653;">$59.00/mo</span>
+                  </label>
+                  <label style="display: flex; align-items: center; gap: 15px; padding: 20px 22px; border-radius: 14px; background: #F2F7F9; border: 1.5px solid #F2F7F9; cursor: pointer;">
+                    <span style="width: 20px; height: 20px; border-radius: 999px; border: 1.5px solid #A9C6D2; flex: none;"></span>
+                    <span style="flex: 1; min-width: 0;">
+                      <span style="display: block; font: 600 15.5px/1.3 'Inter', sans-serif; color: #264653;">Essentials Quarterly</span>
+                      <span style="display: block; margin-top: 4px; font: 400 13.5px/1.4 'Inter', sans-serif; color: #7E9AA6;">Three months at once — one shipment</span>
+                    </span>
+                    <span style="font: 500 15px/1 'Inter', sans-serif; color: #264653;">$52.00/mo</span>
+                  </label>
+                </div>
+              </div>
+
+              <div style="padding: 32px 32px 34px; border-radius: 20px; background: #FFFFFF;">
+                <h3 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #264653;">Payment</h3>
+                <div style="margin-top: 22px; padding: 26px 24px 24px; border-radius: 16px; background: #F2F7F9;">
+                  <div style="display: flex; flex-direction: column; gap: 16px;">
+                    <div style="display: flex; flex-direction: column; gap: 7px;">
+                      <label style="font: 500 12.5px/1 'Inter', sans-serif; color: #55747F;">Card number</label>
+                      <input type="text" value="4242 4242 4242 4242" style="width: 100%; padding: 15px 18px; border-radius: 14px; border: 1.5px solid #C3D6DE; background: #FFFFFF; font: 400 15px/1 'Inter', sans-serif; color: #264653; outline: none;">
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                      <div style="display: flex; flex-direction: column; gap: 7px;">
+                        <label style="font: 500 12.5px/1 'Inter', sans-serif; color: #55747F;">Expiry (MM/YY)</label>
+                        <input type="text" value="08/27" style="width: 100%; padding: 15px 18px; border-radius: 14px; border: 1.5px solid #C3D6DE; background: #FFFFFF; font: 400 15px/1 'Inter', sans-serif; color: #264653; outline: none;">
+                      </div>
+                      <div style="display: flex; flex-direction: column; gap: 7px;">
+                        <label style="font: 500 12.5px/1 'Inter', sans-serif; color: #55747F;">CVC</label>
+                        <input type="text" value="123" style="width: 100%; padding: 15px 18px; border-radius: 14px; border: 1.5px solid #C3D6DE; background: #FFFFFF; font: 400 15px/1 'Inter', sans-serif; color: #264653; outline: none;">
+                      </div>
+                    </div>
+                  </div>
+                  <div style="margin-top: 18px; display: flex; align-items: center; gap: 9px;">
+                    <svg viewBox="0 0 100 100" style="width: 12px; height: 12px; flex: none;"><path fill="#2A9D8F" d="M50 0A50 50 0 0 1 100 50H50Z"></path></svg>
+                    <span style="font: 400 12.5px/1.5 'Inter', sans-serif; color: #7E9AA6;">Mock processor frame — no card data leaves this frame.</span>
+                  </div>
+                </div>
+                <p style="margin-top: 18px; max-width: 56ch; font: 400 13px/1.6 'Inter', sans-serif; color: #7E9AA6; text-wrap: pretty;">Card details are entered directly with our payment processor. SoviCare never stores your card number.</p>
+              </div>
+            </div>
+
+            <div style="position: relative; overflow: hidden; padding: 34px 32px 36px; border-radius: 20px; background: #264653;">
+              <svg viewBox="0 0 100 100" style="position: absolute; top: 0; right: 0; width: 84px; height: 84px;"><path fill="#219EBC" d="M100 0v100A100 100 0 0 0 100 0Z" opacity="0.4"></path></svg>
+              <div style="position: relative;">
+                <h3 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #F2F7F9;">Order summary</h3>
+                <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 14px;">
+                  <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px;"><span style="font: 400 14.5px/1.4 'Inter', sans-serif; color: #A8C2CD;">Daily Essentials</span><span style="font: 500 14.5px/1 'Inter', sans-serif; color: #F2F7F9;">$59.00</span></div>
+                  <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px;"><span style="font: 400 14.5px/1.4 'Inter', sans-serif; color: #A8C2CD;">Shipping</span><span style="font: 500 14.5px/1 'Inter', sans-serif; color: #F2F7F9;">Free</span></div>
+                </div>
+                <div style="margin-top: 22px; display: flex; gap: 8px;">
+                  <input type="text" value="" placeholder="Promo code" style="flex: 1; min-width: 0; padding: 13px 16px; border-radius: 999px; border: 1.5px solid #4C7284; background: transparent; font: 400 14px/1 'Inter', sans-serif; color: #F2F7F9; outline: none;">
+                  <button style="cursor: pointer; padding: 13px 22px; border-radius: 999px; background: transparent; border: 1.5px solid #4C7284; font: 500 13.5px/1 'Inter', sans-serif; color: #F2F7F9;">Apply</button>
+                </div>
+                <div style="margin-top: 26px; padding-top: 22px; border-top: 1px solid #4C7284; display: flex; align-items: baseline; justify-content: space-between; gap: 16px;">
+                  <span style="font: 400 16px/1 'Inter', sans-serif; color: #A8C2CD;">Due today</span>
+                  <span style="font: 400 34px/1 'DM Serif Display', serif; color: #FFBE0B;">$59.00</span>
+                </div>
+                <button style="margin-top: 24px; width: 100%; border: none; cursor: pointer; padding: 16px 30px; border-radius: 999px; background: #FFBE0B; font: 500 15.5px/1 'Inter', sans-serif; color: #264653;">Place order</button>
+                <p style="margin-top: 16px; text-align: center; font: 400 12.5px/1.5 'Inter', sans-serif; color: #7E9AA6;">Your order ships after checkout.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: 30px 60px 40px; background: #FFFFFF; border-top: 1px solid #DDE8ED;">
+            <p style="font: 400 12.5px/1.65 'Inter', sans-serif; color: #7E9AA6; text-wrap: pretty;">Use of this platform is subject to our <a href="#s5">Telehealth Consent to Treat Agreement</a>, <a href="#s5">Terms of Use</a>, <a href="#s5">Privacy Policy</a> and <a href="#s5">HIPAA Implied Acknowledgment</a>.<br>Demonstration prototype, not affiliated with any real provider. No real medical care is provided.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="s6" style="padding: 76px 0 0; margin-top: 76px; border-top: 1px solid #B9CEDA;">
+        <div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 10px;">
+          <span style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #2A9D8F;">06</span>
+          <h2 style="font: 400 40px/1.08 'DM Serif Display', serif; color: #264653;">Confirmation</h2>
+        </div>
+        <p style="max-width: 68ch; margin-bottom: 28px; font: 400 15.5px/1.7 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">The one screen where the mark completes. All four quadrants fill, and the next three steps are stated as dates rather than reassurance.</p>
+
+        <div style="border-radius: 20px; overflow: hidden; border: 1px solid #B9CEDA; background: #F2F7F9;">
+          <header style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 18px 34px; background: #FFFFFF; border-bottom: 1px solid #DDE8ED;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <svg viewBox="0 0 100 133" style="width: 20px; height: 27px; flex: none;"><path fill="#264653" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+              <div style="font: 400 20px/1 'DM Serif Display', serif; color: #264653;">SoviCare</div>
+            </div>
+            <span style="font: 500 13px/1 'Inter', sans-serif; color: #55747F;">Order SOV-96267</span>
+          </header>
+
+          <div style="position: relative; overflow: hidden; padding: 78px 60px 84px; background: #264653; display: grid; place-items: center; text-align: center;">
+            <svg viewBox="0 0 400 400" style="position: absolute; bottom: -170px; right: -110px; width: 400px; height: 400px; opacity: 0.14;"><path fill="#2A9D8F" d="M200 200A200 200 0 0 1 0 400V200Z"></path><path fill="#FFBE0B" d="M200 200H400V400A200 200 0 0 1 200 200Z"></path></svg>
+            <div style="position: relative; max-width: 620px;">
+              <svg viewBox="0 0 100 133" style="width: 58px; height: 77px;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+              <h3 style="margin-top: 30px; font: 400 46px/1.08 'DM Serif Display', serif; color: #F2F7F9; text-wrap: balance;">That's everything we need.</h3>
+              <p style="margin-top: 20px; font: 400 16.5px/1.7 'Inter', sans-serif; color: #A8C2CD; text-wrap: pretty;">A licensed clinician now reviews what you sent. You'll hear from us either way — nothing else is needed from you today.</p>
+            </div>
+          </div>
+
+          <div style="padding: 60px 60px 40px; background: #F2F7F9;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
+              <div style="position: relative; overflow: hidden; padding: 30px 28px 32px; border-radius: 18px; background: #FFFFFF;">
+                <svg viewBox="0 0 100 100" style="position: absolute; top: 0; right: 0; width: 56px; height: 56px;"><path fill="#219EBC" d="M100 0v100A100 100 0 0 0 100 0Z" opacity="0.2"></path></svg>
+                <div style="position: relative; font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #219EBC;">Now</div>
+                <div style="position: relative; margin-top: 14px; font: 600 16px/1.3 'Inter', sans-serif; color: #264653;">Clinician review</div>
+                <p style="position: relative; margin-top: 8px; font: 400 14px/1.6 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Typically 1 to 2 business days. We'll email you the moment there's a decision.</p>
+              </div>
+              <div style="position: relative; overflow: hidden; padding: 30px 28px 32px; border-radius: 18px; background: #FFFFFF;">
+                <svg viewBox="0 0 100 100" style="position: absolute; top: 0; right: 0; width: 56px; height: 56px;"><path fill="#2A9D8F" d="M100 0v100A100 100 0 0 0 100 0Z" opacity="0.2"></path></svg>
+                <div style="position: relative; font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #2A9D8F;">If approved</div>
+                <div style="position: relative; margin-top: 14px; font: 600 16px/1.3 'Inter', sans-serif; color: #264653;">Ships Aug 8</div>
+                <p style="position: relative; margin-top: 8px; font: 400 14px/1.6 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Plain packaging, no branding on the outside. Tracking arrives by text.</p>
+              </div>
+              <div style="position: relative; overflow: hidden; padding: 30px 28px 32px; border-radius: 18px; background: #FFFFFF;">
+                <svg viewBox="0 0 100 100" style="position: absolute; top: 0; right: 0; width: 56px; height: 56px;"><path fill="#FFBE0B" d="M100 0v100A100 100 0 0 0 100 0Z" opacity="0.32"></path></svg>
+                <div style="position: relative; font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #264653;">Anytime</div>
+                <div style="position: relative; margin-top: 14px; font: 600 16px/1.3 'Inter', sans-serif; color: #264653;">Message your care team</div>
+                <p style="position: relative; margin-top: 8px; font: 400 14px/1.6 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Questions before the decision are normal. The portal is open now.</p>
+              </div>
+            </div>
+            <div style="margin-top: 28px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+              <button style="border: none; cursor: pointer; padding: 15px 30px; border-radius: 999px; background: #264653; font: 500 15px/1 'Inter', sans-serif; color: #F2F7F9;">Go to my portal</button>
+              <button style="cursor: pointer; padding: 15px 28px; border-radius: 999px; background: transparent; border: 1.5px solid #A9C6D2; font: 500 15px/1 'Inter', sans-serif; color: #264653;">View order</button>
+            </div>
+          </div>
+
+          <div style="padding: 30px 60px 40px; background: #FFFFFF; border-top: 1px solid #DDE8ED;">
+            <p style="font: 400 12.5px/1.65 'Inter', sans-serif; color: #7E9AA6; text-wrap: pretty;">Prescription treatments are available only when clinically appropriate following assessment, lab testing where needed, and licensed provider review. Individual results vary.<br>Demonstration prototype, not affiliated with any real provider. No real medical care is provided.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+</x-dc>
+</body>
+</html>

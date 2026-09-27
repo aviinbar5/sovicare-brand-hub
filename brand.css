@@ -1,0 +1,230 @@
+/* ==========================================================================
+   SoviCare — brand.css
+   Edition 01 · single source of truth
+
+   All values below were extracted from the SoviCare Brand Hub source
+   (brand-book.html, styleguide.html, logo.html). Nothing here is invented.
+
+   Rule of use: build only from these tokens and classes.
+   No new hex value, no new typeface, no spacing value outside --space-*.
+   If something is missing, ask — do not improvise it.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Fonts — the only two faces in the system
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+
+  /* ------------------------------------------------------------------------
+     2. Core palette — four brand colours. These carry meaning.
+     ------------------------------------------------------------------------ */
+  --deep-teal:      #264653;   /* primary. Text, dark blocks, primary button */
+  --blue:           #219EBC;   /* links, informational */
+  --green:          #2A9D8F;   /* in range, confirmation */
+  --yellow:         #FFBE0B;   /* result moment. At most once per surface */
+
+  /* ------------------------------------------------------------------------
+     3. Neutrals — these carry the form, never the meaning
+     ------------------------------------------------------------------------ */
+  --mist:           #F2F7F9;   /* the page. Replaces white */
+  --paper:          #FFFFFF;   /* cards */
+  --clay:           #CFC6B8;   /* warm posters only. Never in product UI */
+  --coral:          #E76F51;   /* out of range. Never decorative */
+  --slate:          #55747F;   /* secondary text */
+  --slate-light:    #7E9AA6;   /* captions, labels */
+
+  /* Borders and dividers, lightest to strongest */
+  --line-soft:      #DDE8ED;
+  --line:           #D6E2E9;
+  --line-strong:    #C6D6DF;
+  --line-mid:       #B9CEDA;
+  --line-deep:      #A8C2CD;
+
+  /* State variants */
+  --blue-dark:      #1F7A94;   /* blue, hover/pressed */
+  --teal-light:     #4B7284;   /* teal on dark backgrounds */
+  --coral-wash:     #FDEEE9;   /* coral background tint */
+  --yellow-wash:    #FFF8E3;   /* yellow background tint */
+
+  /* ------------------------------------------------------------------------
+     4. Type scale
+     DM Serif Display never below 26px. Inter never above 26px.
+     That single rule generates the whole scale below.
+     ------------------------------------------------------------------------ */
+  --serif: 'DM Serif Display', serif;
+  --sans:  'Inter', sans-serif;
+
+  /* Display — serif only, all at or above 26px */
+  --t-display:      clamp(40px, 6.5vw, 68px);   /* hero, once per page */
+  --t-h1:           clamp(34px, 4.6vw, 52px);
+  --t-h2:           clamp(28px, 3.2vw, 38px);
+  --t-h3:           26px;                       /* the serif floor */
+
+  /* Text — sans only, all at or below 26px */
+  --t-lead:         20px;   /* hero subline, section intro */
+  --t-body:         16px;   /* running text. line-height 1.7 */
+  --t-body-sm:      14px;   /* dense text, cards. line-height 1.55 */
+  --t-caption:      12.5px;
+  --t-label:        11.5px;
+
+  /* ------------------------------------------------------------------------
+     5. Spacing — 48px grid, quarter-unit minimum. Nothing below 4px.
+     ------------------------------------------------------------------------ */
+  --space-1:  4px;
+  --space-2:  12px;
+  --space-3:  24px;
+  --space-4:  36px;
+  --space-5:  48px;    /* the grid unit */
+  --space-6:  72px;
+  --space-7:  96px;
+  --space-8:  144px;   /* between major page sections */
+
+  /* ------------------------------------------------------------------------
+     6. Radius — geometry is either fully round or square. Never in between.
+        "Never an oval or a soft-cornered rectangle."
+     ------------------------------------------------------------------------ */
+  --radius-round:  999px;   /* buttons, pills, kit pieces */
+  --radius-card:   14px;    /* cards and framed media only */
+  --radius-none:   0;
+
+  /* Layout */
+  --measure:       68ch;    /* max line length for running text */
+  --page-max:      1180px;
+}
+
+/* --------------------------------------------------------------------------
+   7. Base
+   -------------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: var(--t-body);
+  line-height: 1.7;
+  color: var(--deep-teal);
+  background: var(--mist);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, p, ul, li, figure, figcaption { margin: 0; padding: 0; }
+ul { list-style: none; }
+
+a { color: var(--blue); text-decoration: none; }
+a:hover { color: var(--deep-teal); }
+
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* --------------------------------------------------------------------------
+   8. Type roles
+   -------------------------------------------------------------------------- */
+.display { font-family: var(--serif); font-size: var(--t-display); line-height: 1.06; font-weight: 400; }
+.h1      { font-family: var(--serif); font-size: var(--t-h1);      line-height: 1.08; font-weight: 400; }
+.h2      { font-family: var(--serif); font-size: var(--t-h2);      line-height: 1.12; font-weight: 400; }
+.h3      { font-family: var(--serif); font-size: var(--t-h3);      line-height: 1.35; font-weight: 400; }
+
+.lead    { font-size: var(--t-lead); line-height: 1.55; color: var(--slate); max-width: var(--measure); }
+.body    { font-size: var(--t-body); line-height: 1.7;  max-width: var(--measure); }
+.body-sm { font-size: var(--t-body-sm); line-height: 1.55; }
+.caption { font-size: var(--t-caption); line-height: 1.45; color: var(--slate-light); }
+.label   { font-size: var(--t-label);   line-height: 1.4;  color: var(--slate-light); }
+
+/* The highlight word. Once per page, never for emphasis inside body copy. */
+.highlight { font-family: var(--serif); font-style: italic; font-weight: 400; }
+
+/* Emphasis inside body copy, in order of preference:
+   weight, then colour, then highlight, then scale. One per paragraph. */
+.em { font-weight: 600; }
+
+/* --------------------------------------------------------------------------
+   9. Buttons — three, exactly as defined in the styleguide
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-grid;
+  place-items: center;
+  height: 46px;
+  padding: 0 26px;
+  border: 0;
+  border-radius: var(--radius-round);
+  font: 500 14px/1 var(--sans);
+  background: var(--deep-teal);
+  color: var(--mist);
+  cursor: pointer;
+  transition: background .18s ease;
+}
+.btn:hover { background: #1C3742; color: var(--mist); }
+
+/* Secondary */
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--deep-teal);
+  color: var(--deep-teal);
+}
+.btn-outline:hover { background: var(--deep-teal); color: var(--mist); }
+
+/* Result moment only. Not a general-purpose CTA. */
+.btn-result {
+  background: var(--yellow);
+  color: var(--deep-teal);
+}
+.btn-result:hover { background: #E9AD05; color: var(--deep-teal); }
+
+/* --------------------------------------------------------------------------
+   10. Surfaces
+   -------------------------------------------------------------------------- */
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  padding: var(--space-4);
+}
+
+/* Block backgrounds. Order: Mist -> Paper -> Deep Teal.
+   Never two dark blocks adjacent. */
+.block          { padding: var(--space-8) var(--space-5); }
+.block-mist     { background: var(--mist); }
+.block-paper    { background: var(--paper); }
+.block-dark     { background: var(--deep-teal); color: var(--mist); }
+.block-dark .lead,
+.block-dark .caption,
+.block-dark .label { color: var(--line-deep); }
+
+.wrap { max-width: var(--page-max); margin-inline: auto; }
+
+/* --------------------------------------------------------------------------
+   11. Quadrant Kit — the graphic pieces.
+       Square · Quarter · Half · Circle · Arch · Arc
+       A piece arrives to frame, not to distract. Always toward the content.
+       Type never sits on a shape.
+   -------------------------------------------------------------------------- */
+.kit          { position: absolute; pointer-events: none; }
+.kit-square   { border-radius: var(--radius-none); }
+.kit-quarter  { border-radius: var(--radius-round) 0 0 0; }
+.kit-half     { border-radius: var(--radius-round) var(--radius-round) 0 0; }
+.kit-circle   { border-radius: var(--radius-round); }
+.kit-arch     { border-radius: var(--radius-round) var(--radius-round) 0 0; }
+
+.kit-teal   { background: var(--deep-teal); }
+.kit-blue   { background: var(--blue); }
+.kit-green  { background: var(--green); }
+.kit-yellow { background: var(--yellow); }   /* at most once per surface */
+
+.has-kit { position: relative; overflow: hidden; }
+
+/* --------------------------------------------------------------------------
+   12. Result display — a number never appears bare, and a result
+       is never summarised without being displayed.
+   -------------------------------------------------------------------------- */
+.result        { display: flex; align-items: baseline; gap: var(--space-1); }
+.result-value  { font-family: var(--serif); font-size: var(--t-h2); }
+.result-unit   { font-size: var(--t-body-sm); color: var(--slate); }
+.result-range  { font-size: var(--t-label); color: var(--slate-light); }
+.in-range      { color: var(--green); }
+.out-of-range  { color: var(--coral); }

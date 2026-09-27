@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SoviCare</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-14 -10 128 153'%3E%3Cpath fill='%23264653' d='M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z'/%3E%3Cpath fill='%23219EBC' d='M100 2H58A42 42 0 0 0 100 44Z'/%3E%3Cpath fill='%232A9D8F' d='M58 48A41 41 0 0 1 58 130Z'/%3E%3Cpath fill='%23FFBE0B' d='M0 131V89A42 42 0 0 1 42 131Z'/%3E%3C/svg%3E">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Inter', sans-serif; color: #264653; background: #D6E2E9; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, p, ul, li, figure, figcaption { margin: 0; padding: 0; }
+  ul { list-style: none; }
+  a { color: #219EBC; text-decoration: none; }
+  a:hover { color: #264653; }
+  ::selection { background: #FFBE0B; color: #264653; }
+
+  /* ---- choreography: every move is an arc or a wipe. Nothing fades in place. ---- */
+  @keyframes scPivotIn { from { transform: rotate(-92deg); opacity: 0; } to { transform: rotate(0deg); opacity: 1; } }
+  @keyframes scPivotInR { from { transform: rotate(92deg); opacity: 0; } to { transform: rotate(0deg); opacity: 1; } }
+  @keyframes scWipeR { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+  @keyframes scWipeU { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0 0 0 0); } }
+  @keyframes scWipeD { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+  @keyframes scRise { from { transform: translateY(0.42em); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  @keyframes scGrow { from { transform: scale(0.32); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  @keyframes scSlideL { from { transform: translateX(38%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+  @keyframes scDrift { 0%, 100% { transform: translate3d(0,0,0); } 50% { transform: translate3d(0,-14px,0); } }
+  @keyframes scDriftB { 0%, 100% { transform: translate3d(0,0,0); } 50% { transform: translate3d(0,12px,0); } }
+  @keyframes scSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @keyframes scHue { 0% { fill: #219EBC; } 33% { fill: #2A9D8F; } 66% { fill: #FFBE0B; } 100% { fill: #219EBC; } }
+  @keyframes scBar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @keyframes scCue { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+
+  .sc-stage { position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity 420ms cubic-bezier(.4,0,.2,1); }
+  .sc-stage[data-on="1"] { opacity: 1; pointer-events: auto; }
+  /* !important is required: the inline `animation:` shorthand on each .sc-a
+     expands to include animation-play-state, which would otherwise always win. */
+  .sc-stage[data-on="1"] .sc-a { animation-play-state: running !important; }
+  .sc-stage .sc-a { animation-play-state: paused !important; animation-fill-mode: both; }
+  [data-paused="1"] .sc-stage[data-on="1"] .sc-a { animation-play-state: paused !important; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sc-stage .sc-a { animation: none !important; opacity: 1 !important; transform: none !important; clip-path: none !important; }
+  }
+</style>
+</helmet>
+
+<div style="min-height: 100vh; background: #D6E2E9; padding: 44px 44px 80px;">
+
+  <div style="max-width: 1360px; margin: 0 auto;">
+
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; flex-wrap: wrap; margin-bottom: 26px;">
+      <div>
+        <div style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.18em; color: #2A9D8F;">SoviCare · Brand Film · Three moods</div>
+        <h1 style="margin-top: 16px; font: 400 clamp(34px, 4vw, 52px)/1.06 'DM Serif Display', serif; color: #264653; letter-spacing: -0.015em;">Four pieces, in motion.</h1>
+        <p style="margin-top: 14px; max-width: 62ch; font: 400 15.5px/1.7 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">The mark is assembled, so the film assembles it. Every shape enters on an arc or a straight wipe — if it can't be drawn with a compass or a ruler, it isn't ours.</p>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button onClick="{{ prev }}" style="cursor: pointer; width: 42px; height: 42px; border-radius: 999px; background: transparent; border: 1.5px solid #A9C6D2; font: 400 15px/1 'Inter', sans-serif; color: #264653;">←</button>
+        <button onClick="{{ next }}" style="cursor: pointer; width: 42px; height: 42px; border-radius: 999px; background: transparent; border: 1.5px solid #A9C6D2; font: 400 15px/1 'Inter', sans-serif; color: #264653;">→</button>
+        <button onClick="{{ replay }}" style="cursor: pointer; padding: 12px 24px; border-radius: 999px; background: #264653; border: none; font: 500 13.5px/1 'Inter', sans-serif; color: #F2F7F9;">Replay</button>
+      </div>
+    </div>
+
+    <div data-paused="0" data-film style="position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 22px; overflow: hidden; background: #264653;">
+
+      <!-- ═══ 01 · Four complaints, one system ═══ -->
+      <div data-scene="0" class="sc-stage" data-on="1" style="background: #264653;">
+        <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0; width: 100%; height: 100%;">
+          <defs>
+            <!-- Reserved copy zone: art may only exist right of the text column
+                 or in the thin band below it. Same rule as the packaging labels. -->
+            <clipPath id="scArt0"><rect x="880" y="0" width="720" height="900"></rect><rect x="0" y="862" width="1600" height="38"></rect></clipPath>
+          </defs>
+          <g clip-path="url(#scArt0)">
+            <g class="sc-a" style="transform-origin: 1330px 236px; animation: scPivotIn 900ms cubic-bezier(.22,1,.36,1) 200ms;">
+              <path fill="#219EBC" d="M1330 60a176 176 0 0 1 176 176h-176Z" opacity="0.9"></path>
+            </g>
+            <g class="sc-a" style="transform-origin: 1418px 700px; animation: scPivotInR 900ms cubic-bezier(.22,1,.36,1) 380ms;">
+              <path fill="#2A9D8F" d="M1418 560a140 140 0 0 1 0 280Z"></path>
+            </g>
+            <g class="sc-a" style="transform-origin: 968px 828px; animation: scPivotIn 900ms cubic-bezier(.22,1,.36,1) 560ms;">
+              <path fill="#FFBE0B" d="M880 828a88 88 0 0 1 88-88v88Z"></path>
+            </g>
+            <g class="sc-a" style="animation: scGrow 760ms cubic-bezier(.22,1,.36,1) 700ms; transform-origin: 1010px 168px;">
+              <circle cx="1010" cy="168" r="52" fill="#219EBC" opacity="0.28"></circle>
+            </g>
+          </g>
+        </svg>
+
+        <div style="position: absolute; inset: 0; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 56px; align-items: center; padding: 0 clamp(48px, 5.4vw, 86px);">
+          <div>
+            <div class="sc-a" style="animation: scRise 620ms cubic-bezier(.22,1,.36,1) 120ms; font: 700 clamp(9px, 0.78vw, 11px)/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.2em; color: #FFBE0B;">Where it starts</div>
+
+            <h2 style="margin-top: clamp(20px, 2.4vw, 32px); font: 400 clamp(38px, 4.6vw, 74px)/1.04 'DM Serif Display', serif; color: #F2F7F9; letter-spacing: -0.015em;">
+              <span class="sc-a" style="display: block; animation: scRise 680ms cubic-bezier(.22,1,.36,1) 300ms;">Sleep, mood,</span>
+              <span class="sc-a" style="display: block; animation: scRise 680ms cubic-bezier(.22,1,.36,1) 420ms;">energy, drive.</span>
+              <span class="sc-a" style="display: block; animation: scRise 680ms cubic-bezier(.22,1,.36,1) 620ms; color: #6BB8DF;">One system.</span>
+            </h2>
+
+            <p class="sc-a" style="margin-top: clamp(18px, 2vw, 28px); max-width: 44ch; animation: scRise 680ms cubic-bezier(.22,1,.36,1) 880ms; font: 400 clamp(13px, 1.14vw, 17px)/1.65 'Inter', sans-serif; color: #A8C2CD; text-wrap: pretty;">Four separate complaints walk into four separate appointments. They were never four problems.</p>
+
+            <div style="margin-top: clamp(22px, 2.6vw, 36px); display: flex; align-items: center; gap: clamp(8px, 0.9vw, 12px); flex-wrap: wrap;">
+              <span class="sc-a" style="animation: scGrow 520ms cubic-bezier(.22,1,.36,1) 1060ms; display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: #33586A;"><span style="width: 8px; height: 8px; border-radius: 999px; background: #219EBC;"></span><span style="font: 500 clamp(10px, 0.86vw, 13px)/1 'Inter', sans-serif; color: #F2F7F9;">Sleep</span></span>
+              <span class="sc-a" style="animation: scGrow 520ms cubic-bezier(.22,1,.36,1) 1160ms; display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: #33586A;"><span style="width: 8px; height: 8px; border-radius: 999px; background: #2A9D8F;"></span><span style="font: 500 clamp(10px, 0.86vw, 13px)/1 'Inter', sans-serif; color: #F2F7F9;">Mood</span></span>
+              <span class="sc-a" style="animation: scGrow 520ms cubic-bezier(.22,1,.36,1) 1260ms; display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: #33586A;"><span style="width: 8px; height: 8px; border-radius: 999px; background: #FFBE0B;"></span><span style="font: 500 clamp(10px, 0.86vw, 13px)/1 'Inter', sans-serif; color: #F2F7F9;">Energy</span></span>
+              <span class="sc-a" style="animation: scGrow 520ms cubic-bezier(.22,1,.36,1) 1360ms; display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: #33586A;"><span style="width: 8px; height: 8px; border-radius: 999px; background: #F2F7F9;"></span><span style="font: 500 clamp(10px, 0.86vw, 13px)/1 'Inter', sans-serif; color: #F2F7F9;">Drive</span></span>
+            </div>
+          </div>
+
+          <div style="position: relative; justify-self: center; width: clamp(200px, 25vw, 380px); aspect-ratio: 1 / 1;">
+            <div class="sc-a" style="position: absolute; left: 0; top: 0; width: 50%; height: 50%; overflow: hidden; border-radius: 100% 0 0 0; background: #219EBC; animation: scPivotIn 780ms cubic-bezier(.22,1,.36,1) 900ms; transform-origin: 100% 100%;"></div>
+            <div class="sc-a" style="position: absolute; right: 0; top: 0; width: 50%; height: 50%; overflow: hidden; border-radius: 0 100% 0 0; background: #C3D6DE; animation: scPivotInR 780ms cubic-bezier(.22,1,.36,1) 1020ms; transform-origin: 0% 100%;">
+              <img src="assets/people/05.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 18%;">
+            </div>
+            <div class="sc-a" style="position: absolute; left: 0; bottom: 0; width: 50%; height: 50%; overflow: hidden; border-radius: 0 0 0 100%; background: #C3D6DE; animation: scPivotInR 780ms cubic-bezier(.22,1,.36,1) 1140ms; transform-origin: 100% 0%;">
+              <img src="assets/people/08.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 22%;">
+            </div>
+            <div class="sc-a" style="position: absolute; right: 0; bottom: 0; width: 50%; height: 50%; border-radius: 0 0 100% 0; background: #FFBE0B; animation: scPivotIn 780ms cubic-bezier(.22,1,.36,1) 1260ms; transform-origin: 0% 0%;"></div>
+            <div class="sc-a" style="position: absolute; left: 50%; top: 50%; width: 18%; aspect-ratio: 1; margin: -9% 0 0 -9%; border-radius: 999px; background: #264653; animation: scGrow 520ms cubic-bezier(.22,1,.36,1) 1500ms;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ 02 · Everything you feel has a number behind it ═══ -->
+      <div data-scene="1" class="sc-stage" style="background: #F2F7F9;">
+        <div class="sc-a" style="position: absolute; left: 0; top: 0; bottom: 0; width: 46%; overflow: hidden; background: #C3D6DE; animation: scWipeR 820ms cubic-bezier(.22,1,.36,1) 100ms;">
+          <img src="assets/people/02.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 58% 26%; filter: saturate(0.7);">
+          <div style="position: absolute; inset: 0; background: #264653; opacity: 0.24;"></div>
+          <svg viewBox="0 0 736 900" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%;">
+            <path class="sc-a" fill="#219EBC" d="M736 900H480a256 256 0 0 1 256-256Z" opacity="0.92" style="transform-origin: 736px 900px; animation: scPivotIn 860ms cubic-bezier(.22,1,.36,1) 700ms;"></path>
+            <circle class="sc-a" cx="96" cy="128" r="52" fill="#FFBE0B" style="transform-origin: 96px 128px; animation: scGrow 620ms cubic-bezier(.22,1,.36,1) 980ms;"></circle>
+          </svg>
+        </div>
+
+        <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;">
+          <defs>
+            <clipPath id="scArt1"><rect x="0" y="0" width="736" height="900"></rect><rect x="736" y="0" width="864" height="176"></rect><rect x="736" y="742" width="864" height="158"></rect></clipPath>
+          </defs>
+          <g clip-path="url(#scArt1)">
+            <path class="sc-a" fill="#2A9D8F" d="M1600 0v168a168 168 0 0 1-168-168Z" opacity="0.16" style="transform-origin: 1600px 0px; animation: scPivotInR 900ms cubic-bezier(.22,1,.36,1) 420ms;"></path>
+            <g class="sc-a" style="animation: scDrift 7s ease-in-out 1.6s infinite;">
+              <circle cx="1512" cy="806" r="46" fill="#FFBE0B" opacity="0.5"></circle>
+            </g>
+          </g>
+        </svg>
+
+        <div style="position: absolute; left: 46%; right: 0; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: center; padding: 0 clamp(36px, 4vw, 68px);">
+          <div class="sc-a" style="animation: scRise 620ms cubic-bezier(.22,1,.36,1) 500ms; font: 700 clamp(9px, 0.78vw, 11px)/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.2em; color: #2A9D8F;">What we actually do</div>
+
+          <h2 style="margin-top: clamp(16px, 1.9vw, 26px); font: 400 clamp(30px, 3.5vw, 56px)/1.08 'DM Serif Display', serif; color: #264653; letter-spacing: -0.015em;">
+            <span class="sc-a" style="display: block; animation: scRise 660ms cubic-bezier(.22,1,.36,1) 640ms;">Everything you feel</span>
+            <span class="sc-a" style="display: block; animation: scRise 660ms cubic-bezier(.22,1,.36,1) 760ms;">has a number</span>
+            <span class="sc-a" style="display: block; animation: scRise 660ms cubic-bezier(.22,1,.36,1) 880ms;">behind it.</span>
+          </h2>
+
+          <div style="margin-top: clamp(20px, 2.4vw, 34px); display: flex; flex-direction: column; gap: clamp(10px, 1.1vw, 15px);">
+            <div class="sc-a" style="animation: scSlideL 620ms cubic-bezier(.22,1,.36,1) 1080ms;">
+              <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 14px;">
+                <span style="font: 500 clamp(10px, 0.86vw, 13px)/1 'Inter', sans-serif; color: #55747F;">Total testosterone</span>
+                <span style="font: 400 clamp(15px, 1.5vw, 22px)/1 'DM Serif Display', serif; color: #264653;">612 <span style="font: 400 clamp(9px, 0.72vw, 11px)/1 'Inter', sans-serif; color: #7E9AA6;">ng/dL</span></span>
+              </div>
+              <div style="margin-top: 9px; height: 6px; border-radius: 999px; background: #DDE8ED; overflow: hidden;"><span class="sc-a" style="display: block; height: 100%; width: 62%; border-radius: 999px; background: #2A9D8F; transform-origin: left; animation: scBar 900ms cubic-bezier(.22,1,.36,1) 1260ms;"></span></div>
+            </div>
+            <div class="sc-a" style="animation: scSlideL 620ms cubic-bezier(.22,1,.36,1) 1200ms;">
+              <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 14px;">
+                <span style="font: 500 clamp(10px, 0.86vw, 13px)/1 'Inter', sans-serif; color: #55747F;">Vitamin D</span>
+                <span style="font: 400 clamp(15px, 1.5vw, 22px)/1 'DM Serif Display', serif; color: #264653;">24 <span style="font: 400 clamp(9px, 0.72vw, 11px)/1 'Inter', sans-serif; color: #7E9AA6;">ng/mL</span></span>
+              </div>
+              <div style="margin-top: 9px; height: 6px; border-radius: 999px; background: #DDE8ED; overflow: hidden;"><span class="sc-a" style="display: block; height: 100%; width: 27%; border-radius: 999px; background: #FFBE0B; transform-origin: left; animation: scBar 900ms cubic-bezier(.22,1,.36,1) 1380ms;"></span></div>
+            </div>
+            <div class="sc-a" style="animation: scSlideL 620ms cubic-bezier(.22,1,.36,1) 1320ms;">
+              <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 14px;">
+                <span style="font: 500 clamp(10px, 0.86vw, 13px)/1 'Inter', sans-serif; color: #55747F;">Free T4</span>
+                <span style="font: 400 clamp(15px, 1.5vw, 22px)/1 'DM Serif Display', serif; color: #264653;">1.3 <span style="font: 400 clamp(9px, 0.72vw, 11px)/1 'Inter', sans-serif; color: #7E9AA6;">ng/dL</span></span>
+              </div>
+              <div style="margin-top: 9px; height: 6px; border-radius: 999px; background: #DDE8ED; overflow: hidden;"><span class="sc-a" style="display: block; height: 100%; width: 54%; border-radius: 999px; background: #219EBC; transform-origin: left; animation: scBar 900ms cubic-bezier(.22,1,.36,1) 1500ms;"></span></div>
+            </div>
+          </div>
+
+          <p class="sc-a" style="margin-top: clamp(18px, 2vw, 28px); max-width: 40ch; animation: scRise 660ms cubic-bezier(.22,1,.36,1) 1620ms; font: 400 clamp(11px, 0.94vw, 14px)/1.7 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">A result never arrives as a bare number. It comes with its range, its date, and a sentence a person wrote.</p>
+        </div>
+      </div>
+
+      <!-- ═══ 03 · Answers you can feel ═══ -->
+      <div data-scene="2" class="sc-stage" style="background: #F2F7F9;">
+        <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0; width: 100%; height: 100%;">
+          <defs>
+            <clipPath id="scArt2"><rect x="0" y="0" width="372" height="900"></rect><rect x="1228" y="0" width="372" height="900"></rect><rect x="372" y="0" width="856" height="104"></rect><rect x="372" y="812" width="856" height="88"></rect></clipPath>
+          </defs>
+          <g clip-path="url(#scArt2)">
+          <path class="sc-a" fill="#219EBC" d="M0 0h300A300 300 0 0 1 0 300Z" opacity="0.14" style="transform-origin: 0px 0px; animation: scPivotInR 1000ms cubic-bezier(.22,1,.36,1) 120ms;"></path>
+          <path class="sc-a" fill="#2A9D8F" d="M1600 900h-300a300 300 0 0 1 300-300Z" opacity="0.16" style="transform-origin: 1600px 900px; animation: scPivotIn 1000ms cubic-bezier(.22,1,.36,1) 240ms;"></path>
+          <g class="sc-a" style="animation: scDrift 8s ease-in-out 2s infinite;"><circle cx="196" cy="742" r="58" fill="#FFBE0B" opacity="0.85"></circle></g>
+          <g class="sc-a" style="animation: scDriftB 9s ease-in-out 2.4s infinite;"><circle class="sc-a" cx="1404" cy="164" r="44" style="animation: scHue 9s linear 2s infinite;" fill="#219EBC" opacity="0.7"></circle></g>
+          </g>
+        </svg>
+
+        <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 clamp(48px, 6vw, 100px);">
+
+          <div style="position: relative; width: clamp(84px, 9vw, 132px); aspect-ratio: 100 / 133;">
+            <svg viewBox="0 0 100 133" style="position: absolute; inset: 0; width: 100%; height: 100%;">
+              <path class="sc-a" fill="#264653" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z" style="transform-origin: 44.5px 44.7px; animation: scPivotIn 820ms cubic-bezier(.22,1,.36,1) 300ms;"></path>
+              <path class="sc-a" fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z" style="transform-origin: 100px 2px; animation: scPivotInR 820ms cubic-bezier(.22,1,.36,1) 460ms;"></path>
+              <path class="sc-a" fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z" style="transform-origin: 58px 89px; animation: scPivotIn 820ms cubic-bezier(.22,1,.36,1) 620ms;"></path>
+              <path class="sc-a" fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z" style="transform-origin: 0px 131px; animation: scPivotInR 820ms cubic-bezier(.22,1,.36,1) 780ms;"></path>
+            </svg>
+          </div>
+
+          <h2 class="sc-a" style="margin-top: clamp(26px, 3vw, 44px); animation: scRise 760ms cubic-bezier(.22,1,.36,1) 1000ms; font: 400 clamp(40px, 5.6vw, 92px)/1.02 'DM Serif Display', serif; color: #264653; letter-spacing: -0.02em;">Answers you can feel.</h2>
+
+          <p class="sc-a" style="margin-top: clamp(16px, 1.8vw, 26px); max-width: 50ch; animation: scRise 700ms cubic-bezier(.22,1,.36,1) 1240ms; font: 400 clamp(12px, 1.05vw, 16px)/1.7 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Men's longevity, hormone health, and wellness. Measure the parts, read them together, treat the person.</p>
+
+          <div class="sc-a" style="margin-top: clamp(24px, 2.8vw, 40px); animation: scRise 660ms cubic-bezier(.22,1,.36,1) 1460ms; display: inline-flex; align-items: center; gap: 11px; padding: clamp(11px, 1.1vw, 15px) clamp(22px, 2.2vw, 32px); border-radius: 999px; background: #264653;">
+            <span style="width: 8px; height: 8px; border-radius: 999px; background: #FFBE0B;"></span>
+            <span style="font: 500 clamp(11px, 0.94vw, 15px)/1 'Inter', sans-serif; color: #F2F7F9;">sovicare.com</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- progress rail -->
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 3px; display: flex; gap: 2px; z-index: 3;">
+        <span style="flex: 1; background: rgba(38,70,83,0.12); overflow: hidden;"><span data-rail="0" style="display: block; height: 100%; width: 0%; background: #FFBE0B; transition: width 120ms linear;"></span></span>
+        <span style="flex: 1; background: rgba(38,70,83,0.12); overflow: hidden;"><span data-rail="1" style="display: block; height: 100%; width: 0%; background: #FFBE0B; transition: width 120ms linear;"></span></span>
+        <span style="flex: 1; background: rgba(38,70,83,0.12); overflow: hidden;"><span data-rail="2" style="display: block; height: 100%; width: 0%; background: #FFBE0B; transition: width 120ms linear;"></span></span>
+      </div>
+    </div>
+
+    <div style="margin-top: 22px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <button onClick="{{ go0 }}" style="cursor: pointer; padding: 10px 18px; border-radius: 999px; border: 1.5px solid #A9C6D2; background: transparent; font: 500 12.5px/1 'Inter', sans-serif; color: #264653;">01 · One system</button>
+        <button onClick="{{ go1 }}" style="cursor: pointer; padding: 10px 18px; border-radius: 999px; border: 1.5px solid #A9C6D2; background: transparent; font: 500 12.5px/1 'Inter', sans-serif; color: #264653;">02 · A number behind it</button>
+        <button onClick="{{ go2 }}" style="cursor: pointer; padding: 10px 18px; border-radius: 999px; border: 1.5px solid #A9C6D2; background: transparent; font: 500 12.5px/1 'Inter', sans-serif; color: #264653;">03 · Answers you can feel</button>
+      </div>
+      <button onClick="{{ toggle }}" style="cursor: pointer; padding: 10px 20px; border-radius: 999px; border: 1.5px solid #A9C6D2; background: transparent; font: 500 12.5px/1 'Inter', sans-serif; color: #55747F;">{{ playLabel }}</button>
+    </div>
+
+    <section style="margin-top: 66px; padding-top: 44px; border-top: 1px solid #B9CEDA;">
+      <div style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #2A9D8F;">Reference</div>
+      <h2 style="margin-top: 12px; font: 400 34px/1.1 'DM Serif Display', serif; color: #264653;">The four moves</h2>
+      <p style="margin-top: 12px; max-width: 66ch; font: 400 15px/1.7 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Every animation above is built from these and nothing else. A motion that can't be described in one of these four words does not belong to SoviCare.</p>
+
+      <div style="margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(216px, 1fr)); gap: 16px;">
+        <div style="padding: 26px 24px 28px; border-radius: 18px; background: #F2F7F9;">
+          <div style="height: 74px; display: grid; place-items: center;">
+            <svg viewBox="0 0 100 100" style="width: 62px; height: 62px;"><path fill="#219EBC" d="M50 0A50 50 0 0 1 100 50H50Z" style="transform-origin: 100px 0px; animation: scPivotIn 1.1s cubic-bezier(.22,1,.36,1) infinite alternate;"></path></svg>
+          </div>
+          <div style="margin-top: 14px; font: 600 16px/1.3 'Inter', sans-serif; color: #264653;">Pivot</div>
+          <p style="margin-top: 8px; font: 400 13.5px/1.6 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">A quadrant swings in around its own corner. 90° exactly, never 87°. 820ms.</p>
+        </div>
+        <div style="padding: 26px 24px 28px; border-radius: 18px; background: #F2F7F9;">
+          <div style="height: 74px; display: grid; place-items: center;">
+            <svg viewBox="0 0 100 100" style="width: 62px; height: 62px;"><path fill="#2A9D8F" d="M0 20h100v60H0Z" style="animation: scWipeR 1.4s cubic-bezier(.22,1,.36,1) infinite alternate;"></path></svg>
+          </div>
+          <div style="margin-top: 14px; font: 600 16px/1.3 'Inter', sans-serif; color: #264653;">Wipe</div>
+          <p style="margin-top: 8px; font: 400 13.5px/1.6 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Photography and full-bleed panels arrive as a hard edge travelling across. Never a fade.</p>
+        </div>
+        <div style="padding: 26px 24px 28px; border-radius: 18px; background: #F2F7F9;">
+          <div style="height: 74px; display: grid; place-items: center;">
+            <div style="display: flex; flex-direction: column; gap: 5px; align-items: center;">
+              <span style="display: block; width: 62px; height: 9px; border-radius: 3px; background: #264653; animation: scRise 1.3s cubic-bezier(.22,1,.36,1) infinite alternate;"></span>
+              <span style="display: block; width: 44px; height: 9px; border-radius: 3px; background: #264653; opacity: 0.55; animation: scRise 1.3s cubic-bezier(.22,1,.36,1) 0.12s infinite alternate;"></span>
+              <span style="display: block; width: 52px; height: 9px; border-radius: 3px; background: #264653; opacity: 0.3; animation: scRise 1.3s cubic-bezier(.22,1,.36,1) 0.24s infinite alternate;"></span>
+            </div>
+          </div>
+          <div style="margin-top: 14px; font: 600 16px/1.3 'Inter', sans-serif; color: #264653;">Rise</div>
+          <p style="margin-top: 8px; font: 400 13.5px/1.6 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Type only. Line by line, 0.42em, 120ms apart. Words never scale and never rotate.</p>
+        </div>
+        <div style="padding: 26px 24px 28px; border-radius: 18px; background: #F2F7F9;">
+          <div style="height: 74px; display: grid; place-items: center;">
+            <svg viewBox="0 0 100 100" style="width: 62px; height: 62px;"><circle cx="50" cy="50" r="36" style="animation: scHue 4s linear infinite;" fill="#219EBC"></circle></svg>
+          </div>
+          <div style="margin-top: 14px; font: 600 16px/1.3 'Inter', sans-serif; color: #264653;">Shift</div>
+          <p style="margin-top: 8px; font: 400 13.5px/1.6 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">A held shape changes colour between brand hues. Slow — 3s per step, never a gradient.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 18px; padding: 22px 26px; border-radius: 14px; background: #264653; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+        <svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none;"><path fill="#FFBE0B" d="M50 0A50 50 0 0 1 100 50H50Z"></path></svg>
+        <span style="font: 400 14px/1.6 'Inter', sans-serif; color: #A8C2CD;"><strong style="font-weight: 600; color: #F2F7F9;">Reduced motion:</strong> every animation here is disabled under <code style="font: 400 13px/1 monospace; color: #6BB8DF;">prefers-reduced-motion</code>. The composition has to read as a still frame first.</span>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1400},&quot;autoplay&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Playback&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#FFBE0B&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#FFBE0B&quot;,&quot;#219EBC&quot;,&quot;#2A9D8F&quot;],&quot;section&quot;:&quot;Brand&quot;}}">
+const DUR = [7000, 8000, 7000];
+
+class Component extends DCLogic {
+  state = { i: 0, playing: true };
+
+  componentDidMount() {
+    this.t0 = performance.now();
+    this.tick = () => {
+      if (!this.mounted) return;
+      const { i, playing } = this.state;
+      const el = this.root();
+      if (el) {
+        const rails = el.querySelectorAll('[data-rail]');
+        const p = playing ? Math.min(1, (performance.now() - this.t0) / DUR[i]) : this.lastP || 0;
+        this.lastP = p;
+        rails.forEach((r, n) => { r.style.width = n < i ? '100%' : n === i ? (p * 100) + '%' : '0%'; });
+        if (playing && p >= 1) this.advance((i + 1) % 3);
+      }
+      this.raf = requestAnimationFrame(this.tick);
+    };
+    this.mounted = true;
+    this.raf = requestAnimationFrame(this.tick);
+    this.onKey = (e) => {
+      if (e.key === 'ArrowRight') this.advance((this.state.i + 1) % 3);
+      if (e.key === 'ArrowLeft') this.advance((this.state.i + 2) % 3);
+    };
+    window.addEventListener('keydown', this.onKey);
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
+    cancelAnimationFrame(this.raf);
+    window.removeEventListener('keydown', this.onKey);
+  }
+
+  root() { return this.el || document; }
+
+  // Restarting a scene means re-running its CSS animations, which only happens
+  // on a fresh element — so clone-and-replace the stage rather than toggling a class.
+  advance(n) {
+    const el = this.root();
+    if (el) {
+      el.querySelectorAll('[data-scene]').forEach(s => {
+        const on = Number(s.dataset.scene) === n;
+        if (on) {
+          const fresh = s.cloneNode(true);
+          fresh.dataset.on = '1';
+          s.parentNode.replaceChild(fresh, s);
+        } else {
+          s.dataset.on = '0';
+        }
+      });
+    }
+    const film = el && el.querySelector('[data-film]');
+    if (film) film.dataset.paused = this.state.playing ? '0' : '1';
+    this.t0 = performance.now();
+    this.lastP = 0;
+    this.setState({ i: n });
+  }
+
+  renderVals() {
+    return {
+      playLabel: this.state.playing ? 'Pause' : 'Play',
+      next: () => this.advance((this.state.i + 1) % 3),
+      prev: () => this.advance((this.state.i + 2) % 3),
+      replay: () => this.advance(this.state.i),
+      go0: () => this.advance(0),
+      go1: () => this.advance(1),
+      go2: () => this.advance(2),
+      toggle: () => {
+        const playing = !this.state.playing;
+        if (playing) this.t0 = performance.now() - (this.lastP || 0) * DUR[this.state.i];
+        const film = this.root().querySelector('[data-film]');
+        if (film) film.dataset.paused = playing ? '0' : '1';
+        this.setState({ playing });
+      }
+    };
+  }
+}
+
+</script>
+</body>
+</html>

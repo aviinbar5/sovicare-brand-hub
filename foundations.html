@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SoviCare</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#264653"/><g transform="translate(35 24) scale(0.3)"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"/><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"/><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"/><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"/></g></svg>
+</template>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-14 -10 128 153'%3E%3Cpath fill='%23264653' d='M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z'/%3E%3Cpath fill='%23219EBC' d='M100 2H58A42 42 0 0 0 100 44Z'/%3E%3Cpath fill='%232A9D8F' d='M58 48A41 41 0 0 1 58 130Z'/%3E%3Cpath fill='%23FFBE0B' d='M0 131V89A42 42 0 0 1 42 131Z'/%3E%3C/svg%3E">
+<script src="./download-chips.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Inter', sans-serif; color: #264653; background: #F2F7F9; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, h4, p, ul, li, figure, figcaption { margin: 0; padding: 0; }
+  ul { list-style: none; }
+  a { color: #219EBC; text-decoration: none; }
+  a:hover { color: #264653; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+</helmet>
+
+<div style="max-width: 1160px; margin: 0 auto; background: #F2F7F9;">
+
+  <section id="hero" data-screen-label="01 Hero" style="display: grid; grid-template-columns: minmax(0, 1fr) 400px; min-height: 400px; background: #264653;">
+    <div style="position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; gap: 16px; padding: 56px;">
+      <div style="position: absolute; left: 0; bottom: 0; width: 260px; height: 260px; background: #2A9D8F; opacity: 0.2; border-radius: 0 999px 0 0;"></div>
+      <div style="position: relative; display: flex; align-items: center; gap: 16px;">
+        <svg viewBox="0 0 100 133" style="width: 40px; height: 53px; flex: none;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+        <div style="font: 400 58px/0.98 'DM Serif Display', serif; color: #F2F7F9; letter-spacing: -0.015em;">SoviCare</div>
+      </div>
+      <div style="position: relative; font: 400 30px/1.2 'DM Serif Display', serif; color: #D6E2E9;">Answers you can feel.</div>
+      <div style="position: relative; font: 700 10px/1 'Inter', sans-serif; letter-spacing: 0.18em; text-transform: uppercase; color: #6E8B97;">Foundations · Edition 01</div>
+    </div>
+    <div style="position: relative; overflow: hidden;">
+      <img src="assets/people/01.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%;">
+      <div style="position: absolute; right: 0; top: 0; width: 118px; height: 118px; background: #FFBE0B; border-radius: 0 0 0 999px;"></div>
+    </div>
+  </section>
+
+  <section id="logo" data-screen-label="02 Logo" style="display: grid; grid-template-columns: repeat(3, 1fr);">
+    <figure style="height: 190px; background: #D6E2E9; display: flex; align-items: center; justify-content: center; gap: 12px;">
+      <svg viewBox="0 0 100 133" style="width: 26px; height: 35px;"><path fill="#264653" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+      <span style="font: 400 36px/1 'DM Serif Display', serif; color: #264653;">SoviCare</span>
+    </figure>
+    <figure style="height: 190px; background: #264653; display: flex; align-items: center; justify-content: center; gap: 12px;">
+      <svg viewBox="0 0 100 133" style="width: 26px; height: 35px;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+      <span style="font: 400 36px/1 'DM Serif Display', serif; color: #F2F7F9;">SoviCare</span>
+    </figure>
+    <figure style="height: 190px; background: #FFBE0B; display: grid; place-items: center;">
+      <svg viewBox="0 0 100 133" style="width: 62px; height: 82px;"><g fill="#264653"><path d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path d="M100 2H58A42 42 0 0 0 100 44Z"></path><path d="M58 48A41 41 0 0 1 58 130Z"></path><path d="M0 131V89A42 42 0 0 1 42 131Z"></path></g></svg>
+    </figure>
+  </section>
+
+  <section id="color" data-screen-label="03 Color palette" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding: 44px 56px 52px; background: #F2F7F9;">
+    <h2 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #264653;">Color<br>Palette</h2>
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;">
+
+        <figure style="display: flex; flex-direction: column;">
+          <figcaption style="padding: 10px 12px; font: 700 10px/1 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #55747F; background: #FFFFFF; border: 1px solid #DDE8ED; border-bottom: 0;">Deep Teal · #264653</figcaption>
+          <div style="height: 74px; background: #264653;"></div>
+          <div style="height: 42px; background: #3E5C6B;"></div>
+          <div style="height: 42px; background: #6E8B97;"></div>
+          <div style="height: 42px; background: #A8BEC7;"></div>
+          <div style="height: 42px; background: #D6E2E9;"></div>
+        </figure>
+
+        <figure style="display: flex; flex-direction: column;">
+          <figcaption style="padding: 10px 12px; font: 700 10px/1 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #55747F; background: #FFFFFF; border: 1px solid #DDE8ED; border-bottom: 0;">Blue · #219EBC</figcaption>
+          <div style="height: 74px; background: #219EBC;"></div>
+          <div style="height: 42px; background: #4DB2C9;"></div>
+          <div style="height: 42px; background: #83CBDB;"></div>
+          <div style="height: 42px; background: #B7E2EB;"></div>
+          <div style="height: 42px; background: #E3F4F8;"></div>
+        </figure>
+
+        <figure style="display: flex; flex-direction: column;">
+          <figcaption style="padding: 10px 12px; font: 700 10px/1 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #55747F; background: #FFFFFF; border: 1px solid #DDE8ED; border-bottom: 0;">Green · #2A9D8F</figcaption>
+          <div style="height: 74px; background: #2A9D8F;"></div>
+          <div style="height: 42px; background: #55B1A5;"></div>
+          <div style="height: 42px; background: #8CCAC1;"></div>
+          <div style="height: 42px; background: #C0E2DD;"></div>
+          <div style="height: 42px; background: #E7F5F3;"></div>
+        </figure>
+
+        <figure style="display: flex; flex-direction: column;">
+          <figcaption style="padding: 10px 12px; font: 700 10px/1 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #55747F; background: #FFFFFF; border: 1px solid #DDE8ED; border-bottom: 0;">Yellow · #FFBE0B</figcaption>
+          <div style="height: 74px; background: #FFBE0B;"></div>
+          <div style="height: 42px; background: #FFCE47;"></div>
+          <div style="height: 42px; background: #FFDE83;"></div>
+          <div style="height: 42px; background: #FFEDBB;"></div>
+          <div style="height: 42px; background: #FFF8E3;"></div>
+        </figure>
+      </div>
+
+      <figure style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;">
+          <div style="height: 62px; border-radius: 12px; background: #D6E2E9;"></div>
+          <div style="height: 62px; border-radius: 12px; background: #F2F7F9; border: 1px solid #DDE8ED;"></div>
+          <div style="height: 62px; border-radius: 12px; background: #CFC6B8;"></div>
+          <div style="height: 62px; border-radius: 12px; background: #E76F51;"></div>
+          <div style="height: 62px; border-radius: 12px; background: #7E9AA6;"></div>
+        </div>
+        <figcaption style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; font: 400 11.5px/1.45 'Inter', sans-serif; color: #55747F;">
+          <span>Mist — the page</span>
+          <span>Paper — cards</span>
+          <span>Clay — warm posters</span>
+          <span>Coral — out of range</span>
+          <span>Slate — captions</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="type" data-screen-label="04 Typography" style="display: grid; grid-template-columns: 170px minmax(0, 1fr) 210px; gap: 24px; padding: 44px 56px 52px; background: #D6E2E9;">
+    <h2 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #264653;">Typography</h2>
+
+    <div style="display: flex; flex-direction: column; gap: 34px;">
+      <figure style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="font: 700 10px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #2A9D8F;">Headline</div>
+        <div style="font: 400 42px/1.02 'DM Serif Display', serif; color: #264653; letter-spacing: -0.01em;">DM Serif Display</div>
+        <figcaption style="display: flex; flex-direction: column; gap: 3px; margin-top: 6px;">
+          <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #55747F;">Characters</span>
+          <span style="font: 400 13px/1.5 'DM Serif Display', serif; color: #3E5C6B; word-break: break-all;">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789!?#$%&amp;()@=?,.</span>
+        </figcaption>
+      </figure>
+
+      <figure style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="font: 700 10px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #2A9D8F;">Running text</div>
+        <div style="font: 400 34px/1.15 'Inter', sans-serif; color: #264653; letter-spacing: -0.02em;">Inter</div>
+        <figcaption style="display: flex; flex-direction: column; gap: 3px; margin-top: 6px;">
+          <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #55747F;">Characters</span>
+          <span style="font: 400 12px/1.5 'Inter', sans-serif; color: #3E5C6B; word-break: break-all;">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789!?#$%&amp;()@=?,.</span>
+        </figcaption>
+      </figure>
+
+      <figure style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="font: 700 10px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #2A9D8F;">Highlight word</div>
+        <div style="font: italic 400 34px/1.15 'DM Serif Display', serif; color: #264653;">DM Serif italic</div>
+        <figcaption style="font: 400 12px/1.55 'Inter', sans-serif; color: #55747F; max-width: 44ch;">Once per document. Never for emphasis inside body copy — weight, color, highlight and scale change carry that, in that order.</figcaption>
+      </figure>
+    </div>
+
+    <figure style="display: flex; flex-direction: column;">
+      <div style="height: 58px; background: #F2F7F9; display: flex; align-items: center; padding: 0 18px; font: 400 17px/1 'Inter', sans-serif; color: #264653;">AaBbCcDd</div>
+      <div style="height: 58px; background: #219EBC; display: flex; align-items: center; padding: 0 18px; font: 500 17px/1 'Inter', sans-serif; color: #F2F7F9;">AaBbCcDd</div>
+      <div style="height: 58px; background: #2A9D8F; display: flex; align-items: center; padding: 0 18px; font: 600 17px/1 'Inter', sans-serif; color: #F2F7F9;">AaBbCcDd</div>
+      <div style="height: 58px; background: #264653; display: flex; align-items: center; padding: 0 18px; font: 700 17px/1 'Inter', sans-serif; color: #FFBE0B;">AaBbCcDd</div>
+      <figcaption style="padding: 12px 2px 0; font: 400 11.5px/1.5 'Inter', sans-serif; color: #55747F;">Weights 300–700. Inter never above 26px; DM Serif never below 26px.</figcaption>
+    </figure>
+  </section>
+
+  <section id="product" data-screen-label="05 Product" style="padding: 46px 56px 54px; background: #F2F7F9;">
+    <div style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px;">
+      <h2 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #264653;">Product</h2>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <p style="font: 400 14px/1.65 'Inter', sans-serif; color: #55747F; max-width: 62ch;">Each product gets exactly two things of its own: a body color and one piece from the kit. Nothing else changes — same wordmark, same layout, same label architecture.</p>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+
+          <figure style="border-radius: 16px; overflow: hidden; background: #264653; position: relative; height: 196px;">
+            <div style="position: absolute; right: -34px; bottom: -34px; width: 150px; height: 150px; background: #2A9D8F; border-radius: 999px 0 0 0;"></div>
+            <div style="position: relative; padding: 20px; display: flex; flex-direction: column; height: 100%;">
+              <div style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.18em; text-transform: uppercase; color: #A8BEC7;">SoviCare · SC-01</div>
+              <div style="margin-top: auto; font: 400 32px/1 'DM Serif Display', serif; color: #F2F7F9;">Rest</div>
+              <div style="margin-top: 7px; font: 400 11.5px/1.5 'Inter', sans-serif; color: #A8BEC7;">Sleep onset and continuity</div>
+            </div>
+          </figure>
+
+          <figure style="border-radius: 16px; overflow: hidden; background: #CFC6B8; position: relative; height: 196px;">
+            <div style="position: absolute; right: 0; top: 0; width: 118px; height: 196px; background: #264653; border-radius: 999px 0 0 999px;"></div>
+            <div style="position: relative; padding: 20px; display: flex; flex-direction: column; height: 100%;">
+              <div style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.18em; text-transform: uppercase; color: #6B6255;">SoviCare · SC-02</div>
+              <div style="margin-top: auto; font: 400 32px/1 'DM Serif Display', serif; color: #264653;">Daily</div>
+              <div style="margin-top: 7px; font: 400 11.5px/1.5 'Inter', sans-serif; color: #6B6255;">Baseline micronutrients</div>
+            </div>
+          </figure>
+
+          <figure style="border-radius: 16px; overflow: hidden; background: #219EBC; position: relative; height: 196px;">
+            <div style="position: absolute; right: 0; top: 0; width: 96px; height: 96px; background: #FFBE0B; border-radius: 0 0 0 999px;"></div>
+            <div style="position: relative; padding: 20px; display: flex; flex-direction: column; height: 100%;">
+              <div style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.18em; text-transform: uppercase; color: #DFF2F8;">SoviCare · SC-03</div>
+              <div style="margin-top: auto; font: 400 32px/1 'DM Serif Display', serif; color: #F2F7F9;">Drive</div>
+              <div style="margin-top: 7px; font: 400 11.5px/1.5 'Inter', sans-serif; color: #DFF2F8;">Libido and vitality support</div>
+            </div>
+          </figure>
+        </div>
+
+        <figure style="border-radius: 16px; background: #FFFFFF; border: 1px solid #DDE8ED; padding: 26px 28px; display: flex; flex-direction: column; gap: 18px;">
+          <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 28px;">
+            <div style="display: flex; flex-direction: column; gap: 5px;">
+              <div style="display: flex; align-items: center; gap: 9px;">
+                <svg viewBox="0 0 100 133" style="width: 15px; height: 20px;"><path fill="#264653" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+                <span style="font: 400 15px/1 'DM Serif Display', serif; color: #264653;">SoviCare</span>
+              </div>
+              <div style="font: 400 27px/1.05 'DM Serif Display', serif; color: #264653;">Rest</div>
+              <div style="font: 400 11.5px/1.5 'Inter', sans-serif; color: #55747F;">Magnesium glycinate, glycine, L-theanine</div>
+            </div>
+            <div style="max-width: 42ch; font: 400 9.5px/1.55 'Inter', sans-serif; color: #7E9AA6;">Food supplement. Not a substitute for a varied diet. Speak to your provider before starting if you take prescription medication.</div>
+          </div>
+          <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; border-top: 1px solid #E7EFF3; padding-top: 16px;">
+            <div style="display: flex; align-items: flex-end; gap: 0;">
+              <div style="width: 62px; height: 31px; background: #2A9D8F; border-radius: 999px 999px 0 0;"></div>
+              <div style="width: 42px; height: 42px; background: #264653; border-radius: 999px 0 0 0;"></div>
+              <div style="width: 26px; height: 26px; background: #FFBE0B; border-radius: 0 999px 0 0;"></div>
+            </div>
+            <div style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #55747F;">60 capsules · lot · exp</div>
+          </div>
+          <figcaption style="font: 400 11.5px/1.55 'Inter', sans-serif; color: #55747F;">Label, flat — the art sits in a reserved band along the foot, cut by the left and right edges. Type never sits on a shape.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="buttons" data-screen-label="06 Buttons" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding: 40px 56px 46px; background: #FFF8E3;">
+    <h2 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #264653;">Buttons</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 200px)); gap: 20px;">
+      <figure style="display: flex; flex-direction: column; gap: 9px;">
+        <div style="height: 46px; border-radius: 999px; background: #264653; color: #F2F7F9; display: grid; place-items: center; font: 500 14px/1 'Inter', sans-serif;">Start with answers</div>
+        <figcaption style="font: 400 11.5px/1 'Inter', sans-serif; color: #7E9AA6;">Normal</figcaption>
+      </figure>
+      <figure style="display: flex; flex-direction: column; gap: 9px;">
+        <div style="height: 46px; border-radius: 999px; background: transparent; border: 1.5px solid #264653; color: #264653; display: grid; place-items: center; font: 500 14px/1 'Inter', sans-serif;">See how it works</div>
+        <figcaption style="font: 400 11.5px/1 'Inter', sans-serif; color: #7E9AA6;">Outline</figcaption>
+      </figure>
+      <figure style="display: flex; flex-direction: column; gap: 9px;">
+        <div style="height: 46px; border-radius: 999px; background: #FFBE0B; color: #264653; display: grid; place-items: center; font: 500 14px/1 'Inter', sans-serif;">Get my results</div>
+        <figcaption style="font: 400 11.5px/1 'Inter', sans-serif; color: #7E9AA6;">Result moment only</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="wording" data-screen-label="07 Wording" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding: 46px 56px 52px; background: #264653;">
+    <h2 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #FFBE0B;">Wording</h2>
+    <div style="display: flex; flex-direction: column; gap: 16px; max-width: 70ch;">
+      <div style="font: 400 38px/1.08 'DM Serif Display', serif; color: #F2F7F9;">Symptoms are a hint. <span style="font-style: italic; color: #FFBE0B;">Labs are an answer.</span></div>
+      <p style="font: 400 15px/1.7 'Inter', sans-serif; color: #A8BEC7;">Fatigue, low mood, weight and poor sleep look identical across half a dozen unrelated causes. We measure before we name anything, and a <strong style="font-weight: 600; color: #F2F7F9;">licensed provider</strong> puts their name to what happens next.</p>
+      <div style="font: 400 11.5px/1.6 'Inter', sans-serif; color: #6E8B97; max-width: 78ch;">One emphasis per paragraph. One highlight per page. Never a benefit adjective, a price, or a symptom.</div>
+    </div>
+  </section>
+
+  <section id="graphics" data-screen-label="08 Graphics elements" style="padding: 46px 56px 54px; background: #F2F7F9;">
+    <div style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px;">
+      <h2 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #264653;">Graphics<br>Elements</h2>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+
+        <figure style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; align-items: end;">
+            <div style="aspect-ratio: 1; background: #264653;"></div>
+            <div style="aspect-ratio: 1; background: #219EBC; border-radius: 100% 0 0 0;"></div>
+            <div style="aspect-ratio: 2 / 1; background: #2A9D8F; border-radius: 999px 999px 0 0;"></div>
+            <div style="aspect-ratio: 1; background: #FFBE0B; border-radius: 999px;"></div>
+            <div style="aspect-ratio: 3 / 4; background: #CFC6B8; border-radius: 999px 999px 0 0;"></div>
+            <div style="aspect-ratio: 1; border: 20px solid #7E9AA6; border-radius: 999px; border-right-color: transparent; border-bottom-color: transparent;"></div>
+          </div>
+          <figcaption style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; font: 400 11px/1.4 'Inter', sans-serif; color: #55747F;">
+            <span>Square</span><span>Quarter</span><span>Half</span><span>Circle</span><span>Arch</span><span>Arc</span>
+          </figcaption>
+        </figure>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+          <figure style="aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; background: #264653; position: relative;">
+            <div style="position: absolute; left: -30px; bottom: -30px; width: 150px; height: 150px; background: #2A9D8F; border-radius: 999px;"></div>
+            <div style="position: absolute; right: 22px; top: 22px; width: 54px; height: 54px; background: #FFBE0B; border-radius: 0 0 0 999px;"></div>
+          </figure>
+          <figure style="aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; position: relative;">
+            <img src="assets/people/03.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+            <div style="position: absolute; right: -40px; bottom: -40px; width: 150px; height: 150px; background: #219EBC; opacity: 0.86; border-radius: 999px 0 0 0;"></div>
+          </figure>
+          <figure style="aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; background: #D6E2E9; position: relative;">
+            <div style="position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: 62%; height: 100%; background: #264653; border-radius: 999px 999px 0 0;"></div>
+          </figure>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 16px;">
+          <figure style="aspect-ratio: 1; border-radius: 16px; overflow: hidden; position: relative;">
+            <img src="assets/people/06.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+          </figure>
+          <figure style="aspect-ratio: 1; border-radius: 16px; background: #FFFFFF; border: 1px solid #DDE8ED; display: grid; place-items: center;">
+            <svg viewBox="0 0 100 133" style="width: 46%; height: auto;"><path fill="#264653" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+          </figure>
+          <figure style="aspect-ratio: 1.4 / 1; border-radius: 16px; overflow: hidden; background: #2A9D8F; display: flex; align-items: flex-end; padding: 22px;">
+            <div style="font: italic 400 26px/1.15 'DM Serif Display', serif; color: #F2F7F9;">Nothing is looked at alone.</div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="social" data-screen-label="09 Social" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding: 46px 56px 60px; background: #D6E2E9;">
+    <h2 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #264653;">Social</h2>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 320px)); gap: 22px;">
+
+      <figure style="border-radius: 14px; overflow: hidden; background: #FFFFFF; border: 1px solid #C6D6DF;">
+        <div style="display: flex; align-items: center; gap: 8px; padding: 10px 12px;">
+          <svg viewBox="0 0 100 133" style="width: 13px; height: 17px;"><path fill="#264653" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+          <span style="font: 500 11.5px/1 'Inter', sans-serif; color: #264653;">sovicare</span>
+        </div>
+        <div style="position: relative; aspect-ratio: 1; background: #264653; padding: 26px; display: flex; flex-direction: column;">
+          <div style="position: absolute; right: -44px; bottom: -44px; width: 168px; height: 168px; background: #2A9D8F; border-radius: 999px 0 0 0;"></div>
+          <div style="position: relative; font: 400 27px/1.1 'DM Serif Display', serif; color: #F2F7F9;">Everything you feel has a number behind it.</div>
+          <div style="position: relative; margin-top: auto; display: flex; flex-direction: column; gap: 10px;">
+            <div style="align-self: flex-start; padding: 10px 18px; border-radius: 999px; background: #FFBE0B; font: 500 12px/1 'Inter', sans-serif; color: #264653;">Start with answers</div>
+            <div style="font: 400 9.5px/1.5 'Inter', sans-serif; color: #A8BEC7;">Assessment only. Not a diagnosis.</div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 12px; padding: 10px 12px; font: 400 12px/1 'Inter', sans-serif; color: #7E9AA6;">
+          <span>♡</span><span>◯</span><span>↗</span>
+        </div>
+      </figure>
+
+      <figure style="border-radius: 14px; overflow: hidden; background: #FFFFFF; border: 1px solid #C6D6DF;">
+        <div style="display: flex; align-items: center; gap: 8px; padding: 10px 12px;">
+          <svg viewBox="0 0 100 133" style="width: 13px; height: 17px;"><path fill="#264653" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+          <span style="font: 500 11.5px/1 'Inter', sans-serif; color: #264653;">sovicare</span>
+        </div>
+        <div style="position: relative; aspect-ratio: 1; overflow: hidden;">
+          <img src="assets/people/05.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(38,70,83,0.72) 0%, rgba(38,70,83,0.12) 46%, rgba(38,70,83,0.55) 100%);"></div>
+          <div style="position: absolute; left: -36px; bottom: -36px; width: 140px; height: 140px; background: #219EBC; opacity: 0.9; border-radius: 999px 0 0 0;"></div>
+          <div style="position: relative; height: 100%; padding: 24px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="font: 400 27px/1.1 'DM Serif Display', serif; color: #F2F7F9;">A man knows his own baseline.</div>
+            <div style="align-self: flex-end; font: 500 12px/1 'Inter', sans-serif; color: #F2F7F9;">Two minutes. No phone call.</div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 12px; padding: 10px 12px; font: 400 12px/1 'Inter', sans-serif; color: #7E9AA6;">
+          <span>♡</span><span>◯</span><span>↗</span>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section id="layout" data-screen-label="10 Layout and grid" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding: 46px 56px 54px; background: #F2F7F9;">
+    <h2 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #264653;">Layout<br>and grid</h2>
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <p style="font: 400 14px/1.65 'Inter', sans-serif; color: #55747F; max-width: 62ch;">One page width, one grid, one measure. A section is a full-bleed band of colour with the content held to the wrap; nothing floats outside it.</p>
+
+      <figure style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="position: relative; height: 132px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px; overflow: hidden;">
+          <div style="position: absolute; inset: 0 0 0 0; display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; padding: 0 56px;">
+            <div style="background: #219EBC; opacity: 0.12;"></div><div style="background: #219EBC; opacity: 0.12;"></div><div style="background: #219EBC; opacity: 0.12;"></div>
+            <div style="background: #219EBC; opacity: 0.12;"></div><div style="background: #219EBC; opacity: 0.12;"></div><div style="background: #219EBC; opacity: 0.12;"></div>
+            <div style="background: #219EBC; opacity: 0.12;"></div><div style="background: #219EBC; opacity: 0.12;"></div><div style="background: #219EBC; opacity: 0.12;"></div>
+            <div style="background: #219EBC; opacity: 0.12;"></div><div style="background: #219EBC; opacity: 0.12;"></div><div style="background: #219EBC; opacity: 0.12;"></div>
+          </div>
+          <div style="position: absolute; left: 56px; right: 56px; top: 50%; transform: translateY(-50%); height: 1px; background: #B9CEDA;"></div>
+        </div>
+        <figcaption style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; font: 400 11.5px/1.5 'Inter', sans-serif; color: #55747F;">
+          <span><strong style="font-weight: 600; color: #264653;">1180px</strong> page max</span>
+          <span><strong style="font-weight: 600; color: #264653;">12</strong> columns, 24px gutter</span>
+          <span><strong style="font-weight: 600; color: #264653;">56px</strong> page inset, 24px on mobile</span>
+          <span><strong style="font-weight: 600; color: #264653;">68ch</strong> measure for running text</span>
+        </figcaption>
+      </figure>
+
+      <figure style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 9px; padding: 20px 22px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <div style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">Breakpoints</div>
+          <div style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #55747F;">390 mobile · 768 tablet · 1180 desktop wrap · 1440 design width</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 9px; padding: 20px 22px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <div style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">Section rhythm</div>
+          <div style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #55747F;">144px between major sections, 72px inside one. Mist → Paper → Deep Teal, never two dark bands adjacent.</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 9px; padding: 20px 22px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <div style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">Radius</div>
+          <div style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #55747F;">999px, 14px, or 0. Nothing between. Never an oval, never a soft-cornered rectangle.</div>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section id="spacing" data-screen-label="11 Spacing" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding: 46px 56px 54px; background: #FFFFFF;">
+    <h2 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #264653;">Spacing</h2>
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <p style="font: 400 14px/1.65 'Inter', sans-serif; color: #55747F; max-width: 62ch;">Eight steps off a 48px unit. Nothing below 4px, and no value that is not on this list.</p>
+      <figure style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; align-items: center; gap: 14px;"><span style="width: 74px; flex: none; font: 700 9.5px/1 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #7E9AA6;">space-1</span><span style="width: 4px; height: 16px; background: #264653;"></span><span style="font: 400 11.5px/1 'Inter', sans-serif; color: #55747F;">4px · hairline gaps, result units</span></div>
+          <div style="display: flex; align-items: center; gap: 14px;"><span style="width: 74px; flex: none; font: 700 9.5px/1 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #7E9AA6;">space-2</span><span style="width: 12px; height: 16px; background: #264653;"></span><span style="font: 400 11.5px/1 'Inter', sans-serif; color: #55747F;">12px · inside a control</span></div>
+          <div style="display: flex; align-items: center; gap: 14px;"><span style="width: 74px; flex: none; font: 700 9.5px/1 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #7E9AA6;">space-3</span><span style="width: 24px; height: 16px; background: #264653;"></span><span style="font: 400 11.5px/1 'Inter', sans-serif; color: #55747F;">24px · gutter, card gap</span></div>
+          <div style="display: flex; align-items: center; gap: 14px;"><span style="width: 74px; flex: none; font: 700 9.5px/1 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #7E9AA6;">space-4</span><span style="width: 36px; height: 16px; background: #264653;"></span><span style="font: 400 11.5px/1 'Inter', sans-serif; color: #55747F;">36px · card padding</span></div>
+          <div style="display: flex; align-items: center; gap: 14px;"><span style="width: 74px; flex: none; font: 700 9.5px/1 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #7E9AA6;">space-5</span><span style="width: 48px; height: 16px; background: #219EBC;"></span><span style="font: 400 11.5px/1 'Inter', sans-serif; color: #55747F;">48px · the grid unit, page inset</span></div>
+          <div style="display: flex; align-items: center; gap: 14px;"><span style="width: 74px; flex: none; font: 700 9.5px/1 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #7E9AA6;">space-6</span><span style="width: 72px; height: 16px; background: #264653;"></span><span style="font: 400 11.5px/1 'Inter', sans-serif; color: #55747F;">72px · inside a section</span></div>
+          <div style="display: flex; align-items: center; gap: 14px;"><span style="width: 74px; flex: none; font: 700 9.5px/1 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #7E9AA6;">space-7</span><span style="width: 96px; height: 16px; background: #264653;"></span><span style="font: 400 11.5px/1 'Inter', sans-serif; color: #55747F;">96px · hero padding</span></div>
+          <div style="display: flex; align-items: center; gap: 14px;"><span style="width: 74px; flex: none; font: 700 9.5px/1 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #7E9AA6;">space-8</span><span style="width: 144px; height: 16px; background: #264653;"></span><span style="font: 400 11.5px/1 'Inter', sans-serif; color: #55747F;">144px · between major sections</span></div>
+        </div>
+        <figcaption style="font: 400 11.5px/1.55 'Inter', sans-serif; color: #7E9AA6;">Blue marks the unit everything else is derived from.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="icons" data-screen-label="12 Iconography" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding: 46px 56px 54px; background: #F2F7F9;">
+    <h2 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #264653;">Iconography</h2>
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <p style="font: 400 14px/1.65 'Inter', sans-serif; color: #55747F; max-width: 62ch;">Drawn on the same geometry as the Quadrant Kit: a 24px box, 1.5px stroke, round caps and joins, no fill, no two weights in one icon. An icon labels a thing; it never replaces the label.</p>
+
+      <figure style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; padding: 24px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 9px;"><svg viewBox="0 0 24 24" style="width: 26px; height: 26px; fill: none; stroke: #264653; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><circle cx="12" cy="12" r="8.5"></circle><path d="M9 15l2-4 4-2-2 4z"></path></svg><span style="font: 400 10.5px/1 'Inter', sans-serif; color: #55747F;">Focus</span></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 9px;"><svg viewBox="0 0 24 24" style="width: 26px; height: 26px; fill: none; stroke: #264653; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><circle cx="12" cy="12" r="8.5"></circle><circle cx="12" cy="12" r="3.5"></circle></svg><span style="font: 400 10.5px/1 'Inter', sans-serif; color: #55747F;">Goal</span></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 9px;"><svg viewBox="0 0 24 24" style="width: 26px; height: 26px; fill: none; stroke: #264653; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5v5l3.5 2"></path></svg><span style="font: 400 10.5px/1 'Inter', sans-serif; color: #55747F;">Duration</span></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 9px;"><svg viewBox="0 0 24 24" style="width: 26px; height: 26px; fill: none; stroke: #264653; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><path d="M5.5 19.5v-5M10.5 19.5v-9M15.5 19.5v-13M20 19.5v-3"></path></svg><span style="font: 400 10.5px/1 'Inter', sans-serif; color: #55747F;">Impact</span></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 9px;"><svg viewBox="0 0 24 24" style="width: 26px; height: 26px; fill: none; stroke: #264653; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><path d="M12 3.5 5.5 6v6c0 4 2.8 6.9 6.5 8.5 3.7-1.6 6.5-4.5 6.5-8.5V6z"></path></svg><span style="font: 400 10.5px/1 'Inter', sans-serif; color: #55747F;">Privacy</span></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 9px;"><svg viewBox="0 0 24 24" style="width: 26px; height: 26px; fill: none; stroke: #264653; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5.5 19.5a6.5 6.5 0 0 1 13 0"></path></svg><span style="font: 400 10.5px/1 'Inter', sans-serif; color: #55747F;">Provider</span></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 9px;"><svg viewBox="0 0 24 24" style="width: 26px; height: 26px; fill: none; stroke: #264653; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"></path></svg><span style="font: 400 10.5px/1 'Inter', sans-serif; color: #55747F;">Confirmed</span></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 9px;"><svg viewBox="0 0 24 24" style="width: 26px; height: 26px; fill: none; stroke: #264653; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><path d="M5 6.5h14v13H5zM8.5 4v4M15.5 4v4M5 10.5h14"></path></svg><span style="font: 400 10.5px/1 'Inter', sans-serif; color: #55747F;">Frequency</span></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 9px;"><svg viewBox="0 0 24 24" style="width: 26px; height: 26px; fill: none; stroke: #264653; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><path d="M6 4v6M6 14v6M12 4v9M12 17v3M18 4v3M18 11v9M3.5 12h5M9.5 15h5M15.5 8h5"></path></svg><span style="font: 400 10.5px/1 'Inter', sans-serif; color: #55747F;">Control</span></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 9px;"><svg viewBox="0 0 24 24" style="width: 26px; height: 26px; fill: none; stroke: #264653; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><path d="M4.5 5.5h15v10h-9l-4 3.5z"></path></svg><span style="font: 400 10.5px/1 'Inter', sans-serif; color: #55747F;">Consult</span></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 9px;"><svg viewBox="0 0 24 24" style="width: 26px; height: 26px; fill: none; stroke: #264653; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><path d="M7.5 3.5h7l4.5 4.5v13h-11.5zM14 3.5V8h4.5M9 12.5h6M9 16h4"></path></svg><span style="font: 400 10.5px/1 'Inter', sans-serif; color: #55747F;">Labs</span></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 9px;"><svg viewBox="0 0 24 24" style="width: 26px; height: 26px; fill: none; stroke: #264653; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 11v5.5M12 7.8v.1"></path></svg><span style="font: 400 10.5px/1 'Inter', sans-serif; color: #55747F;">Note</span></div>
+        </div>
+        <figcaption style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; font: 400 11.5px/1.55 'Inter', sans-serif; color: #55747F;">
+          <span><strong style="font-weight: 600; color: #264653;">Sizes.</strong> 15px inline with caption, 22px in a control, 26px in a card, 34px as a state mark.</span>
+          <span><strong style="font-weight: 600; color: #264653;">Colour.</strong> Deep Teal at rest, Green when selected or confirmed, Slate Light when secondary. Never yellow.</span>
+          <span><strong style="font-weight: 600; color: #264653;">Never.</strong> Filled, duotone, in a coloured circle, or carrying meaning on its own.</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="photography" data-screen-label="13 Photography" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding: 46px 56px 54px; background: #D6E2E9;">
+    <h2 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #264653;">Photography</h2>
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <p style="font: 400 14px/1.65 'Inter', sans-serif; color: #55747F; max-width: 62ch;">Men in their own life, at rest rather than at performance. Available light, no studio gloss, no gym, no clinic. Nothing is looked at alone — people appear in relation.</p>
+
+      <div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 16px;">
+        <figure style="position: relative; aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden;">
+          <img src="assets/people/02.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+          <figcaption style="position: absolute; left: 0; bottom: 0; right: 0; padding: 14px 16px; background: linear-gradient(0deg, rgba(38,70,83,0.82), rgba(38,70,83,0)); font: 500 11.5px/1.4 'Inter', sans-serif; color: #F2F7F9;">Face never covered. Kit piece enters from a corner, toward the subject.</figcaption>
+        </figure>
+        <figure style="position: relative; aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden;">
+          <img src="assets/people/07.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%;">
+          <div style="position: absolute; right: -34px; bottom: -34px; width: 132px; height: 132px; background: #219EBC; opacity: 0.86; border-radius: 999px 0 0 0;"></div>
+        </figure>
+        <figure style="position: relative; aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden;">
+          <img src="assets/people/04.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; inset: 0; background: rgba(38,70,83,0.28);"></div>
+          <div style="position: absolute; left: 16px; bottom: 16px; font: italic 400 26px/1.1 'DM Serif Display', serif; color: #F2F7F9;">In relation.</div>
+        </figure>
+      </div>
+
+      <figure style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 9px; padding: 20px 22px; background: #FFFFFF; border: 1px solid #C6D6DF; border-radius: 14px;">
+          <div style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">Do</div>
+          <div style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #55747F;">Ages 35–60. Available light. Domestic and outdoor settings. Crop to 4:3 or 1:1. Deep Teal wash at 28% when type must sit over the image.</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 9px; padding: 20px 22px; background: #FFFFFF; border: 1px solid #C6D6DF; border-radius: 14px;">
+          <div style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #E76F51;">Don't</div>
+          <div style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #55747F;">Before-and-after. Torsos without faces. Pills, syringes, lab coats, stock smiles. A face covered by a kit piece. Two pieces on one photograph.</div>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section id="motion" data-screen-label="14 Motion" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding: 46px 56px 54px; background: #FFFFFF;">
+    <h2 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #264653;">Motion</h2>
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <p style="font: 400 14px/1.65 'Inter', sans-serif; color: #55747F; max-width: 62ch;">Motion confirms, it never performs. Four durations, one easing, one distance. If an animation draws attention to itself it is wrong.</p>
+
+      <figure style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;">
+        <div style="display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; background: #F2F7F9; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <div style="font: 400 26px/1 'DM Serif Display', serif; color: #264653;">140ms</div>
+          <div style="font: 400 11.5px/1.5 'Inter', sans-serif; color: #55747F;">Hover, focus, chip toggle</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; background: #F2F7F9; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <div style="font: 400 26px/1 'DM Serif Display', serif; color: #264653;">180ms</div>
+          <div style="font: 400 11.5px/1.5 'Inter', sans-serif; color: #55747F;">Button press, selection settle</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; background: #F2F7F9; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <div style="font: 400 26px/1 'DM Serif Display', serif; color: #264653;">220ms</div>
+          <div style="font: 400 11.5px/1.5 'Inter', sans-serif; color: #55747F;">Question enters, progress advances</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; background: #F2F7F9; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <div style="font: 400 26px/1 'DM Serif Display', serif; color: #264653;">320ms</div>
+          <div style="font: 400 11.5px/1.5 'Inter', sans-serif; color: #55747F;">Pause after an answer, before advancing</div>
+        </div>
+      </figure>
+
+      <figure style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 9px; padding: 20px 22px; background: #F2F7F9; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <div style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">Easing and distance</div>
+          <div style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #55747F;">One curve: <code style="font: 400 11.5px/1 'Inter', sans-serif; color: #264653;">ease</code>. One distance: 10px, always upward. Opacity 0 → 1 travels with it.</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 9px; padding: 20px 22px; background: #F2F7F9; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <div style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">Selection</div>
+          <div style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #55747F;">A chosen answer scales to 1.02 and its border turns Green. Nothing bounces, nothing overshoots.</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 9px; padding: 20px 22px; background: #F2F7F9; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <div style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #E76F51;">Reduced motion</div>
+          <div style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #55747F;">All animation and transition off. State changes are instant and every state stays legible without movement.</div>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section id="voice" data-screen-label="15 Voice and tone" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding: 46px 56px 54px; background: #F2F7F9;">
+    <h2 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #264653;">Voice<br>and tone</h2>
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <p style="font: 400 14px/1.65 'Inter', sans-serif; color: #55747F; max-width: 62ch;">The human sentence first, then the precise one. Calm, adult, unembarrassed. We do not sell relief and we do not perform empathy.</p>
+
+      <figure style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 24px 26px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <div style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">Say</div>
+          <div style="display: flex; flex-direction: column; gap: 9px; font: 400 13px/1.6 'Inter', sans-serif; color: #264653;">
+            <span>may be appropriate</span>
+            <span>based on eligibility</span>
+            <span>provider-reviewed</span>
+            <span>a licensed clinician will review your information</span>
+            <span>labs where needed</span>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 24px 26px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <div style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #E76F51;">Never say</div>
+          <div style="display: flex; flex-direction: column; gap: 9px; font: 400 13px/1.6 'Inter', sans-serif; color: #7E9AA6;">
+            <span>this medication is right for you</span>
+            <span>you have low testosterone</span>
+            <span>guaranteed · proven · clinically proven</span>
+            <span>doctor recommended · doctor approved</span>
+            <span>any statistic, success rate or badge we did not earn</span>
+          </div>
+        </div>
+      </figure>
+
+      <figure style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 9px; padding: 20px 22px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <div style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Headlines</div>
+          <div style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #55747F;">Section headlines take a full stop and are never questions. In the assessment, the question <em style="font-style: normal; font-weight: 600; color: #264653;">is</em> the headline — never a second one above it.</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 9px; padding: 20px 22px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <div style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Sexual health</div>
+          <div style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #55747F;">Describe the experience, never the clinical term. "Finishing sooner than you'd like" — not the diagnosis. Discreet, mature, non-judgemental, no reassurance the user did not ask for.</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 9px; padding: 20px 22px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <div style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">CTA</div>
+          <div style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #55747F;">"Start with answers" stays identical through the whole flow. It is never reworded to fit a section.</div>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section id="digital" data-screen-label="16 Digital application" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding: 46px 56px 54px; background: #D6E2E9;">
+    <h2 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #264653;">Digital<br>application</h2>
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <p style="font: 400 14px/1.65 'Inter', sans-serif; color: #55747F; max-width: 62ch;">Three allowances exist once per page and are budgeted before layout begins.</p>
+
+      <figure style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+        <div style="position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 9px; padding: 22px 24px; background: #FFFFFF; border: 1px solid #C6D6DF; border-radius: 14px;">
+          <div style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">Serif</div>
+          <div style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #55747F;">Editorial moments only: hero, education, longevity lifestyle, final CTA. One italic highlight word on the page — in the hero, <span style="font: italic 400 15px/1 'DM Serif Display', serif; color: #264653;">answers</span>. Never in functional UI.</div>
+        </div>
+        <div style="position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 9px; padding: 22px 24px; background: #FFFFFF; border: 1px solid #C6D6DF; border-radius: 14px;">
+          <div style="position: absolute; right: -18px; top: -18px; width: 54px; height: 54px; background: #FFBE0B; border-radius: 0 0 0 999px;"></div>
+          <div style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">Yellow</div>
+          <div style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #55747F;">A restrained accent: kit geometry, a small label, one editorial detail. Never a section background. Never the active state in the assessment — that stays Teal and Blue.</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 9px; padding: 22px 24px; background: #264653; border-radius: 14px;">
+          <div style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #FFBE0B;">Dark</div>
+          <div style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #A8C2CD;">Two to three Deep Teal anchors, footer excluded: the outcome reveal, clinical credibility, and one further editorial anchor only if rhythm needs it. Never adjacent. The assessment stays light.</div>
+        </div>
+      </figure>
+
+      <figure style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 9px; padding: 20px 22px; background: #FFFFFF; border: 1px solid #C6D6DF; border-radius: 14px;">
+          <div style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Targets and focus</div>
+          <div style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #55747F;">Nothing tappable below 44px. Focus is a 2px Blue ring at 3px offset, never removed.</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 9px; padding: 20px 22px; background: #FFFFFF; border: 1px solid #C6D6DF; border-radius: 14px;">
+          <div style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Compliance placement</div>
+          <div style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #55747F;">"Assessment only. Not a diagnosis." sits above the fold and on every assessment surface. A licensed provider is named wherever a next step is offered.</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 9px; padding: 20px 22px; background: #FFFFFF; border: 1px solid #C6D6DF; border-radius: 14px;">
+          <div style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Mobile</div>
+          <div style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #55747F;">390px, 24px inset, one column. Section rhythm drops 144 → 96, card padding 36 → 24. Type scale is unchanged.</div>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section id="colophon" data-screen-label="17 Colophon" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 30px 56px 34px; background: #264653;">
+    <div style="display: flex; align-items: center; gap: 11px;">
+      <svg viewBox="0 0 100 133" style="width: 17px; height: 23px;"><path fill="#D6E2E9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+      <span style="font: 400 17px/1 'DM Serif Display', serif; color: #F2F7F9;">SoviCare</span>
+    </div>
+    <div style="font: 400 11.5px/1.6 'Inter', sans-serif; color: #6E8B97;">Foundations · Ed. 01 · <a href="index.html" style="color: #FFBE0B;">Hub</a> · <a href="components.html" style="color: #FFBE0B;">Components</a> · <a href="ux-patterns.html" style="color: #FFBE0B;">UX Patterns</a> · <a href="brand-book.html" style="color: #FFBE0B;">Brand Book</a></div>
+  </section>
+
+</div>
+
+</x-dc>
+</body>
+</html>

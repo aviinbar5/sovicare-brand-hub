@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SoviCare</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#E7EFF3"/><g fill="#8FA6B2"><rect x="18" y="16" width="64" height="12"/><rect x="18" y="34" width="40" height="6"/><rect x="18" y="46" width="64" height="20"/><rect x="18" y="72" width="28" height="8"/></g></svg></template>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-14 -10 128 153'%3E%3Cpath fill='%23264653' d='M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z'/%3E%3Cpath fill='%23219EBC' d='M100 2H58A42 42 0 0 0 100 44Z'/%3E%3Cpath fill='%232A9D8F' d='M58 48A41 41 0 0 1 58 130Z'/%3E%3Cpath fill='%23FFBE0B' d='M0 131V89A42 42 0 0 1 42 131Z'/%3E%3C/svg%3E">
+<script src="./download-chips.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; color: #264653; background: #EDF2F5; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, h4, p, ul, li, figure, figcaption { margin: 0; padding: 0; }
+  ul { list-style: none; }
+  a { color: #55747F; text-decoration: none; border-bottom: 1px solid #B9CEDA; }
+  a:hover { color: #264653; border-bottom-color: #264653; }
+  :focus-visible { outline: 2px solid #219EBC; outline-offset: 3px; }
+</style>
+</helmet>
+
+<div style="max-width: 1320px; margin: 0 auto; background: #EDF2F5;">
+
+  <section id="head" data-screen-label="Head" style="padding: 60px 44px 52px; background: #264653;">
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div style="display: flex; align-items: center; gap: 13px;">
+        <svg viewBox="0 0 100 133" style="width: 26px; height: 35px; flex: none;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+        <span style="font: 400 26px/1 'DM Serif Display', serif; color: #F2F7F9;">SoviCare</span>
+      </div>
+      <h1 style="font: 400 40px/1.06 'DM Serif Display', serif; color: #F2F7F9;">Homepage UX blueprint.</h1>
+      <p style="font: 400 14.5px/1.7 'Inter', sans-serif; color: #A8C2CD; max-width: 74ch;">One page, sixteen sections, in the approved order and with the approved variants. Low fidelity on purpose: the argument here is sequence, hierarchy and momentum — not photography or polish. Grey means "a real component goes here"; the component itself is already designed in Components and the Section Library.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 18px; font: 400 12.5px/1.4 'Inter', sans-serif;">
+        <a href="index.html" style="color: #FFBE0B; border-bottom-color: #A88213;">Hub</a>
+        <a href="homepage-section-library.html" style="color: #FFBE0B; border-bottom-color: #A88213;">Section Library</a>
+        <a href="ux-patterns.html" style="color: #FFBE0B; border-bottom-color: #A88213;">UX Patterns</a>
+        <a href="assessment.html" style="color: #FFBE0B; border-bottom-color: #A88213;">Assessment</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="rhythm" data-screen-label="Page rhythm" style="padding: 40px 44px 48px; background: #FFFFFF; border-bottom: 1px solid #D6E2E9;">
+    <div style="display: flex; flex-direction: column gap: 0;">
+      <div style="display: flex; flex-direction: column; gap: 22px;">
+        <div style="display: flex; align-items: flex-end; gap: 16px; flex-wrap: wrap;">
+          <span style="font: 400 26px/1 'DM Serif Display', serif; color: #264653;">Page rhythm</span>
+          <span style="font: 400 12.5px/1.5 'Inter', sans-serif; color: #7E9AA6;">Band, height, and the visitor's momentum through the sequence.</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 26px;">
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Band sequence</span>
+            <div style="display: flex; flex-direction: column; gap: 3px;">
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 22px; font: 400 10px/1.6 'Inter', sans-serif; color: #B9CEDA;">00</span><span style="width: 100%; height: 14px; background: #264653;"></span><span style="width: 120px; font: 400 10.5px/1.6 'Inter', sans-serif; color: #7E9AA6;">Nav · teal strip</span></div>
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 22px; font: 400 10px/1.6 'Inter', sans-serif; color: #B9CEDA;">01</span><span style="width: 100%; height: 40px; background: #F2F7F9; border: 1px solid #D6E2E9;"></span><span style="width: 120px; font: 400 10.5px/1.6 'Inter', sans-serif; color: #7E9AA6;">Mist · hero</span></div>
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 22px; font: 400 10px/1.6 'Inter', sans-serif; color: #B9CEDA;">02</span><span style="width: 100%; height: 52px; background: #FFFFFF; border: 1px solid #C6D6DF;"></span><span style="width: 120px; font: 400 10.5px/1.6 'Inter', sans-serif; color: #7E9AA6;">Paper · assessment</span></div>
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 22px; font: 400 10px/1.6 'Inter', sans-serif; color: #B9CEDA;">03</span><span style="width: 100%; height: 38px; background: #264653;"></span><span style="width: 120px; font: 400 10.5px/1.6 'Inter', sans-serif; color: #264653; font-weight: 600;">Dark anchor 1</span></div>
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 22px; font: 400 10px/1.6 'Inter', sans-serif; color: #B9CEDA;">04</span><span style="width: 100%; height: 34px; background: #F2F7F9; border: 1px solid #D6E2E9;"></span><span style="width: 120px; font: 400 10.5px/1.6 'Inter', sans-serif; color: #7E9AA6;">Mist · care areas</span></div>
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 22px; font: 400 10px/1.6 'Inter', sans-serif; color: #B9CEDA;">05</span><span style="width: 100%; height: 24px; background: #FFFFFF; border: 1px solid #C6D6DF;"></span><span style="width: 120px; font: 400 10.5px/1.6 'Inter', sans-serif; color: #7E9AA6;">Paper · how it works</span></div>
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 22px; font: 400 10px/1.6 'Inter', sans-serif; color: #B9CEDA;">06</span><span style="width: 100%; height: 34px; background: #F2F7F9; border: 1px solid #D6E2E9;"></span><span style="width: 120px; font: 400 10.5px/1.6 'Inter', sans-serif; color: #7E9AA6;">Mist · andropause</span></div>
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 22px; font: 400 10px/1.6 'Inter', sans-serif; color: #B9CEDA;">07</span><span style="width: 100%; height: 34px; background: #264653;"></span><span style="width: 120px; font: 400 10.5px/1.6 'Inter', sans-serif; color: #264653; font-weight: 600;">Dark anchor 2</span></div>
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 22px; font: 400 10px/1.6 'Inter', sans-serif; color: #B9CEDA;">08</span><span style="width: 100%; height: 30px; background: #FFFFFF; border: 1px solid #C6D6DF;"></span><span style="width: 120px; font: 400 10.5px/1.6 'Inter', sans-serif; color: #7E9AA6;">Paper · credibility</span></div>
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 22px; font: 400 10px/1.6 'Inter', sans-serif; color: #B9CEDA;">09</span><span style="width: 100%; height: 40px; background: #264653;"></span><span style="width: 120px; font: 400 10.5px/1.6 'Inter', sans-serif; color: #264653; font-weight: 600;">Dark anchor 3</span></div>
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 22px; font: 400 10px/1.6 'Inter', sans-serif; color: #B9CEDA;">10</span><span style="width: 100%; height: 24px; background: #F2F7F9; border: 1px solid #D6E2E9;"></span><span style="width: 120px; font: 400 10.5px/1.6 'Inter', sans-serif; color: #7E9AA6;">Mist · social proof</span></div>
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 22px; font: 400 10px/1.6 'Inter', sans-serif; color: #B9CEDA;">11</span><span style="width: 100%; height: 30px; background: #FFFFFF; border: 1px solid #C6D6DF;"></span><span style="width: 120px; font: 400 10.5px/1.6 'Inter', sans-serif; color: #7E9AA6;">Paper · daily support</span></div>
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 22px; font: 400 10px/1.6 'Inter', sans-serif; color: #B9CEDA;">12</span><span style="width: 100%; height: 30px; background: #F2F7F9; border: 1px solid #D6E2E9;"></span><span style="width: 120px; font: 400 10.5px/1.6 'Inter', sans-serif; color: #7E9AA6;">Mist · learn</span></div>
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 22px; font: 400 10px/1.6 'Inter', sans-serif; color: #B9CEDA;">13</span><span style="width: 100%; height: 28px; background: #FFFFFF; border: 1px solid #C6D6DF;"></span><span style="width: 120px; font: 400 10.5px/1.6 'Inter', sans-serif; color: #7E9AA6;">Paper · FAQ</span></div>
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 22px; font: 400 10px/1.6 'Inter', sans-serif; color: #B9CEDA;">14</span><span style="width: 100%; height: 30px; background: #FFFFFF; border: 1px solid #C6D6DF;"></span><span style="width: 120px; font: 400 10.5px/1.6 'Inter', sans-serif; color: #7E9AA6;">Paper · final CTA</span></div>
+              <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 22px; font: 400 10px/1.6 'Inter', sans-serif; color: #B9CEDA;">15</span><span style="width: 100%; height: 26px; background: #264653;"></span><span style="width: 120px; font: 400 10.5px/1.6 'Inter', sans-serif; color: #7E9AA6;">Legal + footer</span></div>
+            </div>
+            <span style="font: 400 11px/1.6 'Inter', sans-serif; color: #7E9AA6;">Bar height is relative section height. No two dark bands are adjacent; three dark anchors plus the footer, as approved.</span>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Conversion momentum</span>
+            <div style="display: flex; align-items: flex-end; gap: 4px; height: 150px; padding: 12px 14px; background: #F2F7F9; border: 1px solid #D6E2E9;">
+              <span style="flex: 1; height: 30%; background: #B9CEDA;"></span>
+              <span style="flex: 1; height: 62%; background: #8FA6B2;"></span>
+              <span style="flex: 1; height: 100%; background: #264653;"></span>
+              <span style="flex: 1; height: 92%; background: #264653;"></span>
+              <span style="flex: 1; height: 58%; background: #8FA6B2;"></span>
+              <span style="flex: 1; height: 50%; background: #8FA6B2;"></span>
+              <span style="flex: 1; height: 42%; background: #B9CEDA;"></span>
+              <span style="flex: 1; height: 54%; background: #8FA6B2;"></span>
+              <span style="flex: 1; height: 60%; background: #8FA6B2;"></span>
+              <span style="flex: 1; height: 34%; background: #B9CEDA;"></span>
+              <span style="flex: 1; height: 30%; background: #B9CEDA;"></span>
+              <span style="flex: 1; height: 26%; background: #B9CEDA;"></span>
+              <span style="flex: 1; height: 24%; background: #B9CEDA;"></span>
+              <span style="flex: 1; height: 46%; background: #8FA6B2;"></span>
+              <span style="flex: 1; height: 84%; background: #264653;"></span>
+              <span style="flex: 1; height: 18%; background: #B9CEDA;"></span>
+            </div>
+            <div style="display: flex; gap: 4px;">
+              <span style="flex: 1; font: 400 8.5px/1.4 'Inter', sans-serif; color: #B9CEDA; text-align: center;">00</span><span style="flex: 1; font: 400 8.5px/1.4 'Inter', sans-serif; color: #B9CEDA; text-align: center;">01</span><span style="flex: 1; font: 400 8.5px/1.4 'Inter', sans-serif; color: #B9CEDA; text-align: center;">02</span><span style="flex: 1; font: 400 8.5px/1.4 'Inter', sans-serif; color: #B9CEDA; text-align: center;">03</span><span style="flex: 1; font: 400 8.5px/1.4 'Inter', sans-serif; color: #B9CEDA; text-align: center;">04</span><span style="flex: 1; font: 400 8.5px/1.4 'Inter', sans-serif; color: #B9CEDA; text-align: center;">05</span><span style="flex: 1; font: 400 8.5px/1.4 'Inter', sans-serif; color: #B9CEDA; text-align: center;">06</span><span style="flex: 1; font: 400 8.5px/1.4 'Inter', sans-serif; color: #B9CEDA; text-align: center;">07</span><span style="flex: 1; font: 400 8.5px/1.4 'Inter', sans-serif; color: #B9CEDA; text-align: center;">08</span><span style="flex: 1; font: 400 8.5px/1.4 'Inter', sans-serif; color: #B9CEDA; text-align: center;">09</span><span style="flex: 1; font: 400 8.5px/1.4 'Inter', sans-serif; color: #B9CEDA; text-align: center;">10</span><span style="flex: 1; font: 400 8.5px/1.4 'Inter', sans-serif; color: #B9CEDA; text-align: center;">11</span><span style="flex: 1; font: 400 8.5px/1.4 'Inter', sans-serif; color: #B9CEDA; text-align: center;">12</span><span style="flex: 1; font: 400 8.5px/1.4 'Inter', sans-serif; color: #B9CEDA; text-align: center;">13</span><span style="flex: 1; font: 400 8.5px/1.4 'Inter', sans-serif; color: #B9CEDA; text-align: center;">14</span><span style="flex: 1; font: 400 8.5px/1.4 'Inter', sans-serif; color: #B9CEDA; text-align: center;">15</span>
+            </div>
+            <span style="font: 400 11px/1.6 'Inter', sans-serif; color: #7E9AA6;">Two peaks — 02/03 and 14 — with a long trough from 10 to 13. That trough is the blueprint's main finding; see the sequencing notes at the foot of the page.</span>
+
+            <div style="display: flex; flex-direction: column; gap: 7px; margin-top: 14px; padding: 16px 18px; background: #F2F7F9; border: 1px solid #D6E2E9;">
+              <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Page-level budget, spent</span>
+              <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Serif italic highlight ×1</strong> — "answers" in the hero (01). Nowhere else on the page.<br><strong style="font-weight: 600; color: #264653;">Yellow ×1 accent group</strong> — the result CTA and eyebrow in 03, plus one kit circle in 14. No yellow background anywhere.<br><strong style="font-weight: 600; color: #264653;">Dark anchors ×3</strong> — 03, 07, 09, footer excluded, none adjacent.<br><strong style="font-weight: 600; color: #264653;">Serif editorial moments ×4</strong> — 01, 06, 09, 14. Functional UI stays Inter.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="key" data-screen-label="Key" style="padding: 26px 44px 30px; background: #EDF2F5; border-bottom: 1px solid #D6E2E9;">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 26px;">
+      <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Key</span>
+      <span style="display: inline-flex; align-items: center; gap: 9px; font: 400 11.5px/1.5 'Inter', sans-serif; color: #55747F;"><span style="width: 30px; height: 16px; background: #DDE8ED; border: 1px dashed #8FA6B2;"></span>Image placeholder</span>
+      <span style="display: inline-flex; align-items: center; gap: 9px; font: 400 11.5px/1.5 'Inter', sans-serif; color: #55747F;"><span style="width: 30px; height: 16px; border: 1px solid #8FA6B2; overflow: hidden;"></span>Component placeholder</span>
+      <span style="display: inline-flex; align-items: center; gap: 9px; font: 400 11.5px/1.5 'Inter', sans-serif; color: #55747F;"><span style="width: 40px; height: 8px; background: #B9CEDA;"></span>Text line</span>
+      <span style="display: inline-flex; align-items: center; gap: 9px; font: 400 11.5px/1.5 'Inter', sans-serif; color: #55747F;"><span style="display: inline-grid; place-items: center; height: 20px; padding: 0 10px; border-radius: 999px; background: #264653; font: 600 8px/1 'Inter', sans-serif; color: #FFFFFF;">CTA</span>Primary action</span>
+      <span style="display: inline-flex; align-items: center; gap: 9px; font: 400 11.5px/1.5 'Inter', sans-serif; color: #55747F;"><span style="display: inline-grid; place-items: center; height: 20px; padding: 0 10px; border-radius: 999px; border: 1px solid #264653; font: 600 8px/1 'Inter', sans-serif; color: #264653;">CTA</span>Secondary action</span>
+      <span style="display: inline-flex; align-items: center; gap: 9px; font: 400 11.5px/1.5 'Inter', sans-serif; color: #55747F;"><span style="width: 14px; height: 14px; background: #264653;"></span>Dark anchor section</span>
+    </div>
+  </section>
+
+  <section id="b00" data-screen-label="00 Nav" style="padding: 34px 44px 38px; background: #FFFFFF; border-bottom: 1px solid #D6E2E9;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 26px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;">
+          <span style="font: 400 34px/0.9 'DM Serif Display', serif; color: #B9CEDA;">00</span>
+          <span style="font: 500 16px/1.3 'Inter', sans-serif; color: #264653;">Utility / sticky navigation</span>
+          <span style="padding: 4px 9px; background: #EDF2F5; border: 1px solid #C6D6DF; font: 700 8.5px/1.4 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #55747F;">Definitive</span>
+        </div>
+        <div style="display: flex; flex-direction: column; border: 1px solid #8FA6B2; overflow: hidden;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 7px 14px; background: #264653;">
+            <span style="display: flex; gap: 14px;"><span style="width: 76px; height: 6px; background: #6E8B97;"></span><span style="width: 96px; height: 6px; background: #6E8B97;"></span></span>
+            <span style="width: 110px; height: 6px; background: #4B7284;"></span>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; padding: 14px;">
+            <span style="display: flex; align-items: center; gap: 8px; flex: none;"><span style="width: 14px; height: 18px; background: #8FA6B2;"></span><span style="width: 54px; height: 9px; background: #8FA6B2;"></span></span>
+            <span style="display: flex; flex-wrap: wrap; gap: 8px 12px; min-width: 0;"><span style="width: 46px; height: 7px; background: #B9CEDA;"></span><span style="width: 52px; height: 7px; background: #B9CEDA;"></span><span style="width: 44px; height: 7px; background: #B9CEDA;"></span><span style="width: 40px; height: 7px; background: #B9CEDA;"></span><span style="width: 30px; height: 7px; background: #B9CEDA;"></span></span>
+            <span style="display: flex; align-items: center; gap: 10px; margin-left: auto;"><span style="width: 34px; height: 7px; background: #B9CEDA;"></span><span style="display: inline-grid; place-items: center; height: 28px; padding: 0 14px; border-radius: 999px; background: #264653; font: 600 8.5px/1 'Inter', sans-serif; color: #FFFFFF; white-space: nowrap;">START WITH ANSWERS</span></span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; padding: 8px 14px; background: #EDF2F5; border-top: 1px dashed #B9CEDA;">
+            <span style="font: 400 10px/1.5 'Inter', sans-serif; color: #7E9AA6;">Collapsed state after 240px scroll → 64px bar, logo + one CTA, 2px scroll-progress rule</span>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 18px 20px; background: #F2F7F9; border-left: 3px solid #8FA6B2;">
+        <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Annotations</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Purpose.</strong> Orient, and keep one entry to the assessment available at any scroll depth.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Conversion.</strong> On mobile this is the only always-visible CTA on the page.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Interaction.</strong> Collapses once at 240px, 220ms, and does not re-expand on scroll up.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Mobile.</strong> 56px bar: logo, menu, CTA reduced to "Start". Utility strip becomes one rotating discretion line.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Note.</strong> Five destinations, no dropdowns — care areas live in 04, not in a menu.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="b01" data-screen-label="01 Hero" style="padding: 34px 44px 38px; background: #EDF2F5; border-bottom: 1px solid #D6E2E9;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 26px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;">
+          <span style="font: 400 34px/0.9 'DM Serif Display', serif; color: #B9CEDA;">01</span>
+          <span style="font: 500 16px/1.3 'Inter', sans-serif; color: #264653;">Hero</span>
+          <span style="padding: 4px 9px; background: #FFFFFF; border: 1px solid #C6D6DF; font: 700 8.5px/1.4 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #55747F;">Variant A · editorial split</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1.05fr 0.95fr; min-height: 250px; border: 1px solid #8FA6B2; background: #F7FAFB; overflow: hidden;">
+          <div style="display: flex; flex-direction: column; justify-content: center; gap: 12px; padding: 26px 24px;">
+            <span style="width: 130px; height: 6px; background: #B9CEDA;"></span>
+            <span style="width: 100%; height: 15px; background: #264653;"></span>
+            <span style="width: 78%; height: 15px; background: #264653;"></span>
+            <span style="display: flex; flex-direction: column; gap: 5px; margin-top: 4px;"><span style="width: 92%; height: 7px; background: #B9CEDA;"></span><span style="width: 84%; height: 7px; background: #B9CEDA;"></span><span style="width: 60%; height: 7px; background: #B9CEDA;"></span></span>
+            <span style="display: flex; gap: 8px; margin-top: 6px;"><span style="display: inline-grid; place-items: center; height: 30px; padding: 0 14px; border-radius: 999px; background: #264653; font: 600 8.5px/1 'Inter', sans-serif; color: #FFFFFF; white-space: nowrap;">START WITH ANSWERS</span><span style="display: inline-grid; place-items: center; height: 30px; padding: 0 14px; border-radius: 999px; border: 1px solid #264653; font: 600 8.5px/1 'Inter', sans-serif; color: #264653; white-space: nowrap;">SEE HOW IT WORKS</span></span>
+            <span style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px;"><span style="width: 80px; height: 6px; background: #C6D6DF;"></span><span style="width: 72px; height: 6px; background: #C6D6DF;"></span><span style="width: 96px; height: 6px; background: #C6D6DF;"></span></span>
+            <span style="display: inline-grid; place-items: center; align-self: flex-start; height: 22px; padding: 0 12px; border-radius: 999px; border: 1px solid #B9CEDA; background: #FFFFFF; font: 500 8px/1 'Inter', sans-serif; color: #55747F; white-space: nowrap; margin-top: 4px;">ASSESSMENT ONLY. NOT A DIAGNOSIS.</span>
+          </div>
+          <div style="position: relative; background: #DDE8ED; border-left: 1px dashed #8FA6B2; display: grid; place-items: center;">
+            <span style="font: 400 10.5px/1.6 'Inter', sans-serif; color: #7E9AA6; text-align: center; padding: 16px;">Portrait<br>full-bleed right</span>
+            <span style="position: absolute; right: 0; top: 0; width: 40px; height: 40px; background: #C6D6DF;"></span>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 18px 20px; background: #FFFFFF; border-left: 3px solid #8FA6B2;">
+        <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Annotations</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Hierarchy.</strong> Eyebrow "Men's longevity, made simple." → headline → one support line → primary CTA → three reassurances → disclaimer.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Copy, fixed.</strong> "Start with <em style="font-style: italic;">answers</em>, not assumptions." The page's only serif italic highlight sits on <em style="font-style: italic;">answers</em>. No symptom appears in headline or subhead.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Conversion.</strong> One job: the first click into 02. Minimum 560px, never full viewport — 02 must be visible at the fold edge.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Interaction.</strong> No entrance animation. CTA scrolls to 02 and focuses the first answer group.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Mobile.</strong> Statement first, portrait becomes a 240px band under the CTA, headline 34px, disclaimer stays above the fold.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="b02" data-screen-label="02 Assessment" style="padding: 34px 44px 40px; background: #FFFFFF; border-bottom: 1px solid #D6E2E9;">
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;">
+        <span style="font: 400 34px/0.9 'DM Serif Display', serif; color: #B9CEDA;">02</span>
+        <span style="font: 500 16px/1.3 'Inter', sans-serif; color: #264653;">Interactive men's health assessment</span>
+        <span style="padding: 4px 9px; background: #EDF2F5; border: 1px solid #C6D6DF; font: 700 8.5px/1.4 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #55747F;">Variant A · native inline panel</span>
+        <span style="padding: 4px 9px; background: #264653; font: 700 8.5px/1.4 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #FFFFFF;">Highest-intent section</span>
+      </div>
+
+      <span style="font: 400 12px/1.7 'Inter', sans-serif; color: #55747F; max-width: 92ch;">Four states of one surface. The card never changes size, position or width between them — the assessment is a section of the page that fills with content, not a component that appears.</span>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px;">
+
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #7E9AA6;">State 1 · intro, at rest</span>
+          <div style="display: flex; flex-direction: column; min-height: 250px; border: 1px solid #8FA6B2; background: #F7FAFB; overflow: hidden;">
+            <div style="display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-bottom: 1px dashed #B9CEDA;"><span style="width: 60px; height: 6px; background: #C6D6DF;"></span></div>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; flex: 1; padding: 22px 18px;">
+              <span style="width: 46px; height: 46px; border-radius: 999px; border: 1px dashed #8FA6B2;"></span>
+              <span style="width: 88%; height: 10px; background: #264653;"></span>
+              <span style="width: 70%; height: 10px; background: #264653;"></span>
+              <span style="width: 78%; height: 6px; background: #C6D6DF;"></span>
+              <span style="display: inline-grid; place-items: center; height: 28px; padding: 0 14px; border-radius: 999px; background: #264653; font: 600 8px/1 'Inter', sans-serif; color: #FFFFFF; white-space: nowrap; margin-top: 4px;">START WITH ANSWERS</span>
+              <span style="width: 60%; height: 5px; background: #DDE8ED;"></span>
+            </div>
+          </div>
+          <span style="font: 400 10.5px/1.6 'Inter', sans-serif; color: #7E9AA6;">Sits at rest until the visitor or the hero CTA starts it. Three reassurances above the card, disclaimer chip below.</span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #7E9AA6;">State 2 · question, unanswered</span>
+          <div style="display: flex; flex-direction: column; min-height: 250px; border: 1px solid #8FA6B2; background: #F7FAFB; overflow: hidden;">
+            <div style="display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-bottom: 1px dashed #B9CEDA;">
+              <span style="display: grid; place-items: center; width: 16px; height: 16px; background: #264653; font: 600 8px/1 'Inter', sans-serif; color: #FFFFFF;">2</span>
+              <span style="width: 34px; height: 6px; background: #8FA6B2;"></span>
+              <span style="display: flex; gap: 4px; margin-left: 4px;"><span style="width: 5px; height: 5px; border-radius: 999px; background: #8FA6B2;"></span><span style="width: 6px; height: 6px; border-radius: 999px; background: #264653;"></span><span style="width: 5px; height: 5px; border-radius: 999px; background: #DDE8ED;"></span><span style="width: 5px; height: 5px; border-radius: 999px; background: #DDE8ED;"></span><span style="width: 5px; height: 5px; border-radius: 999px; background: #DDE8ED;"></span><span style="width: 5px; height: 5px; border-radius: 999px; background: #DDE8ED;"></span></span>
+              <span style="margin-left: auto; font: 400 8px/1 'Inter', sans-serif; color: #7E9AA6;">2 / 6</span>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 9px; flex: 1; padding: 20px 18px;">
+              <span style="width: 40px; height: 40px; border-radius: 999px; border: 1px dashed #8FA6B2;"></span>
+              <span style="width: 90%; height: 9px; background: #264653;"></span>
+              <span style="width: 64%; height: 9px; background: #264653;"></span>
+              <span style="width: 100%; display: flex; flex-direction: column; gap: 6px; margin-top: 6px;">
+                <span style="height: 26px; border: 1px solid #C6D6DF; background: #FFFFFF;"></span>
+                <span style="height: 26px; border: 1px solid #C6D6DF; background: #FFFFFF;"></span>
+                <span style="height: 26px; border: 1px solid #C6D6DF; background: #FFFFFF;"></span>
+                <span style="height: 26px; border: 1px solid #C6D6DF; background: #FFFFFF;"></span>
+              </span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 9px 14px; border-top: 1px dashed #B9CEDA;"><span style="display: inline-grid; place-items: center; height: 22px; padding: 0 12px; border-radius: 999px; border: 1px solid #B9CEDA; font: 600 8px/1 'Inter', sans-serif; color: #7E9AA6;">BACK</span><span style="width: 90px; height: 5px; background: #DDE8ED;"></span></div>
+          </div>
+          <span style="font: 400 10.5px/1.6 'Inter', sans-serif; color: #7E9AA6;">One question owns the card. The question is the headline — no second headline above it.</span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #7E9AA6;">State 3 · answered, 320ms hold</span>
+          <div style="display: flex; flex-direction: column; min-height: 250px; border: 1px solid #8FA6B2; background: #F7FAFB; overflow: hidden;">
+            <div style="display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-bottom: 1px dashed #B9CEDA;">
+              <span style="display: grid; place-items: center; width: 16px; height: 16px; background: #264653; font: 600 8px/1 'Inter', sans-serif; color: #FFFFFF;">2</span>
+              <span style="width: 34px; height: 6px; background: #8FA6B2;"></span>
+              <span style="display: flex; gap: 4px; margin-left: 4px;"><span style="width: 5px; height: 5px; border-radius: 999px; background: #8FA6B2;"></span><span style="width: 6px; height: 6px; border-radius: 999px; background: #4A7F76;"></span><span style="width: 5px; height: 5px; border-radius: 999px; background: #DDE8ED;"></span><span style="width: 5px; height: 5px; border-radius: 999px; background: #DDE8ED;"></span><span style="width: 5px; height: 5px; border-radius: 999px; background: #DDE8ED;"></span><span style="width: 5px; height: 5px; border-radius: 999px; background: #DDE8ED;"></span></span>
+              <span style="margin-left: auto; font: 400 8px/1 'Inter', sans-serif; color: #7E9AA6;">2 / 6</span>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 9px; flex: 1; padding: 20px 18px;">
+              <span style="width: 40px; height: 40px; border-radius: 999px; border: 1px dashed #8FA6B2;"></span>
+              <span style="width: 90%; height: 9px; background: #264653;"></span>
+              <span style="width: 64%; height: 9px; background: #264653;"></span>
+              <span style="width: 100%; display: flex; flex-direction: column; gap: 6px; margin-top: 6px;">
+                <span style="height: 26px; border: 1px solid #C6D6DF; background: #FFFFFF;"></span>
+                <span style="display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; height: 26px; border: 2px solid #4A7F76; background: #EDF2F5;"><span style="width: 10px; height: 10px; background: #4A7F76;"></span></span>
+                <span style="height: 26px; border: 1px solid #C6D6DF; background: #FFFFFF;"></span>
+                <span style="height: 26px; border: 1px solid #C6D6DF; background: #FFFFFF;"></span>
+              </span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 9px 14px; border-top: 1px dashed #B9CEDA;"><span style="display: inline-grid; place-items: center; height: 22px; padding: 0 12px; border-radius: 999px; border: 1px solid #B9CEDA; font: 600 8px/1 'Inter', sans-serif; color: #7E9AA6;">BACK</span><span style="font: 400 8px/1.4 'Inter', sans-serif; color: #7E9AA6;">advances in 320ms</span></div>
+          </div>
+          <span style="font: 400 10.5px/1.6 'Inter', sans-serif; color: #7E9AA6;">Selected answer takes a Green border at 1.02 scale and holds, so the choice registers before the card changes.</span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #7E9AA6;">State 4 · complete → hands to 03</span>
+          <div style="display: flex; flex-direction: column; min-height: 250px; border: 1px solid #8FA6B2; background: #F7FAFB; overflow: hidden;">
+            <div style="display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-bottom: 1px dashed #B9CEDA;">
+              <span style="display: grid; place-items: center; width: 16px; height: 16px; background: #4A7F76; font: 600 8px/1 'Inter', sans-serif; color: #FFFFFF;">✓</span>
+              <span style="width: 34px; height: 6px; background: #8FA6B2;"></span>
+              <span style="display: flex; gap: 4px; margin-left: 4px;"><span style="width: 5px; height: 5px; border-radius: 999px; background: #4A7F76;"></span><span style="width: 5px; height: 5px; border-radius: 999px; background: #4A7F76;"></span><span style="width: 5px; height: 5px; border-radius: 999px; background: #4A7F76;"></span><span style="width: 5px; height: 5px; border-radius: 999px; background: #4A7F76;"></span><span style="width: 5px; height: 5px; border-radius: 999px; background: #4A7F76;"></span><span style="width: 5px; height: 5px; border-radius: 999px; background: #4A7F76;"></span></span>
+              <span style="margin-left: auto; font: 400 8px/1 'Inter', sans-serif; color: #7E9AA6;">6 / 6</span>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; flex: 1; padding: 20px 18px;">
+              <span style="display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; border: 1px solid #4A7F76; font: 400 16px/1 'Inter', sans-serif; color: #4A7F76;">✓</span>
+              <span style="width: 84%; height: 9px; background: #264653;"></span>
+              <span style="width: 56%; height: 6px; background: #C6D6DF;"></span>
+              <span style="width: 100%; height: 1px; background: #DDE8ED; margin: 4px 0;"></span>
+              <span style="font: 400 9.5px/1.6 'Inter', sans-serif; color: #7E9AA6; text-align: center;">Section 03 expands directly beneath<br>and the page scrolls to it</span>
+              <span style="width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 10px solid #8FA6B2;"></span>
+            </div>
+          </div>
+          <span style="font: 400 10.5px/1.6 'Inter', sans-serif; color: #7E9AA6;">No navigation, no URL change, no modal. One continuous surface into the outcome.</span>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px;">
+        <div style="display: flex; flex-direction: column; gap: 8px; padding: 16px 18px; background: #F2F7F9; border-left: 3px solid #8FA6B2;">
+          <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Placement</span>
+          <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;">Directly after the hero, above every explanatory section. Card width 1040–1180px, fixed height across all six steps so the page never jumps. Paper card on a Mist band — identical container to every other section.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px; padding: 16px 18px; background: #F2F7F9; border-left: 3px solid #8FA6B2;">
+          <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Entry points</span>
+          <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;">Hero CTA · sticky nav CTA · the six care-area cards in 04, each pre-setting its own area · final CTA in 14. All four land on the same panel; none opens a modal or a new page.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px; padding: 16px 18px; background: #F2F7F9; border-left: 3px solid #8FA6B2;">
+          <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Mobile</span>
+          <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;">Full-width card, 24px inset, answers in the lower two thirds. Reassurances collapse to one line above the card. Nothing sticky overlaps the last option. Question serif steps 26 → 21px.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px; padding: 16px 18px; background: #F2F7F9; border-left: 3px solid #8FA6B2;">
+          <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Escape hatch</span>
+          <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;">"Not ready? Look at the care areas first" sits under the card and jumps to 04. The one link on the page that moves a visitor away from the assessment, and it exists because pressure loses him entirely.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="b03" data-screen-label="03 Outcome" style="padding: 34px 44px 38px; background: #EDF2F5; border-bottom: 1px solid #D6E2E9;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 26px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;">
+          <span style="font: 400 34px/0.9 'DM Serif Display', serif; color: #B9CEDA;">03</span>
+          <span style="font: 500 16px/1.3 'Inter', sans-serif; color: #264653;">Personalised outcome</span>
+          <span style="padding: 4px 9px; background: #FFFFFF; border: 1px solid #C6D6DF; font: 700 8.5px/1.4 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #55747F;">Variant A · dark four-stage reveal</span>
+          <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; background: #264653; font: 700 8.5px/1.4 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #FFFFFF;"><span style="width: 8px; height: 8px; background: #FFBE0B;"></span>Dark anchor 1 · yellow spend</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px; padding: 24px 22px; background: #264653; border: 1px solid #1C3742; overflow: hidden;">
+          <span style="display: flex; align-items: center; justify-content: space-between; gap: 14px;">
+            <span style="display: flex; flex-direction: column; gap: 8px;"><span style="width: 120px; height: 6px; background: #FFBE0B;"></span><span style="width: 240px; height: 13px; background: #6E8B97;"></span><span style="width: 180px; height: 13px; background: #6E8B97;"></span></span>
+            <span style="display: inline-grid; place-items: center; height: 22px; padding: 0 12px; border-radius: 999px; border: 1px solid #4B7284; font: 500 7.5px/1 'Inter', sans-serif; color: #A8C2CD; white-space: nowrap;">NOT A DIAGNOSIS</span>
+          </span>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
+            <span style="display: flex; flex-direction: column; gap: 7px; padding: 14px 12px; background: #2E5361;"><span style="width: 70%; height: 5px; background: #6E8B97;"></span><span style="width: 100%; height: 9px; background: #A8C2CD;"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 7px; padding: 14px 12px; background: #2E5361;"><span style="width: 70%; height: 5px; background: #6E8B97;"></span><span style="width: 100%; height: 6px; background: #A8C2CD;"></span><span style="width: 88%; height: 6px; background: #A8C2CD;"></span><span style="width: 60%; height: 6px; background: #A8C2CD;"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 7px; padding: 14px 12px; background: #2E5361;"><span style="width: 82%; height: 5px; background: #6E8B97;"></span><span style="width: 100%; height: 6px; background: #A8C2CD;"></span><span style="width: 76%; height: 6px; background: #A8C2CD;"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 7px; padding: 14px 12px; background: #F2F7F9;"><span style="width: 84%; height: 5px; background: #4A7F76;"></span><span style="width: 100%; height: 6px; background: #8FA6B2;"></span><span style="width: 70%; height: 6px; background: #8FA6B2;"></span></span>
+          </div>
+          <span style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px;">
+            <span style="display: inline-grid; place-items: center; height: 28px; padding: 0 14px; border-radius: 999px; background: #FFBE0B; font: 600 8.5px/1 'Inter', sans-serif; color: #264653; white-space: nowrap;">CONTINUE TO ELIGIBILITY</span>
+            <span style="display: inline-grid; place-items: center; height: 28px; padding: 0 14px; border-radius: 999px; border: 1px solid #F2F7F9; font: 600 8.5px/1 'Inter', sans-serif; color: #F2F7F9; white-space: nowrap;">TALK TO A CLINICIAN</span>
+            <span style="width: 150px; height: 5px; background: #4B7284;"></span>
+          </span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 18px 20px; background: #FFFFFF; border-left: 3px solid #264653;">
+        <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Annotations</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Hierarchy, fixed.</strong> Your main concern → what you told us → what may be worth exploring → recommended next step. Fourth card inverts to Mist so the next step is the brightest thing in a dark section.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Conditional.</strong> Only exists once 02 completes. Before that the section is not rendered — not a greyed-out placeholder.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Conversion.</strong> The page's highest-intent moment and the only place the yellow result button is permitted.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Interaction.</strong> Four cards fade up 220ms each, 80ms apart. Reduced motion shows all four at once.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Mobile.</strong> Cards stack in reading order; the next-step card and its CTA stay in one viewport together.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Prohibited.</strong> No score, no severity, no named treatment, no diagnosis language. "Based on your answers" and "may be worth exploring" carry the whole claim.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="b04" data-screen-label="04 Care areas" style="padding: 34px 44px 38px; background: #FFFFFF; border-bottom: 1px solid #D6E2E9;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 26px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;">
+          <span style="font: 400 34px/0.9 'DM Serif Display', serif; color: #B9CEDA;">04</span>
+          <span style="font: 500 16px/1.3 'Inter', sans-serif; color: #264653;">Care areas</span>
+          <span style="padding: 4px 9px; background: #EDF2F5; border: 1px solid #C6D6DF; font: 700 8.5px/1.4 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #55747F;">Variant A · six equal cards</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 22px 20px; border: 1px solid #8FA6B2; background: #F7FAFB; overflow: hidden;">
+          <span style="display: flex; align-items: flex-end; justify-content: space-between; gap: 16px;"><span style="width: 190px; height: 13px; background: #264653;"></span><span style="display: flex; flex-direction: column; gap: 4px; width: 220px;"><span style="width: 100%; height: 5px; background: #C6D6DF;"></span><span style="width: 82%; height: 5px; background: #C6D6DF;"></span></span></span>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
+            <span style="display: flex; flex-direction: column; gap: 6px; padding: 12px; background: #FFFFFF; border: 1px solid #C6D6DF;"><span style="width: 14px; height: 14px; border: 1px dashed #8FA6B2;"></span><span style="width: 84%; height: 8px; background: #264653;"></span><span style="width: 100%; height: 5px; background: #DDE8ED;"></span><span style="width: 40px; height: 5px; background: #8FA6B2;"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 6px; padding: 12px; background: #FFFFFF; border: 1px solid #C6D6DF;"><span style="width: 14px; height: 14px; border: 1px dashed #8FA6B2;"></span><span style="width: 72%; height: 8px; background: #264653;"></span><span style="width: 100%; height: 5px; background: #DDE8ED;"></span><span style="width: 40px; height: 5px; background: #8FA6B2;"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 6px; padding: 12px; background: #FFFFFF; border: 1px solid #C6D6DF;"><span style="width: 14px; height: 14px; border: 1px dashed #8FA6B2;"></span><span style="width: 92%; height: 8px; background: #264653;"></span><span style="width: 100%; height: 5px; background: #DDE8ED;"></span><span style="width: 40px; height: 5px; background: #8FA6B2;"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 6px; padding: 12px; background: #FFFFFF; border: 1px solid #C6D6DF;"><span style="width: 14px; height: 14px; border: 1px dashed #8FA6B2;"></span><span style="width: 80%; height: 8px; background: #264653;"></span><span style="width: 100%; height: 5px; background: #DDE8ED;"></span><span style="width: 40px; height: 5px; background: #8FA6B2;"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 6px; padding: 12px; background: #FFFFFF; border: 1px solid #C6D6DF;"><span style="width: 14px; height: 14px; border: 1px dashed #8FA6B2;"></span><span style="width: 88%; height: 8px; background: #264653;"></span><span style="width: 100%; height: 5px; background: #DDE8ED;"></span><span style="width: 40px; height: 5px; background: #8FA6B2;"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 6px; padding: 12px; background: #FFFFFF; border: 1px solid #C6D6DF;"><span style="width: 14px; height: 14px; border: 1px dashed #8FA6B2;"></span><span style="width: 84%; height: 8px; background: #264653;"></span><span style="width: 100%; height: 5px; background: #DDE8ED;"></span><span style="width: 40px; height: 5px; background: #8FA6B2;"></span></span>
+          </div>
+          <span style="display: flex; align-items: center; gap: 12px;"><span style="display: inline-grid; place-items: center; height: 28px; padding: 0 14px; border-radius: 999px; background: #264653; font: 600 8.5px/1 'Inter', sans-serif; color: #FFFFFF; white-space: nowrap;">START WITH ANSWERS</span><span style="width: 200px; height: 5px; background: #DDE8ED;"></span></span>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; background: #EDF2F5; border: 1px dashed #8FA6B2;">
+          <span style="display: grid; place-items: center; flex: none; padding: 3px 8px; background: #264653; font: 700 8px/1.4 'Inter', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: #FFFFFF;">Behaviour</span>
+          <span style="font: 400 11px/1.65 'Inter', sans-serif; color: #55747F;">Each "Explore" action <strong style="font-weight: 600; color: #264653;">opens the Personal Fit Assessment pre-set to the selected care area</strong> — the page scrolls back to the section 02 panel, Q1 is already answered with that area, and the panel opens at Q2 with that area's adaptive answer set. Q1 remains visible and editable via Back, so the visitor keeps control of every answer. No separate care-area pages exist in this phase.</span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 18px 20px; background: #F2F7F9; border-left: 3px solid #8FA6B2;">
+        <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Annotations</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Order, fixed.</strong> Hormone Health · Sexual Health · Weight and Metabolic · Sleep and Recovery · Energy, Focus and Mood · Hair and Healthy Aging. Never reordered, never personalised — a reordered grid tells the room what he clicked.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Equal weight.</strong> Identical containers and equal card heights whatever the copy length. No "most popular", no badge, no ranking.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Interaction.</strong> Hover raises the border to Blue only — no lift, no shadow, no icon animation. These are doors, not products.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Mobile.</strong> Two across at 390px with icons dropped, one across if the longest name wraps to three lines. Never a carousel.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Note.</strong> Rest, Daily and Drive appear in 11, never here.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="b05" data-screen-label="05 How it works" style="padding: 34px 44px 38px; background: #EDF2F5; border-bottom: 1px solid #D6E2E9;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 26px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;">
+          <span style="font: 400 34px/0.9 'DM Serif Display', serif; color: #B9CEDA;">05</span>
+          <span style="font: 500 16px/1.3 'Inter', sans-serif; color: #264653;">How it works</span>
+          <span style="padding: 4px 9px; background: #FFFFFF; border: 1px solid #C6D6DF; font: 700 8.5px/1.4 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #55747F;">Variant A · four numbered steps</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 16px; padding: 22px 20px; border: 1px solid #8FA6B2; background: #F7FAFB; overflow: hidden;">
+          <span style="width: 260px; height: 13px; background: #264653;"></span>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+            <span style="display: flex; flex-direction: column; gap: 7px;"><span style="display: grid; place-items: center; width: 26px; height: 26px; border-radius: 999px; background: #264653; font: 500 10px/1 'Inter', sans-serif; color: #FFFFFF;">1</span><span style="width: 84%; height: 8px; background: #264653;"></span><span style="width: 100%; height: 5px; background: #DDE8ED;"></span><span style="width: 76%; height: 5px; background: #DDE8ED;"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 7px;"><span style="display: grid; place-items: center; width: 26px; height: 26px; border-radius: 999px; background: #264653; font: 500 10px/1 'Inter', sans-serif; color: #FFFFFF;">2</span><span style="width: 90%; height: 8px; background: #264653;"></span><span style="width: 100%; height: 5px; background: #DDE8ED;"></span><span style="width: 68%; height: 5px; background: #DDE8ED;"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 7px;"><span style="display: grid; place-items: center; width: 26px; height: 26px; border-radius: 999px; background: #2C7C93; font: 500 10px/1 'Inter', sans-serif; color: #FFFFFF;">3</span><span style="width: 96%; height: 8px; background: #264653;"></span><span style="width: 100%; height: 5px; background: #DDE8ED;"></span><span style="width: 82%; height: 5px; background: #DDE8ED;"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 7px;"><span style="display: grid; place-items: center; width: 26px; height: 26px; border-radius: 999px; background: #264653; font: 500 10px/1 'Inter', sans-serif; color: #FFFFFF;">4</span><span style="width: 78%; height: 8px; background: #264653;"></span><span style="width: 100%; height: 5px; background: #DDE8ED;"></span><span style="width: 72%; height: 5px; background: #DDE8ED;"></span></span>
+          </div>
+          <span style="display: flex; align-items: center; gap: 12px;"><span style="display: inline-grid; place-items: center; height: 28px; padding: 0 14px; border-radius: 999px; background: #264653; font: 600 8.5px/1 'Inter', sans-serif; color: #FFFFFF; white-space: nowrap;">START WITH ANSWERS</span><span style="width: 240px; height: 5px; background: #DDE8ED;"></span></span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 18px 20px; background: #FFFFFF; border-left: 3px solid #8FA6B2;">
+        <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Annotations</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Step 3 is Blue</strong> and every other step Deep Teal, so the clinician is visually the centre of the process rather than a footnote to it.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">No operational promises.</strong> Per ruling 5: no "one working day", no stated turnaround. Where timing must be referenced the wording is "reviewed promptly" until a verified service level is approved.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Interaction.</strong> None. A process diagram that animates suggests the process is the product.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Mobile.</strong> The connecting rule turns vertical down the left of the numbers and the four steps stack.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Rhythm.</strong> The shortest band on the page — deliberately, because it sits between two content-heavy sections.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="b06" data-screen-label="06 Andropause" style="padding: 34px 44px 38px; background: #FFFFFF; border-bottom: 1px solid #D6E2E9;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 26px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;">
+          <span style="font: 400 34px/0.9 'DM Serif Display', serif; color: #B9CEDA;">06</span>
+          <span style="font: 500 16px/1.3 'Inter', sans-serif; color: #264653;">Andropause education</span>
+          <span style="padding: 4px 9px; background: #EDF2F5; border: 1px solid #C6D6DF; font: 700 8.5px/1.4 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #55747F;">Variant A · editorial spread</span>
+          <span style="padding: 4px 9px; background: #F7FAFB; border: 1px solid #B9CEDA; font: 700 8.5px/1.4 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #55747F;">Serif moment 2 of 4</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 0.9fr 1.1fr; min-height: 220px; border: 1px solid #8FA6B2; background: #F7FAFB; overflow: hidden;">
+          <div style="position: relative; background: #DDE8ED; border-right: 1px dashed #8FA6B2; display: grid; place-items: center;">
+            <span style="font: 400 10.5px/1.6 'Inter', sans-serif; color: #7E9AA6; text-align: center; padding: 14px;">Portrait<br>left, full-height</span>
+            <span style="position: absolute; left: 0; bottom: 0; width: 34px; height: 34px; background: #C6D6DF;"></span>
+          </div>
+          <div style="display: flex; flex-direction: column; justify-content: center; gap: 9px; padding: 24px 22px;">
+            <span style="width: 76px; height: 5px; background: #B9CEDA;"></span>
+            <span style="width: 92%; height: 13px; background: #264653;"></span>
+            <span style="width: 64%; height: 13px; background: #264653;"></span>
+            <span style="display: flex; flex-direction: column; gap: 4px; margin-top: 4px;"><span style="width: 100%; height: 5px; background: #DDE8ED;"></span><span style="width: 96%; height: 5px; background: #DDE8ED;"></span><span style="width: 100%; height: 5px; background: #DDE8ED;"></span><span style="width: 72%; height: 5px; background: #DDE8ED;"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 4px;"><span style="width: 98%; height: 5px; background: #DDE8ED;"></span><span style="width: 88%; height: 5px; background: #DDE8ED;"></span><span style="width: 60%; height: 5px; background: #DDE8ED;"></span></span>
+            <span style="display: flex; gap: 8px; margin-top: 6px;"><span style="display: inline-grid; place-items: center; height: 28px; padding: 0 14px; border-radius: 999px; background: #264653; font: 600 8.5px/1 'Inter', sans-serif; color: #FFFFFF; white-space: nowrap;">START WITH ANSWERS</span><span style="display: inline-grid; place-items: center; height: 28px; padding: 0 14px; border-radius: 999px; border: 1px solid #264653; font: 600 8.5px/1 'Inter', sans-serif; color: #264653; white-space: nowrap;">READ THE GUIDE</span></span>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 18px 20px; background: #F2F7F9; border-left: 3px solid #8FA6B2;">
+        <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Annotations</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Purpose.</strong> Give the experience a name and a mechanism, so it stops being a personal failing.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Copy discipline.</strong> States the decline as a mechanism, then immediately states what it is not — the paragraph that prevents this section becoming a self-diagnosis engine.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Symptoms permitted here.</strong> This is the first section below the assessment where symptom language is allowed, per the hero ruling.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Mobile.</strong> Portrait becomes a 200px band above the text. Body copy stays 14.5px at 1.8 — this is the one section people read rather than scan.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Conversion.</strong> Delayed. It converts on the second visit, not this one.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="b07" data-screen-label="07 Why SoviCare" style="padding: 34px 44px 38px; background: #EDF2F5; border-bottom: 1px solid #D6E2E9;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 26px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;">
+          <span style="font: 400 34px/0.9 'DM Serif Display', serif; color: #B9CEDA;">07</span>
+          <span style="font: 500 16px/1.3 'Inter', sans-serif; color: #264653;">Why SoviCare</span>
+          <span style="padding: 4px 9px; background: #FFFFFF; border: 1px solid #C6D6DF; font: 700 8.5px/1.4 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #55747F;">Variant A · four principles on dark</span>
+          <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; background: #264653; font: 700 8.5px/1.4 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #FFFFFF;">Dark anchor 2</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 16px; padding: 24px 22px; background: #264653; border: 1px solid #1C3742; overflow: hidden;">
+          <span style="width: 300px; height: 13px; background: #6E8B97;"></span>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;">
+            <span style="display: flex; flex-direction: column; gap: 7px;"><span style="width: 16px; height: 16px; border: 1px dashed #A88213;"></span><span style="width: 90%; height: 7px; background: #A8C2CD;"></span><span style="width: 100%; height: 5px; background: #4B7284;"></span><span style="width: 84%; height: 5px; background: #4B7284;"></span><span style="width: 62%; height: 5px; background: #4B7284;"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 7px;"><span style="width: 16px; height: 16px; border: 1px dashed #A88213;"></span><span style="width: 84%; height: 7px; background: #A8C2CD;"></span><span style="width: 100%; height: 5px; background: #4B7284;"></span><span style="width: 78%; height: 5px; background: #4B7284;"></span><span style="width: 56%; height: 5px; background: #4B7284;"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 7px;"><span style="width: 16px; height: 16px; border: 1px dashed #A88213;"></span><span style="width: 70%; height: 7px; background: #A8C2CD;"></span><span style="width: 100%; height: 5px; background: #4B7284;"></span><span style="width: 88%; height: 5px; background: #4B7284;"></span><span style="width: 60%; height: 5px; background: #4B7284;"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 7px;"><span style="width: 16px; height: 16px; border: 1px dashed #A88213;"></span><span style="width: 96%; height: 7px; background: #A8C2CD;"></span><span style="width: 100%; height: 5px; background: #4B7284;"></span><span style="width: 82%; height: 5px; background: #4B7284;"></span><span style="width: 52%; height: 5px; background: #4B7284;"></span></span>
+          </div>
+          <span style="display: inline-grid; place-items: center; align-self: flex-start; height: 28px; padding: 0 14px; border-radius: 999px; background: #F2F7F9; font: 600 8.5px/1 'Inter', sans-serif; color: #264653; white-space: nowrap;">START WITH ANSWERS</span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 18px 20px; background: #FFFFFF; border-left: 3px solid #264653;">
+        <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Annotations</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">The four principles.</strong> We measure before we name · a named clinician decides · discreet by default · we will tell you when the answer is no.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Positioning by omission.</strong> No competitor named, no category named, no claim that needs substantiating. The fourth principle does the most work.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Icons.</strong> Yellow stroke on dark — the only place the accent appears outside 03 and one kit piece in 14.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Mobile.</strong> Two by two, then one column. Principle order never changes.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Rhythm.</strong> Separated from 03 by three light bands, and from 09 by two — no two dark anchors adjacent.</span>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="b08" data-screen-label="08 Credibility" style="padding: 34px 44px 38px; background: #FFFFFF; border-bottom: 1px solid #D6E2E9;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 26px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;">
+          <span style="font: 400 34px/0.9 'DM Serif Display', serif; color: #B9CEDA;">08</span>
+          <span style="font: 500 16px/1.3 'Inter', sans-serif; color: #264653;">Clinical credibility</span>
+          <span style="padding: 4px 9px; background: #EDF2F5; border: 1px solid #C6D6DF; font: 700 8.5px/1.4 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #55747F;">Variant A · review process shown</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px; padding: 22px 20px; border: 1px solid #8FA6B2; background: #F7FAFB; overflow: hidden;">
+          <span style="display: flex; align-items: flex-end; justify-content: space-between; gap: 16px;"><span style="display: flex; flex-direction: column; gap: 5px;"><span style="width: 230px; height: 13px; background: #264653;"></span><span style="width: 160px; height: 13px; background: #264653;"></span></span><span style="display: flex; flex-direction: column; gap: 4px; width: 190px;"><span style="width: 100%; height: 5px; background: #C6D6DF;"></span><span style="width: 88%; height: 5px; background: #C6D6DF;"></span></span></span>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
+            <span style="display: flex; flex-direction: column; gap: 6px; padding: 12px; background: #FFFFFF; border: 1px solid #C6D6DF;"><span style="width: 54px; height: 5px; background: #4A7F76;"></span><span style="width: 100%; height: 5px; background: #DDE8ED;"></span><span style="width: 92%; height: 5px; background: #DDE8ED;"></span><span style="width: 66%; height: 5px; background: #DDE8ED;"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 6px; padding: 12px; background: #FFFFFF; border: 1px solid #C6D6DF;"><span style="width: 66px; height: 5px; background: #4A7F76;"></span><span style="width: 100%; height: 5px; background: #DDE8ED;"></span><span style="width: 86%; height: 5px; background: #DDE8ED;"></span><span style="width: 58%; height: 5px; background: #DDE8ED;"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 6px; padding: 12px; background: #FFFFFF; border: 1px solid #C6D6DF;"><span style="width: 50px; height: 5px; background: #4A7F76;"></span><span style="width: 100%; height: 5px; background: #DDE8ED;"></span><span style="width: 90%; height: 5px; background: #DDE8ED;"></span><span style="width: 70%; height: 5px; background: #DDE8ED;"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 6px; padding: 12px; background: #264653;"><span style="width: 58px; height: 5px; background: #A88213;"></span><span style="width: 100%; height: 5px; background: #4B7284;"></span><span style="width: 88%; height: 5px; background: #4B7284;"></span><span style="width: 62%; height: 5px; background: #4B7284;"></span></span>
+          </div>
+          <span style="display: flex; align-items: center; gap: 12px;"><span style="display: inline-grid; place-items: center; height: 28px; padding: 0 14px; border-radius: 999px; background: #264653; font: 600 8.5px/1 'Inter', sans-serif; color: #FFFFFF; white-space: nowrap;">START WITH ANSWERS</span><span style="width: 120px; height: 5px; background: #8FA6B2;"></span></span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 18px 20px; background: #F2F7F9; border-left: 3px solid #8FA6B2;">
+        <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Annotations</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Four cards.</strong> They read · they may order · they decide · they will not. The fourth is the only dark card in a light section, because the limit is the credibility.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Per ruling 4.</strong> Variant A ships. Named clinicians, portraits and registration numbers stay documented in the Section Library until real credentials are approved.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Contains no.</strong> Statistics, success rates, endorsements, certifications, approval badges, regulator names. Deliberately.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Placement.</strong> Immediately before the momentum trough — it is the last purely rational section, and the last one a sceptic needs.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Mobile.</strong> Four cards stack; the dark fourth stays last.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="b09" data-screen-label="09 Longevity" style="padding: 34px 44px 38px; background: #EDF2F5; border-bottom: 1px solid #D6E2E9;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 26px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;">
+          <span style="font: 400 34px/0.9 'DM Serif Display', serif; color: #B9CEDA;">09</span>
+          <span style="font: 500 16px/1.3 'Inter', sans-serif; color: #264653;">Longevity lifestyle</span>
+          <span style="padding: 4px 9px; background: #FFFFFF; border: 1px solid #C6D6DF; font: 700 8.5px/1.4 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #55747F;">Variant A · three pillars + photograph</span>
+          <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; background: #264653; font: 700 8.5px/1.4 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #FFFFFF;">Dark anchor 3 · final</span>
+        </div>
+        <div style="display: flex; flex-direction: column; border: 1px solid #8FA6B2; overflow: hidden;">
+          <div style="position: relative; min-height: 150px; background: #3E5C6B; display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; padding: 20px;">
+            <span style="position: absolute; inset: 0; display: grid; place-items: center; font: 400 10.5px/1.6 'Inter', sans-serif; color: #8FA6B2;">Full-bleed portrait, dark wash</span>
+            <span style="position: relative; width: 70px; height: 5px; background: #8FA6B2;"></span>
+            <span style="position: relative; width: 74%; height: 13px; background: #A8C2CD;"></span>
+            <span style="position: relative; width: 52%; height: 13px; background: #A8C2CD;"></span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr) auto; gap: 14px; padding: 20px; background: #F7FAFB; align-items: end;">
+            <span style="display: flex; flex-direction: column; gap: 6px;"><span style="width: 40px; height: 5px; background: #4A7F76;"></span><span style="width: 100%; height: 5px; background: #DDE8ED;"></span><span style="width: 90%; height: 5px; background: #DDE8ED;"></span><span style="width: 64%; height: 5px; background: #DDE8ED;"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 6px;"><span style="width: 52px; height: 5px; background: #4A7F76;"></span><span style="width: 100%; height: 5px; background: #DDE8ED;"></span><span style="width: 84%; height: 5px; background: #DDE8ED;"></span><span style="width: 58%; height: 5px; background: #DDE8ED;"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 6px;"><span style="width: 46px; height: 5px; background: #4A7F76;"></span><span style="width: 100%; height: 5px; background: #DDE8ED;"></span><span style="width: 92%; height: 5px; background: #DDE8ED;"></span><span style="width: 70%; height: 5px; background: #DDE8ED;"></span></span>
+            <span style="display: inline-grid; place-items: center; height: 28px; padding: 0 14px; border-radius: 999px; border: 1px solid #264653; font: 600 8.5px/1 'Inter', sans-serif; color: #264653; white-space: nowrap;">EXPLORE LONGEVITY</span>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 18px 20px; background: #FFFFFF; border-left: 3px solid #264653;">
+        <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Annotations</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Confirmed as dark anchor 3.</strong> The dark photographic band counts against the budget. No further dark sections on the page, footer excluded.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Three pillars.</strong> Sleep · Strength · Baseline. Rest is named under Sleep, Daily under Baseline — the only place on the page products appear before 11.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Serif moment 3 of 4.</strong> Statement over the photograph. No italic highlight — that was spent in the hero.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Conversion.</strong> Retention and brand, not acquisition. Secondary CTA only — a primary here would compete with 14.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Mobile.</strong> Photograph 220px, pillars stack, CTA moves below them.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="b10" data-screen-label="10 Social proof" style="padding: 34px 44px 38px; background: #FFFFFF; border-bottom: 1px solid #D6E2E9;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 26px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;">
+          <span style="font: 400 34px/0.9 'DM Serif Display', serif; color: #B9CEDA;">10</span>
+          <span style="font: 500 16px/1.3 'Inter', sans-serif; color: #264653;">Social proof</span>
+          <span style="padding: 4px 9px; background: #EDF2F5; border: 1px solid #C6D6DF; font: 700 8.5px/1.4 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #55747F;">Variant A · anonymous, about deciding</span>
+          <span style="padding: 4px 9px; background: #FDEEE9; border: 1px dashed #E76F51; font: 700 8.5px/1.4 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #B4442A;">Demo copy</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 20px; border: 1px solid #8FA6B2; background: #F7FAFB; overflow: hidden;">
+          <span style="display: flex; flex-direction: column; gap: 8px; padding: 16px 14px; background: #FFFFFF; border: 1px solid #C6D6DF;"><span style="width: 14px; height: 14px; border: 1px dashed #8FA6B2;"></span><span style="width: 100%; height: 6px; background: #C6D6DF;"></span><span style="width: 92%; height: 6px; background: #C6D6DF;"></span><span style="width: 74%; height: 6px; background: #C6D6DF;"></span><span style="width: 44px; height: 5px; background: #DDE8ED;"></span></span>
+          <span style="display: flex; flex-direction: column; gap: 8px; padding: 16px 14px; background: #FFFFFF; border: 1px solid #C6D6DF;"><span style="width: 14px; height: 14px; border: 1px dashed #8FA6B2;"></span><span style="width: 100%; height: 6px; background: #C6D6DF;"></span><span style="width: 86%; height: 6px; background: #C6D6DF;"></span><span style="width: 60%; height: 6px; background: #C6D6DF;"></span><span style="width: 44px; height: 5px; background: #DDE8ED;"></span></span>
+          <span style="display: flex; flex-direction: column; gap: 8px; padding: 16px 14px; background: #FFFFFF; border: 1px solid #C6D6DF;"><span style="width: 14px; height: 14px; border: 1px dashed #8FA6B2;"></span><span style="width: 100%; height: 6px; background: #C6D6DF;"></span><span style="width: 94%; height: 6px; background: #C6D6DF;"></span><span style="width: 68%; height: 6px; background: #C6D6DF;"></span><span style="width: 44px; height: 5px; background: #DDE8ED;"></span></span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 18px 20px; background: #F2F7F9; border-left: 3px solid #8FA6B2;">
+        <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Annotations</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Retained as a dedicated section</strong> per ruling 1, for rhythm evaluation.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Constraint.</strong> Initials and age only. Every quote is about the decision to start, never an outcome. No quote may name a treatment or describe a result.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">No CTA.</strong> This section hands momentum forward rather than trying to capture it.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Consolidation candidate 1.</strong> In sequence this reads adjacent in purpose to 13 FAQ — both answer "will anyone know?". Flagged, not removed.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Mobile.</strong> Three stack. Consider two plus "more" at 390px — three quote cards in a column is a long scroll for a low-value section.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="b11" data-screen-label="11 Daily support" style="padding: 34px 44px 38px; background: #EDF2F5; border-bottom: 1px solid #D6E2E9;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 26px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;">
+          <span style="font: 400 34px/0.9 'DM Serif Display', serif; color: #B9CEDA;">11</span>
+          <span style="font: 500 16px/1.3 'Inter', sans-serif; color: #264653;">Daily support and supplements</span>
+          <span style="padding: 4px 9px; background: #FFFFFF; border: 1px solid #C6D6DF; font: 700 8.5px/1.4 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #55747F;">Variant A · three product cards</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px; padding: 22px 20px; border: 1px solid #8FA6B2; background: #F7FAFB; overflow: hidden;">
+          <span style="display: flex; align-items: flex-end; justify-content: space-between; gap: 16px;"><span style="display: flex; flex-direction: column; gap: 5px;"><span style="width: 220px; height: 12px; background: #264653;"></span><span style="width: 150px; height: 12px; background: #264653;"></span></span><span style="display: flex; flex-direction: column; gap: 4px; width: 190px;"><span style="width: 100%; height: 5px; background: #C6D6DF;"></span><span style="width: 80%; height: 5px; background: #C6D6DF;"></span></span></span>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
+            <span style="position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; min-height: 96px; padding: 14px; background: #3E5C6B;"><span style="position: absolute; right: -14px; bottom: -14px; width: 50px; height: 50px; background: #4B7284; border-radius: 999px 0 0 0;"></span><span style="position: relative; width: 28px; height: 5px; background: #8FA6B2;"></span><span style="position: relative; width: 46px; height: 12px; background: #A8C2CD;"></span><span style="position: relative; width: 90%; height: 5px; background: #6E8B97;"></span></span>
+            <span style="position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; min-height: 96px; padding: 14px; background: #CFC6B8;"><span style="position: absolute; right: 0; top: 0; width: 36px; height: 96px; background: #3E5C6B; border-radius: 999px 0 0 999px;"></span><span style="position: relative; width: 28px; height: 5px; background: #8A8175;"></span><span style="position: relative; width: 46px; height: 12px; background: #4A5560;"></span><span style="position: relative; width: 76%; height: 5px; background: #8A8175;"></span></span>
+            <span style="position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; min-height: 96px; padding: 14px; background: #5E93A6;"><span style="position: absolute; right: 0; top: 0; width: 32px; height: 32px; background: #C9A94E; border-radius: 0 0 0 999px;"></span><span style="position: relative; width: 28px; height: 5px; background: #C3DDE6;"></span><span style="position: relative; width: 46px; height: 12px; background: #EAF4F8;"></span><span style="position: relative; width: 84%; height: 5px; background: #C3DDE6;"></span></span>
+          </div>
+          <span style="display: flex; align-items: center; gap: 12px;"><span style="display: inline-grid; place-items: center; height: 28px; padding: 0 14px; border-radius: 999px; border: 1px solid #264653; font: 600 8.5px/1 'Inter', sans-serif; color: #264653; white-space: nowrap;">SEE DAILY SUPPORT</span><span style="display: flex; flex-direction: column; gap: 3px; flex: 1;"><span style="width: 90%; height: 4px; background: #DDE8ED;"></span><span style="width: 70%; height: 4px; background: #DDE8ED;"></span></span></span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 18px 20px; background: #FFFFFF; border-left: 3px solid #8FA6B2;">
+        <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Annotations</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Per ruling 3 of Phase 1.</strong> Rest, Daily and Drive live here as supporting wellness groupings. They never appear in 04 and never compete with the care-area architecture.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Each product.</strong> One body colour and one kit piece. Nothing else changes between them.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Secondary CTA only.</strong> A primary button here would let a supplement outrank the assessment.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Required copy.</strong> Food supplements, not a substitute for a varied diet, speak to your provider if you take prescription medication. Ingredients listed openly; no benefit claim.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Mobile.</strong> Three across becomes one; cards keep their aspect so the label band stays readable.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="b12" data-screen-label="12 Learn" style="padding: 34px 44px 38px; background: #FFFFFF; border-bottom: 1px solid #D6E2E9;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 26px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;">
+          <span style="font: 400 34px/0.9 'DM Serif Display', serif; color: #B9CEDA;">12</span>
+          <span style="font: 500 16px/1.3 'Inter', sans-serif; color: #264653;">Learn and resources</span>
+          <span style="padding: 4px 9px; background: #EDF2F5; border: 1px solid #C6D6DF; font: 700 8.5px/1.4 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #55747F;">Variant A · three articles with reading time</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 20px; border: 1px solid #8FA6B2; background: #F7FAFB; overflow: hidden;">
+          <span style="display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid #C6D6DF;"><span style="height: 60px; background: #DDE8ED; border-bottom: 1px dashed #8FA6B2;"></span><span style="display: flex; flex-direction: column; gap: 6px; padding: 12px;"><span style="width: 74px; height: 5px; background: #4A7F76;"></span><span style="width: 100%; height: 8px; background: #264653;"></span><span style="width: 66%; height: 8px; background: #264653;"></span><span style="width: 90%; height: 5px; background: #DDE8ED;"></span></span></span>
+          <span style="display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid #C6D6DF;"><span style="height: 60px; background: #3E5C6B; border-bottom: 1px dashed #8FA6B2;"></span><span style="display: flex; flex-direction: column; gap: 6px; padding: 12px;"><span style="width: 68px; height: 5px; background: #4A7F76;"></span><span style="width: 100%; height: 8px; background: #264653;"></span><span style="width: 58%; height: 8px; background: #264653;"></span><span style="width: 84%; height: 5px; background: #DDE8ED;"></span></span></span>
+          <span style="display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid #C6D6DF;"><span style="height: 60px; background: #DDE8ED; border-bottom: 1px dashed #8FA6B2;"></span><span style="display: flex; flex-direction: column; gap: 6px; padding: 12px;"><span style="width: 56px; height: 5px; background: #4A7F76;"></span><span style="width: 90%; height: 8px; background: #264653;"></span><span style="width: 100%; height: 5px; background: #DDE8ED;"></span><span style="width: 70%; height: 5px; background: #DDE8ED;"></span></span></span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 18px 20px; background: #F2F7F9; border-left: 3px solid #8FA6B2;">
+        <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Annotations</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Retained as its own section</strong> per ruling 1.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Reading time is mandatory</strong> on every card. It is the mechanism, not decoration — a man at midnight starts a four-minute read and not a guide.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Every article ends at the assessment.</strong> The section is an acquisition and delayed-conversion surface, not a library.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Sequencing note.</strong> Sitting at 12 it is the deepest point of the trough. Reviewed below as a candidate to move beneath 14.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Mobile.</strong> One column, images 16:9 retained, three cards maximum.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="b13" data-screen-label="13 FAQ" style="padding: 34px 44px 38px; background: #EDF2F5; border-bottom: 1px solid #D6E2E9;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 26px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;">
+          <span style="font: 400 34px/0.9 'DM Serif Display', serif; color: #B9CEDA;">13</span>
+          <span style="font: 500 16px/1.3 'Inter', sans-serif; color: #264653;">FAQ</span>
+          <span style="padding: 4px 9px; background: #FFFFFF; border: 1px solid #C6D6DF; font: 700 8.5px/1.4 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #55747F;">Variant A · accordion, first open</span>
+        </div>
+        <div style="display: flex; flex-direction: column; border: 1px solid #8FA6B2; background: #F7FAFB; overflow: hidden;">
+          <span style="display: flex; flex-direction: column; gap: 8px; padding: 16px 18px; background: #FFFFFF; border-bottom: 1px solid #C6D6DF;">
+            <span style="display: flex; align-items: center; gap: 12px;"><span style="width: 240px; height: 9px; background: #264653;"></span><span style="margin-left: auto; width: 10px; height: 10px; border-top: 2px solid #264653; border-right: 2px solid #264653; transform: rotate(-45deg);"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 4px;"><span style="width: 96%; height: 5px; background: #DDE8ED;"></span><span style="width: 90%; height: 5px; background: #DDE8ED;"></span><span style="width: 64%; height: 5px; background: #DDE8ED;"></span></span>
+          </span>
+          <span style="display: flex; align-items: center; gap: 12px; padding: 15px 18px; border-bottom: 1px solid #DDE8ED;"><span style="width: 190px; height: 9px; background: #8FA6B2;"></span><span style="margin-left: auto; width: 10px; height: 10px; border-bottom: 2px solid #8FA6B2; border-right: 2px solid #8FA6B2; transform: rotate(45deg);"></span></span>
+          <span style="display: flex; align-items: center; gap: 12px; padding: 15px 18px; border-bottom: 1px solid #DDE8ED;"><span style="width: 210px; height: 9px; background: #8FA6B2;"></span><span style="margin-left: auto; width: 10px; height: 10px; border-bottom: 2px solid #8FA6B2; border-right: 2px solid #8FA6B2; transform: rotate(45deg);"></span></span>
+          <span style="display: flex; align-items: center; gap: 12px; padding: 15px 18px; border-bottom: 1px solid #DDE8ED;"><span style="width: 170px; height: 9px; background: #8FA6B2;"></span><span style="margin-left: auto; width: 10px; height: 10px; border-bottom: 2px solid #8FA6B2; border-right: 2px solid #8FA6B2; transform: rotate(45deg);"></span></span>
+          <span style="display: flex; align-items: center; gap: 12px; padding: 15px 18px;"><span style="width: 200px; height: 9px; background: #8FA6B2;"></span><span style="margin-left: auto; width: 10px; height: 10px; border-bottom: 2px solid #8FA6B2; border-right: 2px solid #8FA6B2; transform: rotate(45deg);"></span></span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 18px 20px; background: #FFFFFF; border-left: 3px solid #8FA6B2;">
+        <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Annotations</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Order, fixed.</strong> Privacy → medical → money → commitment. The privacy answer is open by default, which states the priority without a word.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Five questions maximum.</strong> A longer list moves to a support page; this is objection handling, not documentation.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Interaction.</strong> One open at a time, 180ms height transition, chevron rotates. No jump-scroll on open.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Placement.</strong> Directly before 14 — the last objection is answered immediately before the last ask.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Consolidation candidate 1.</strong> Natural host for 10 if the page is later shortened: the quotes become a band above the accordion.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="b14" data-screen-label="14 Final CTA" style="padding: 34px 44px 38px; background: #FFFFFF; border-bottom: 1px solid #D6E2E9;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 26px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;">
+          <span style="font: 400 34px/0.9 'DM Serif Display', serif; color: #B9CEDA;">14</span>
+          <span style="font: 500 16px/1.3 'Inter', sans-serif; color: #264653;">Final CTA</span>
+          <span style="padding: 4px 9px; background: #EDF2F5; border: 1px solid #C6D6DF; font: 700 8.5px/1.4 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #55747F;">Variant A · editorial close on Mist</span>
+          <span style="padding: 4px 9px; background: #264653; font: 700 8.5px/1.4 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #FFFFFF;">Second-highest intent</span>
+        </div>
+        <div style="position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 34px 24px; border: 1px solid #8FA6B2; background: #F7FAFB; overflow: hidden;">
+          <span style="position: absolute; right: 16px; top: 16px; width: 22px; height: 22px; border-radius: 999px; background: #C9A94E;"></span>
+          <span style="position: absolute; left: -30px; bottom: -30px; width: 90px; height: 90px; background: #E4EEF1; border-radius: 0 999px 0 0;"></span>
+          <span style="position: relative; width: 74%; height: 15px; background: #264653;"></span>
+          <span style="position: relative; width: 52%; height: 15px; background: #264653;"></span>
+          <span style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; margin-top: 4px;"><span style="width: 340px; max-width: 100%; height: 5px; background: #C6D6DF;"></span><span style="width: 280px; max-width: 100%; height: 5px; background: #C6D6DF;"></span></span>
+          <span style="position: relative; display: flex; gap: 8px; margin-top: 6px;"><span style="display: inline-grid; place-items: center; height: 30px; padding: 0 16px; border-radius: 999px; background: #264653; font: 600 8.5px/1 'Inter', sans-serif; color: #FFFFFF; white-space: nowrap;">START WITH ANSWERS</span><span style="display: inline-grid; place-items: center; height: 30px; padding: 0 16px; border-radius: 999px; border: 1px solid #264653; font: 600 8.5px/1 'Inter', sans-serif; color: #264653; white-space: nowrap;">TALK TO A CLINICIAN</span></span>
+          <span style="position: relative; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 4px;"><span style="width: 78px; height: 5px; background: #DDE8ED;"></span><span style="width: 70px; height: 5px; background: #DDE8ED;"></span><span style="width: 92px; height: 5px; background: #DDE8ED;"></span></span>
+          <span style="position: relative; width: 160px; height: 5px; background: #DDE8ED;"></span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 18px 20px; background: #F2F7F9; border-left: 3px solid #8FA6B2;">
+        <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Annotations</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Light on purpose.</strong> A dark close plus the dark footer would put two dark bands adjacent. Mist here makes the footer read as an ending.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">CTA copy is identical to the hero.</strong> "Start with answers" never rewords to fit a section, per the wording rules.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Serif moment 4 of 4.</strong> One kit circle in yellow is the page's second and last yellow spend.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Reassurances repeat.</strong> Two minutes · private · provider-reviewed, plus the disclaimer. A visitor arriving here by scroll may not have read the hero.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Behaviour.</strong> Scrolls back to the section 02 panel and starts at Q1. No popup, no exit-intent overlay, anywhere on this page.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="b15" data-screen-label="15 Legal and footer" style="padding: 34px 44px 40px; background: #EDF2F5; border-bottom: 1px solid #D6E2E9;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 26px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;">
+          <span style="font: 400 34px/0.9 'DM Serif Display', serif; color: #B9CEDA;">15</span>
+          <span style="font: 500 16px/1.3 'Inter', sans-serif; color: #264653;">Medical, legal and footer</span>
+          <span style="padding: 4px 9px; background: #FFFFFF; border: 1px solid #C6D6DF; font: 700 8.5px/1.4 'Inter', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: #55747F;">Definitive</span>
+        </div>
+        <div style="display: flex; flex-direction: column; border: 1px solid #8FA6B2; overflow: hidden;">
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding: 18px; background: #F7FAFB;">
+            <span style="display: flex; flex-direction: column; gap: 6px;"><span style="width: 90px; height: 5px; background: #4A7F76;"></span><span style="width: 100%; height: 5px; background: #DDE8ED;"></span><span style="width: 88%; height: 5px; background: #DDE8ED;"></span><span style="width: 60%; height: 5px; background: #DDE8ED;"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 6px;"><span style="width: 74px; height: 5px; background: #4A7F76;"></span><span style="width: 100%; height: 5px; background: #DDE8ED;"></span><span style="width: 84%; height: 5px; background: #DDE8ED;"></span><span style="width: 54%; height: 5px; background: #DDE8ED;"></span></span>
+            <span style="display: flex; flex-direction: column; gap: 6px;"><span style="width: 96px; height: 5px; background: #B4442A;"></span><span style="width: 100%; height: 5px; background: #DDE8ED;"></span><span style="width: 90%; height: 5px; background: #DDE8ED;"></span><span style="width: 66%; height: 5px; background: #DDE8ED;"></span></span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 16px; padding: 20px; background: #264653;">
+            <div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 18px;">
+              <span style="display: flex; flex-direction: column; gap: 8px;"><span style="display: flex; align-items: center; gap: 8px;"><span style="width: 14px; height: 18px; background: #6E8B97;"></span><span style="width: 60px; height: 9px; background: #8FA6B2;"></span></span><span style="width: 80%; height: 5px; background: #4B7284;"></span></span>
+              <span style="display: flex; flex-direction: column; gap: 5px;"><span style="width: 40px; height: 5px; background: #4B7284;"></span><span style="width: 86%; height: 4px; background: #3E5C6B;"></span><span style="width: 78%; height: 4px; background: #3E5C6B;"></span><span style="width: 90%; height: 4px; background: #3E5C6B;"></span><span style="width: 70%; height: 4px; background: #3E5C6B;"></span></span>
+              <span style="display: flex; flex-direction: column; gap: 5px;"><span style="width: 52px; height: 5px; background: #4B7284;"></span><span style="width: 82%; height: 4px; background: #3E5C6B;"></span><span style="width: 74%; height: 4px; background: #3E5C6B;"></span><span style="width: 66%; height: 4px; background: #3E5C6B;"></span><span style="width: 58%; height: 4px; background: #3E5C6B;"></span></span>
+              <span style="display: flex; flex-direction: column; gap: 5px;"><span style="width: 36px; height: 5px; background: #4B7284;"></span><span style="width: 62%; height: 4px; background: #3E5C6B;"></span><span style="width: 54%; height: 4px; background: #3E5C6B;"></span><span style="width: 76%; height: 4px; background: #3E5C6B;"></span><span style="width: 60%; height: 4px; background: #3E5C6B;"></span></span>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 16px; padding-top: 12px; border-top: 1px solid #3E5C6B;"><span style="width: 150px; height: 4px; background: #3E5C6B;"></span><span style="width: 230px; height: 4px; background: #3E5C6B;"></span><span style="width: 170px; height: 4px; background: #3E5C6B;"></span></div>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 18px 20px; background: #FFFFFF; border-left: 3px solid #8FA6B2;">
+        <span style="font: 700 8.5px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #7E9AA6;">Annotations</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Legal band on Mist, above the footer,</strong> so it is read rather than skipped: what this service is · what it is not · if you need urgent help.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">The urgent-help line is Coral-labelled</strong> and never a footnote — the one place on the page where being slower to convert is correct.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Footer compliance lines</strong> are separate from the assessment's. Both appear; neither substitutes for the other.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Placeholders.</strong> Registered entity, address, regulator and emergency wording all require clinical and legal approval.</span>
+        <span style="font: 400 11.5px/1.75 'Inter', sans-serif; color: #55747F;"><strong style="font-weight: 600; color: #264653;">Mobile.</strong> Four columns → two → one. The legal band stays above the footer at every width.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="findings" data-screen-label="Sequencing findings" style="padding: 44px 44px 56px; background: #264653;">
+    <div style="display: flex; flex-direction: column; gap: 24px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font: 400 30px/1.1 'DM Serif Display', serif; color: #F2F7F9;">What the full sequence reveals.</span>
+        <span style="font: 400 13px/1.7 'Inter', sans-serif; color: #A8C2CD; max-width: 78ch;">Nothing has been removed. These are the observations that only became visible once all sixteen sections sat in order, recorded for your decision after review.</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px;">
+        <div style="display: flex; flex-direction: column; gap: 9px; padding: 22px 24px; background: #2E5361;">
+          <span style="display: flex; align-items: center; gap: 9px;"><span style="display: grid; place-items: center; width: 20px; height: 20px; background: #FFBE0B; font: 700 10px/1 'Inter', sans-serif; color: #264653;">1</span><span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #FFBE0B;">The 10–13 trough</span></span>
+          <span style="font: 400 12.5px/1.75 'Inter', sans-serif; color: #A8C2CD;">Four consecutive low-intent sections — social proof, supplements, learn, FAQ — sit between the last dark anchor and the final CTA. On a phone that is roughly four screens of scrolling with no ask. This is the single biggest sequencing risk on the page.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 9px; padding: 22px 24px; background: #2E5361;">
+          <span style="display: flex; align-items: center; gap: 9px;"><span style="display: grid; place-items: center; width: 20px; height: 20px; background: #FFBE0B; font: 700 10px/1 'Inter', sans-serif; color: #264653;">2</span><span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #FFBE0B;">10 and 13 overlap</span></span>
+          <span style="font: 400 12.5px/1.75 'Inter', sans-serif; color: #A8C2CD;">Both answer the same unspoken question — "will anyone know?". In sequence the quotes read as a preamble to the FAQ rather than a section of their own. Recommended consolidation: quotes become a three-across band directly above the accordion, one section instead of two.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 9px; padding: 22px 24px; background: #2E5361;">
+          <span style="display: flex; align-items: center; gap: 9px;"><span style="display: grid; place-items: center; width: 20px; height: 20px; background: #FFBE0B; font: 700 10px/1 'Inter', sans-serif; color: #264653;">3</span><span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #FFBE0B;">12 sits in the wrong place</span></span>
+          <span style="font: 400 12.5px/1.75 'Inter', sans-serif; color: #A8C2CD;">Learn is the only section whose success is measured by the visitor leaving the page. At position 12 it invites exit at the exact moment momentum should be rebuilding toward 14. Recommended: move it below the final CTA, above the legal band.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 9px; padding: 22px 24px; background: #2E5361;">
+          <span style="display: flex; align-items: center; gap: 9px;"><span style="display: grid; place-items: center; width: 20px; height: 20px; background: #FFBE0B; font: 700 10px/1 'Inter', sans-serif; color: #264653;">4</span><span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #FFBE0B;">06 and 08 both explain</span></span>
+          <span style="font: 400 12.5px/1.75 'Inter', sans-serif; color: #A8C2CD;">Andropause explains the condition; clinical credibility explains the process. Neither is redundant, but with 05 and 07 between them the page spends four consecutive sections explaining. Consider whether 06 belongs closer to 04, where the visitor is still identifying his problem.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 9px; padding: 22px 24px; background: #2E5361;">
+          <span style="display: flex; align-items: center; gap: 9px;"><span style="display: grid; place-items: center; width: 20px; height: 20px; background: #FFBE0B; font: 700 10px/1 'Inter', sans-serif; color: #264653;">5</span><span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #FFBE0B;">03 is conditional, and 04 must not know it</span></span>
+          <span style="font: 400 12.5px/1.75 'Inter', sans-serif; color: #A8C2CD;">Most first-time visitors never see section 03, because they have not completed the assessment. The page must read correctly with 03 absent — meaning 04 has to follow 02 without a seam, and 07 must not be the first dark band a scroller meets after a long light run.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 9px; padding: 22px 24px; background: #2E5361;">
+          <span style="display: flex; align-items: center; gap: 9px;"><span style="display: grid; place-items: center; width: 20px; height: 20px; background: #FFBE0B; font: 700 10px/1 'Inter', sans-serif; color: #264653;">6</span><span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #FFBE0B;">Page length</span></span>
+          <span style="font: 400 12.5px/1.75 'Inter', sans-serif; color: #A8C2CD;">Sixteen sections is roughly 9,500px on desktop and 14,000px on a 390px phone. That is long but defensible <em style="font-style: italic;">if</em> the trough is fixed — the assessment is at the top, so page length costs nothing to the visitor who converts early.</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 9px; padding: 22px 24px; background: #1C3742;">
+        <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #FFBE0B;">If you approve consolidation later</span>
+        <span style="font: 400 12.5px/1.8 'Inter', sans-serif; color: #A8C2CD;">The fourteen-section order would be: 00 nav · 01 hero · 02 assessment · 03 outcome · 04 care areas · 05 how it works · 06 andropause · 07 why SoviCare · 08 credibility · 09 longevity · 10 supplements · 11 proof + FAQ · 12 final CTA · 13 learn · 14 legal + footer. Two sections fewer, one continuous rise from 09 to the final CTA, and the exit-friendly section placed after the last ask rather than before it.</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+</body>
+</html>

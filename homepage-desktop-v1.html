@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SoviCare</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#F2F7F9"/><g transform="translate(34 22) scale(0.32)"><path fill="#264653" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"/><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"/><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"/><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"/></g><rect x="20" y="66" width="60" height="8" rx="4" fill="#264653"/><rect x="20" y="80" width="38" height="8" rx="4" fill="#B9CEDA"/></svg></template>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-14 -10 128 153'%3E%3Cpath fill='%23264653' d='M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z'/%3E%3Cpath fill='%23219EBC' d='M100 2H58A42 42 0 0 0 100 44Z'/%3E%3Cpath fill='%232A9D8F' d='M58 48A41 41 0 0 1 58 130Z'/%3E%3Cpath fill='%23FFBE0B' d='M0 131V89A42 42 0 0 1 42 131Z'/%3E%3C/svg%3E">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; color: #264653; background: #F2F7F9; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, h4, p, ul, li, figure, figcaption { margin: 0; padding: 0; }
+  ul { list-style: none; }
+  a { color: #219EBC; text-decoration: none; }
+  a:hover { color: #264653; }
+  button { font-family: inherit; }
+  :focus-visible { outline: 2px solid #219EBC; outline-offset: 3px; }
+  @keyframes sc-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+</helmet>
+
+<div data-document-role="page" data-label="Homepage Desktop V1" style="background: #F2F7F9; overflow-x: hidden;">
+
+  <div data-screen-label="00 Utility nav" style="position: sticky; top: 0; z-index: 60; background: #FFFFFF; border-bottom: 1px solid #DDE8ED;">
+    <div style="{{ utilityStyle }}">
+      <div style="max-width: 1180px; margin: 0 auto; padding: 0 56px; display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 34px;">
+        <div style="display: flex; gap: 26px;">
+          <span style="display: inline-flex; align-items: center; gap: 7px; font: 400 11.5px/1 'Inter', sans-serif; color: #A8C2CD;"><svg viewBox="0 0 24 24" style="width: 13px; height: 13px; flex: none; fill: none; stroke: #7E9AA6; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M12 3.5 5.5 6v6c0 4 2.8 6.9 6.5 8.5 3.7-1.6 6.5-4.5 6.5-8.5V6z"></path></svg>Private and discreet</span>
+          <span style="display: inline-flex; align-items: center; gap: 7px; font: 400 11.5px/1 'Inter', sans-serif; color: #A8C2CD;"><svg viewBox="0 0 24 24" style="width: 13px; height: 13px; flex: none; fill: none; stroke: #7E9AA6; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5.5 19.5a6.5 6.5 0 0 1 13 0"></path></svg>Provider-reviewed next step</span>
+        </div>
+        <span style="font: 400 11.5px/1 'Inter', sans-serif; color: #6E8B97;">Assessment only. Not a diagnosis.</span>
+      </div>
+    </div>
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 56px;">
+      <div style="{{ barStyle }}">
+        <a href="#top" onClick="{{ toTop }}" style="display: flex; align-items: center; gap: 11px; flex: none;">
+          <svg viewBox="0 0 100 133" style="width: 20px; height: 27px; flex: none;"><path fill="#264653" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+          <span style="font: 400 23px/1 'DM Serif Display', serif; color: #264653;">SoviCare</span>
+        </a>
+        <div style="display: flex; flex-wrap: wrap; gap: 24px; min-width: 0;">
+          <a href="#care" style="font: 500 13.5px/1 'Inter', sans-serif; color: #264653; white-space: nowrap;">Care areas</a>
+          <a href="#how" style="font: 500 13.5px/1 'Inter', sans-serif; color: #55747F; white-space: nowrap;">How it works</a>
+          <a href="#andropause" style="font: 500 13.5px/1 'Inter', sans-serif; color: #55747F; white-space: nowrap;">Andropause</a>
+          <a href="#longevity" style="font: 500 13.5px/1 'Inter', sans-serif; color: #55747F; white-space: nowrap;">Longevity</a>
+          <a href="#learn" style="font: 500 13.5px/1 'Inter', sans-serif; color: #55747F; white-space: nowrap;">Learn</a>
+        </div>
+        <div style="display: flex; align-items: center; gap: 18px; margin-left: auto; flex: none;">
+          <a href="#faq" style="font: 500 13.5px/1 'Inter', sans-serif; color: #55747F; white-space: nowrap;">Sign in</a>
+          <button type="button" onClick="{{ begin }}" style="display: inline-grid; place-items: center; height: 46px; padding: 0 26px; border: 0; border-radius: 999px; font: 500 14px/1 'Inter', sans-serif; white-space: nowrap; background: #264653; color: #F2F7F9; cursor: pointer; transition: background 180ms ease;" style-hover="background: #1C3742;">Start with answers</button>
+        </div>
+      </div>
+    </div>
+    <div style="{{ progressStyle }}"></div>
+  </div>
+
+  <section id="top" data-screen-label="01 Hero" style="background: #F2F7F9;">
+    <div style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.06fr 0.94fr; min-height: 560px;">
+      <div style="position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 96px 56px;">
+        <div style="position: absolute; left: -110px; bottom: -110px; width: 300px; height: 300px; background: #2A9D8F; opacity: 0.09; border-radius: 0 999px 0 0;"></div>
+        <span style="position: relative; font: 700 10.5px/1.4 'Inter', sans-serif; letter-spacing: 0.2em; text-transform: uppercase; color: #7E9AA6;">Men's longevity, made simple.</span>
+        <h1 style="position: relative; font-family: 'DM Serif Display', serif; font-size: clamp(40px, 4.4vw, 56px); line-height: 1.03; font-weight: 400; color: #264653; max-width: 20ch;">Start with <span style="font-family: 'DM Serif Display', serif; font-style: italic;">answers</span>, not assumptions.</h1>
+        <p style="position: relative; font: 400 17px/1.65 'Inter', sans-serif; color: #55747F; max-width: 44ch; text-wrap: pretty;">A short, private assessment. A licensed clinician reviews what you tell us and says what is worth looking at — with labs where they are needed.</p>
+        <div style="position: relative; display: flex; flex-wrap: wrap; gap: 12px;">
+          <button type="button" onClick="{{ begin }}" style="display: inline-grid; place-items: center; height: 46px; padding: 0 28px; border: 0; border-radius: 999px; font: 500 14px/1 'Inter', sans-serif; white-space: nowrap; background: #264653; color: #F2F7F9; cursor: pointer; transition: background 180ms ease;" style-hover="background: #1C3742;">Start with answers</button>
+          <a href="#how" style="display: inline-grid; place-items: center; height: 46px; padding: 0 28px; border: 1.5px solid #264653; border-radius: 999px; font: 500 14px/1 'Inter', sans-serif; white-space: nowrap; color: #264653; transition: background 180ms ease, color 180ms ease;" style-hover="background: #264653; color: #F2F7F9;">See how it works</a>
+        </div>
+        <div style="position: relative; display: flex; flex-wrap: wrap; gap: 24px;">
+          <span style="display: inline-flex; align-items: center; gap: 8px; font: 400 12.5px/1.5 'Inter', sans-serif; color: #55747F;"><svg viewBox="0 0 24 24" style="width: 15px; height: 15px; flex: none; fill: none; stroke: #7E9AA6; stroke-width: 1.6; stroke-linecap: round;"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5v5l3.5 2"></path></svg>Takes about two minutes</span>
+          <span style="display: inline-flex; align-items: center; gap: 8px; font: 400 12.5px/1.5 'Inter', sans-serif; color: #55747F;"><svg viewBox="0 0 24 24" style="width: 15px; height: 15px; flex: none; fill: none; stroke: #7E9AA6; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M12 3.5 5.5 6v6c0 4 2.8 6.9 6.5 8.5 3.7-1.6 6.5-4.5 6.5-8.5V6z"></path></svg>Private and discreet</span>
+          <span style="display: inline-flex; align-items: center; gap: 8px; font: 400 12.5px/1.5 'Inter', sans-serif; color: #55747F;"><svg viewBox="0 0 24 24" style="width: 15px; height: 15px; flex: none; fill: none; stroke: #7E9AA6; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5.5 19.5a6.5 6.5 0 0 1 13 0"></path></svg>Provider-reviewed next step</span>
+        </div>
+        <span style="position: relative; display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; background: #FFFFFF; border: 1px solid #D6E2E9; font: 500 11.5px/1.4 'Inter', sans-serif; color: #55747F;">
+          <svg viewBox="0 0 24 24" style="width: 13px; height: 13px; flex: none; fill: none; stroke: #7E9AA6; stroke-width: 1.6; stroke-linecap: round;"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 11v5.5M12 7.8v.1"></path></svg>
+          Assessment only. Not a diagnosis.
+        </span>
+      </div>
+      <div style="position: relative; overflow: hidden; min-height: 420px;">
+        <img src="assets/people/01.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%;">
+        <div style="position: absolute; right: 0; top: 0; width: 118px; height: 118px; background: #FFBE0B; border-radius: 0 0 0 999px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="assessment" data-screen-label="02 Assessment" style="background: #F2F7F9; border-top: 1px solid #E4EDF1;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 96px 56px; display: flex; flex-direction: column; gap: 30px;">
+      <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 26px;">
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <span style="font: 700 10.5px/1.4 'Inter', sans-serif; letter-spacing: 0.2em; text-transform: uppercase; color: #7E9AA6;">The assessment</span>
+          <h2 style="font: 400 36px/1.12 'DM Serif Display', serif; color: #264653; max-width: 24ch;">Six questions. Then a clear next step.</h2>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 24px;">
+          <span style="display: inline-flex; align-items: center; gap: 8px; font: 400 12.5px/1.5 'Inter', sans-serif; color: #55747F;"><svg viewBox="0 0 24 24" style="width: 15px; height: 15px; flex: none; fill: none; stroke: #7E9AA6; stroke-width: 1.6; stroke-linecap: round;"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5v5l3.5 2"></path></svg>Takes about two minutes</span>
+          <span style="display: inline-flex; align-items: center; gap: 8px; font: 400 12.5px/1.5 'Inter', sans-serif; color: #55747F;"><svg viewBox="0 0 24 24" style="width: 15px; height: 15px; flex: none; fill: none; stroke: #7E9AA6; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M12 3.5 5.5 6v6c0 4 2.8 6.9 6.5 8.5 3.7-1.6 6.5-4.5 6.5-8.5V6z"></path></svg>Private and discreet</span>
+          <span style="display: inline-flex; align-items: center; gap: 8px; font: 400 12.5px/1.5 'Inter', sans-serif; color: #55747F;"><svg viewBox="0 0 24 24" style="width: 15px; height: 15px; flex: none; fill: none; stroke: #7E9AA6; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5.5 19.5a6.5 6.5 0 0 1 13 0"></path></svg>Provider-reviewed next step</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid #C6D6DF; border-radius: 14px; overflow: hidden; min-height: 560px;">
+        <sc-if value="{{ showBar }}">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 18px; padding: 20px 34px; border-bottom: 1px solid #DDE8ED;">
+            <span style="display: grid; place-items: center; width: 26px; height: 26px; flex: none; background: #264653; color: #F2F7F9; font: 600 12.5px/1 'Inter', sans-serif;">{{ stepNumber }}</span>
+            <span style="font: 700 11px/1.4 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #264653;">{{ stepLabel }}</span>
+            <span style="display: flex; align-items: center; gap: 7px;">
+              <sc-for list="{{ dots }}" as="dot" hint-placeholder-count="6"><span style="{{ dot.style }}"></span></sc-for>
+            </span>
+            <span style="margin-left: auto; font: 500 12.5px/1.4 'Inter', sans-serif; color: #7E9AA6;">{{ counter }}</span>
+          </div>
+        </sc-if>
+
+        <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; padding: 54px 34px;">
+          <div style="{{ paneStyle }}">
+            <span style="display: grid; place-items: center; width: 88px; height: 88px; border-radius: 999px; background: #F2F7F9; border: 1px solid #DDE8ED;">{{ stepIcon }}</span>
+            <h3 style="font: 400 28px/1.32 'DM Serif Display', serif; color: #264653; text-align: center; max-width: 28ch; text-wrap: pretty;">{{ stepTitle }}</h3>
+            <sc-if value="{{ stepHelper }}">
+              <p style="font: 400 14px/1.6 'Inter', sans-serif; color: #55747F; text-align: center; max-width: 54ch; margin-top: -6px;">{{ stepHelper }}</p>
+            </sc-if>
+
+            <sc-if value="{{ isIntro }}">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; margin-top: 6px;">
+                <button type="button" onClick="{{ begin }}" style="display: inline-grid; place-items: center; height: 46px; padding: 0 30px; border: 0; border-radius: 999px; font: 500 14px/1 'Inter', sans-serif; white-space: nowrap; background: #264653; color: #F2F7F9; cursor: pointer; transition: background 180ms ease;" style-hover="background: #1C3742;">Start with answers</button>
+                <span style="font: 400 12.5px/1.5 'Inter', sans-serif; color: #7E9AA6;">No account, no obligation. You choose what happens next.</span>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ isOptions }}">
+              <div style="{{ gridStyle }}">
+                <sc-for list="{{ options }}" as="opt" hint-placeholder-count="5">
+                  <button type="button" onClick="{{ opt.pick }}" style="{{ opt.style }}">
+                    <sc-if value="{{ opt.bars }}">
+                      <span style="display: flex; align-items: flex-end; gap: 3px; height: 34px;">
+                        <sc-for list="{{ opt.bars }}" as="bar" hint-placeholder-count="4"><span style="{{ bar.style }}"></span></sc-for>
+                      </span>
+                    </sc-if>
+                    <sc-if value="{{ opt.icon }}">{{ opt.icon }}</sc-if>
+                    <span style="{{ opt.labelStyle }}">{{ opt.label }}</span>
+                    <sc-if value="{{ opt.tick }}">
+                      <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; margin-left: auto; flex: none; fill: none; stroke: #2A9D8F; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"></path></svg>
+                    </sc-if>
+                  </button>
+                </sc-for>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ isSlider }}">
+              <div style="width: 100%; max-width: 560px; display: flex; flex-direction: column; gap: 14px; margin-top: 10px;">
+                <div style="position: relative; display: flex; align-items: center; justify-content: space-between; padding: 0 6px;">
+                  <div style="position: absolute; left: 12px; right: 12px; top: 50%; height: 2px; background: #D6E2E9;"></div>
+                  <sc-for list="{{ sliderStops }}" as="stop" hint-placeholder-count="5">
+                    <button type="button" onClick="{{ stop.pick }}" aria-label="{{ stop.aria }}" style="{{ stop.hitStyle }}"><span style="{{ stop.dotStyle }}"></span></button>
+                  </sc-for>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; font: 400 12.5px/1.45 'Inter', sans-serif; color: #55747F;">
+                  <span>Very little</span><span>Moderate</span><span>A lot</span>
+                </div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ isDone }}">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+                <button type="button" onClick="{{ toOutcome }}" style="display: inline-grid; place-items: center; height: 46px; padding: 0 30px; border: 0; border-radius: 999px; font: 500 14px/1 'Inter', sans-serif; white-space: nowrap; background: #264653; color: #F2F7F9; cursor: pointer;">See what you told us</button>
+                <button type="button" onClick="{{ reset }}" style="border: 0; background: transparent; font: 500 12.5px/1.5 'Inter', sans-serif; color: #7E9AA6; cursor: pointer; text-decoration: underline;">Start again</button>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+
+        <sc-if value="{{ showFooter }}">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; padding: 20px 34px; border-top: 1px solid #DDE8ED;">
+            <button type="button" onClick="{{ back }}" style="display: inline-grid; place-items: center; height: 46px; padding: 0 26px; border: 1.5px solid #C6D6DF; border-radius: 999px; font: 500 14px/1 'Inter', sans-serif; background: transparent; color: #55747F; cursor: pointer; transition: border-color 180ms ease, color 180ms ease;" style-hover="border-color: #264653; color: #264653;">Back</button>
+            <sc-if value="{{ needsContinue }}">
+              <button type="button" onClick="{{ next }}" style="display: inline-grid; place-items: center; height: 46px; padding: 0 30px; border: 0; border-radius: 999px; font: 500 14px/1 'Inter', sans-serif; background: #264653; color: #F2F7F9; cursor: pointer;">Continue</button>
+            </sc-if>
+            <sc-if value="{{ autoNote }}">
+              <span style="font: 400 12.5px/1.45 'Inter', sans-serif; color: #7E9AA6;">{{ autoNote }}</span>
+            </sc-if>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px;">
+        <span style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; background: #FFFFFF; border: 1px solid #D6E2E9; font: 500 11.5px/1.4 'Inter', sans-serif; color: #55747F;">
+          <svg viewBox="0 0 24 24" style="width: 13px; height: 13px; flex: none; fill: none; stroke: #7E9AA6; stroke-width: 1.6; stroke-linecap: round;"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 11v5.5M12 7.8v.1"></path></svg>
+          Assessment only. Not a diagnosis.
+        </span>
+        <span style="font: 400 12.5px/1.5 'Inter', sans-serif; color: #7E9AA6;">Not ready? <a href="#care">Look at the care areas first</a>.</span>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ showOutcome }}">
+    <section id="outcome" data-screen-label="03 Personalised outcome" style="background: #264653;">
+      <div style="position: relative; overflow: hidden;">
+        <div style="position: absolute; right: -120px; top: -120px; width: 320px; height: 320px; background: #2A9D8F; opacity: 0.16; border-radius: 0 0 0 999px;"></div>
+        <div style="position: relative; max-width: 1180px; margin: 0 auto; padding: 88px 56px; display: flex; flex-direction: column; gap: 34px;">
+          <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px;">
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <span style="font: 700 10.5px/1.4 'Inter', sans-serif; letter-spacing: 0.2em; text-transform: uppercase; color: #FFBE0B;">Based on your answers</span>
+              <h2 style="font: 400 38px/1.12 'DM Serif Display', serif; color: #F2F7F9; max-width: 26ch;">Here is what you told us, and what is worth looking at.</h2>
+            </div>
+            <span style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; border: 1px solid #4B7284; font: 500 11.5px/1.4 'Inter', sans-serif; color: #A8C2CD;">
+              <svg viewBox="0 0 24 24" style="width: 13px; height: 13px; flex: none; fill: none; stroke: #7E9AA6; stroke-width: 1.6; stroke-linecap: round;"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 11v5.5M12 7.8v.1"></path></svg>
+              Assessment only. Not a diagnosis.
+            </span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px;">
+            <sc-for list="{{ outcomeCards }}" as="card" hint-placeholder-count="4">
+              <div style="{{ card.style }}">
+                <span style="{{ card.labelStyle }}">{{ card.label }}</span>
+                <span style="{{ card.valueStyle }}">{{ card.value }}</span>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px;">
+            <button type="button" onClick="{{ noop }}" style="display: inline-grid; place-items: center; height: 46px; padding: 0 30px; border: 0; border-radius: 999px; font: 500 14px/1 'Inter', sans-serif; white-space: nowrap; background: #FFBE0B; color: #264653; cursor: pointer; transition: background 180ms ease;" style-hover="background: #E9AD05;">Continue to eligibility</button>
+            <button type="button" onClick="{{ noop }}" style="display: inline-grid; place-items: center; height: 46px; padding: 0 30px; border: 1.5px solid #F2F7F9; border-radius: 999px; font: 500 14px/1 'Inter', sans-serif; white-space: nowrap; background: transparent; color: #F2F7F9; cursor: pointer;">Talk to a clinician</button>
+            <span style="font: 400 12.5px/1.65 'Inter', sans-serif; color: #6E8B97; max-width: 46ch;">Nothing has been prescribed and nothing has been decided. You can stop here and keep your summary.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <section id="care" data-screen-label="04 Care areas" style="background: #FFFFFF;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 96px 56px; display: flex; flex-direction: column; gap: 34px;">
+      <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 26px;">
+        <h2 style="font: 400 36px/1.12 'DM Serif Display', serif; color: #264653; max-width: 22ch;">Six areas, one way in.</h2>
+        <p style="font: 400 14.5px/1.75 'Inter', sans-serif; color: #55747F; max-width: 46ch; text-wrap: pretty;">Most men arrive about one of these and leave having looked at two. The assessment covers all six, so you do not have to choose first.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px;">
+        <sc-for list="{{ careAreas }}" as="area" hint-placeholder-count="6">
+          <button type="button" onClick="{{ area.pick }}" style="display: flex; flex-direction: column; align-items: flex-start; gap: 13px; padding: 30px 30px 28px; text-align: left; background: #F2F7F9; border: 1px solid #DDE8ED; border-radius: 14px; cursor: pointer; transition: border-color 140ms ease;" style-hover="border-color: #219EBC;">
+            {{ area.icon }}
+            <span style="font: 400 23px/1.25 'DM Serif Display', serif; color: #264653;">{{ area.name }}</span>
+            <span style="font: 400 13px/1.7 'Inter', sans-serif; color: #55747F;">{{ area.line }}</span>
+            <span style="display: inline-flex; align-items: center; gap: 7px; margin-top: 2px; font: 500 12.5px/1.4 'Inter', sans-serif; color: #219EBC;">Explore<svg viewBox="0 0 24 24" style="width: 14px; height: 14px; flex: none; fill: none; stroke: #219EBC; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;"><path d="M5 12h13M13 7l5 5-5 5"></path></svg></span>
+          </button>
+        </sc-for>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px;">
+        <button type="button" onClick="{{ begin }}" style="display: inline-grid; place-items: center; height: 46px; padding: 0 28px; border: 0; border-radius: 999px; font: 500 14px/1 'Inter', sans-serif; white-space: nowrap; background: #264653; color: #F2F7F9; cursor: pointer; transition: background 180ms ease;" style-hover="background: #1C3742;">Start with answers</button>
+        <span style="font: 400 12.5px/1.65 'Inter', sans-serif; color: #7E9AA6;">Choosing an area opens the assessment with that area already selected — every answer stays yours to change.</span>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="how" data-screen-label="05 How it works" style="background: #F2F7F9;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 96px 56px; display: flex; flex-direction: column; gap: 40px;">
+      <h2 style="font: 400 36px/1.12 'DM Serif Display', serif; color: #264653; max-width: 26ch;">Four steps, and a clinician at the middle of them.</h2>
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 26px;">
+        <div style="display: flex; flex-direction: column; gap: 13px;">
+          <span style="display: grid; place-items: center; width: 42px; height: 42px; border-radius: 999px; background: #264653; font: 500 16px/1 'Inter', sans-serif; color: #F2F7F9;">1</span>
+          <span style="font: 500 16px/1.4 'Inter', sans-serif; color: #264653;">Answer six questions</span>
+          <span style="font: 400 13px/1.75 'Inter', sans-serif; color: #55747F;">About two minutes, on your own, no account and no phone call.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 13px;">
+          <span style="display: grid; place-items: center; width: 42px; height: 42px; border-radius: 999px; background: #264653; font: 500 16px/1 'Inter', sans-serif; color: #F2F7F9;">2</span>
+          <span style="font: 500 16px/1.4 'Inter', sans-serif; color: #264653;">See what is worth exploring</span>
+          <span style="font: 400 13px/1.75 'Inter', sans-serif; color: #55747F;">Your answers, summarised, with a care area and a recommended next step. Not a diagnosis.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 13px;">
+          <span style="display: grid; place-items: center; width: 42px; height: 42px; border-radius: 999px; background: #219EBC; font: 500 16px/1 'Inter', sans-serif; color: #F2F7F9;">3</span>
+          <span style="font: 500 16px/1.4 'Inter', sans-serif; color: #264653;">A licensed clinician reviews it</span>
+          <span style="font: 400 13px/1.75 'Inter', sans-serif; color: #55747F;">They decide what may be appropriate, based on eligibility, and arrange labs where they are needed.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 13px;">
+          <span style="display: grid; place-items: center; width: 42px; height: 42px; border-radius: 999px; background: #264653; font: 500 16px/1 'Inter', sans-serif; color: #F2F7F9;">4</span>
+          <span style="font: 500 16px/1.4 'Inter', sans-serif; color: #264653;">Start, and keep checking</span>
+          <span style="font: 400 13px/1.75 'Inter', sans-serif; color: #55747F;">If something is right for you it arrives discreetly, and results are reviewed as you go.</span>
+        </div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px;">
+        <button type="button" onClick="{{ begin }}" style="display: inline-grid; place-items: center; height: 46px; padding: 0 28px; border: 0; border-radius: 999px; font: 500 14px/1 'Inter', sans-serif; white-space: nowrap; background: #264653; color: #F2F7F9; cursor: pointer; transition: background 180ms ease;" style-hover="background: #1C3742;">Start with answers</button>
+        <span style="font: 400 11.5px/1.6 'Inter', sans-serif; color: #7E9AA6;">Prescription options only where appropriate after provider review and eligibility.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="andropause" data-screen-label="06 Andropause" style="background: #FFFFFF;">
+    <div style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 0.86fr 1.14fr; min-height: 520px;">
+      <div style="position: relative; overflow: hidden; min-height: 400px;">
+        <img src="assets/people/04.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: absolute; left: 0; bottom: 0; width: 130px; height: 130px; background: #2A9D8F; border-radius: 0 999px 0 0;"></div>
+      </div>
+      <div style="display: flex; flex-direction: column; justify-content: center; gap: 20px; padding: 96px 56px;">
+        <span style="font: 700 10.5px/1.4 'Inter', sans-serif; letter-spacing: 0.2em; text-transform: uppercase; color: #7E9AA6;">Andropause</span>
+        <h2 style="font: 400 36px/1.12 'DM Serif Display', serif; color: #264653; max-width: 24ch;">It has a name, and it is not a character flaw.</h2>
+        <p style="font: 400 15px/1.85 'Inter', sans-serif; color: #55747F; max-width: 52ch; text-wrap: pretty;">From around forty, testosterone declines slowly — roughly one per cent a year for most men. Slowly enough that nothing announces itself, and fast enough that a decade later the man in the mirror sleeps worse, recovers slower and cares less.</p>
+        <p style="font: 400 15px/1.85 'Inter', sans-serif; color: #55747F; max-width: 52ch; text-wrap: pretty;">It is not a diagnosis on its own, and it is not the explanation for everything. Several unrelated things produce the same feeling, which is exactly why we measure before we name anything.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px;">
+          <button type="button" onClick="{{ begin }}" style="display: inline-grid; place-items: center; height: 46px; padding: 0 28px; border: 0; border-radius: 999px; font: 500 14px/1 'Inter', sans-serif; white-space: nowrap; background: #264653; color: #F2F7F9; cursor: pointer; transition: background 180ms ease;" style-hover="background: #1C3742;">Start with answers</button>
+          <a href="#learn" style="display: inline-grid; place-items: center; height: 46px; padding: 0 28px; border: 1.5px solid #264653; border-radius: 999px; font: 500 14px/1 'Inter', sans-serif; white-space: nowrap; color: #264653; transition: background 180ms ease, color 180ms ease;" style-hover="background: #264653; color: #F2F7F9;">Read the guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why" data-screen-label="07 Why SoviCare" style="position: relative; overflow: hidden; background: #264653;">
+    <div style="position: absolute; left: -120px; bottom: -140px; width: 340px; height: 340px; background: #219EBC; opacity: 0.16; border-radius: 0 999px 0 0;"></div>
+    <div style="position: relative; max-width: 1180px; margin: 0 auto; padding: 96px 56px; display: flex; flex-direction: column; gap: 40px;">
+      <h2 style="font: 400 36px/1.12 'DM Serif Display', serif; color: #F2F7F9; max-width: 26ch;">Four things we do not compromise on.</h2>
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 30px;">
+        <div style="display: flex; flex-direction: column; gap: 13px;">
+          <svg viewBox="0 0 24 24" style="width: 27px; height: 27px; fill: none; stroke: #FFBE0B; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><path d="M7.5 3.5h7l4.5 4.5v13h-11.5zM14 3.5V8h4.5M9 12.5h6M9 16h4"></path></svg>
+          <span style="font: 500 16px/1.4 'Inter', sans-serif; color: #F2F7F9;">We measure before we name</span>
+          <span style="font: 400 13px/1.8 'Inter', sans-serif; color: #A8C2CD;">Labs where they are needed, not as an upsell and not as theatre. Symptoms are a hint. Labs are an answer.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 13px;">
+          <svg viewBox="0 0 24 24" style="width: 27px; height: 27px; fill: none; stroke: #FFBE0B; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5.5 19.5a6.5 6.5 0 0 1 13 0"></path></svg>
+          <span style="font: 500 16px/1.4 'Inter', sans-serif; color: #F2F7F9;">A named clinician decides</span>
+          <span style="font: 400 13px/1.8 'Inter', sans-serif; color: #A8C2CD;">Not an algorithm, not a form, and not us. A licensed provider is responsible for what happens next.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 13px;">
+          <svg viewBox="0 0 24 24" style="width: 27px; height: 27px; fill: none; stroke: #FFBE0B; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><path d="M12 3.5 5.5 6v6c0 4 2.8 6.9 6.5 8.5 3.7-1.6 6.5-4.5 6.5-8.5V6z"></path></svg>
+          <span style="font: 500 16px/1.4 'Inter', sans-serif; color: #F2F7F9;">Discreet by default</span>
+          <span style="font: 400 13px/1.8 'Inter', sans-serif; color: #A8C2CD;">Plain packaging, no phone call you did not ask for, and nothing on your statement that explains itself.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 13px;">
+          <svg viewBox="0 0 24 24" style="width: 27px; height: 27px; fill: none; stroke: #FFBE0B; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"></path></svg>
+          <span style="font: 500 16px/1.4 'Inter', sans-serif; color: #F2F7F9;">We will tell you when the answer is no</span>
+          <span style="font: 400 13px/1.8 'Inter', sans-serif; color: #A8C2CD;">Sometimes nothing we offer is appropriate. We say so, and we say what to do instead.</span>
+        </div>
+      </div>
+      <button type="button" onClick="{{ begin }}" style="display: inline-grid; place-items: center; align-self: flex-start; height: 46px; padding: 0 28px; border: 0; border-radius: 999px; font: 500 14px/1 'Inter', sans-serif; white-space: nowrap; background: #F2F7F9; color: #264653; cursor: pointer; transition: background 180ms ease;" style-hover="background: #FFFFFF;">Start with answers</button>
+    </div>
+  </section>
+
+  <section id="credibility" data-screen-label="08 Clinical credibility" style="background: #FFFFFF;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 96px 56px; display: flex; flex-direction: column; gap: 34px;">
+      <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 26px;">
+        <h2 style="font: 400 36px/1.12 'DM Serif Display', serif; color: #264653; max-width: 24ch;">What a clinician actually does with your answers.</h2>
+        <p style="font: 400 14.5px/1.75 'Inter', sans-serif; color: #55747F; max-width: 42ch; text-wrap: pretty;">Nothing is automated at the point where it matters. A licensed provider reads what you wrote and takes responsibility for the decision.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 11px; padding: 28px 30px; background: #F2F7F9; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <span style="font: 700 9.5px/1.4 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">They read</span>
+          <span style="font: 400 13.5px/1.75 'Inter', sans-serif; color: #264653;">Your assessment answers, your eligibility questionnaire, and anything you wrote in your own words.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 11px; padding: 28px 30px; background: #F2F7F9; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <span style="font: 700 9.5px/1.4 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">They may order</span>
+          <span style="font: 400 13.5px/1.75 'Inter', sans-serif; color: #264653;">Labs, where they are needed to answer the question you came with. Not as a matter of course.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 11px; padding: 28px 30px; background: #F2F7F9; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <span style="font: 700 9.5px/1.4 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">They decide</span>
+          <span style="font: 400 13.5px/1.75 'Inter', sans-serif; color: #264653;">Whether an option may be appropriate for you, based on eligibility — including the option of nothing.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 11px; padding: 28px 30px; background: #264653; border-radius: 14px;">
+          <span style="font: 700 9.5px/1.4 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #FFBE0B;">They will not</span>
+          <span style="font: 400 13.5px/1.75 'Inter', sans-serif; color: #F2F7F9;">Prescribe from symptoms alone, or continue anything without reviewing how you are actually doing on it.</span>
+        </div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 22px;">
+        <button type="button" onClick="{{ begin }}" style="display: inline-grid; place-items: center; height: 46px; padding: 0 28px; border: 0; border-radius: 999px; font: 500 14px/1 'Inter', sans-serif; white-space: nowrap; background: #264653; color: #F2F7F9; cursor: pointer; transition: background 180ms ease;" style-hover="background: #1C3742;">Start with answers</button>
+        <a href="#legal" style="font: 500 13px/1.4 'Inter', sans-serif; color: #219EBC;">How we handle your data</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="longevity" data-screen-label="09 Longevity" style="background: #264653;">
+    <div style="position: relative; overflow: hidden; min-height: 380px; display: flex; flex-direction: column; justify-content: flex-end;">
+      <img src="assets/people/02.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 32%;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(38,70,83,0.94) 0%, rgba(38,70,83,0.42) 56%, rgba(38,70,83,0.16) 100%);"></div>
+      <div style="position: relative; max-width: 1180px; width: 100%; margin: 0 auto; padding: 96px 56px 52px; display: flex; flex-direction: column; gap: 16px;">
+        <span style="font: 700 10.5px/1.4 'Inter', sans-serif; letter-spacing: 0.2em; text-transform: uppercase; color: #A8C2CD;">Longevity</span>
+        <h2 style="font: 400 38px/1.12 'DM Serif Display', serif; color: #F2F7F9; max-width: 28ch;">The point is the next thirty years, not the next thirty days.</h2>
+      </div>
+    </div>
+    <div style="max-width: 1180px; margin: 0 auto; padding: 44px 56px 88px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) auto; gap: 30px; align-items: end;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <span style="font: 700 9.5px/1.4 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">Sleep</span>
+        <span style="font: 400 13px/1.8 'Inter', sans-serif; color: #A8C2CD;">The one thing that improves everything else, and the first thing most men have quietly given up on. Rest sits here.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <span style="font: 700 9.5px/1.4 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">Strength</span>
+        <span style="font: 400 13px/1.8 'Inter', sans-serif; color: #A8C2CD;">Muscle is the organ of longevity. Not aesthetics — the capacity to carry your own life at seventy.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <span style="font: 700 9.5px/1.4 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">Baseline</span>
+        <span style="font: 400 13px/1.8 'Inter', sans-serif; color: #A8C2CD;">Knowing your own numbers, and checking them often enough that a change is a signal rather than a shock. Daily sits here.</span>
+      </div>
+      <a href="#daily" style="display: inline-grid; place-items: center; height: 46px; padding: 0 28px; border: 1.5px solid #F2F7F9; border-radius: 999px; font: 500 14px/1 'Inter', sans-serif; white-space: nowrap; color: #F2F7F9; transition: background 180ms ease, color 180ms ease;" style-hover="background: #F2F7F9; color: #264653;">Explore longevity</a>
+    </div>
+  </section>
+
+  <section id="daily" data-screen-label="11 Daily support" style="background: #FFFFFF;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 96px 56px; display: flex; flex-direction: column; gap: 34px;">
+      <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 26px;">
+        <h2 style="font: 400 34px/1.14 'DM Serif Display', serif; color: #264653; max-width: 26ch;">Daily support, for the part that is not a prescription.</h2>
+        <p style="font: 400 13.5px/1.75 'Inter', sans-serif; color: #55747F; max-width: 44ch; text-wrap: pretty;">Three formulations, openly listed. Food supplements — not a substitute for a varied diet, and not a treatment for anything.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px;">
+        <div style="position: relative; overflow: hidden; display: flex; flex-direction: column; min-height: 220px; padding: 28px 30px; background: #264653; border-radius: 14px;">
+          <div style="position: absolute; right: -38px; bottom: -38px; width: 150px; height: 150px; background: #2A9D8F; border-radius: 999px 0 0 0;"></div>
+          <span style="position: relative; font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.18em; text-transform: uppercase; color: #A8BEC7;">SoviCare · SC-01</span>
+          <span style="position: relative; margin-top: auto; font: 400 32px/1 'DM Serif Display', serif; color: #F2F7F9;">Rest</span>
+          <span style="position: relative; margin-top: 9px; font: 400 12.5px/1.6 'Inter', sans-serif; color: #A8BEC7;">Magnesium glycinate, glycine, L-theanine</span>
+        </div>
+        <div style="position: relative; overflow: hidden; display: flex; flex-direction: column; min-height: 220px; padding: 28px 30px; background: #CFC6B8; border-radius: 14px;">
+          <div style="position: absolute; right: 0; top: 0; width: 118px; height: 220px; background: #264653; border-radius: 999px 0 0 999px;"></div>
+          <span style="position: relative; font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.18em; text-transform: uppercase; color: #6B6255;">SoviCare · SC-02</span>
+          <span style="position: relative; margin-top: auto; font: 400 32px/1 'DM Serif Display', serif; color: #264653;">Daily</span>
+          <span style="position: relative; margin-top: 9px; font: 400 12.5px/1.6 'Inter', sans-serif; color: #6B6255;">Baseline micronutrients, vitamin D, zinc</span>
+        </div>
+        <div style="position: relative; overflow: hidden; display: flex; flex-direction: column; min-height: 220px; padding: 28px 30px; background: #219EBC; border-radius: 14px;">
+          <div style="position: absolute; right: 0; top: 0; width: 96px; height: 96px; background: #FFBE0B; border-radius: 0 0 0 999px;"></div>
+          <span style="position: relative; font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.18em; text-transform: uppercase; color: #DFF2F8;">SoviCare · SC-03</span>
+          <span style="position: relative; margin-top: auto; font: 400 32px/1 'DM Serif Display', serif; color: #F2F7F9;">Drive</span>
+          <span style="position: relative; margin-top: 9px; font: 400 12.5px/1.6 'Inter', sans-serif; color: #DFF2F8;">Libido and vitality support blend</span>
+        </div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 22px;">
+        <a href="#daily" style="display: inline-grid; place-items: center; height: 46px; padding: 0 28px; border: 1.5px solid #264653; border-radius: 999px; font: 500 14px/1 'Inter', sans-serif; white-space: nowrap; color: #264653; transition: background 180ms ease, color 180ms ease;" style-hover="background: #264653; color: #F2F7F9;">See daily support</a>
+        <span style="font: 400 11.5px/1.65 'Inter', sans-serif; color: #7E9AA6; max-width: 56ch;">Food supplements. Not a substitute for a varied diet. Speak to your provider before starting if you take prescription medication.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" data-screen-label="10 + 13 Proof and FAQ" style="background: #F2F7F9;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 96px 56px; display: flex; flex-direction: column; gap: 34px;">
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px;">
+        <div style="display: flex; flex-direction: column; gap: 14px; padding: 26px 28px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: none; stroke: #B9CEDA; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><path d="M4.5 5h15v10h-9l-4 3.5V15h-2z"></path></svg>
+          <span style="font: 400 14.5px/1.75 'Inter', sans-serif; color: #264653;">"I had been putting it off for two years because I did not want to sit in a waiting room and say it out loud."</span>
+          <span style="font: 400 12px/1.5 'Inter', sans-serif; color: #7E9AA6;">D.M. · 47</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px; padding: 26px 28px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: none; stroke: #B9CEDA; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><path d="M4.5 5h15v10h-9l-4 3.5V15h-2z"></path></svg>
+          <span style="font: 400 14.5px/1.75 'Inter', sans-serif; color: #264653;">"What convinced me was that they wanted to test something before telling me anything."</span>
+          <span style="font: 400 12px/1.5 'Inter', sans-serif; color: #7E9AA6;">A.R. · 52</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px; padding: 26px 28px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: none; stroke: #B9CEDA; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><path d="M4.5 5h15v10h-9l-4 3.5V15h-2z"></path></svg>
+          <span style="font: 400 14.5px/1.75 'Inter', sans-serif; color: #264653;">"Two minutes at eleven at night, and for the first time it felt like a plan rather than a worry."</span>
+          <span style="font: 400 12px/1.5 'Inter', sans-serif; color: #7E9AA6;">J.T. · 41</span>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 0.72fr 1.28fr; gap: 40px; align-items: start;">
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <h2 style="font: 400 32px/1.16 'DM Serif Display', serif; color: #264653; max-width: 18ch;">The questions men ask first.</h2>
+          <p style="font: 400 13.5px/1.75 'Inter', sans-serif; color: #55747F; max-width: 34ch; text-wrap: pretty;">Privacy before medicine, medicine before money. In that order, because that is the order they are asked in.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid #C6D6DF; border-radius: 14px; overflow: hidden;">
+          <sc-for list="{{ faqs }}" as="item" hint-placeholder-count="5">
+            <div onClick="{{ item.toggle }}" style="{{ item.rowStyle }}">
+              <span style="display: flex; align-items: center; gap: 16px; font: 500 15px/1.5 'Inter', sans-serif; color: #264653;">{{ item.q }}<span style="{{ item.chevronStyle }}"></span></span>
+              <sc-if value="{{ item.open }}">
+                <span style="font: 400 13.5px/1.8 'Inter', sans-serif; color: #55747F; max-width: 62ch;">{{ item.a }}</span>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="close" data-screen-label="14 Final CTA" style="background: #FFFFFF;">
+    <div style="position: relative; overflow: hidden; max-width: 1180px; margin: 0 auto;">
+      <div style="position: absolute; left: -90px; bottom: -90px; width: 240px; height: 240px; background: #2A9D8F; opacity: 0.1; border-radius: 0 999px 0 0;"></div>
+      <div style="position: absolute; right: 56px; top: 62px; width: 46px; height: 46px; background: #FFBE0B; border-radius: 999px;"></div>
+      <div style="position: relative; padding: 104px 56px 96px; display: flex; flex-direction: column; align-items: center; gap: 22px;">
+        <h2 style="font: 400 44px/1.1 'DM Serif Display', serif; color: #264653; text-align: center; max-width: 26ch; text-wrap: pretty;">Two minutes now, or another year of wondering.</h2>
+        <p style="font: 400 15px/1.75 'Inter', sans-serif; color: #55747F; text-align: center; max-width: 54ch; text-wrap: pretty;">Answer six questions. A licensed clinician reviews what you tell us and says what is worth looking at — with labs where they are needed.</p>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;">
+          <button type="button" onClick="{{ begin }}" style="display: inline-grid; place-items: center; height: 46px; padding: 0 30px; border: 0; border-radius: 999px; font: 500 14px/1 'Inter', sans-serif; white-space: nowrap; background: #264653; color: #F2F7F9; cursor: pointer; transition: background 180ms ease;" style-hover="background: #1C3742;">Start with answers</button>
+          <a href="#legal" style="display: inline-grid; place-items: center; height: 46px; padding: 0 30px; border: 1.5px solid #264653; border-radius: 999px; font: 500 14px/1 'Inter', sans-serif; white-space: nowrap; color: #264653; transition: background 180ms ease, color 180ms ease;" style-hover="background: #264653; color: #F2F7F9;">Talk to a clinician</a>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; font: 400 12.5px/1.5 'Inter', sans-serif; color: #7E9AA6;">
+          <span>Takes about two minutes</span><span>Private and discreet</span><span>Provider-reviewed next step</span>
+        </div>
+        <span style="font: 400 11.5px/1.5 'Inter', sans-serif; color: #7E9AA6;">Assessment only. Not a diagnosis.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="learn" data-screen-label="12 Learn" style="background: #F2F7F9; border-top: 1px solid #E4EDF1;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 88px 56px; display: flex; flex-direction: column; gap: 30px;">
+      <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px;">
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <span style="font: 700 10.5px/1.4 'Inter', sans-serif; letter-spacing: 0.2em; text-transform: uppercase; color: #7E9AA6;">Learn</span>
+          <h2 style="font: 400 32px/1.16 'DM Serif Display', serif; color: #264653; max-width: 26ch;">Not ready yet? Read something short.</h2>
+        </div>
+        <a href="#learn" style="font: 500 13px/1.4 'Inter', sans-serif; color: #219EBC;">All articles</a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px;">
+        <div style="display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px; overflow: hidden;">
+          <div style="position: relative; aspect-ratio: 16 / 9; overflow: hidden;">
+            <img src="assets/people/07.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 26%;">
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; padding: 24px 26px 26px;">
+            <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">Hormone health · 4 min</span>
+            <span style="font: 400 21px/1.3 'DM Serif Display', serif; color: #264653;">What a testosterone result actually tells you</span>
+            <span style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #55747F;">And the three things men are usually surprised it does not tell you.</span>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px; overflow: hidden;">
+          <div style="position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #264653;">
+            <div style="position: absolute; right: -34px; bottom: -34px; width: 128px; height: 128px; background: #219EBC; border-radius: 999px 0 0 0;"></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; padding: 24px 26px 26px;">
+            <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">Sexual health · 5 min</span>
+            <span style="font: 400 21px/1.3 'DM Serif Display', serif; color: #264653;">Talking about it once, and then getting on with it</span>
+            <span style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #55747F;">Written for the conversation men rehearse and never have.</span>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px; overflow: hidden;">
+          <div style="position: relative; aspect-ratio: 16 / 9; overflow: hidden;">
+            <img src="assets/people/06.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; padding: 24px 26px 26px;">
+            <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">Sleep · 3 min</span>
+            <span style="font: 400 21px/1.3 'DM Serif Display', serif; color: #264653;">Awake at three, most nights</span>
+            <span style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #55747F;">Why waking is a different problem from not falling asleep.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="legal" data-screen-label="15 Legal and footer" style="background: #F2F7F9;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 44px 56px 52px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font: 700 9.5px/1.4 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">What this service is</span>
+        <span style="font: 400 12.5px/1.8 'Inter', sans-serif; color: #55747F;">An assessment and, where appropriate after provider review and eligibility, access to treatment. It does not replace your own doctor.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font: 700 9.5px/1.4 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">What it is not</span>
+        <span style="font: 400 12.5px/1.8 'Inter', sans-serif; color: #55747F;">Not a diagnosis, not an emergency service, and not a guarantee that anything will be offered to you.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font: 700 9.5px/1.4 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #E76F51;">If you need urgent help</span>
+        <span style="font: 400 12.5px/1.8 'Inter', sans-serif; color: #55747F;">[Clinically approved emergency wording and local emergency number.] Do not wait for a review.</span>
+      </div>
+    </div>
+    <div style="background: #264653;">
+      <div style="max-width: 1180px; margin: 0 auto; padding: 52px 56px 44px; display: flex; flex-direction: column; gap: 32px;">
+        <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px;">
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <span style="display: flex; align-items: center; gap: 11px;">
+              <svg viewBox="0 0 100 133" style="width: 19px; height: 25px;"><path fill="#D6E2E9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+              <span style="font: 400 21px/1 'DM Serif Display', serif; color: #F2F7F9;">SoviCare</span>
+            </span>
+            <span style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #6E8B97; max-width: 32ch;">Men's longevity, made simple.</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 11px;">
+            <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #4B7284;">Care</span>
+            <span style="display: flex; flex-direction: column; gap: 7px; font: 400 12.5px/1.5 'Inter', sans-serif; color: #A8C2CD;"><span>Hormone health</span><span>Sexual health</span><span>Weight and metabolic</span><span>Sleep and recovery</span></span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 11px;">
+            <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #4B7284;">Company</span>
+            <span style="display: flex; flex-direction: column; gap: 7px; font: 400 12.5px/1.5 'Inter', sans-serif; color: #A8C2CD;"><span>How it works</span><span>Our clinicians</span><span>Longevity</span><span>Learn</span></span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 11px;">
+            <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #4B7284;">Legal</span>
+            <span style="display: flex; flex-direction: column; gap: 7px; font: 400 12.5px/1.5 'Inter', sans-serif; color: #A8C2CD;"><span>Privacy</span><span>Terms</span><span>Complaints</span><span>Contact</span></span>
+          </div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 28px; padding-top: 24px; border-top: 1px solid #3E5C6B; font: 400 11.5px/1.7 'Inter', sans-serif; color: #6E8B97;">
+          <span>Assessment only. Not a diagnosis.</span>
+          <span>Prescription options only where appropriate after provider review and eligibility.</span>
+          <span>[Registered entity, address and regulator.]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+const ICON = {
+  intro: 'M4.5 5.5h15v10h-9l-4 3.5z',
+  compass: 'M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17zM9 15l2-4 4-2-2 4z',
+  target: 'M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17zM12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z',
+  calendar: 'M5 6.5h14v13H5zM8.5 4v4M15.5 4v4M5 10.5h14',
+  sliders: 'M6 4v6M6 14v6M12 4v9M12 17v3M18 4v3M18 11v9M3.5 12h5M9.5 15h5M15.5 8h5',
+  clock: 'M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17zM12 7.5v5l3.5 2',
+  bars: 'M5.5 19.5v-5M10.5 19.5v-9M15.5 19.5v-13M20 19.5v-3',
+  shield: 'M12 3.5 5.5 6v6c0 4 2.8 6.9 6.5 8.5 3.7-1.6 6.5-4.5 6.5-8.5V6z',
+  check: 'M4.5 12.5 9.5 17.5 19.5 6.5'
+};
+
+function icon(key, size, color, sw) {
+  return React.createElement('svg', {
+    viewBox: '0 0 24 24',
+    style: { width: size + 'px', height: size + 'px', flex: 'none', fill: 'none', stroke: color, strokeWidth: sw || 1.5, strokeLinecap: 'round', strokeLinejoin: 'round' }
+  }, React.createElement('path', { d: ICON[key] || ICON.check }));
+}
+
+const AREAS = [
+  { name: 'Hormone Health', line: 'Energy, drive and recovery. Measured before it is named.', icon: 'sliders', q1: 'Energy and drive' },
+  { name: 'Sexual Health', line: 'Desire, function and confidence. Discreet from the first click.', icon: 'target', q1: 'Sexual health' },
+  { name: 'Weight and Metabolic Health', line: 'Body composition and metabolic markers, not a number on a scale.', icon: 'bars', q1: 'Weight and body composition' },
+  { name: 'Sleep and Recovery', line: 'Falling asleep, staying asleep, and waking up rested.', icon: 'clock', q1: 'Sleep and recovery' },
+  { name: 'Energy, Focus and Mood', line: 'Concentration, motivation and steadiness through the day.', icon: 'compass', q1: 'Focus and mood' },
+  { name: 'Hair and Healthy Aging', line: 'Hair, skin and the long view on looking like yourself.', icon: 'shield', q1: 'Hair and aging' }
+];
+
+const Q2 = {
+  'Energy and drive': ['Have more energy through the day', 'Recover better after effort', 'Sleep more soundly', 'Feel steadier in mood', 'Not sure'],
+  'Sexual health': ['Lower desire', 'Trouble getting or keeping an erection', 'Finishing sooner than you would like', 'Confidence or performance pressure', 'Not sure'],
+  'Weight and body composition': ['Lose weight', 'Change body composition', 'Improve metabolic markers', 'Feel less heavy through the day', 'Not sure'],
+  'Sleep and recovery': ['Fall asleep sooner', 'Stay asleep through the night', 'Wake up rested', 'Recover after training', 'Not sure'],
+  'Focus and mood': ['Concentrate for longer', 'Feel steadier in mood', 'Handle pressure better', 'Feel motivated again', 'Not sure'],
+  'Hair and aging': ['Slow hair loss', 'Improve skin and appearance', 'Feel younger in general', 'Not sure']
+};
+
+const CARE = {
+  'Energy and drive': 'Hormone Health',
+  'Sexual health': 'Sexual Health',
+  'Weight and body composition': 'Weight and Metabolic Health',
+  'Sleep and recovery': 'Sleep and Recovery',
+  'Focus and mood': 'Energy, Focus and Mood',
+  'Hair and aging': 'Hair and Healthy Aging'
+};
+
+const DEFS = {
+  q1: {
+    label: 'Focus', icon: 'compass', kind: 'cards',
+    title: 'What feels most different lately?',
+    helper: 'Choose the one that matters most to you.',
+    options: [
+      { label: 'Energy and drive', icon: 'sliders' },
+      { label: 'Sexual health', icon: 'target' },
+      { label: 'Weight and body composition', icon: 'bars' },
+      { label: 'Sleep and recovery', icon: 'clock' },
+      { label: 'Focus and mood', icon: 'compass' },
+      { label: 'Hair and aging', icon: 'shield' }
+    ]
+  },
+  q2: { label: 'Goal', icon: 'target', kind: 'list', title: 'What would you most like to improve?', helper: 'Choose the option that matters most to you.' },
+  freq: {
+    label: 'Frequency', icon: 'calendar', kind: 'scale',
+    title: 'How often does this happen?', helper: 'Choose what feels closest.',
+    options: [
+      { label: 'Occasionally', bars: 1 }, { label: 'Sometimes', bars: 2 },
+      { label: 'Often', bars: 3 }, { label: 'Most times', bars: 4 }
+    ]
+  },
+  control: { label: 'Control', icon: 'sliders', kind: 'slider', title: 'How much control do you usually feel you have?', helper: 'Slide to show how you feel most of the time.' },
+  duration: {
+    label: 'Duration', icon: 'clock', kind: 'list',
+    title: 'How long have you noticed this change?', helper: 'Choose the option that fits best.',
+    options: [{ label: 'Less than 6 months' }, { label: '6 to 12 months' }, { label: '1 to 3 years' }, { label: 'More than 3 years' }, { label: 'Not sure' }]
+  },
+  impact: {
+    label: 'Impact', icon: 'bars', kind: 'scale',
+    title: 'How much does this affect your day to day or confidence?', helper: 'Select the option that fits best.',
+    options: [{ label: 'Not really', bars: 1 }, { label: 'A little', bars: 2 }, { label: 'Somewhat', bars: 3 }, { label: 'Quite a bit', bars: 4 }, { label: 'A lot', bars: 5 }]
+  },
+  tried: {
+    label: 'History', icon: 'shield', kind: 'list',
+    title: 'Have you already tried anything for it?', helper: 'Choose the closest answer.',
+    options: [{ label: 'Nothing yet' }, { label: 'Lifestyle changes' }, { label: 'Supplements' }, { label: 'Prescription treatment' }, { label: 'Not sure' }]
+  },
+  health: {
+    label: 'Health check', icon: 'shield', kind: 'wide',
+    title: 'Are you currently taking prescription medication or being treated for a medical condition?',
+    helper: 'We ask because some options require a clinician to review your health information.',
+    options: [{ label: 'No' }, { label: 'Yes' }, { label: 'Not sure' }]
+  }
+};
+
+const SLIDER = ['Very little', 'A little', 'Moderate', 'Quite a lot', 'A lot'];
+const MICRO = ['freq', 'control'];
+const IMPACT_CLAUSE = {
+  'Not really': 'barely affects your day',
+  'A little': 'affects your day a little',
+  'Somewhat': 'affects your day somewhat',
+  'Quite a bit': 'affects your day quite a bit',
+  'A lot': 'affects your day a lot'
+};
+const TRIGGER = 'Finishing sooner than you would like';
+
+class Component extends DCLogic {
+  state = { screen: 'intro', i: 0, micro: null, answers: {}, scrolled: false, faq: 0, revealed: false };
+
+  componentDidMount() {
+    this.onScroll = () => {
+      const s = window.scrollY > 240;
+      if (s !== this.state.scrolled) this.setState({ scrolled: s });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    if (this.timer) clearTimeout(this.timer);
+  }
+
+  jump(id, delay) {
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 96, behavior: 'smooth' });
+    }, delay || 60);
+  }
+
+  steps() {
+    return ['q1', 'q2', 'duration', 'impact', 'tried', 'health'];
+  }
+
+  activeId() {
+    const s = this.state;
+    return s.micro == null ? this.steps()[Math.min(s.i, 5)] : MICRO[s.micro];
+  }
+
+  defFor(id) {
+    if (id !== 'q2') return DEFS[id];
+    const opts = (Q2[this.state.answers.q1] || Q2['Energy and drive']).map(l => ({ label: l }));
+    return Object.assign({}, DEFS.q2, { options: opts });
+  }
+
+  answer(id, value) {
+    this.setState(s => ({ answers: Object.assign({}, s.answers, { [id]: value }) }), () => {
+      if (id === 'control') return;
+      if (this.timer) clearTimeout(this.timer);
+      this.timer = setTimeout(() => this.advance(), 320);
+    });
+  }
+
+  advance() {
+    const s = this.state;
+    const last = this.steps().length - 1;
+    if (s.micro != null) {
+      if (s.micro < MICRO.length - 1) { this.setState({ micro: s.micro + 1 }); return; }
+      this.setState({ micro: null, i: s.i + 1 });
+      return;
+    }
+    if (this.steps()[s.i] === 'q2' && s.answers.q2 === TRIGGER) { this.setState({ micro: 0 }); return; }
+    if (s.i >= last) {
+      this.setState({ screen: 'done', revealed: true }, () => this.jump('outcome', 120));
+      return;
+    }
+    this.setState({ i: s.i + 1 });
+  }
+
+  goBack() {
+    const s = this.state;
+    if (s.screen === 'done') { this.setState({ screen: 'flow', i: this.steps().length - 1, micro: null }); return; }
+    if (s.micro != null) { this.setState({ micro: s.micro > 0 ? s.micro - 1 : null }); return; }
+    if (s.i === 0) { this.setState({ screen: 'intro' }); return; }
+    this.setState({ i: s.i - 1, micro: null });
+  }
+
+  start(preset) {
+    const next = { screen: 'flow', i: 0, micro: null };
+    if (preset) {
+      next.answers = Object.assign({}, this.state.answers, { q1: preset });
+      next.i = 1;
+    }
+    this.setState(next, () => this.jump('assessment'));
+  }
+
+  renderVals() {
+    const s = this.state;
+    const steps = this.steps();
+    const isIntro = s.screen === 'intro';
+    const isDone = s.screen === 'done';
+    const id = this.activeId();
+    const def = this.defFor(id);
+    const current = s.answers[id];
+
+    const dots = steps.map((sid, n) => ({
+      style: {
+        width: n === s.i && !isDone ? '9px' : '8px',
+        height: n === s.i && !isDone ? '9px' : '8px',
+        borderRadius: '999px', transition: 'background 220ms ease',
+        background: isDone || n < s.i ? '#2A9D8F' : n === s.i ? '#264653' : '#D6E2E9'
+      }
+    }));
+
+    const optStyle = (sel, kind) => {
+      const st = {
+        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+        gap: '9px', padding: '18px 16px', minHeight: '96px', cursor: 'pointer', textAlign: 'center',
+        background: sel ? '#F2F7F9' : '#FFFFFF', borderRadius: '14px',
+        border: sel ? '1.5px solid #2A9D8F' : '1px solid #D6E2E9',
+        transform: sel ? 'scale(1.02)' : 'none',
+        transition: 'border-color 140ms ease, background 140ms ease, transform 180ms ease'
+      };
+      if (kind === 'list' || kind === 'wide') {
+        st.flexDirection = 'row'; st.minHeight = '54px'; st.padding = '0 22px'; st.gap = '12px'; st.textAlign = 'left';
+      }
+      if (kind === 'wide') { st.minHeight = '56px'; st.justifyContent = 'center'; }
+      return st;
+    };
+
+    const options = (def && def.options ? def.options : []).map(o => {
+      const sel = current === o.label;
+      const out = {
+        label: o.label,
+        style: optStyle(sel, def.kind),
+        labelStyle: { font: '500 14px/1.45 Inter, sans-serif', color: '#264653' },
+        icon: o.icon ? icon(o.icon, 22, sel ? '#2A9D8F' : '#55747F') : null,
+        bars: null,
+        tick: sel && (def.kind === 'list' || def.kind === 'wide') ? true : null,
+        pick: () => this.answer(id, o.label)
+      };
+      if (o.bars) {
+        const total = def.options.length;
+        out.bars = [];
+        for (let k = 1; k <= total; k++) {
+          out.bars.push({ style: { width: '5px', height: 8 + k * 5 + 'px', borderRadius: '2px', background: k <= o.bars ? (sel ? '#2A9D8F' : '#264653') : '#DDE8ED' } });
+        }
+        out.labelStyle = { font: '500 13px/1.4 Inter, sans-serif', color: '#264653' };
+      }
+      return out;
+    });
+
+    const sliderStops = SLIDER.map(lab => {
+      const sel = current === lab;
+      return {
+        aria: lab,
+        pick: () => this.answer('control', lab),
+        hitStyle: { position: 'relative', width: '44px', height: '44px', display: 'grid', placeItems: 'center', border: 0, background: 'transparent', cursor: 'pointer', padding: 0 },
+        dotStyle: {
+          width: sel ? '17px' : '13px', height: sel ? '17px' : '13px', borderRadius: '999px',
+          background: sel ? '#2A9D8F' : '#FFFFFF',
+          border: sel ? '1.5px solid #2A9D8F' : '1.5px solid #C6D6DF',
+          transition: 'all 200ms ease'
+        }
+      };
+    });
+
+    const cols = def && def.kind === 'cards' ? 3 : def && def.kind === 'scale' ? def.options.length : def && def.kind === 'wide' ? 3 : 1;
+    const gridStyle = {
+      display: 'grid',
+      gridTemplateColumns: def && def.kind === 'list' ? 'minmax(280px, 500px)' : 'repeat(' + cols + ', minmax(0, 1fr))',
+      gap: '14px', width: '100%',
+      maxWidth: def && def.kind === 'cards' ? '780px' : def && def.kind === 'wide' ? '620px' : def && def.kind === 'scale' ? '680px' : '500px',
+      marginTop: '4px'
+    };
+
+    const a = s.answers;
+    const care = CARE[a.q1] || 'Hormone Health';
+    const darkCard = {
+      display: 'flex', flexDirection: 'column', gap: '11px', padding: '26px 28px',
+      background: '#2E5361', borderRadius: '14px', animation: 'sc-in 220ms ease both'
+    };
+    const lightCard = Object.assign({}, darkCard, { background: '#F2F7F9', animationDelay: '240ms' });
+    const toldParts = [];
+    if (a.q2) toldParts.push(a.q2);
+    if (a.duration) toldParts.push(a.duration === 'Not sure' ? 'unsure how long' : a.duration);
+    if (IMPACT_CLAUSE[a.impact]) toldParts.push(IMPACT_CLAUSE[a.impact]);
+    if (a.tried) toldParts.push(a.tried === 'Nothing yet' ? 'nothing tried yet' : a.tried.toLowerCase() + ' tried');
+    const told = toldParts.length ? toldParts.join(' · ') + '.' : 'Your answers are recorded.';
+
+    const outcomeCards = [
+      { label: 'Your main concern', value: care, style: Object.assign({}, darkCard, { animationDelay: '0ms' }), labelStyle: { font: '700 9.5px/1.4 Inter, sans-serif', letterSpacing: '0.16em', textTransform: 'uppercase', color: '#7E9AA6' }, valueStyle: { font: "400 25px/1.25 'DM Serif Display', serif", color: '#F2F7F9' } },
+      { label: 'What you told us', value: told, style: Object.assign({}, darkCard, { animationDelay: '80ms' }), labelStyle: { font: '700 9.5px/1.4 Inter, sans-serif', letterSpacing: '0.16em', textTransform: 'uppercase', color: '#7E9AA6' }, valueStyle: { font: '400 13px/1.7 Inter, sans-serif', color: '#F2F7F9' } },
+      { label: 'May be worth exploring', value: care + ', with hormone health considered alongside it. Labs where needed.', style: Object.assign({}, darkCard, { animationDelay: '160ms' }), labelStyle: { font: '700 9.5px/1.4 Inter, sans-serif', letterSpacing: '0.16em', textTransform: 'uppercase', color: '#7E9AA6' }, valueStyle: { font: '400 13px/1.7 Inter, sans-serif', color: '#F2F7F9' } },
+      { label: 'Recommended next step', value: 'A licensed clinician reviews your answers and decides what, if anything, may be appropriate — based on eligibility.', style: lightCard, labelStyle: { font: '700 9.5px/1.4 Inter, sans-serif', letterSpacing: '0.16em', textTransform: 'uppercase', color: '#2A9D8F' }, valueStyle: { font: '400 13px/1.7 Inter, sans-serif', color: '#264653' } }
+    ];
+
+    let stepTitle, stepHelper, stepIcon, stepLabel, stepNumber, counter;
+    if (isIntro) {
+      stepTitle = 'Not sure where to start?';
+      stepHelper = 'Answer six short questions so we can understand what you are experiencing and recommend the best next step.';
+      stepIcon = icon('intro', 34, '#219EBC'); stepLabel = 'Intro'; stepNumber = '0'; counter = '0 / ' + steps.length;
+    } else if (isDone) {
+      stepTitle = 'Your answers are in.';
+      stepHelper = 'Your summary is below. Nothing has been decided and nothing has been prescribed.';
+      stepIcon = icon('check', 34, '#2A9D8F', 1.8); stepLabel = 'Complete'; stepNumber = '✓'; counter = steps.length + ' / ' + steps.length;
+    } else {
+      stepTitle = def.title; stepHelper = def.helper; stepIcon = icon(def.icon, 34, '#219EBC');
+      stepLabel = def.label; stepNumber = String(s.i + 1); counter = (s.i + 1) + ' / ' + steps.length;
+    }
+
+    const careAreas = AREAS.map(ar => ({
+      name: ar.name, line: ar.line,
+      icon: icon(ar.icon, 26, '#264653'),
+      pick: () => this.start(ar.q1)
+    }));
+
+    const faqs = [
+      { q: 'Will anyone know I have used SoviCare?', a: 'No. Packaging is plain and unbranded, your statement shows a neutral descriptor, and nothing arrives by phone unless you ask for a call. Your information is read by the clinician reviewing your case and no-one else.' },
+      { q: 'Do I have to speak to anyone?', a: 'Not to start, and not until you want to. The assessment and the eligibility questionnaire are both written so you never have to say any of it out loud.' },
+      { q: 'Is the assessment a diagnosis?', a: 'No. It routes you to a care area and a next step. A licensed clinician decides what, if anything, may be appropriate — based on eligibility, with labs where they are needed.' },
+      { q: 'What does it cost, and when?', a: 'The assessment is free and there is no card involved. Anything after provider review is priced before you agree to it, with no charge until you do.' },
+      { q: 'Can I stop whenever I want?', a: 'Yes, at any point, including mid-questionnaire. You can also ask us to delete the health information you have given us.' }
+    ].map((f, n) => ({
+      q: f.q, a: f.a, open: s.faq === n,
+      toggle: () => this.setState(st => ({ faq: st.faq === n ? -1 : n })),
+      rowStyle: {
+        display: 'flex', flexDirection: 'column', gap: '12px',
+        padding: s.faq === n ? '26px 32px' : '22px 32px',
+        background: s.faq === n ? '#FFFFFF' : 'transparent',
+        borderBottom: n === 4 ? '0' : '1px solid #DDE8ED', cursor: 'pointer',
+        transition: 'background 180ms ease'
+      },
+      chevronStyle: {
+        width: '11px', height: '11px', marginLeft: 'auto', flex: 'none',
+        borderRight: '2px solid ' + (s.faq === n ? '#264653' : '#7E9AA6'),
+        borderBottom: '2px solid ' + (s.faq === n ? '#264653' : '#7E9AA6'),
+        transform: s.faq === n ? 'rotate(-135deg)' : 'rotate(45deg)',
+        transition: 'transform 180ms ease'
+      }
+    }));
+
+    return {
+      isIntro, isDone,
+      isOptions: !isIntro && !isDone && def && def.kind !== 'slider',
+      isSlider: !isIntro && !isDone && def && def.kind === 'slider',
+      showBar: !isIntro, showFooter: !isIntro,
+      needsContinue: !isDone && def && def.kind === 'slider' && !!current,
+      autoNote: !isDone && def && def.kind !== 'slider' ? 'Selecting an answer moves you forward.' : null,
+      showOutcome: s.revealed,
+      stepTitle, stepHelper, stepIcon, stepLabel, stepNumber, counter,
+      dots, options, sliderStops, gridStyle, outcomeCards, careAreas, faqs,
+      paneStyle: { display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', width: '100%', animation: 'sc-in 220ms ease both' },
+      utilityStyle: {
+        overflow: 'hidden', background: '#264653',
+        maxHeight: s.scrolled ? '0px' : '34px',
+        transition: 'max-height 220ms ease'
+      },
+      barStyle: {
+        display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '10px 28px',
+        minHeight: s.scrolled ? '64px' : '78px', paddingTop: '8px', paddingBottom: '8px',
+        transition: 'min-height 220ms ease'
+      },
+      progressStyle: {
+        height: '2px', background: '#219EBC',
+        width: s.scrolled ? '100%' : '0%',
+        opacity: s.scrolled ? 1 : 0,
+        transition: 'opacity 220ms ease'
+      },
+      begin: () => this.start(null),
+      back: () => this.goBack(),
+      next: () => this.advance(),
+      reset: () => this.setState({ screen: 'intro', i: 0, micro: null, answers: {}, revealed: false }),
+      toOutcome: () => this.jump('outcome'),
+      toTop: () => window.scrollTo({ top: 0, behavior: 'smooth' }),
+      noop: () => {}
+    };
+  }
+}
+</script>
+</body>
+</html>

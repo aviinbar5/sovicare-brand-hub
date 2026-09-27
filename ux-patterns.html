@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SoviCare</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#2A9D8F"/><g fill="#F2F7F9"><rect x="26" y="28" width="48" height="10" rx="5"/><rect x="26" y="45" width="48" height="10" rx="5"/><rect x="26" y="62" width="28" height="10" rx="5"/></g></svg></template>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-14 -10 128 153'%3E%3Cpath fill='%23264653' d='M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z'/%3E%3Cpath fill='%23219EBC' d='M100 2H58A42 42 0 0 0 100 44Z'/%3E%3Cpath fill='%232A9D8F' d='M58 48A41 41 0 0 1 58 130Z'/%3E%3Cpath fill='%23FFBE0B' d='M0 131V89A42 42 0 0 1 42 131Z'/%3E%3C/svg%3E">
+<script src="./download-chips.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; color: #264653; background: #F2F7F9; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, h4, p, ul, li, figure, figcaption { margin: 0; padding: 0; }
+  ul { list-style: none; }
+  a { color: #219EBC; text-decoration: none; }
+  a:hover { color: #264653; }
+  :focus-visible { outline: 2px solid #219EBC; outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+</helmet>
+
+<div style="max-width: 1160px; margin: 0 auto; background: #F2F7F9;">
+
+  <section id="head" data-screen-label="00 Head" style="position: relative; overflow: hidden; background: #264653; padding: 64px 56px 58px;">
+    <div style="position: absolute; left: -70px; bottom: -150px; width: 300px; height: 300px; background: #219EBC; opacity: 0.2; border-radius: 0 999px 0 0;"></div>
+    <div style="position: absolute; right: 0; top: 0; width: 110px; height: 110px; background: #FFBE0B; border-radius: 0 0 0 999px;"></div>
+    <div style="position: relative; display: flex; flex-direction: column; gap: 16px;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <svg viewBox="0 0 100 133" style="width: 30px; height: 40px; flex: none;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+        <span style="font: 400 30px/1 'DM Serif Display', serif; color: #F2F7F9;">SoviCare</span>
+      </div>
+      <h1 style="font: 400 42px/1.06 'DM Serif Display', serif; color: #F2F7F9;">UX patterns.</h1>
+      <p style="font: 400 15px/1.65 'Inter', sans-serif; color: #A8C2CD; max-width: 62ch;">How the components behave once a real person is using them. Every pattern here holds for both questionnaire systems unless it says otherwise.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; font: 400 12.5px/1.4 'Inter', sans-serif; color: #6E8B97;">
+        <a href="index.html" style="color: #FFBE0B;">Hub</a>
+        <a href="foundations.html" style="color: #FFBE0B;">Foundations</a>
+        <a href="components.html" style="color: #FFBE0B;">Components</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="boundary" data-screen-label="01 The boundary" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding: 46px 56px 54px; background: #F2F7F9;">
+    <h2 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #264653;">The<br>boundary</h2>
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <p style="font: 400 15px/1.65 'Inter', sans-serif; color: #264653; max-width: 62ch;">One rule governs everything on this page: <strong style="font-weight: 600;">the assessment routes, the questionnaire qualifies.</strong> Nothing that qualifies appears in the assessment; nothing that routes appears in the questionnaire.</p>
+
+      <figure style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 14px; padding: 26px 28px; background: #FFFFFF; border: 1px solid #C6D6DF; border-radius: 14px;">
+          <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">A · Personal Fit Assessment</span>
+          <span style="font: 400 26px/1.2 'DM Serif Display', serif; color: #264653;">Light. Conversational. Routes.</span>
+          <div style="display: flex; flex-direction: column; gap: 8px; font: 400 13px/1.6 'Inter', sans-serif; color: #55747F;">
+            <span>Lives on the homepage, near the top</span>
+            <span>Six questions, one per screen, auto-advance</span>
+            <span>No email gate, no account, no clinical questions</span>
+            <span>Output is a care area and a next step</span>
+            <span>Yellow appears once, on the result CTA</span>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px; padding: 26px 28px; background: #264653; border-radius: 14px;">
+          <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #FFBE0B;">B · Clinical Eligibility Questionnaire</span>
+          <span style="font: 400 26px/1.2 'DM Serif Display', serif; color: #F2F7F9;">Deeper. Deliberate. Qualifies.</span>
+          <div style="display: flex; flex-direction: column; gap: 8px; font: 400 13px/1.6 'Inter', sans-serif; color: #A8C2CD;">
+            <span>A separate surface, reached only after the result</span>
+            <span>Named stages, multi-question screens, explicit Continue</span>
+            <span>Medical history, medications, conditions, allergies</span>
+            <span>Consent and acknowledgement steps, audit summary before submit</span>
+            <span>Output is a clinician handoff, never an eligibility verdict shown to the user</span>
+          </div>
+        </div>
+      </figure>
+
+      <figure style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #2A9D8F;">The seam</span>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 20px 24px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <span style="font: 500 13px/1.5 'Inter', sans-serif; color: #264653;">Assessment result</span>
+          <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; flex: none; fill: none; stroke: #B9CEDA; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M4 12h15M14 7l5 5-5 5"></path></svg>
+          <span style="display: inline-grid; place-items: center; height: 40px; padding: 0 20px; border-radius: 999px; background: #F2F7F9; border: 1px solid #C6D6DF; font: 500 12.5px/1 'Inter', sans-serif; color: #264653;">Continue to eligibility</span>
+          <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; flex: none; fill: none; stroke: #B9CEDA; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M4 12h15M14 7l5 5-5 5"></path></svg>
+          <span style="font: 500 13px/1.5 'Inter', sans-serif; color: #264653;">Eligibility intro</span>
+          <span style="margin-left: auto; font: 400 11.5px/1.55 'Inter', sans-serif; color: #7E9AA6; max-width: 34ch;">Always an explicit step the user takes. The two systems never blend into one scroll.</span>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section id="question" data-screen-label="02 Question screen" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding: 46px 56px 54px; background: #FFFFFF;">
+    <h2 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #264653;">Question<br>screen</h2>
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <p style="font: 400 14px/1.65 'Inter', sans-serif; color: #55747F; max-width: 62ch;">One question owns the screen. The question is the headline — never a second headline above it, never a section label competing with it.</p>
+
+      <figure style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; align-items: start;">
+        <div style="display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid #C6D6DF; border-radius: 14px; overflow: hidden;">
+          <div style="display: flex; align-items: center; gap: 16px; padding: 16px 24px; border-bottom: 1px solid #DDE8ED;">
+            <span style="display: grid; place-items: center; width: 24px; height: 24px; flex: none; background: #264653; color: #F2F7F9; font: 600 12px/1 'Inter', sans-serif;">4</span>
+            <span style="font: 700 10.5px/1.4 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #264653;">Impact</span>
+            <span style="display: flex; align-items: center; gap: 6px;">
+              <span style="width: 7px; height: 7px; border-radius: 999px; background: #2A9D8F;"></span><span style="width: 7px; height: 7px; border-radius: 999px; background: #2A9D8F;"></span><span style="width: 7px; height: 7px; border-radius: 999px; background: #2A9D8F;"></span><span style="width: 8px; height: 8px; border-radius: 999px; background: #264653;"></span><span style="width: 7px; height: 7px; border-radius: 999px; background: #D6E2E9;"></span><span style="width: 7px; height: 7px; border-radius: 999px; background: #D6E2E9;"></span>
+            </span>
+            <span style="margin-left: auto; font: 500 12px/1.4 'Inter', sans-serif; color: #7E9AA6;">4 / 6</span>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 40px 32px;">
+            <span style="display: grid; place-items: center; width: 76px; height: 76px; border-radius: 999px; background: #F2F7F9; border: 1px solid #DDE8ED;">
+              <svg viewBox="0 0 24 24" style="width: 28px; height: 28px; fill: none; stroke: #219EBC; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><path d="M5.5 19.5v-5M10.5 19.5v-9M15.5 19.5v-13M20 19.5v-3"></path></svg>
+            </span>
+            <span style="font: 400 24px/1.35 'DM Serif Display', serif; color: #264653; text-align: center; max-width: 28ch;">How much does this affect your day to day or confidence?</span>
+            <span style="font: 400 13px/1.55 'Inter', sans-serif; color: #55747F; text-align: center; max-width: 50ch;">Select the option that fits best.</span>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(86px, 1fr)); gap: 10px; width: 100%; margin-top: 4px;">
+              <span style="min-height: 68px; display: grid; place-items: center; padding: 12px 8px; background: #FFFFFF; border: 1px solid #D6E2E9; border-radius: 14px; font: 500 12px/1.4 'Inter', sans-serif; color: #264653; text-align: center; overflow-wrap: break-word;">Not really</span>
+              <span style="min-height: 68px; display: grid; place-items: center; padding: 12px 8px; background: #FFFFFF; border: 1px solid #D6E2E9; border-radius: 14px; font: 500 12px/1.4 'Inter', sans-serif; color: #264653; text-align: center; overflow-wrap: break-word;">A little</span>
+              <span style="min-height: 68px; display: grid; place-items: center; padding: 12px 8px; background: #F2F7F9; border: 1.5px solid #2A9D8F; border-radius: 14px; font: 500 12px/1.4 'Inter', sans-serif; color: #264653; text-align: center; overflow-wrap: break-word;">Somewhat</span>
+              <span style="min-height: 68px; display: grid; place-items: center; padding: 12px 8px; background: #FFFFFF; border: 1px solid #D6E2E9; border-radius: 14px; font: 500 12px/1.4 'Inter', sans-serif; color: #264653; text-align: center; overflow-wrap: break-word;">Quite a bit</span>
+              <span style="min-height: 68px; display: grid; place-items: center; padding: 12px 8px; background: #FFFFFF; border: 1px solid #D6E2E9; border-radius: 14px; font: 500 12px/1.4 'Inter', sans-serif; color: #264653; text-align: center; overflow-wrap: break-word;">A lot</span>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 24px; border-top: 1px solid #DDE8ED;">
+            <span style="display: inline-grid; place-items: center; height: 42px; padding: 0 22px; border: 1.5px solid #C6D6DF; border-radius: 999px; font: 500 13px/1 'Inter', sans-serif; color: #55747F;">Back</span>
+            <span style="font: 400 12px/1.45 'Inter', sans-serif; color: #7E9AA6;">Selecting an answer moves you forward.</span>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; background: #F2F7F9; border: 1px solid #DDE8ED; border-radius: 14px;">
+            <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #2A9D8F;">Anatomy</span>
+            <span style="font: 400 12px/1.65 'Inter', sans-serif; color: #55747F;">Bar · icon · question · helper · answers · footer. Nothing else may enter a question screen.</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; background: #F2F7F9; border: 1px solid #DDE8ED; border-radius: 14px;">
+            <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #2A9D8F;">Auto-advance</span>
+            <span style="font: 400 12px/1.65 'Inter', sans-serif; color: #55747F;">320ms pause after selection, so the user sees their answer register. The footer says so; nothing moves unannounced.</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; background: #F2F7F9; border: 1px solid #DDE8ED; border-radius: 14px;">
+            <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #2A9D8F;">Back</span>
+            <span style="font: 400 12px/1.65 'Inter', sans-serif; color: #55747F;">Always present, always live, never destructive. A revisited question shows the previous answer selected.</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; background: #FDEEE9; border: 1px solid #E76F51; border-radius: 14px;">
+            <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #E76F51;">Never</span>
+            <span style="font: 400 12px/1.65 'Inter', sans-serif; color: #55747F;">Two questions on one screen in the assessment. A progress bar that jumps. A required answer with no "Not sure".</span>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section id="branch" data-screen-label="03 Adaptive branch" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding: 46px 56px 54px; background: #F2F7F9;">
+    <h2 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #264653;">Adaptive<br>branch</h2>
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <p style="font: 400 14px/1.65 'Inter', sans-serif; color: #55747F; max-width: 62ch;">A branch is data, not a design. It swaps the answer set and may insert microsteps — it never introduces a new layout, a new colour, or a visible change in the progress count.</p>
+
+      <figure style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; align-items: stretch;">
+          <div style="display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px;">
+            <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #7E9AA6;">Q1 · Focus</span>
+            <span style="font: 500 13px/1.5 'Inter', sans-serif; color: #264653;">Sexual health</span>
+            <span style="font: 400 11.5px/1.55 'Inter', sans-serif; color: #7E9AA6;">Triggers the branch. Nothing on screen announces it.</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; background: #F2F7F9; border: 1.5px solid #2A9D8F; border-radius: 14px;">
+            <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #2A9D8F;">Q2 · swapped set</span>
+            <span style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #264653;">Lower desire · Trouble getting or keeping an erection · Finishing sooner than you'd like · Confidence or performance pressure · Not sure</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; background: #F2F7F9; border: 1.5px solid #219EBC; border-radius: 14px;">
+            <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #219EBC;">Microsteps · 2a, 2b</span>
+            <span style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #264653;">Frequency — occasionally to most times. Perceived control — very little to a lot.</span>
+            <span style="font: 400 11.5px/1.55 'Inter', sans-serif; color: #7E9AA6;">Only after "Finishing sooner than you'd like".</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px;">
+            <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #7E9AA6;">Q3–Q6</span>
+            <span style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #264653;">Duration · Impact · Already tried · Health check. Identical for every branch.</span>
+          </div>
+        </div>
+        <figcaption style="font: 400 11.5px/1.55 'Inter', sans-serif; color: #55747F; max-width: 80ch;">Microsteps stay numbered inside step 2, so a user who takes the branch still sees six steps. Two extra screens must never read as a penalty for answering honestly.</figcaption>
+      </figure>
+
+      <figure style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 10px; padding: 22px 24px; background: #FFFFFF; border: 1px solid #C6D6DF; border-radius: 14px;">
+          <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">Discretion rules</span>
+          <div style="display: flex; flex-direction: column; gap: 8px; font: 400 12.5px/1.65 'Inter', sans-serif; color: #55747F;">
+            <span>Describe the experience, never the clinical term. Never lead with "Premature Ejaculation".</span>
+            <span>No severity score shown back to the user. Frequency and control inform the handoff, not a verdict.</span>
+            <span>No reassurance the user did not ask for. No "you're not alone", no statistic.</span>
+            <span>No treatment named, in the branch or in the result.</span>
+            <span>"Not sure" is present on every screen in the branch.</span>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; padding: 22px 24px; background: #FFFFFF; border: 1px solid #C6D6DF; border-radius: 14px;">
+          <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">Tone check</span>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <span style="font: 400 12.5px/1.65 'Inter', sans-serif; color: #264653;"><strong style="font-weight: 600;">Yes.</strong> "How often does this happen?" — flat, unloaded, the same voice as every other question.</span>
+            <span style="font: 400 12.5px/1.65 'Inter', sans-serif; color: #7E9AA6;"><strong style="font-weight: 600; color: #E76F51;">No.</strong> "Don't worry — this is more common than you think." Sympathy the user did not request reads as embarrassment.</span>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section id="depth" data-screen-label="04 Deep intake" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding: 46px 56px 54px; background: #D6E2E9;">
+    <h2 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #264653;">Deep<br>intake</h2>
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <p style="font: 400 14px/1.65 'Inter', sans-serif; color: #55747F; max-width: 62ch;">The eligibility questionnaire inverts almost every assessment rule, deliberately. It looks like work because it is work, and the user should be able to feel that they are now in a clinical process.</p>
+
+      <figure style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: #B9CEDA; border: 1px solid #B9CEDA; border-radius: 14px; overflow: hidden;">
+          <span style="padding: 14px 18px; background: #F2F7F9; font: 700 9.5px/1.4 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #7E9AA6;">Dimension</span>
+          <span style="padding: 14px 18px; background: #F2F7F9; font: 700 9.5px/1.4 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #7E9AA6;">Assessment</span>
+          <span style="padding: 14px 18px; background: #F2F7F9; font: 700 9.5px/1.4 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #7E9AA6;">Eligibility</span>
+
+          <span style="padding: 14px 18px; background: #FFFFFF; font: 500 12.5px/1.5 'Inter', sans-serif; color: #264653;">Questions per screen</span>
+          <span style="padding: 14px 18px; background: #FFFFFF; font: 400 12.5px/1.5 'Inter', sans-serif; color: #55747F;">One, always</span>
+          <span style="padding: 14px 18px; background: #FFFFFF; font: 400 12.5px/1.5 'Inter', sans-serif; color: #55747F;">Grouped by subject, up to five</span>
+
+          <span style="padding: 14px 18px; background: #FFFFFF; font: 500 12.5px/1.5 'Inter', sans-serif; color: #264653;">Advance</span>
+          <span style="padding: 14px 18px; background: #FFFFFF; font: 400 12.5px/1.5 'Inter', sans-serif; color: #55747F;">Automatic, 320ms</span>
+          <span style="padding: 14px 18px; background: #FFFFFF; font: 400 12.5px/1.5 'Inter', sans-serif; color: #55747F;">Explicit Continue, never automatic</span>
+
+          <span style="padding: 14px 18px; background: #FFFFFF; font: 500 12.5px/1.5 'Inter', sans-serif; color: #264653;">Progress</span>
+          <span style="padding: 14px 18px; background: #FFFFFF; font: 400 12.5px/1.5 'Inter', sans-serif; color: #55747F;">Six dots, light bar</span>
+          <span style="padding: 14px 18px; background: #FFFFFF; font: 400 12.5px/1.5 'Inter', sans-serif; color: #55747F;">Named stages, dark bar, time remaining</span>
+
+          <span style="padding: 14px 18px; background: #FFFFFF; font: 500 12.5px/1.5 'Inter', sans-serif; color: #264653;">Free text</span>
+          <span style="padding: 14px 18px; background: #FFFFFF; font: 400 12.5px/1.5 'Inter', sans-serif; color: #55747F;">Never</span>
+          <span style="padding: 14px 18px; background: #FFFFFF; font: 400 12.5px/1.5 'Inter', sans-serif; color: #55747F;">Optional, on medications and history</span>
+
+          <span style="padding: 14px 18px; background: #FFFFFF; font: 500 12.5px/1.5 'Inter', sans-serif; color: #264653;">Leaving mid-flow</span>
+          <span style="padding: 14px 18px; background: #FFFFFF; font: 400 12.5px/1.5 'Inter', sans-serif; color: #55747F;">Nothing is kept</span>
+          <span style="padding: 14px 18px; background: #FFFFFF; font: 400 12.5px/1.5 'Inter', sans-serif; color: #55747F;">Saved and resumable, stated on entry</span>
+
+          <span style="padding: 14px 18px; background: #FFFFFF; font: 500 12.5px/1.5 'Inter', sans-serif; color: #264653;">Before submit</span>
+          <span style="padding: 14px 18px; background: #FFFFFF; font: 400 12.5px/1.5 'Inter', sans-serif; color: #55747F;">No submit — a result is shown</span>
+          <span style="padding: 14px 18px; background: #FFFFFF; font: 400 12.5px/1.5 'Inter', sans-serif; color: #55747F;">Full answer review, every row editable</span>
+        </div>
+      </figure>
+
+      <figure style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #2A9D8F;">Grouped screen · demo content</span>
+        <div style="display: flex; flex-direction: column; gap: 18px; padding: 26px 28px; background: #FFFFFF; border: 1px solid #C6D6DF; border-radius: 14px;">
+          <div style="display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; background: #FDEEE9; border: 1px dashed #E76F51; border-radius: 14px;">
+            <span style="display: grid; place-items: center; flex: none; padding: 3px 9px; border-radius: 999px; background: #E76F51; font: 700 8.5px/1.5 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #FFFFFF;">Demo only</span>
+            <span style="font: 400 11.5px/1.55 'Inter', sans-serif; color: #264653;">Final wording, clinical logic and eligibility criteria require clinical/legal approval before production use.</span>
+          </div>
+          <span style="font: 400 24px/1.3 'DM Serif Display', serif; color: #264653;">Medications and treatment.</span>
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <span style="font: 500 13px/1.5 'Inter', sans-serif; color: #264653;">Are you currently taking any prescription medications?</span>
+              <div style="display: flex; gap: 10px;">
+                <span style="display: grid; place-items: center; min-height: 44px; padding: 0 26px; background: #F2F7F9; border: 1.5px solid #2A9D8F; border-radius: 14px; font: 500 13px/1 'Inter', sans-serif; color: #264653;">Yes</span>
+                <span style="display: grid; place-items: center; min-height: 44px; padding: 0 26px; background: #FFFFFF; border: 1px solid #D6E2E9; border-radius: 14px; font: 500 13px/1 'Inter', sans-serif; color: #264653;">No</span>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <span style="font: 500 13px/1.5 'Inter', sans-serif; color: #264653;">Which ones, and at what dose if you know it?</span>
+              <span style="display: block; padding: 14px 16px; min-height: 78px; background: #FFFFFF; border: 1px solid #D6E2E9; border-radius: 14px; font: 400 13px/1.6 'Inter', sans-serif; color: #7E9AA6;">Optional. Write it as you would say it — a clinician reads this, not a computer.</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <span style="font: 500 13px/1.5 'Inter', sans-serif; color: #264653;">Are you currently receiving treatment for this issue?</span>
+              <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                <span style="display: grid; place-items: center; min-height: 44px; padding: 0 20px; background: #FFFFFF; border: 1px solid #D6E2E9; border-radius: 14px; font: 500 13px/1 'Inter', sans-serif; color: #264653;">Yes</span>
+                <span style="display: grid; place-items: center; min-height: 44px; padding: 0 20px; background: #FFFFFF; border: 1px solid #D6E2E9; border-radius: 14px; font: 500 13px/1 'Inter', sans-serif; color: #264653;">No</span>
+                <span style="display: grid; place-items: center; min-height: 44px; padding: 0 20px; background: #FFFFFF; border: 1px solid #B9CEDA; border-radius: 14px; font: 500 13px/1 'Inter', sans-serif; color: #55747F;">Not sure</span>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 16px; border-top: 1px solid #E7EFF3;">
+            <span style="display: inline-grid; place-items: center; height: 46px; padding: 0 24px; border: 1.5px solid #C6D6DF; border-radius: 999px; font: 500 14px/1 'Inter', sans-serif; color: #55747F;">Back</span>
+            <span style="display: flex; align-items: center; gap: 16px;">
+              <span style="font: 400 12px/1.45 'Inter', sans-serif; color: #7E9AA6;">Saved as you go</span>
+              <span style="display: inline-grid; place-items: center; height: 46px; padding: 0 30px; border-radius: 999px; background: #264653; font: 500 14px/1 'Inter', sans-serif; color: #F2F7F9;">Continue</span>
+            </span>
+          </div>
+        </div>
+        <figcaption style="font: 400 11.5px/1.55 'Inter', sans-serif; color: #55747F; max-width: 80ch;">Illustrative questions, grouped by subject. The demo marker sits at the top of the screen, inside the surface, so it travels with any screenshot of it.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="consent" data-screen-label="05 Consent" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding: 46px 56px 54px; background: #F2F7F9;">
+    <h2 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #264653;">Consent<br>and privacy</h2>
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <p style="font: 400 14px/1.65 'Inter', sans-serif; color: #55747F; max-width: 62ch;">Consent is its own step, never a checkbox bolted to a submit button. Each acknowledgement is separate, unticked by default, and none is pre-selected.</p>
+
+      <figure style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; align-items: start;">
+        <div style="display: flex; flex-direction: column; gap: 16px; padding: 26px 28px; background: #FFFFFF; border: 1px solid #C6D6DF; border-radius: 14px;">
+          <span style="font: 400 24px/1.3 'DM Serif Display', serif; color: #264653;">Before a clinician sees this.</span>
+          <span style="font: 400 13px/1.65 'Inter', sans-serif; color: #55747F;">Three things to confirm. Each one is separate because each one means something different.</span>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <span style="display: flex; align-items: flex-start; gap: 12px; padding: 15px 18px; background: #F2F7F9; border: 1px solid #DDE8ED; border-radius: 14px;">
+              <span style="display: block; width: 20px; height: 20px; flex: none; margin-top: 2px; background: #FFFFFF; border: 1.5px solid #B9CEDA;"></span>
+              <span style="font: 400 12.5px/1.6 'Inter', sans-serif; color: #264653;">The information I have given is accurate to the best of my knowledge.</span>
+            </span>
+            <span style="display: flex; align-items: flex-start; gap: 12px; padding: 15px 18px; background: #F2F7F9; border: 1px solid #DDE8ED; border-radius: 14px;">
+              <span style="display: block; width: 20px; height: 20px; flex: none; margin-top: 2px; background: #FFFFFF; border: 1.5px solid #B9CEDA;"></span>
+              <span style="font: 400 12.5px/1.6 'Inter', sans-serif; color: #264653;">I understand this is not a diagnosis, and that a licensed clinician will review my information before any option is offered.</span>
+            </span>
+            <span style="display: flex; align-items: flex-start; gap: 12px; padding: 15px 18px; background: #F2F7F9; border: 1px solid #DDE8ED; border-radius: 14px;">
+              <span style="display: block; width: 20px; height: 20px; flex: none; margin-top: 2px; background: #FFFFFF; border: 1.5px solid #B9CEDA;"></span>
+              <span style="font: 400 12.5px/1.6 'Inter', sans-serif; color: #264653;">I consent to SoviCare storing this health information for the purpose of that review.</span>
+            </span>
+          </div>
+          <span style="display: inline-grid; place-items: center; align-self: flex-start; height: 46px; padding: 0 30px; border-radius: 999px; background: #D6E2E9; font: 500 14px/1 'Inter', sans-serif; color: #7E9AA6;">Send for review</span>
+          <span style="font: 400 11.5px/1.55 'Inter', sans-serif; color: #7E9AA6;">Disabled until all three are confirmed. The button never explains itself with an error — the reason is visible above it.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px;">
+            <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #2A9D8F;">Rules</span>
+            <span style="font: 400 12px/1.65 'Inter', sans-serif; color: #55747F;">One acknowledgement per statement. Never bundled. Never pre-ticked. Never inside a scrolling box the user must reach the bottom of.</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px;">
+            <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #2A9D8F;">Privacy, stated early</span>
+            <span style="font: 400 12px/1.65 'Inter', sans-serif; color: #55747F;">What is stored, who reads it, and how to withdraw — on the intro screen, not only here.</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; background: #FDEEE9; border: 1px dashed #E76F51; border-radius: 14px;">
+            <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #E76F51;">Demo only</span>
+            <span style="font: 400 12px/1.65 'Inter', sans-serif; color: #55747F;">Consent and privacy wording is illustrative. Final text requires clinical and legal approval.</span>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section id="terminals" data-screen-label="06 End states" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding: 46px 56px 54px; background: #FFFFFF;">
+    <h2 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #264653;">End<br>states</h2>
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <p style="font: 400 14px/1.65 'Inter', sans-serif; color: #55747F; max-width: 62ch;">Four ways a flow can end. None of them is a failure, none of them is worded as one, and every one of them names what happens next and who does it.</p>
+
+      <figure style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 26px 28px; background: #F2F7F9; border: 1px solid #C6D6DF; border-radius: 14px;">
+          <span style="display: grid; place-items: center; width: 52px; height: 52px; border-radius: 999px; background: #FFFFFF; border: 1px solid #DDE8ED;">
+            <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; fill: none; stroke: #2A9D8F; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"></path></svg>
+          </span>
+          <span style="font: 400 24px/1.3 'DM Serif Display', serif; color: #264653;">Sent for review.</span>
+          <span style="font: 400 13px/1.65 'Inter', sans-serif; color: #55747F;">A licensed clinician will look at your answers and come back to you. If labs are needed, they are arranged first.</span>
+          <span style="font: 400 11.5px/1.55 'Inter', sans-serif; color: #7E9AA6;">Green mark, light surface. Confirmation, not celebration — no confetti, no exclamation mark.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 26px 28px; background: #FFF8E3; border: 1px solid #FFDE83; border-radius: 14px;">
+          <span style="display: grid; place-items: center; width: 52px; height: 52px; border-radius: 999px; background: #FFFFFF; border: 1px solid #FFDE83;">
+            <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; fill: none; stroke: #264653; stroke-width: 1.6; stroke-linecap: round;"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 8v5M12 16v.1"></path></svg>
+          </span>
+          <span style="font: 400 24px/1.3 'DM Serif Display', serif; color: #264653;">A clinician needs a closer look.</span>
+          <span style="font: 400 13px/1.65 'Inter', sans-serif; color: #55747F;">Some of what you told us needs a person rather than a form. Someone will come back to you within one working day.</span>
+          <span style="font: 400 11.5px/1.55 'Inter', sans-serif; color: #7E9AA6;">Never says which answer caused it. Never implies something is wrong with the user.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 26px 28px; background: #FDEEE9; border: 1px solid #E76F51; border-radius: 14px;">
+          <span style="display: grid; place-items: center; width: 52px; height: 52px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E76F51;">
+            <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; fill: none; stroke: #E76F51; stroke-width: 1.6; stroke-linecap: round;"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5.5 19.5a6.5 6.5 0 0 1 13 0"></path></svg>
+          </span>
+          <span style="font: 400 24px/1.3 'DM Serif Display', serif; color: #264653;">This part is better done by phone.</span>
+          <span style="font: 400 13px/1.65 'Inter', sans-serif; color: #55747F;">We cannot finish this online. Choose a time and a clinician will call you.</span>
+          <span style="font: 400 11.5px/1.55 'Inter', sans-serif; color: #7E9AA6;">Always offers the alternative in the same breath. Never a dead end, never "you are not eligible".</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 26px 28px; background: #F2F7F9; border: 1px solid #C6D6DF; border-radius: 14px;">
+          <span style="display: grid; place-items: center; width: 52px; height: 52px; border-radius: 999px; background: #FFFFFF; border: 1px solid #DDE8ED;">
+            <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; fill: none; stroke: #219EBC; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M7.5 3.5h7l4.5 4.5v13h-11.5zM14 3.5V8h4.5M9 12.5h6M9 16h4"></path></svg>
+          </span>
+          <span style="font: 400 24px/1.3 'DM Serif Display', serif; color: #264653;">More information needed.</span>
+          <span style="font: 400 13px/1.65 'Inter', sans-serif; color: #55747F;">One or two things are missing before a clinician can review this. It takes about a minute.</span>
+          <span style="font: 400 11.5px/1.55 'Inter', sans-serif; color: #7E9AA6;">Returns the user to the exact screens involved, with the rest of their answers intact.</span>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section id="system" data-screen-label="07 System states" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding: 46px 56px 54px; background: #F2F7F9;">
+    <h2 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #264653;">System<br>states</h2>
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <figure style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 10px; padding: 22px 24px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">Loading</span>
+          <span style="display: flex; gap: 6px;">
+            <span style="width: 8px; height: 8px; border-radius: 999px; background: #264653;"></span>
+            <span style="width: 8px; height: 8px; border-radius: 999px; background: #B9CEDA;"></span>
+            <span style="width: 8px; height: 8px; border-radius: 999px; background: #D6E2E9;"></span>
+          </span>
+          <span style="font: 400 12.5px/1.65 'Inter', sans-serif; color: #55747F;">Under 400ms shows nothing. Over 400ms shows three dots and a plain sentence. Never a percentage we cannot honour, never a fake progress bar.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; padding: 22px 24px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">Connection lost</span>
+          <span style="font: 400 12.5px/1.65 'Inter', sans-serif; color: #264653;">"Your answers are safe. We will send them when you are back online."</span>
+          <span style="font: 400 11.5px/1.55 'Inter', sans-serif; color: #7E9AA6;">The eligibility flow saves per screen, so this is true. The assessment does not, and says nothing it cannot keep.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; padding: 22px 24px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">Resume</span>
+          <span style="font: 400 12.5px/1.65 'Inter', sans-serif; color: #264653;">"You were on Medications. Continue where you left off?"</span>
+          <span style="font: 400 11.5px/1.55 'Inter', sans-serif; color: #7E9AA6;">Names the stage, offers to start again, never resumes silently.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; padding: 22px 24px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">Validation</span>
+          <span style="font: 400 12.5px/1.65 'Inter', sans-serif; color: #55747F;">On blur, never on keystroke. The message says what to do, not what went wrong. Coral border, Coral wash, one line beneath.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; padding: 22px 24px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">Reduced motion</span>
+          <span style="font: 400 12.5px/1.65 'Inter', sans-serif; color: #55747F;">Every transition off. Auto-advance keeps its 320ms pause — it is comprehension time, not animation. Every state stays legible without movement.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; padding: 22px 24px; background: #FFFFFF; border: 1px solid #DDE8ED; border-radius: 14px;">
+          <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #2A9D8F;">Keyboard and screen reader</span>
+          <span style="font: 400 12.5px/1.65 'Inter', sans-serif; color: #55747F;">Answers are real buttons in a labelled group. Focus lands on the question when a screen changes, and the step is announced. Focus ring never removed.</span>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section id="mobile" data-screen-label="08 Mobile" style="display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 24px; padding: 46px 56px 54px; background: #D6E2E9;">
+    <h2 style="font: 400 26px/1.15 'DM Serif Display', serif; color: #264653;">Mobile</h2>
+    <div style="display: flex; flex-direction: column; gap: 18px;">
+      <p style="font: 400 14px/1.65 'Inter', sans-serif; color: #55747F; max-width: 62ch;">Most people arrive on a phone, often late at night. The phone layout is the real one; the desktop layout is the same screen with more air.</p>
+
+      <figure style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; align-items: start;">
+        <div style="display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid #C6D6DF; border-radius: 14px; overflow: hidden;">
+          <div style="display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-bottom: 1px solid #DDE8ED;">
+            <span style="display: grid; place-items: center; width: 22px; height: 22px; flex: none; background: #264653; color: #F2F7F9; font: 600 11px/1 'Inter', sans-serif;">2</span>
+            <span style="font: 700 9.5px/1.4 'Inter', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: #264653;">Goal</span>
+            <span style="margin-left: auto; font: 500 11.5px/1.4 'Inter', sans-serif; color: #7E9AA6;">2 / 6</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 14px; padding: 26px 20px;">
+            <span style="font: 400 21px/1.35 'DM Serif Display', serif; color: #264653;">What would you most like to improve?</span>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <span style="display: flex; align-items: center; min-height: 52px; padding: 0 18px; background: #FFFFFF; border: 1px solid #D6E2E9; border-radius: 14px; font: 500 13px/1.45 'Inter', sans-serif; color: #264653;">Have more energy through the day</span>
+              <span style="display: flex; align-items: center; min-height: 52px; padding: 0 18px; background: #F2F7F9; border: 1.5px solid #2A9D8F; border-radius: 14px; font: 500 13px/1.45 'Inter', sans-serif; color: #264653;">Sleep more soundly</span>
+              <span style="display: flex; align-items: center; min-height: 52px; padding: 0 18px; background: #FFFFFF; border: 1px solid #D6E2E9; border-radius: 14px; font: 500 13px/1.45 'Inter', sans-serif; color: #264653;">Recover better after effort</span>
+              <span style="display: flex; align-items: center; min-height: 52px; padding: 0 18px; background: #FFFFFF; border: 1px solid #B9CEDA; border-radius: 14px; font: 500 13px/1.45 'Inter', sans-serif; color: #55747F;">Not sure</span>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-top: 1px solid #DDE8ED;">
+            <span style="display: inline-grid; place-items: center; height: 44px; padding: 0 20px; border: 1.5px solid #C6D6DF; border-radius: 999px; font: 500 13px/1 'Inter', sans-serif; color: #55747F;">Back</span>
+            <span style="margin-left: auto; font: 400 11px/1.4 'Inter', sans-serif; color: #7E9AA6;">Assessment only.<br>Not a diagnosis.</span>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; background: #FFFFFF; border: 1px solid #C6D6DF; border-radius: 14px;">
+            <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #2A9D8F;">What changes at 390px</span>
+            <span style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #55747F;">Cards and scales become a single column of rows. Icon and helper drop when they are decorative. Serif question steps 26 → 21px, the one exception to the serif floor and only in a question. Page inset 56 → 24px, card padding 36 → 24px.</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; background: #FFFFFF; border: 1px solid #C6D6DF; border-radius: 14px;">
+            <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #2A9D8F;">What never changes</span>
+            <span style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #55747F;">44px minimum target. Back in the footer. The compliance line on the surface. Six steps, whatever the branch. One question per screen.</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; background: #FFFFFF; border: 1px solid #C6D6DF; border-radius: 14px;">
+            <span style="font: 700 9px/1 'Inter', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: #2A9D8F;">Thumb reach</span>
+            <span style="font: 400 12.5px/1.7 'Inter', sans-serif; color: #55747F;">Answers sit in the lower two thirds. The question can scroll off; the answers cannot. No sticky bar overlapping the last option.</span>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section id="colophon" data-screen-label="09 Colophon" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; padding: 30px 56px 34px; background: #264653;">
+    <div style="display: flex; align-items: center; gap: 11px;">
+      <svg viewBox="0 0 100 133" style="width: 17px; height: 23px;"><path fill="#D6E2E9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+      <span style="font: 400 17px/1 'DM Serif Display', serif; color: #F2F7F9;">SoviCare</span>
+    </div>
+    <div style="font: 400 11.5px/1.6 'Inter', sans-serif; color: #6E8B97;">UX Patterns · Ed. 01 · <a href="index.html" style="color: #FFBE0B;">Hub</a> · <a href="foundations.html" style="color: #FFBE0B;">Foundations</a> · <a href="components.html" style="color: #FFBE0B;">Components</a></div>
+  </section>
+
+</div>
+
+</x-dc>
+</body>
+</html>

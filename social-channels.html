@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SoviCare</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Inter', sans-serif; color: #264653; background: #E4EDF1; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, h4, p, ul, li, figure, figcaption { margin: 0; padding: 0; }
+  ul { list-style: none; }
+  a { color: #219EBC; text-decoration: none; }
+  a:hover { color: #264653; }
+  ::selection { background: #FFBE0B; color: #264653; }
+</style>
+<script src="./download-chips.js"></script>
+</helmet>
+
+<div style="max-width: 1280px; margin: 0 auto; padding: 72px 48px 120px;">
+
+  <div style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.18em; color: #2A9D8F;">SoviCare · Social channels · Profile &amp; cover kit</div>
+  <h1 style="margin-top: 18px; font: 400 clamp(38px, 5vw, 62px)/1.04 'DM Serif Display', serif; color: #264653; letter-spacing: -0.018em; max-width: 18ch;">One mark, six rooms.</h1>
+  <p style="margin-top: 18px; max-width: 62ch; font: 400 16px/1.7 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Every platform crops differently, so the avatar is the same four quadrants at every size and the covers change only their crop. Nothing is redrawn per channel.</p>
+
+  <!-- ══ Avatar system ══ -->
+  <section style="margin-top: 72px; padding-top: 44px; border-top: 1px solid #C0D3DC;">
+    <div style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #2A9D8F;">01</div>
+    <h2 style="margin-top: 12px; font: 400 34px/1.1 'DM Serif Display', serif; color: #264653;">Profile picture</h2>
+    <p style="margin-top: 12px; max-width: 64ch; font: 400 15px/1.7 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">Deep Teal field, mark centred at 58% of the frame. Every platform masks to a circle, so nothing may sit in the corners. One file serves all six.</p>
+
+    <div style="margin-top: 32px; display: flex; align-items: flex-end; gap: 30px; flex-wrap: wrap;">
+      <figure style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
+        <div style="width: 168px; height: 168px; border-radius: 999px; background: #264653; display: grid; place-items: center; overflow: hidden;">
+          <svg viewBox="0 0 100 133" style="width: 52%; height: auto;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+        </div>
+        <figcaption style="font: 500 11.5px/1 'Inter', sans-serif; color: #55747F;">Primary · 400×400</figcaption>
+      </figure>
+
+      <figure style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
+        <div style="width: 112px; height: 112px; border-radius: 999px; background: #F2F7F9; display: grid; place-items: center; overflow: hidden;">
+          <svg viewBox="0 0 100 133" style="width: 52%; height: auto;"><path fill="#264653" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+        </div>
+        <figcaption style="font: 500 11.5px/1 'Inter', sans-serif; color: #55747F;">Light alt</figcaption>
+      </figure>
+
+      <figure style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
+        <div style="width: 68px; height: 68px; border-radius: 999px; background: #264653; display: grid; place-items: center;">
+          <svg viewBox="0 0 100 133" style="width: 56%; height: auto;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+        </div>
+        <figcaption style="font: 500 11.5px/1 'Inter', sans-serif; color: #55747F;">Feed · 68px</figcaption>
+      </figure>
+
+      <figure style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
+        <div style="width: 34px; height: 34px; border-radius: 999px; background: #264653; display: grid; place-items: center;">
+          <svg viewBox="0 0 100 133" style="width: 60%; height: auto;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+        </div>
+        <figcaption style="font: 500 11.5px/1 'Inter', sans-serif; color: #55747F;">Comment · 34px</figcaption>
+      </figure>
+
+      <figure style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
+        <div style="width: 20px; height: 20px; border-radius: 999px; background: #264653; display: grid; place-items: center;">
+          <svg viewBox="0 0 100 133" style="width: 62%; height: auto;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+        </div>
+        <figcaption style="font: 500 11.5px/1 'Inter', sans-serif; color: #55747F;">20px floor</figcaption>
+      </figure>
+
+      <div style="max-width: 30ch; padding: 20px 22px; border-radius: 14px; background: #F2F7F9;">
+        <div style="font: 600 12.5px/1.3 'Inter', sans-serif; color: #264653;">Below 20px</div>
+        <p style="margin-top: 8px; font: 400 12.5px/1.6 'Inter', sans-serif; color: #55747F; text-wrap: pretty;">The quadrant gaps close up. Use the solid Amber quarter alone as the app badge rather than shrinking the full mark.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ Facebook ══ -->
+  <section style="margin-top: 72px; padding-top: 44px; border-top: 1px solid #C0D3DC;">
+    <div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;">
+      <div style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #2A9D8F;">02</div>
+      <h2 style="font: 400 34px/1.1 'DM Serif Display', serif; color: #264653;">Facebook page</h2>
+      <span style="font: 500 12px/1 'Inter', sans-serif; color: #7E9AA6;">Cover 1640×664 · safe area 1090×360 centred</span>
+    </div>
+
+    <div style="margin-top: 26px; border-radius: 16px; overflow: hidden; background: #FFFFFF; border: 1px solid #D4E1E7;">
+      <div style="position: relative; aspect-ratio: 1640 / 664; background: #264653; overflow: hidden;">
+        <svg viewBox="0 0 1640 664" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0; width: 100%; height: 100%;">
+          <defs><clipPath id="fbSafe"><rect x="0" y="0" width="275" height="664"></rect><rect x="1365" y="0" width="275" height="664"></rect></clipPath></defs>
+          <g clip-path="url(#fbSafe)">
+            <path fill="#219EBC" d="M0 664V420a244 244 0 0 1 244 244Z" opacity="0.85"></path>
+            <path fill="#2A9D8F" d="M1640 0v210a210 210 0 0 1-210-210Z" opacity="0.6"></path>
+            <circle cx="1500" cy="540" r="72" fill="{{ accent }}"></circle>
+          </g>
+        </svg>
+        <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 20%;">
+          <h3 style="font: 400 clamp(20px, 3.2vw, 46px)/1.08 'DM Serif Display', serif; color: #F2F7F9;">Answers you can feel.</h3>
+          <p style="margin-top: clamp(8px, 1vw, 14px); font: 400 clamp(9px, 1.05vw, 15px)/1.6 'Inter', sans-serif; color: #A8C2CD;">Men's longevity, hormone health, and wellness.</p>
+        </div>
+      </div>
+
+      <div style="position: relative; padding: 0 32px 24px;">
+        <div style="position: absolute; left: 32px; top: -56px; width: 128px; height: 128px; border-radius: 999px; background: #264653; border: 5px solid #FFFFFF; display: grid; place-items: center;">
+          <svg viewBox="0 0 100 133" style="width: 52%; height: auto;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+        </div>
+        <div style="padding-top: 84px; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+          <div>
+            <div style="font: 700 25px/1.2 'Inter', sans-serif; letter-spacing: -0.025em; color: #1C1E21;">SoviCare</div>
+            <div style="margin-top: 6px; font: 400 14px/1.4 'Inter', sans-serif; color: #65676B;">Health &amp; wellness website · 12K followers</div>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <span style="padding: 9px 20px; border-radius: 7px; background: #264653; font: 600 13.5px/1 'Inter', sans-serif; color: #F2F7F9;">Start with answers</span>
+            <span style="padding: 9px 20px; border-radius: 7px; background: #E4E6EB; font: 600 13.5px/1 'Inter', sans-serif; color: #1C1E21;">Message</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 14px; padding: 18px 22px; border-radius: 12px; background: #F2F7F9; font: 400 13.5px/1.6 'Inter', sans-serif; color: #55747F;">The avatar overlaps the cover's lower-left corner on desktop and centres on mobile. Art is clipped out of the centre 1090px entirely — the headline is the only thing allowed there.</div>
+  </section>
+
+  <!-- ══ Instagram ══ -->
+  <section style="margin-top: 72px; padding-top: 44px; border-top: 1px solid #C0D3DC;">
+    <div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;">
+      <div style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #2A9D8F;">03</div>
+      <h2 style="font: 400 34px/1.1 'DM Serif Display', serif; color: #264653;">Instagram</h2>
+      <span style="font: 500 12px/1 'Inter', sans-serif; color: #7E9AA6;">Grid tiles 1080×1080 · avatar 320×320</span>
+    </div>
+
+    <div style="margin-top: 26px; display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 28px; align-items: start;">
+      <div style="border-radius: 16px; overflow: hidden; background: #FFFFFF; border: 1px solid #D4E1E7; padding: 26px 22px 22px;">
+        <div style="display: flex; align-items: center; gap: 22px;">
+          <div style="width: 86px; height: 86px; border-radius: 999px; background: #264653; display: grid; place-items: center; flex: none;">
+            <svg viewBox="0 0 100 133" style="width: 52%; height: auto;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+          </div>
+          <div style="display: flex; gap: 20px;">
+            <div style="text-align: center;"><div style="font: 600 16px/1.2 'Inter', sans-serif; color: #262626;">248</div><div style="font: 400 12.5px/1 'Inter', sans-serif; color: #737373;">posts</div></div>
+            <div style="text-align: center;"><div style="font: 600 16px/1.2 'Inter', sans-serif; color: #262626;">31.4K</div><div style="font: 400 12.5px/1 'Inter', sans-serif; color: #737373;">followers</div></div>
+            <div style="text-align: center;"><div style="font: 600 16px/1.2 'Inter', sans-serif; color: #262626;">18</div><div style="font: 400 12.5px/1 'Inter', sans-serif; color: #737373;">following</div></div>
+          </div>
+        </div>
+        <div style="margin-top: 18px;">
+          <div style="font: 600 13.5px/1.4 'Inter', sans-serif; color: #262626;">SoviCare</div>
+          <div style="margin-top: 3px; font: 400 13.5px/1.5 'Inter', sans-serif; color: #737373;">Health &amp; wellness</div>
+          <div style="margin-top: 8px; font: 400 13.5px/1.55 'Inter', sans-serif; color: #262626;">Sleep, mood, energy, drive. One system.<br>Labs, licensed providers, a plan that fits.</div>
+          <div style="margin-top: 6px; font: 400 13.5px/1.5 'Inter', sans-serif; color: #00376B;">sovicare.com</div>
+        </div>
+        <div style="margin-top: 18px; display: flex; gap: 7px;">
+          <span style="flex: 1; text-align: center; padding: 8px 0; border-radius: 8px; background: #264653; font: 600 13px/1 'Inter', sans-serif; color: #F2F7F9;">Follow</span>
+          <span style="flex: 1; text-align: center; padding: 8px 0; border-radius: 8px; background: #EFEFEF; font: 600 13px/1 'Inter', sans-serif; color: #262626;">Message</span>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px;">
+        <div style="aspect-ratio: 1; background: #264653; position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: 14px;">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%;"><path fill="#219EBC" d="M100 0v54A54 54 0 0 0 46 0Z" opacity="0.5"></path></svg>
+          <div style="position: relative; font: 400 clamp(13px, 1.5vw, 19px)/1.15 'DM Serif Display', serif; color: #F2F7F9;">Tired isn't a diagnosis.</div>
+        </div>
+        <div style="aspect-ratio: 1; background: #C3D6DE; position: relative; overflow: hidden;">
+          <img src="assets/people/02.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 56% 24%;">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%;"><path fill="#FFBE0B" d="M0 100V72a28 28 0 0 1 28 28Z"></path></svg>
+        </div>
+        <div style="aspect-ratio: 1; background: #F2F7F9; position: relative; display: grid; place-items: center; padding: 12px;">
+          <div style="text-align: center;"><div style="font: 400 clamp(22px, 3vw, 40px)/1 'DM Serif Display', serif; color: #2A9D8F;">1 in 4</div><div style="margin-top: 7px; font: 400 clamp(8px, 0.85vw, 11px)/1.4 'Inter', sans-serif; color: #55747F;">men over 45, below range</div></div>
+        </div>
+        <div style="aspect-ratio: 1; background: #2A9D8F; position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: 14px;">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%;"><circle cx="74" cy="26" r="26" fill="#F2F7F9" opacity="0.2"></circle></svg>
+          <div style="position: relative; font: 400 clamp(13px, 1.5vw, 19px)/1.15 'DM Serif Display', serif; color: #F2F7F9;">What your labs actually say.</div>
+        </div>
+        <div style="aspect-ratio: 1; background: #C3D6DE; position: relative; overflow: hidden;">
+          <img src="assets/people/05.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%;">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%;"><path fill="#219EBC" d="M100 100H62a38 38 0 0 1 38-38Z" opacity="0.9"></path></svg>
+        </div>
+        <div style="aspect-ratio: 1; background: #FFBE0B; position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: 14px;">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%;"><path fill="#264653" d="M0 0h44A44 44 0 0 1 0 44Z" opacity="0.15"></path></svg>
+          <div style="position: relative; font: 400 clamp(13px, 1.5vw, 19px)/1.15 'DM Serif Display', serif; color: #264653;">Measure first. Always.</div>
+        </div>
+        <div style="aspect-ratio: 1; background: #C3D6DE; position: relative; overflow: hidden;">
+          <img src="assets/people/08.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 22%;">
+        </div>
+        <div style="aspect-ratio: 1; background: #264653; position: relative; display: grid; place-items: center;">
+          <svg viewBox="0 0 100 133" style="width: 34%; height: auto;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+        </div>
+        <div style="aspect-ratio: 1; background: #F2F7F9; position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: 14px;">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%;"><path fill="#2A9D8F" d="M100 0v46A46 46 0 0 0 54 0Z" opacity="0.22"></path></svg>
+          <div style="position: relative; font: 400 clamp(13px, 1.5vw, 19px)/1.15 'DM Serif Display', serif; color: #264653;">Four questions, six minutes.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 14px; padding: 18px 22px; border-radius: 12px; background: #F2F7F9; font: 400 13.5px/1.6 'Inter', sans-serif; color: #55747F;">Grid rhythm: one photo, one statement, one number, repeating. Never two photos side by side, never two Amber tiles in the same row of three.</div>
+  </section>
+
+  <!-- ══ YouTube ══ -->
+  <section style="margin-top: 72px; padding-top: 44px; border-top: 1px solid #C0D3DC;">
+    <div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;">
+      <div style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #2A9D8F;">04</div>
+      <h2 style="font: 400 34px/1.1 'DM Serif Display', serif; color: #264653;">YouTube channel</h2>
+      <span style="font: 500 12px/1 'Inter', sans-serif; color: #7E9AA6;">Banner 2560×1440 · TV-safe 1546×423 centred</span>
+    </div>
+
+    <div style="margin-top: 26px; border-radius: 16px; overflow: hidden; background: #FFFFFF; border: 1px solid #D4E1E7;">
+      <div style="position: relative; aspect-ratio: 2560 / 620; background: #264653; overflow: hidden;">
+        <svg viewBox="0 0 2560 620" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0; width: 100%; height: 100%;">
+          <defs><clipPath id="ytSafe"><rect x="0" y="0" width="507" height="620"></rect><rect x="2053" y="0" width="507" height="620"></rect></clipPath></defs>
+          <g clip-path="url(#ytSafe)">
+            <path fill="#219EBC" d="M0 0h300A300 300 0 0 1 0 300Z" opacity="0.7"></path>
+            <path fill="#2A9D8F" d="M2560 620h-262a262 262 0 0 1 262-262Z" opacity="0.8"></path>
+            <circle cx="180" cy="520" r="66" fill="{{ accent }}"></circle>
+            <path fill="#F2F7F9" d="M2380 0v128a128 128 0 0 0 128-128Z" opacity="0.14"></path>
+          </g>
+        </svg>
+        <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 22%;">
+          <div style="display: flex; align-items: center; gap: clamp(8px, 1vw, 15px);">
+            <svg viewBox="0 0 100 133" style="width: clamp(20px, 2.2vw, 34px); height: auto; flex: none;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+            <div style="font: 400 clamp(20px, 3vw, 44px)/1 'DM Serif Display', serif; color: #F2F7F9;">SoviCare</div>
+          </div>
+          <p style="margin-top: clamp(8px, 1vw, 15px); font: 400 clamp(9px, 1vw, 15px)/1.6 'Inter', sans-serif; color: #A8C2CD;">What the labs mean · new episode every Tuesday</p>
+        </div>
+      </div>
+
+      <div style="padding: 22px 28px 26px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <div style="width: 84px; height: 84px; border-radius: 999px; background: #264653; display: grid; place-items: center; flex: none;">
+          <svg viewBox="0 0 100 133" style="width: 52%; height: auto;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+        </div>
+        <div style="flex: 1; min-width: 200px;">
+          <div style="font: 700 23px/1.2 'Inter', sans-serif; letter-spacing: -0.02em; color: #0F0F0F;">SoviCare</div>
+          <div style="margin-top: 5px; font: 400 13.5px/1.4 'Inter', sans-serif; color: #606060;">@sovicare · 8.2K subscribers · 41 videos</div>
+        </div>
+        <span style="padding: 10px 22px; border-radius: 999px; background: #0F0F0F; font: 600 13.5px/1 'Inter', sans-serif; color: #FFFFFF;">Subscribe</span>
+      </div>
+
+      <div style="padding: 0 28px 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px;">
+        <figure>
+          <div style="position: relative; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; background: #264653; display: flex; align-items: flex-end; padding: 14px;">
+            <svg viewBox="0 0 320 180" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%;"><path fill="#219EBC" d="M320 0v92A92 92 0 0 0 228 0Z" opacity="0.55"></path></svg>
+            <div style="position: relative; font: 400 17px/1.15 'DM Serif Display', serif; color: #F2F7F9;">Reading your testosterone panel</div>
+          </div>
+          <figcaption style="margin-top: 9px; font: 500 13px/1.4 'Inter', sans-serif; color: #0F0F0F;">Reading your testosterone panel</figcaption>
+        </figure>
+        <figure>
+          <div style="position: relative; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; background: #C3D6DE;">
+            <img src="assets/people/05.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 16%;">
+            <svg viewBox="0 0 320 180" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%;"><path fill="#FFBE0B" d="M0 180v-64a64 64 0 0 1 64 64Z"></path></svg>
+          </div>
+          <figcaption style="margin-top: 9px; font: 500 13px/1.4 'Inter', sans-serif; color: #0F0F0F;">"I thought it was just age"</figcaption>
+        </figure>
+        <figure>
+          <div style="position: relative; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; background: #2A9D8F; display: flex; align-items: flex-end; padding: 14px;">
+            <svg viewBox="0 0 320 180" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%;"><circle cx="252" cy="44" r="44" fill="#F2F7F9" opacity="0.18"></circle></svg>
+            <div style="position: relative; font: 400 17px/1.15 'DM Serif Display', serif; color: #F2F7F9;">Why we test before we treat</div>
+          </div>
+          <figcaption style="margin-top: 9px; font: 500 13px/1.4 'Inter', sans-serif; color: #0F0F0F;">Why we test before we treat</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div style="margin-top: 14px; padding: 18px 22px; border-radius: 12px; background: #F2F7F9; font: 400 13.5px/1.6 'Inter', sans-serif; color: #55747F;">Thumbnails follow the grid rule: one photo, one statement, one field of colour. Title type is DM Serif at 17px minimum so it survives the mobile thumbnail.</div>
+  </section>
+
+  <!-- ══ LinkedIn ══ -->
+  <section style="margin-top: 72px; padding-top: 44px; border-top: 1px solid #C0D3DC;">
+    <div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;">
+      <div style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #2A9D8F;">05</div>
+      <h2 style="font: 400 34px/1.1 'DM Serif Display', serif; color: #264653;">LinkedIn company page</h2>
+      <span style="font: 500 12px/1 'Inter', sans-serif; color: #7E9AA6;">Cover 1128×191 · logo 300×300</span>
+    </div>
+
+    <div style="margin-top: 26px; border-radius: 16px; overflow: hidden; background: #FFFFFF; border: 1px solid #D4E1E7;">
+      <div style="position: relative; aspect-ratio: 1128 / 191; background: #F2F7F9; overflow: hidden;">
+        <svg viewBox="0 0 1128 191" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0; width: 100%; height: 100%;">
+          <path fill="#219EBC" d="M1128 0v191H937A191 191 0 0 1 1128 0Z" opacity="0.9"></path>
+          <path fill="#2A9D8F" d="M937 191a191 191 0 0 1-191-191h191Z" opacity="0.35"></path>
+          <circle cx="700" cy="191" r="58" fill="{{ accent }}" opacity="0.85"></circle>
+        </svg>
+        <div style="position: absolute; left: 0; top: 0; bottom: 0; display: flex; align-items: center; padding-left: 32px;">
+          <div style="font: 400 clamp(13px, 1.9vw, 26px)/1.15 'DM Serif Display', serif; color: #264653;">Measure the parts.<br>Treat the person.</div>
+        </div>
+      </div>
+
+      <div style="position: relative; padding: 0 28px 24px;">
+        <div style="position: absolute; left: 28px; top: -38px; width: 96px; height: 96px; border-radius: 10px; background: #264653; border: 4px solid #FFFFFF; display: grid; place-items: center;">
+          <svg viewBox="0 0 100 133" style="width: 50%; height: auto;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+        </div>
+        <div style="padding-top: 70px; display: flex; align-items: flex-end; justify-content: space-between; gap: 22px; flex-wrap: wrap;">
+          <div>
+            <div style="font: 600 22px/1.25 'Inter', sans-serif; letter-spacing: -0.02em; color: #000000E6;">SoviCare</div>
+            <div style="margin-top: 4px; font: 400 14px/1.45 'Inter', sans-serif; color: #00000099;">Men's longevity, hormone health, and wellness</div>
+            <div style="margin-top: 3px; font: 400 13px/1.45 'Inter', sans-serif; color: #00000099;">Hospitals &amp; Health Care · 51–200 employees</div>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <span style="padding: 8px 18px; border-radius: 999px; background: #0A66C2; font: 600 13.5px/1 'Inter', sans-serif; color: #FFFFFF;">+ Follow</span>
+            <span style="padding: 8px 18px; border-radius: 999px; border: 1.5px solid #0A66C2; font: 600 13.5px/1 'Inter', sans-serif; color: #0A66C2;">Visit website</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 14px; padding: 18px 22px; border-radius: 12px; background: #F2F7F9; font: 400 13.5px/1.6 'Inter', sans-serif; color: #55747F;">LinkedIn is the one channel that runs on Paper rather than Deep Teal — the audience here is clinical and institutional, and the lighter field reads as the more sober room. The logo tile is squared, not circular.</div>
+  </section>
+
+  <!-- ══ TikTok + X ══ -->
+  <section style="margin-top: 72px; padding-top: 44px; border-top: 1px solid #C0D3DC;">
+    <div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;">
+      <div style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #2A9D8F;">06</div>
+      <h2 style="font: 400 34px/1.1 'DM Serif Display', serif; color: #264653;">TikTok &amp; X</h2>
+      <span style="font: 500 12px/1 'Inter', sans-serif; color: #7E9AA6;">TikTok avatar 200×200 · X header 1500×500</span>
+    </div>
+
+    <div style="margin-top: 26px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px;">
+
+      <div style="border-radius: 16px; overflow: hidden; background: #FFFFFF; border: 1px solid #D4E1E7; padding: 30px 26px 26px; text-align: center;">
+        <div style="width: 108px; height: 108px; margin: 0 auto; border-radius: 999px; background: #264653; display: grid; place-items: center;">
+          <svg viewBox="0 0 100 133" style="width: 52%; height: auto;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+        </div>
+        <div style="margin-top: 14px; font: 600 19px/1.2 'Inter', sans-serif; color: #161823;">@sovicare</div>
+        <div style="margin-top: 14px; display: flex; justify-content: center; gap: 26px;">
+          <div><div style="font: 700 17px/1.2 'Inter', sans-serif; color: #161823;">12</div><div style="font: 400 12.5px/1 'Inter', sans-serif; color: #16182399;">Following</div></div>
+          <div><div style="font: 700 17px/1.2 'Inter', sans-serif; color: #161823;">64.1K</div><div style="font: 400 12.5px/1 'Inter', sans-serif; color: #16182399;">Followers</div></div>
+          <div><div style="font: 700 17px/1.2 'Inter', sans-serif; color: #161823;">402K</div><div style="font: 400 12.5px/1 'Inter', sans-serif; color: #16182399;">Likes</div></div>
+        </div>
+        <div style="margin-top: 16px; font: 400 13.5px/1.55 'Inter', sans-serif; color: #161823;">Tired isn't a diagnosis.<br>Labs, providers, plain answers.</div>
+        <div style="margin-top: 16px; padding: 10px 0; border-radius: 6px; background: #FE2C55; font: 600 14px/1 'Inter', sans-serif; color: #FFFFFF;">Follow</div>
+        <div style="margin-top: 18px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px;">
+          <div style="aspect-ratio: 9 / 14; background: #264653; position: relative; overflow: hidden;"><svg viewBox="0 0 90 140" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%;"><path fill="#219EBC" d="M90 140H44a46 46 0 0 1 46-46Z" opacity="0.8"></path></svg></div>
+          <div style="aspect-ratio: 9 / 14; background: #C3D6DE; position: relative; overflow: hidden;"><img src="assets/people/08.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 18%;"></div>
+          <div style="aspect-ratio: 9 / 14; background: #FFBE0B; position: relative; overflow: hidden;"><svg viewBox="0 0 90 140" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%;"><circle cx="45" cy="40" r="30" fill="#264653" opacity="0.16"></circle></svg></div>
+        </div>
+      </div>
+
+      <div style="border-radius: 16px; overflow: hidden; background: #FFFFFF; border: 1px solid #D4E1E7;">
+        <div style="position: relative; aspect-ratio: 3 / 1; background: #264653; overflow: hidden;">
+          <svg viewBox="0 0 1500 500" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0; width: 100%; height: 100%;">
+            <path fill="#219EBC" d="M1500 0v260a260 260 0 0 1-260-260Z" opacity="0.75"></path>
+            <path fill="#2A9D8F" d="M1240 500a240 240 0 0 1 240-240v240Z" opacity="0.5"></path>
+            <circle cx="1130" cy="130" r="52" fill="{{ accent }}"></circle>
+          </svg>
+          <div style="position: absolute; left: 0; top: 0; bottom: 0; display: flex; align-items: center; padding-left: 30px; max-width: 62%;">
+            <div style="font: 400 clamp(15px, 2.2vw, 30px)/1.14 'DM Serif Display', serif; color: #F2F7F9;">Everything you feel<br>has a number behind it.</div>
+          </div>
+        </div>
+        <div style="position: relative; padding: 0 22px 22px;">
+          <div style="position: absolute; left: 22px; top: -40px; width: 96px; height: 96px; border-radius: 999px; background: #264653; border: 4px solid #FFFFFF; display: grid; place-items: center;">
+            <svg viewBox="0 0 100 133" style="width: 50%; height: auto;"><path fill="#F2F7F9" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"></path><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"></path><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"></path><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"></path></svg>
+          </div>
+          <div style="padding-top: 64px;">
+            <div style="font: 800 20px/1.2 'Inter', sans-serif; letter-spacing: -0.02em; color: #0F1419;">SoviCare</div>
+            <div style="margin-top: 3px; font: 400 14px/1.4 'Inter', sans-serif; color: #536471;">@sovicare</div>
+            <div style="margin-top: 11px; font: 400 14.5px/1.5 'Inter', sans-serif; color: #0F1419;">Sleep, mood, energy, drive. One system. Labs first, then a plan a licensed provider signs.</div>
+            <div style="margin-top: 11px; display: flex; gap: 18px; font: 400 13.5px/1 'Inter', sans-serif; color: #536471;"><span><strong style="font-weight: 700; color: #0F1419;">18</strong> Following</span><span><strong style="font-weight: 700; color: #0F1419;">9,431</strong> Followers</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ Spec table ══ -->
+  <sc-if value="{{ showSpecs }}" hint-placeholder-val="{{ true }}">
+  <section style="margin-top: 72px; padding-top: 44px; border-top: 1px solid #C0D3DC;">
+    <div style="font: 700 10px/1 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 0.16em; color: #2A9D8F;">Export</div>
+    <h2 style="margin-top: 12px; font: 400 34px/1.1 'DM Serif Display', serif; color: #264653;">Sizes to hand the agency</h2>
+
+    <div style="margin-top: 26px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1px; background: #C0D3DC; border: 1px solid #C0D3DC; border-radius: 16px; overflow: hidden;">
+      <div style="background: #F2F7F9; padding: 22px 24px;"><div style="font: 600 15px/1.3 'Inter', sans-serif; color: #264653;">Facebook</div><div style="margin-top: 9px; font: 400 13.5px/1.7 'Inter', sans-serif; color: #55747F;">Avatar 400×400<br>Cover 1640×664<br>Safe 1090×360 centred</div></div>
+      <div style="background: #F2F7F9; padding: 22px 24px;"><div style="font: 600 15px/1.3 'Inter', sans-serif; color: #264653;">Instagram</div><div style="margin-top: 9px; font: 400 13.5px/1.7 'Inter', sans-serif; color: #55747F;">Avatar 320×320<br>Post 1080×1080<br>Story 1080×1920</div></div>
+      <div style="background: #F2F7F9; padding: 22px 24px;"><div style="font: 600 15px/1.3 'Inter', sans-serif; color: #264653;">YouTube</div><div style="margin-top: 9px; font: 400 13.5px/1.7 'Inter', sans-serif; color: #55747F;">Avatar 800×800<br>Banner 2560×1440<br>TV-safe 1546×423</div></div>
+      <div style="background: #F2F7F9; padding: 22px 24px;"><div style="font: 600 15px/1.3 'Inter', sans-serif; color: #264653;">LinkedIn</div><div style="margin-top: 9px; font: 400 13.5px/1.7 'Inter', sans-serif; color: #55747F;">Logo 300×300 (square)<br>Cover 1128×191<br>Post 1200×627</div></div>
+      <div style="background: #F2F7F9; padding: 22px 24px;"><div style="font: 600 15px/1.3 'Inter', sans-serif; color: #264653;">TikTok</div><div style="margin-top: 9px; font: 400 13.5px/1.7 'Inter', sans-serif; color: #55747F;">Avatar 200×200<br>Video 1080×1920<br>Caption-safe 1080×1420</div></div>
+      <div style="background: #F2F7F9; padding: 22px 24px;"><div style="font: 600 15px/1.3 'Inter', sans-serif; color: #264653;">X</div><div style="margin-top: 9px; font: 400 13.5px/1.7 'Inter', sans-serif; color: #55747F;">Avatar 400×400<br>Header 1500×500<br>Left 40% kept clear</div></div>
+    </div>
+
+    <div style="margin-top: 18px; padding: 22px 26px; border-radius: 14px; background: #264653; display: flex; align-items: flex-start; gap: 13px; flex-wrap: wrap;">
+      <svg viewBox="0 0 100 100" style="width: 15px; height: 15px; flex: none; margin-top: 4px;"><path fill="#FFBE0B" d="M50 0A50 50 0 0 1 100 50H50Z"></path></svg>
+      <span style="flex: 1; min-width: 260px; font: 400 14px/1.65 'Inter', sans-serif; color: #A8C2CD;"><strong style="font-weight: 600; color: #F2F7F9;">One rule across all six:</strong> decorative shapes live only in the corners the platform never crops. If a shape would land in a safe area, it is removed rather than shrunk — the composition is designed to survive the crop, not to be rescued from it.</span>
+    </div>
+  </section>
+  </sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#FFBE0B&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#FFBE0B&quot;,&quot;#219EBC&quot;,&quot;#2A9D8F&quot;],&quot;section&quot;:&quot;Brand&quot;},&quot;showSpecs&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;}}">class Component extends DCLogic {
+  renderVals() {
+    return {
+      // Loose decorative marks only. The logo's four quadrant fills are
+      // brand-fixed and deliberately not wired to this.
+      accent: this.props.accent ?? '#FFBE0B',
+      showSpecs: this.props.showSpecs ?? true
+    };
+  }
+}
+</script>
+</body>
+</html>
