@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-14 -10 128 153'%3E%3Cpath fill='%23264653' d='M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z'/%3E%3Cpath fill='%23219EBC' d='M100 2H58A42 42 0 0 0 100 44Z'/%3E%3Cpath fill='%232A9D8F' d='M58 48A41 41 0 0 1 58 130Z'/%3E%3Cpath fill='%23FFBE0B' d='M0 131V89A42 42 0 0 1 42 131Z'/%3E%3C/svg%3E">
+<title>SoviCare Developer Handoff</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky brand bar + tab rail; one panel per tab; cards only for page/product previews */
+:root{
+  --bg:#F2F7F9; --surface:#FFFFFF; --ink:#264653; --muted:#55747F; --faint:#7E9AA6;
+  --line:#D6E2E9; --line-soft:#DDE8ED; --accent:#219EBC; --accent-ink:#177E97;
+  --yellow:#FFBE0B; --yellow-wash:#FFF8E3; --green:#2A9D8F; --pink:#FF007F; --coral:#E76F51; --coral-wash:#FDEEE9;
+  --bar:#264653; --bar-ink:#F2F7F9; --chip:#E4F4F8;
+  --display:'DM Serif Display',Georgia,'Times New Roman',serif;
+  --body:'Inter',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15272E; --surface:#1C333C; --ink:#EAF2F5; --muted:#A8C2CD; --faint:#7E9AA6;
+  --line:#2E4A55; --line-soft:#27424C; --accent:#5BC2DD; --accent-ink:#8ECAE6;
+  --yellow:#FFBE0B; --yellow-wash:#3A3412; --green:#3DB8A9; --pink:#FF4FA3; --coral:#F08A70; --coral-wash:#3A2620;
+  --bar:#0F1E24; --bar-ink:#EAF2F5; --chip:#20414C; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15272E; --surface:#1C333C; --ink:#EAF2F5; --muted:#A8C2CD; --faint:#7E9AA6;
+  --line:#2E4A55; --line-soft:#27424C; --accent:#5BC2DD; --accent-ink:#8ECAE6;
+  --yellow:#FFBE0B; --yellow-wash:#3A3412; --green:#3DB8A9; --pink:#FF4FA3; --coral:#F08A70; --coral-wash:#3A2620;
+  --bar:#0F1E24; --bar-ink:#EAF2F5; --chip:#20414C; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:var(--accent-ink)}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--yellow);outline-offset:2px;border-radius:6px}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;text-wrap:balance;margin:0}
+h1{font-size:clamp(34px,5vw,56px)} h2{font-size:clamp(26px,3.2vw,36px)} h3{font-size:21px}
+p{margin:0} code,.mono{font-family:var(--mono);font-size:.86em}
+.wrap{width:min(1240px,100%);margin:0 auto;padding-inline:clamp(16px,3vw,32px)}
+.he{direction:rtl;text-align:right;font-family:var(--body)}
+.eyebrow{font:500 11.5px/1.4 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.lead{font-size:17px;color:var(--muted);max-width:68ch}
+.muted{color:var(--muted)} .small{font-size:13px}
+
+/* top bar */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--bar);color:var(--bar-ink)}
+.topbar .row{display:flex;align-items:center;gap:16px;min-height:58px;flex-wrap:wrap;padding-block:8px}
+.brand{display:flex;align-items:center;gap:10px;font:400 21px var(--display);color:var(--bar-ink);text-decoration:none}
+.brand svg{width:20px;height:24px}
+.topbar .meta{font-size:12px;opacity:.8}
+.topbar .links{margin-left:auto;display:flex;gap:14px;flex-wrap:wrap}
+.topbar .links a{color:var(--bar-ink);font-size:13px;text-decoration:none;border-bottom:1px solid transparent}
+.topbar .links a:hover{border-color:var(--yellow)}
+.tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-bottom:10px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;border:1px solid transparent;background:transparent;color:var(--bar-ink);opacity:.78;padding:8px 13px;border-radius:999px;font:500 13px var(--body);cursor:pointer;white-space:nowrap;transition:background .18s,opacity .18s}
+.tab small{display:block;font-size:10.5px;opacity:.75;direction:rtl}
+.tab:hover{opacity:1;background:rgba(255,255,255,.08)}
+.tab[aria-selected="true"]{opacity:1;background:var(--bg);color:var(--ink)}
+
+main{padding-block:36px 80px}
+.panel{display:grid;gap:34px}
+.panel>header{display:grid;gap:12px;max-width:900px}
+.sec{display:grid;gap:16px}
+.sec>h2{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.sec>h2 .he{font-family:var(--body);font-size:16px;color:var(--muted)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.cols>*{min-width:0}
+.box{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r);padding:20px;display:grid;gap:10px;align-content:start}
+.box h3{font-size:19px}
+.box>.pill,.box>.kit{justify-self:start}
+.box ul,.box ol{margin:0;padding-inline-start:20px;display:grid;gap:6px}
+.bi{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.bi>*{min-width:0}
+@media(max-width:760px){.bi{grid-template-columns:1fr}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.stat{border-top:2px solid var(--ink);padding-top:10px;display:grid;gap:2px}
+.stat b{font:400 34px/1 var(--display);font-variant-numeric:tabular-nums}
+.stat span{font-size:12.5px;color:var(--muted)}
+
+/* pills/tags */
+.pill{display:inline-flex;align-items:center;gap:6px;font:500 11px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:999px;background:var(--chip);color:var(--ink);white-space:nowrap}
+.pill.ok{background:color-mix(in srgb,var(--green) 18%,transparent)}
+.pill.demo{background:var(--yellow-wash)}
+.pill.warn{background:var(--coral-wash);color:var(--coral)}
+.pill.draft{background:color-mix(in srgb,var(--pink) 14%,transparent)}
+.fl{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:6px;font:500 13px var(--body);padding:8px 13px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:var(--surface);text-decoration:none;cursor:pointer;transition:border-color .18s,background .18s}
+.btn:hover{border-color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn .ar{font-size:11px;opacity:.7}
+
+/* tables */
+.tw{overflow-x:auto;border:1px solid var(--line-soft);border-radius:var(--r);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{text-align:left;vertical-align:top;padding:10px 14px;border-bottom:1px solid var(--line-soft)}
+th{font:500 11px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--bg);position:sticky;top:0}
+tr:last-child td{border-bottom:0}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.sw{display:inline-block;width:18px;height:18px;border-radius:5px;border:1px solid var(--line);vertical-align:-4px;margin-right:8px}
+
+/* steps */
+.steps{counter-reset:s;display:grid;gap:12px}
+.step{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r);padding:16px}
+.step::before{counter-increment:s;content:counter(s,decimal-leading-zero);font:400 26px/1 var(--display);color:var(--accent-ink)}
+.step>div{display:grid;gap:6px;min-width:0}
+
+/* page cards */
+.grid-pages{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px}
+.pcard{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r);overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.thumb{display:block;height:250px;overflow:hidden;background:var(--bg);border-bottom:1px solid var(--line-soft);position:relative}
+.thumb img{width:100%;display:block;transition:transform 4s ease}
+.thumb:hover img{transform:translateY(calc(-100% + 250px))}
+.thumb.hero img{transition:none}
+.thumb.hero:hover img{transform:none}
+.thumb .hint{position:absolute;right:10px;bottom:10px;background:var(--bar);color:var(--bar-ink);font-size:11px;padding:4px 8px;border-radius:999px}
+.pbody{padding:16px 18px 18px;display:grid;gap:10px;align-content:start}
+.pbody h3{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.pbody h3 .he{font-size:14px;color:var(--muted)}
+details{border-top:1px solid var(--line-soft);padding-top:8px}
+summary{cursor:pointer;font:500 13px var(--body);color:var(--accent-ink)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chips a{font-size:12px;text-decoration:none;color:var(--ink);background:var(--bg);border:1px solid var(--line-soft);padding:4px 8px;border-radius:8px}
+.chips a:hover{border-color:var(--ink)}
+
+/* product toolbar */
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.toolbar input{flex:1 1 240px;min-width:0;height:42px;border:1px solid var(--line);border-radius:999px;padding:0 16px;background:var(--surface);color:var(--ink);font:400 14px var(--body)}
+.seg{display:flex;gap:4px;background:var(--surface);border:1px solid var(--line-soft);border-radius:999px;padding:3px;flex-wrap:wrap}
+.seg button{border:0;background:transparent;color:var(--ink);padding:7px 12px;border-radius:999px;font:500 12.5px var(--body);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+/* motion */
+.mrow td:first-child{font-weight:600}
+.src{font:500 10.5px var(--body);letter-spacing:.08em;text-transform:uppercase;padding:3px 7px;border-radius:6px;white-space:nowrap}
+.src.sc{background:var(--chip)} .src.gpt{background:var(--yellow-wash)} .src.both{background:color-mix(in srgb,var(--green) 18%,transparent)}
+.frame{border:1px solid var(--line-soft);border-radius:var(--r);overflow:hidden;background:var(--surface)}
+.frame .fh{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line-soft);flex-wrap:wrap}
+.frame iframe{display:block;width:100%;height:720px;border:0;background:#fff}
+.tok{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.tok div{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:12px;display:grid;gap:2px}
+.tok b{font:400 24px/1 var(--display);font-variant-numeric:tabular-nums}
+
+/* demo shapes for the rule card */
+.kit{display:flex;gap:8px;align-items:flex-end}
+.kit i{display:block;width:26px;height:26px}
+.kit i:nth-child(1){background:var(--green);border-radius:26px 0 0 0;animation:piv 2.4s ease infinite}
+.kit i:nth-child(2){background:var(--accent);border-radius:0 13px 13px 0;width:13px}
+.kit i:nth-child(3){background:var(--yellow);border-radius:50%}
+@keyframes piv{0%,20%{transform:rotate(-90deg);opacity:.2}45%,100%{transform:none;opacity:1}}
+
+/* checklist */
+.check{display:grid;gap:8px}
+.check label{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;background:var(--surface);border:1px solid var(--line-soft);border-radius:10px;padding:12px 14px;cursor:pointer}
+.check input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--ink)}
+.check label:has(input:checked){opacity:.6}
+.check label:has(input:checked) .t{text-decoration:line-through}
+.check .he{font-size:13px;color:var(--muted);display:block}
+.progress{height:6px;background:var(--line-soft);border-radius:999px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--green);width:0;transition:width .32s ease}
+.callout{border-inline-start:3px solid var(--coral);background:var(--coral-wash);padding:14px 16px;border-radius:0 10px 10px 0;display:grid;gap:6px}
+.callout.y{border-color:var(--yellow);background:var(--yellow-wash)}
+.callout.b{border-color:var(--accent);background:var(--chip)}
+footer{border-top:1px solid var(--line);padding-block:24px;color:var(--muted);font-size:12.5px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+@media(max-width:560px){.thumb{height:200px}.thumb:hover img{transform:none}.frame iframe{height:560px}.topbar .links{margin-left:0;gap:10px}.topbar .meta{display:none}.topbar .links a{font-size:12px}}
+</style>
+</head>
+<body>
+
+
+<div class="topbar"><div class="wrap">
+  <div class="row">
+    <a class="brand" href="#overview" aria-label="SoviCare Developer Handoff"><svg viewBox="-14 -10 128 153" aria-hidden="true"><path fill="#4FB3CE" d="M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z"/><path fill="#219EBC" d="M100 2H58A42 42 0 0 0 100 44Z"/><path fill="#2A9D8F" d="M58 48A41 41 0 0 1 58 130Z"/><path fill="#FFBE0B" d="M0 131V89A42 42 0 0 1 42 131Z"/></svg>SoviCare · Developer handoff</a>
+    <span class="meta">Figma: WIP — SOVICARE | WEBSITE · 01.10.2026</span>
+    <nav class="links" aria-label="Related"><a href="index.html">Brand hub</a><a href="motion-library.html">Motion library</a><a href="motion-lab.html">Motion lab</a><a id="figma-root" href="#" target="_blank" rel="noopener">Open Figma ↗</a></nav>
+  </div>
+  <div class="tabs" role="tablist" aria-label="Sections" id="tabs"></div>
+</div></div>
+
+<main class="wrap" id="main">
+
+<!-- OVERVIEW -->
+<section class="panel" id="p-overview" data-tab="overview" data-en="Overview" data-he="סקירה">
+  <header>
+    <span class="eyebrow">Developer handoff · read this first</span>
+    <h1>Everything in the Figma file, and how to build it.</h1>
+    <p class="lead">This page is the single entry point to the SoviCare website design. It explains what is in the Figma file, how it is organised, which tokens and components to use, and the order to build in. Every frame below links straight to Figma.</p>
+    <p class="he lead">זה המקום האחד שממנו מתחילים. כאן מוסבר מה יש בקובץ הפיגמה, איך הוא בנוי, באילו טוקנים ורכיבים להשתמש ובאיזה סדר לבנות. כל מסגרת כאן מקושרת ישירות לפיגמה.</p>
+    <div class="fl"><span class="pill ok">All pages approved 01.10.2026</span><span class="pill demo">DEMO content marked in file</span><span class="pill draft">Trio safety text = draft</span></div>
+  </header>
+  <div class="stats" id="stats"></div>
+
+  <div class="sec">
+    <h2>Source of truth <span class="he">מקור האמת</span></h2>
+    <div class="bi">
+      <div class="box"><h3>What counts</h3><ul>
+        <li>Only frames inside a section named <code>✅ CURRENT</code>. Anything under <code>📦 KEPT FOR FUTURE</code>, <code>03 — EXPLORATIONS</code> or <code>99 — ARCHIVE</code> is reference, not scope.</li>
+        <li>Desktop is designed at <b>1440</b>, mobile at <b>390</b>. Both are required; neither is derived from the other.</li>
+        <li>Content follows the Google Docs in the content folder. Where the doc and Figma disagree, ask before guessing.</li>
+        <li>This handoff page wins over older Brand hub pages for anything about the website build.</li>
+      </ul></div>
+      <div class="box he"><h3>מה נחשב</h3><ul>
+        <li>רק מסגרות בתוך סקשן שנקרא <code>✅ CURRENT</code>. כל השאר (KEPT FOR FUTURE, EXPLORATIONS, ARCHIVE) הוא רפרנס בלבד.</li>
+        <li>דסקטופ מעוצב ב‑1440 ומובייל ב‑390. צריך את שניהם.</li>
+        <li>התוכן מגיע ממסמכי הגוגל. אם יש סתירה בין המסמך לפיגמה – שואלים, לא מנחשים.</li>
+        <li>הדף הזה גובר על עמודי Brand hub ישנים בכל מה שקשור לבניית האתר.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>How the file is organised <span class="he">איך הקובץ בנוי</span></h2>
+    <div class="tw"><table><thead><tr><th>Figma page</th><th>What is on it</th><th>Use it for</th></tr></thead><tbody id="filemap"></tbody></table></div>
+  </div>
+
+  <div class="sec">
+    <h2>Anatomy of every page section <span class="he">מה יש בכל סקשן עמוד</span></h2>
+    <div class="cols">
+      <div class="box"><span class="pill">1 · Design</span><h3>Desktop 1440 + Mobile 390</h3><p class="muted">The page itself. Each block is a named frame, numbered in reading order (<code>01 Header</code>, <code>02 Hero</code> …). Section links below jump to each block.</p></div>
+      <div class="box"><span class="pill">2 · Pins</span><h3>Numbered magenta pins</h3><p class="muted">Pins sit on the design and are named <code>annotation pin · hide for hand-off</code>. They are not part of the UI. Each number matches a row in the Interactions spec.</p></div>
+      <div class="box"><span class="pill">3 · Spec</span><h3>Interactions spec (760 wide)</h3><p class="muted">One per breakpoint. For each numbered block: hover, click, scroll, focus, mobile behaviour, durations, and a live Figma Motion demo you can play.</p></div>
+      <div class="box"><span class="pill">4 · Annex</span><h3>Annex · Interaction states</h3><p class="muted">Static drawings of every state (default, hover, selected, open, error, sticky). Build these exactly; they are the visual contract for states.</p></div>
+      <div class="box"><span class="pill">5 · Guides</span><h3>📘 Guides column</h3><p class="muted">Explanation notes to the left of each section, in a blue outline. Read them; never build them.</p></div>
+      <div class="box"><span class="pill">6 · Dev Mode</span><h3>Annotations on every frame</h3><p class="muted">Each desktop and mobile frame carries a Dev Mode note pointing to its spec and annex. Colours are bound to variables and text to text styles, so Dev Mode shows token names.</p></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Naming you will see <span class="he">מוסכמות שמות</span></h2>
+    <div class="tw"><table><thead><tr><th>Name pattern</th><th>Meaning</th><th>What to do</th></tr></thead><tbody>
+      <tr><td><code>✅ CURRENT · … · APPROVED 01.10</code></td><td>Approved, in scope</td><td>Build it.</td></tr>
+      <tr><td><code>[hidden] …</code> / <code>[hidden · reason] …</code></td><td>Layer kept in the file but switched off (for example a comparison table a product does not have)</td><td>Do not build. The reason in brackets explains why.</td></tr>
+      <tr><td><code>DEMO</code> tag on the canvas</td><td>Placeholder content: illustrative prices, reviews, clinical figures, press names, Sermorelin and Methylene Blue copy</td><td>Build the component, load real content from the CMS. Never ship the demo text.</td></tr>
+      <tr><td><code>DRAFT</code> in a frame name</td><td>Content written for layout, pending review (Trio safety information)</td><td>Treat as placeholder until replaced.</td></tr>
+      <tr><td><code>annotation pin · hide for hand-off</code></td><td>Numbered review pins</td><td>Ignore.</td></tr>
+      <tr><td><code>▶ demo · …</code> / <code>Motion demo / …</code></td><td>Figma Motion examples inside specs</td><td>Watch for timing; not UI.</td></tr>
+      <tr><td><code>DEMO · replace before launch</code> inside a component</td><td>Shared module with placeholder content</td><td>Content comes from data; the layout is final.</td></tr>
+    </tbody></table></div>
+  </div>
+</section>
+
+<!-- START HERE -->
+<section class="panel" id="p-start" data-tab="start" data-en="Start here" data-he="מאיפה מתחילים" hidden>
+  <header>
+    <span class="eyebrow">Recommended build order</span>
+    <h1>Build the system first, then the pages.</h1>
+    <p class="lead">The site is a small number of shared parts arranged many times. Building those parts first makes every page after the first one fast and consistent.</p>
+    <p class="he lead">האתר בנוי ממעט חלקים משותפים שחוזרים הרבה פעמים. בונים קודם את החלקים, ואז כל עמוד אחרי הראשון מהיר ואחיד.</p>
+  </header>
+  <div class="steps">
+    <div class="step"><div><h3>Tokens <span class="muted small">· טוקנים</span></h3><p>Export the Figma variables to CSS custom properties: Primitives, Color (semantic), Spacing, Radius, Size, and the three-mode <b>Category theme</b>. Map the 21 text styles to type classes or utilities. Components only use semantic tokens, never primitives. See <a href="#foundations">Foundations</a>.</p></div></div>
+    <div class="step"><div><h3>Global shell <span class="muted small">· מעטפת</span></h3><p>Header (desktop + mobile menu), Footer, Legal band, and the Header-on-scroll state (after 8px the header turns Deep Teal, 220ms). These appear on every page. Components: <code>Header / Desktop</code>, <code>Header / Mobile</code>, <code>Footer / Desktop</code>, <code>Footer / Mobile</code>, <code>Legal Band / Desktop</code>.</p></div></div>
+    <div class="step"><div><h3>Core components <span class="muted small">· רכיבים</span></h3><p>Button (24 variants: Label, Style, State, Size), Icon Button, Text Link, Chip, Eyebrow, Section Head, Mark and Logo, Trust Item, FAQ Row (accordion), Step Row, Category Card, Goal Card, Quote Card, Channel Card. Build their states from the annexes, and their motion from the <a href="#motion">Motion</a> tab.</p></div></div>
+    <div class="step"><div><h3>Homepage <span class="muted small">· עמוד הבית</span></h3><p>Proves the shell, sections, stories carousel, how-it-works, FAQ and the first-question block. Check desktop and mobile against both specs before moving on.</p></div></div>
+    <div class="step"><div><h3>Category template <span class="muted small">· תבנית קטגוריה</span></h3><p>One template, three themes: Better Intimacy, Longevity, Hair Loss. Switch the Category theme mode, not the components. Includes the modular product cards (desktop set <code>2267:573</code>, mobile set <code>2267:6458</code>) with their optional price line, facts, note and guide link.</p></div></div>
+    <div class="step"><div><h3>Product templates <span class="muted small">· תבניות מוצר</span></h3><p>Build the <b>PDP</b> template once (gallery, buy box, plan selection, sticky buy bar, in-page nav, modules, ISI) and the <b>Product guide</b> template once (guide hero, at a glance, on this page, sticky CTA bar, ISI). Then fill 10 PDPs and 8 guides from data. See <a href="#products">Products</a>.</p></div></div>
+    <div class="step"><div><h3>Content pages <span class="muted small">· עמודי תוכן</span></h3><p>How It Works, Contact (form states), FAQ (filters + accordion), Telehealth Notice and Terms of Service (sticky contents + scroll-spy).</p></div></div>
+    <div class="step"><div><h3>Motion, accessibility, QA <span class="muted small">· תנועה, נגישות, בדיקות</span></h3><p>Apply the motion tokens, add reduced-motion fallbacks, keyboard paths and focus states, then run the <a href="#qa">QA checklist</a> on real devices.</p></div></div>
+  </div>
+
+  <div class="sec">
+    <h2>The right way to work <span class="he">הדרך הנכונה</span></h2>
+    <div class="bi">
+      <div class="box"><ul>
+        <li><b>Read in this order:</b> design frame → Interactions spec → Annex → Guides column.</li>
+        <li><b>Use Dev Mode.</b> Colours show variable names and text shows style names. If you see a raw hex value in a design frame, ask: only annotation colours are unbound on purpose.</li>
+        <li><b>Theme by data attribute.</b> For example <code>&lt;body data-category="longevity"&gt;</code> switches every <code>theme/*</code> token. Never hard-code category colours.</li>
+        <li><b>Content as data.</b> Products, prices, FAQs, reviews, safety text and legal copy belong in a CMS or data files. Many of today's values are illustrative.</li>
+        <li><b>Mobile is its own design.</b> Section order, carousels and sticky bars differ. Do not let mobile fall out of desktop CSS by accident.</li>
+        <li><b>Between 390 and 1440</b> there is no tablet frame. Keep the 1180 max content width and let layouts reflow; agree breakpoints with the design owner.</li>
+      </ul></div>
+      <div class="box he"><ul>
+        <li><b>סדר קריאה:</b> מסגרת העיצוב ← פאנל האינטראקציות ← הנספח ← עמודת ההסברים.</li>
+        <li><b>עובדים עם Dev Mode.</b> הצבעים מציגים שמות משתנים והטקסטים מציגים שמות סגנונות. ערך hex גולמי במסגרת עיצוב – שואלים.</li>
+        <li><b>ערכת נושא לפי attribute.</b> מחליפים קטגוריה דרך data-category ולא מקודדים צבעים.</li>
+        <li><b>תוכן כנתונים.</b> מוצרים, מחירים, שאלות, ביקורות, טקסט בטיחות וטקסט משפטי – מ‑CMS או מקבצי נתונים.</li>
+        <li><b>מובייל הוא עיצוב בפני עצמו.</b> סדר הסקשנים והפסים הצפים שונים.</li>
+        <li><b>בין 390 ל‑1440</b> אין מסגרת טאבלט. שומרים על רוחב תוכן מקסימלי 1180 ומסכמים נקודות שבירה מול בעלת העיצוב.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>Fixed decisions <span class="he">החלטות שנקבעו</span></h2>
+    <div class="tw"><table><thead><tr><th>Topic</th><th>Decision</th></tr></thead><tbody>
+      <tr><td>Primary CTA</td><td>“Get Started” on product pages; “Start with answers” in the header; the assessment is the destination. The CTA never submits health data on the marketing site.</td></tr>
+      <tr><td>Product guide vs PDP</td><td>Both templates are approved. A <b>Product guide</b> explains a product and sends people to the assessment, with no purchase. A <b>PDP</b> carries plan selection and the buy box. Category cards carry a “Guide link” row so both can be reached. Which one each product URL uses is a routing decision for the site owner.</td></tr>
+      <tr><td>Product name</td><td>“SoviCare Trio” (never “Sync”).</td></tr>
+      <tr><td>Safety information</td><td>Always fully expanded at <code>#isi</code>; reached from the hero link, the sticky bar link and the in-page nav. Never collapsed behind a toggle.</td></tr>
+      <tr><td>Prices</td><td>Monthly delivery (Save 15%) and one-time purchase. Values shown are illustrative except where the content doc gives one.</td></tr>
+      <tr><td>Images</td><td>Brand-matching, non-real people and product images. Replace with licensed or real assets before launch if required.</td></tr>
+    </tbody></table></div>
+  </div>
+</section>
+
+<!-- FOUNDATIONS -->
+<section class="panel" id="p-foundations" data-tab="foundations" data-en="Foundations" data-he="יסודות" hidden>
+  <header>
+    <span class="eyebrow">Tokens · from Figma variables</span>
+    <h1>Foundations.</h1>
+    <p class="lead">Every colour in the approved frames is bound to a variable and every text layer that matches a style uses it. Export these as CSS custom properties; the names below are the names in Dev Mode.</p>
+    <p class="he lead">כל צבע במסגרות המאושרות מחובר למשתנה, וכל טקסט משתמש בסגנון. מייצאים אותם כמשתני CSS. השמות כאן הם השמות שרואים ב‑Dev Mode.</p>
+  </header>
+  <div class="sec"><h2>Color · semantic <span class="he">צבעים סמנטיים – לשימוש ברכיבים</span></h2><div class="tw"><table><thead><tr><th>Token</th><th>Value</th><th>CSS</th></tr></thead><tbody id="t-color"></tbody></table></div></div>
+  <div class="sec"><h2>Category theme · 3 modes <span class="he">ערכת קטגוריה – שלושה מצבים</span></h2>
+    <p class="muted">Category pages and their product pages set the mode on the outer frame. In code, set it once on a wrapper: <code>[data-category="longevity|intimacy|hair"]</code>.</p>
+    <div class="tw"><table><thead><tr><th>Token</th><th>Longevity</th><th>Better Intimacy</th><th>Hair Loss</th></tr></thead><tbody id="t-theme"></tbody></table></div></div>
+  <div class="sec"><h2>Type styles <span class="he">סגנונות טקסט</span></h2><div class="tw"><table><thead><tr><th>Style</th><th>Font</th><th>Size / line / tracking</th></tr></thead><tbody id="t-type"></tbody></table></div>
+    <p class="muted small">Fonts: DM Serif Display (headings, quotes, italic highlights) and Inter (everything else). Both are on Google Fonts.</p></div>
+  <div class="sec"><h2>Spacing · Radius · Size <span class="he">מרווחים, רדיוסים, מידות</span></h2><div class="tok" id="t-scale"></div></div>
+  <div class="sec"><h2>Primitives <span class="he">צבעי בסיס – לא להשתמש ישירות ברכיבים</span></h2><div class="tw"><table><thead><tr><th>Token</th><th>Value</th></tr></thead><tbody id="t-prim"></tbody></table></div></div>
+  <div class="sec"><h2>Example export <span class="he">דוגמה לייצוא</span></h2>
+<div class="tw"><pre style="margin:0;padding:16px;font:12.5px/1.6 var(--mono);overflow-x:auto" id="t-css"></pre></div></div>
+</section>
+
+<!-- COMPONENTS -->
+<section class="panel" id="p-components" data-tab="components" data-en="Components" data-he="רכיבים" hidden>
+  <header>
+    <span class="eyebrow">02.01 — Elements · shared modules</span>
+    <h1>Components and modules.</h1>
+    <p class="lead">All components live on <b>02.01 — Elements</b>. Product-page modules live in the Modules section on page 02.11. Instances in pages override only text and visibility, so one component change updates every page.</p>
+    <p class="he lead">כל הרכיבים נמצאים בעמוד Elements. מודולי עמודי המוצר נמצאים בסקשן Modules בעמוד 02.11. כל שינוי ברכיב מתעדכן בכל העמודים.</p>
+  </header>
+  <div class="sec"><h2>Component library <span class="he">ספריית רכיבים</span></h2><div class="tw"><table><thead><tr><th>Component</th><th>Variants / props</th><th>Figma</th></tr></thead><tbody id="t-comp"></tbody></table></div></div>
+  <div class="sec"><h2>Product-page modules <span class="he">מודולים לעמודי מוצר</span></h2>
+    <div class="tw"><table><thead><tr><th>Module</th><th>Desktop</th><th>Mobile</th><th>Notes</th></tr></thead><tbody id="t-mod"></tbody></table></div></div>
+</section>
+
+<!-- PAGES -->
+<section class="panel" id="p-pages" data-tab="pages" data-en="Pages" data-he="עמודים" hidden>
+  <header>
+    <span class="eyebrow">9 site pages · desktop + mobile</span>
+    <h1>Pages.</h1>
+    <p class="lead">Hover a preview to scroll the full desktop page. Every button opens the exact frame in Figma. “Sections” lists each block in reading order.</p>
+    <p class="he lead">מעבר עם העכבר על התמונה גולל את כל עמוד הדסקטופ. כל כפתור פותח את המסגרת המדויקת בפיגמה.</p>
+  </header>
+  <div class="grid-pages" id="g-pages"></div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="panel" id="p-products" data-tab="products" data-en="Products" data-he="מוצרים" hidden>
+  <header>
+    <span class="eyebrow">10 PDPs · 8 product guides</span>
+    <h1>Products.</h1>
+    <p class="lead">Two templates share almost every block. Build each template once and fill it from product data.</p>
+    <p class="he lead">שתי תבניות שחולקות כמעט את כל הבלוקים. בונים כל תבנית פעם אחת וממלאים מנתוני המוצר.</p>
+  </header>
+  <div class="bi">
+    <div class="box"><span class="pill">PDP · purchase</span><h3>Product detail page</h3><ul>
+      <li>Hero = gallery (main + 4 thumbnails, cross-fade 220ms) + buy box.</li>
+      <li>Buy box: rating, price line, facts chips, <b>Choose your plan</b> (Monthly delivery · Save 15% / One-time purchase), quantity or supply-length segmented control, Get Started, safety link.</li>
+      <li>Sticky buy bar appears when the hero Get Started leaves the viewport.</li>
+      <li>In-page nav sticks under the header; on mobile it scrolls horizontally.</li>
+      <li>Modules: press strip, clinical results, reviews (DEMO data).</li>
+    </ul></div>
+    <div class="box"><span class="pill">Guide · content</span><h3>Product guide</h3><ul>
+      <li>Guide hero: “X, explained.”, italic sub-line, lead, Get Started + “Read the guide ↓”.</li>
+      <li>At a glance: packshot + four fact cards. On this page: anchor chips.</li>
+      <li>No gallery, plan, quantity, reviews or press. Sticky <b>CTA</b> bar (no price).</li>
+      <li>Get Started goes to the assessment.</li>
+      <li>Same body blocks as the PDP from section 03 onward, including ISI.</li>
+    </ul></div>
+  </div>
+  <div class="sec"><h2>Price table <span class="he">טבלת מחירים (להצגה בלבד)</span></h2>
+    <div class="tw"><table><thead><tr><th>Product</th><th>Category</th><th>Monthly</th><th>One-time</th><th>Hero price line</th></tr></thead><tbody id="t-price"></tbody></table></div>
+    <p class="muted small">Illustrative except where marked “doc”. Prices must come from the commerce system at launch.</p></div>
+  <div class="toolbar"><label class="visually-hidden" for="psearch" style="position:absolute;left:-9999px">Search products</label><input id="psearch" type="search" placeholder="Search a product or section, e.g. Finasteride, FAQ, ISI">
+    <div class="seg" id="pkind"><button aria-pressed="true" data-v="all">All</button><button aria-pressed="false" data-v="PDP">PDP</button><button aria-pressed="false" data-v="Guide">Guide</button></div>
+    <div class="seg" id="pcat"><button aria-pressed="true" data-v="all">All categories</button><button aria-pressed="false" data-v="Better Intimacy">Sexual Health</button><button aria-pressed="false" data-v="Longevity">Longevity</button><button aria-pressed="false" data-v="Hair Loss">Hair Loss</button></div></div>
+  <p class="muted small" id="pcount"></p>
+  <div class="grid-pages" id="g-prod"></div>
+</section>
+
+<!-- MOTION -->
+<section class="panel" id="p-motion" data-tab="motion" data-en="Motion" data-he="אנימציות ואינטראקציות" hidden>
+  <header>
+    <span class="eyebrow">Motion and interaction · SoviCare + Motion lab</span>
+    <h1>Every animation, transition and state change.</h1>
+    <p class="lead">One catalogue for the 17 SoviCare patterns in Figma, the Motion lab, and the Codex page demos in the Interaction &amp; Motion gallery. Each row says what triggers it, how long it takes, where it is used, and where to watch it live.</p>
+    <p class="he lead">קטלוג אחד שמאחד את 17 הדפוסים שבפיגמה ואת הדמואים מה‑Motion lab. לכל שורה: טריגר, משך, איפה זה בשימוש ואיפה רואים את זה חי.</p>
+  </header>
+  <div class="cols">
+    <div class="box"><div class="kit" aria-hidden="true"><i></i><i></i><i></i></div><h3>The rule</h3><p>Motion confirms, it never performs. UI states use one easing and four durations; brand shapes get a longer, expressive entrance only in heroes and closing CTAs.</p><p class="he muted">התנועה מאשרת פעולה ולא מופיעה בשביל הרושם.</p></div>
+    <div class="box"><h3>UI state tokens</h3><div class="tok">
+      <div><span class="eyebrow">press</span><b>140ms</b><span class="mono muted">--motion-press</span></div>
+      <div><span class="eyebrow">hover · select</span><b>180ms</b><span class="mono muted">--motion-fast</span></div>
+      <div><span class="eyebrow">open · slide</span><b>220ms</b><span class="mono muted">--motion-base</span></div>
+      <div><span class="eyebrow">reveal · reorder</span><b>320ms</b><span class="mono muted">--motion-slow</span></div></div>
+      <p class="small muted">Easing <code>ease</code>. Rise distance 10px. Selection = 1.02 scale + border. Reveal plays once per visit.</p></div>
+    <div class="box"><h3>Brand-shape tokens</h3><div class="tok">
+      <div><span class="eyebrow">pivot</span><b>820ms</b></div><div><span class="eyebrow">wipe</span><b>520ms</b></div><div><span class="eyebrow">rise</span><b>620ms</b></div><div><span class="eyebrow">shift</span><b>520ms</b></div></div>
+      <p class="small muted">Easing <code>cubic-bezier(.22,1,.36,1)</code>. Hero copy staggers 120ms. Inside content, kit pieces use the shorter pivot 320ms + wipe 620ms.</p></div>
+  </div>
+  <div class="callout y"><b>Reconciled from two sources.</b><span>The Figma library uses <code>ease</code> and 140–320ms. The Motion lab adds an expressive curve and longer brand-shape moves. Use both, each in its own place: UI states with the SoviCare tokens, decorative brand shapes with the Motion lab curve. <span class="he">שני המקורות אוחדו: מצבי ממשק לפי טוקני SoviCare, וכניסת צורות המותג לפי ה‑Motion lab.</span></span></div>
+  <div class="toolbar"><label for="msearch" style="position:absolute;left:-9999px">Search motion</label><input id="msearch" type="search" placeholder="Search a pattern, page or trigger, e.g. sticky, FAQ, scroll">
+    <div class="seg" id="msrc"><button aria-pressed="true" data-v="all">All sources</button><button aria-pressed="false" data-v="sc">SoviCare (Figma)</button><button aria-pressed="false" data-v="gpt">Motion lab + Codex</button><button aria-pressed="false" data-v="both">Both</button></div></div>
+  <div class="tw"><table><thead><tr><th>Pattern</th><th>Source</th><th>Trigger</th><th>Timing</th><th>Where used</th><th>Watch</th></tr></thead><tbody id="t-motion"></tbody></table></div>
+  <p class="muted small" id="mcount"></p>
+  <div class="sec"><h2>Live boards <span class="he">לוחות חיים</span></h2>
+    <div class="frame"><div class="fh"><b>SoviCare motion library · 17 patterns</b><a class="btn" href="motion-library.html" target="_blank" rel="noopener">Open in new tab <span class="ar">↗</span></a></div><iframe src="motion-library.html" title="SoviCare motion library" loading="lazy"></iframe></div>
+    <div class="callout b"><b>Interaction &amp; Motion gallery</b><span>Every clickable Codex page demo (Better Intimacy, Longevity, Homepage V3 and states, How It Works, earlier concepts) plus the existing Hub prototypes. Use them for behaviour and timing; the layout source is Figma. <a href="interactive-showcase/index.html" target="_blank" rel="noopener">Open the gallery ↗</a></span></div>
+    <div class="frame"><div class="fh"><b>Motion lab · working interactions</b><a class="btn" href="motion-lab.html" target="_blank" rel="noopener">Open in new tab <span class="ar">↗</span></a></div><iframe src="motion-lab.html" title="Motion lab" loading="lazy"></iframe></div>
+  </div>
+  <div class="sec"><h2>Reduced motion and accessibility <span class="he">נגישות ותנועה מופחתת</span></h2>
+    <div class="cols"><div class="box"><ul>
+      <li>With <code>prefers-reduced-motion: reduce</code>, every state appears instantly and smooth scroll becomes a jump.</li>
+      <li>Count-up stats show the final number; carousels do not auto-advance.</li>
+      <li>Tabs (How It Works) support arrow keys, Home and End; accordions use <code>aria-expanded</code>; chips and plans use <code>aria-pressed</code> / <code>role="radio"</code>.</li>
+      <li>The sticky bar is <code>inert</code> and <code>aria-hidden</code> while hidden.</li>
+      <li>Focus is always visible (3px outline). Tap targets are at least 44px.</li>
+    </ul></div></div></div>
+</section>
+
+<!-- WATCH OUT -->
+<section class="panel" id="p-watch" data-tab="watch" data-en="Watch out" data-he="שימו לב" hidden>
+  <header>
+    <span class="eyebrow">Things that are easy to get wrong</span>
+    <h1>Watch out for these.</h1>
+    <p class="he lead">הדברים שהכי קל לטעות בהם. כדאי לעבור עליהם לפני שמתחילים ולפני כל עלייה.</p>
+  </header>
+  <div class="cols" id="watch"></div>
+</section>
+
+<!-- QA -->
+<section class="panel" id="p-qa" data-tab="qa" data-en="QA checklist" data-he="רשימת בדיקות" hidden>
+  <header>
+    <span class="eyebrow">Before each release</span>
+    <h1>QA checklist.</h1>
+    <p class="lead">Tick items as you check them. Ticks are saved in this browser only.</p>
+    <p class="he lead">מסמנים תוך כדי בדיקה. הסימונים נשמרים רק בדפדפן הזה.</p>
+    <div class="progress" aria-hidden="true"><i id="qbar"></i></div><p class="small muted" id="qcount"></p>
+  </header>
+  <div id="qa" class="panel" style="gap:24px"></div>
+</section>
+
+<!-- OPEN -->
+<section class="panel" id="p-open" data-tab="open" data-en="Open items" data-he="פתוח" hidden>
+  <header>
+    <span class="eyebrow">Needs content or a decision</span>
+    <h1>Open items.</h1>
+    <p class="lead">The design is approved. These items are content, assets or product decisions that the build depends on.</p>
+    <p class="he lead">העיצוב מאושר. אלה פריטי תוכן, נכסים או החלטות שהבנייה תלויה בהם.</p>
+  </header>
+  <div class="tw"><table><thead><tr><th>Item</th><th>Status</th><th>Owner</th><th>Where</th></tr></thead><tbody id="t-open"></tbody></table></div>
+</section>
+
+</main>
+<footer><div class="wrap fl" style="justify-content:space-between"><span>SoviCare · Developer handoff · prepared from the Figma file on 01.10.2026</span><span>Figma links need access to the file.</span></div></footer>
+
+<script>
+const DATA={"pages": [{"pid": "0:1", "en": "Homepage", "he": "עמוד הבית", "num": "02.02", "desc": "Hero, three areas of care, stories, how it works, why SoviCare, members and support, FAQ, first assessment question.", "cat": "", "section": "2185:1076", "states": [["2102:375", "Mobile sticky bar"], ["2102:379", "Mobile menu open"]], "sectionsD": [["2085:3", "01 Header"], ["2085:23", "02 Hero"], ["2087:26", "03 Categories"], ["2088:94", "04 Trust strip"], ["2088:122", "05 Stories"], ["2089:54", "06 How it works"], ["2090:62", "07 Why SoviCare · dark"], ["2090:103", "08 Members & support"], ["2091:75", "09 FAQ"], ["2091:129", "10 Final · first question · dark"], ["2291:13213", "11a Legal band"], ["2291:13223", "11b Footer · dark"]], "sectionsM": [["2100:119", "01 Header · mobile"], ["2100:131", "02 Hero · mobile"], ["2100:164", "03 Categories · mobile"], ["2100:225", "04 Trust · mobile 2×2"], ["2101:151", "05 Stories · mobile"], ["2101:185", "06 How it works · mobile"], ["2101:239", "07 Why · mobile · dark"], ["2101:280", "08 Support · mobile"], ["2102:174", "09 FAQ · mobile"], ["2102:223", "10 Final · mobile · dark"], ["2102:293", "11a Legal · mobile"], ["2291:13297", "11b Footer · mobile · dark"]], "desktop": "2085:2", "h": 7682, "mobile": "2100:118", "specD": "2248:279", "specM": "2248:633", "annexD": "2248:3667", "annexM": "2248:5121"}, {"pid": "2:3156", "en": "Better Intimacy", "he": "בריאות מינית", "num": "02.04", "desc": "Category page for sexual health: hero, trust strip, statement band, two-option chooser, how it works, education, FAQ, final CTA.", "cat": "Better Intimacy", "section": "2185:1078", "states": [], "sectionsD": [["2144:96", "01 Header · Better Intimacy active"], ["2144:111", "02 Hero · category"], ["2144:147", "04 Trust strip"], ["2144:170", "04 Statement · photo band · 30 years"], ["2144:206", "05 Choose · two options"], ["2144:313", "06 How it works · dark"], ["2144:357", "07 Education · labs first"], ["2199:1117", "07b How treatment helps · photo"], ["2144:405", "08 FAQ · longevity"], ["2144:444", "09 Final CTA · dark"], ["2144:458", "11a Legal band"], ["2291:13364", "11b Footer · dark"]], "sectionsM": [["2205:771", "01 Header · mobile"], ["2205:776", "02 Hero · category · mobile"], ["2205:799", "04 Trust · mobile 2×2"], ["2205:820", "04 Statement · four goals · mobile"], ["2205:867", "05 Choose · mobile"], ["2205:948", "06 How it works · mobile · dark"], ["2205:990", "07 Education · mobile"], ["2206:1090", "07b How treatment helps · mobile"], ["2205:1026", "08 FAQ · mobile"], ["2205:1085", "09 Final CTA · mobile · dark"], ["2205:1099", "11a Legal · mobile"], ["2291:13438", "11b Footer · mobile · dark"]], "desktop": "2144:95", "h": 7325, "specD": "2145:1255", "annexD": "2146:174", "mobile": "2205:770", "specM": "2208:312", "annexM": "2208:465"}, {"pid": "2:3538", "en": "Longevity", "he": "אריכות ימים", "num": "02.05", "desc": "Category page with five modular product cards (NAD+ Injection, NAD+ Capsules, Sermorelin, Methylene Blue, Metformin) and a goal chooser.", "cat": "Longevity", "section": "2185:528", "states": [], "sectionsD": [["2110:247", "01 Header · Longevity active"], ["2110:260", "02 Hero · category"], ["2110:292", "04 Trust strip"], ["2110:313", "04 Statement · photo band · four goals"], ["2110:344", "05 Choose · three options"], ["2110:448", "06 How it works · dark"], ["2110:490", "07 Education · realistic expectations"], ["2110:533", "08 FAQ · longevity"], ["2110:568", "09 Final CTA · dark"], ["2110:579", "11a Legal band"], ["2291:13505", "11b Footer · dark"]], "sectionsM": [["2142:475", "01 Header · mobile"], ["2142:478", "02 Hero · category · mobile"], ["2142:497", "04 Trust · mobile 2×2"], ["2142:516", "04 Statement · four goals · mobile"], ["2142:557", "05 Choose · mobile"], ["2142:625", "06 How it works · mobile · dark"], ["2142:665", "07 Education · mobile"], ["2142:696", "08 FAQ · mobile"], ["2142:729", "09 Final CTA · mobile · dark"], ["2142:740", "11a Legal · mobile"], ["2291:13579", "11b Footer · mobile · dark"]], "desktop": "2110:246", "h": 7665, "specD": "2114:325", "annexD": "2136:325", "mobile": "2142:474", "specM": "2196:1327", "annexM": "2196:1506"}, {"pid": "2244:2", "en": "Hair Loss", "he": "נשירת שיער", "num": "02.05b", "desc": "Category page: introduction, causes diagram, two-option chooser, treatment goals, expectations, FAQ.", "cat": "Hair Loss", "section": "2244:3", "states": [], "sectionsD": [["2244:1814", "01 Header · Hair Loss active"], ["2244:20", "02 Hero · category"], ["2244:56", "04 Trust strip"], ["2244:79", "04 Introduction · take the first step"], ["2244:266", "07 Education · labs first"], ["2244:115", "05 Choose · two options"], ["2244:314", "07b Treatment goals · photo"], ["2244:222", "06 How it works · dark"], ["2244:1869", "07c Expectations · give it time · photo"], ["2244:331", "08 FAQ · Hair Loss"], ["2244:390", "09 Final CTA · dark"], ["2244:404", "11a Legal band"], ["2291:13646", "11b Footer · dark"]], "sectionsM": [["2245:173", "01 Header · mobile"], ["2245:178", "02 Hero · category · mobile"], ["2245:201", "04 Trust · mobile 2×2"], ["2245:222", "04 Introduction · mobile"], ["2245:392", "07 Education · mobile"], ["2245:269", "05 Choose · mobile"], ["2245:428", "07b Treatment goals · mobile"], ["2245:350", "06 How it works · mobile · dark"], ["2245:1060", "07c Expectations · mobile"], ["2245:443", "08 FAQ · mobile"], ["2245:502", "09 Final CTA · mobile · dark"], ["2245:516", "11a Legal · mobile"], ["2291:13720", "11b Footer · mobile · dark"]], "desktop": "2244:4", "h": 8357, "specD": "2244:466", "annexD": "2244:637", "mobile": "2245:172", "specM": "2245:576", "annexM": "2245:744"}, {"pid": "2:3909", "en": "How It Works", "he": "איך זה עובד", "num": "02.06", "desc": "Four-step selector with moving brand shapes, categories, trust strip, FAQ, first assessment question.", "cat": "", "section": "2246:74", "states": [], "sectionsD": [["2246:76", "01 Header · How it works active"], ["2246:99", "02 How it works · four steps · tabs (state: step 01 selected"], ["2246:140", "03 Categories"], ["2246:205", "04 Trust strip"], ["2246:226", "09 FAQ"], ["2246:273", "10 Final · first question · dark"], ["2291:13787", "11a Legal band"], ["2291:13797", "11b Footer · dark"]], "sectionsM": [["2246:393", "01 Header · mobile"], ["2246:396", "02 How it works · mobile · tabs (state: step 01 selected)"], ["2246:429", "03 Categories · mobile"], ["2246:481", "04 Trust · mobile 2×2"], ["2246:500", "09 FAQ · mobile"], ["2246:544", "10 Final · mobile · dark"], ["2246:600", "11a Legal · mobile"], ["2291:13871", "11b Footer · mobile · dark"]], "desktop": "2246:75", "h": 4388, "mobile": "2246:392", "specD": "2247:214", "specM": "2247:502", "annexD": "2247:790"}, {"pid": "2:2858", "en": "Contact", "he": "צור קשר", "num": "02.07", "desc": "Three contact channels, emergency notice, contact form with focus, error and success states.", "cat": "", "section": "2254:61", "states": [], "sectionsD": [["2254:63", "01 Header · Contact active"], ["2254:86", "02 Title band"], ["2254:93", "03 Channels · three cards"], ["2254:132", "04 Emergency notice"], ["2254:136", "05 Form · send us a message"], ["2254:169", "06 FAQ nudge"], ["2291:13938", "11a Legal band"], ["2291:13948", "11b Footer · dark"]], "sectionsM": [["2254:261", "01 Header · mobile"], ["2254:275", "02 Title band"], ["2254:282", "03 Channels · three cards"], ["2254:321", "04 Emergency notice"], ["2254:325", "05 Form · send us a message"], ["2254:357", "06 FAQ nudge"], ["2254:363", "11a Legal · mobile"], ["2291:14022", "11b Footer · mobile · dark"]], "desktop": "2254:62", "h": 2834, "mobile": "2254:260", "specD": "2255:176", "specM": "2255:425", "annexD": "2255:674"}, {"pid": "2:1610", "en": "FAQ", "he": "שאלות נפוצות", "num": "02.08", "desc": "Search, topic filters and accordion answers; one answer open at a time.", "cat": "", "section": "2252:61", "states": [], "sectionsD": [["2252:63", "01 Header · FAQ active"], ["2252:86", "02 Title band"], ["2252:97", "03 Body · categories + questions"], ["2252:198", "04 Still have questions · contact"], ["2252:204", "10 Final · first question · dark"], ["2291:14089", "11a Legal band"], ["2291:14099", "11b Footer · dark"]], "sectionsM": [["2252:363", "01 Header · mobile"], ["2252:377", "02 Title band"], ["2252:388", "03 Body · filters + questions"], ["2252:487", "04 Still have questions · contact"], ["2252:493", "10 Final · mobile · dark"], ["2252:565", "11a Legal · mobile"], ["2291:14173", "11b Footer · mobile · dark"]], "desktop": "2252:62", "h": 3297, "mobile": "2252:362", "specD": "2253:202", "specM": "2253:463", "annexD": "2253:1864"}, {"pid": "2:1608", "en": "Telehealth Notice", "he": "הודעת טלהלת׳", "num": "02.09", "desc": "Long-form legal page with a sticky “On this page” list and consent checkbox.", "cat": "", "section": "2249:3", "states": [], "sectionsD": [["2249:5", "01 Header"], ["2249:27", "02 Title band"], ["2249:34", "03 Body · table of contents + content"], ["2291:14240", "11a Legal band"], ["2291:14250", "11b Footer · dark"]], "sectionsM": [["2249:162", "01 Header · mobile"], ["2249:176", "02 Title band"], ["2249:183", "03 Body · on this page + content"], ["2249:221", "11a Legal · mobile"], ["2291:14324", "11b Footer · mobile · dark"]], "desktop": "2249:4", "h": 3130, "mobile": "2249:161", "specD": "2253:807", "specM": "2253:1038", "annexD": "2253:3080"}, {"pid": "2:1609", "en": "Terms of Service", "he": "תנאי שימוש", "num": "02.10", "desc": "Long-form legal page with sticky contents navigation; bracketed placeholders need legal text.", "cat": "", "section": "2250:68", "states": [], "sectionsD": [["2250:70", "01 Header"], ["2250:92", "02 Title band"], ["2250:103", "03 Body · table of contents + content"], ["2291:14391", "11a Legal band"], ["2291:14401", "11b Footer · dark"]], "sectionsM": [["2250:289", "01 Header · mobile"], ["2250:302", "02 Title band"], ["2250:313", "03 Body · on this page + content"], ["2250:399", "11a Legal · mobile"], ["2291:14475", "11b Footer · mobile · dark"]], "desktop": "2250:69", "h": 9067, "mobile": "2250:288", "specD": "2253:1352", "specM": "2253:1583", "annexD": "2253:4253"}], "products": [{"name": "Tadalafil", "kind": "PDP", "cat": "Better Intimacy", "pid": "2212:2", "section": "2212:3", "desktop": "2212:4", "mobile": "2224:218", "sticky": "2216:3", "specD": "2231:453", "specM": "2231:870", "annexD": "2232:431", "annexM": "2232:1978", "sections": [["2212:5", "01 Header · Sexual Health active"], ["2212:28", "02 PDP hero · gallery + buy box"], ["2223:194", "PDP / Press strip · as featured in"], ["2219:35", "02b In-page nav · sticks under the header on scr"], ["2213:2", "03 Understanding tadalafil"], ["2219:52", "03b Medication details · table"], ["2213:16", "04 Treatment benefits · four cards"], ["2223:210", "PDP / Clinical results · stats"], ["2213:59", "05 What to expect · dark"], ["2219:85", "05b Compare · tadalafil vs sildenafil"], ["2215:25", "06 Your care with SoviCare"], ["2215:66", "07 How to get started · dark · three steps"], ["2223:230", "PDP / Reviews · summary + cards"], ["2215:117", "08 FAQ · tadalafil"], ["2215:209", "09 Closing · dark"], ["2219:141", "09b Related treatments"], ["2215:226", "10 Important safety information · #isi"], ["2291:14542", "11 Footer · dark"]], "hero": "2212:28", "price": [36, 42, "As low as $6 a pill (doc)"], "demo": ""}, {"name": "Tadalafil", "kind": "Guide", "cat": "Better Intimacy", "pid": "2212:2", "section": "2308:5373", "desktop": "2308:5374", "mobile": "2314:5498", "sticky": "2314:5489", "specD": "2314:5957", "specM": "2314:6200", "annexD": "2314:6444", "annexM": "2314:6616", "sections": [["2308:5375", "01 Header · Sexual Health active"], ["2308:6062", "02 Guide hero · title + intro + Get Started · im"], ["2308:17398", "02c At a glance · four facts"], ["2308:17413", "02d On this page · anchor links"], ["2308:5479", "03 Understanding tadalafil"], ["2308:5493", "03b Medication details · table"], ["2308:5526", "04 Treatment benefits · four cards"], ["2308:5554", "05 What to expect · dark"], ["2308:5570", "05b Compare · tadalafil vs sildenafil"], ["2308:5613", "06 Your care with SoviCare"], ["2308:5645", "07 How to get started · dark · three steps"], ["2308:5703", "08 FAQ · tadalafil"], ["2308:5783", "09 Closing · dark"], ["2308:5797", "09b Related treatments"], ["2308:5823", "10 Important safety information · #isi"], ["2308:5839", "11 Footer · dark"]], "hero": "2308:6062", "price": [36, 42, "As low as $6 a pill (doc)"], "demo": ""}, {"name": "Sildenafil", "kind": "PDP", "cat": "Better Intimacy", "pid": "2212:2", "section": "2235:561", "desktop": "2235:562", "mobile": "2235:1090", "sticky": "2235:1081", "specD": "2235:1593", "specM": "2235:1785", "annexD": "2235:1977", "annexM": "2235:2149", "sections": [["2235:563", "01 Header · Sexual Health active"], ["2235:578", "02 PDP hero · gallery + buy box"], ["2235:647", "PDP / Press strip · as featured in"], ["2235:648", "02b In-page nav · sticks under the header on scr"], ["2235:667", "03 Understanding Sildenafil"], ["2235:681", "03b Medication details · table"], ["2235:714", "04 Treatment benefits · four cards"], ["2235:741", "PDP / Clinical results · stats"], ["2235:742", "05 What to expect · dark"], ["2235:758", "05b Compare · sildenafil vs tadalafil"], ["2235:801", "06 Your care with SoviCare"], ["2235:833", "07 How to get started · dark · three steps"], ["2235:880", "PDP / Reviews · summary + cards"], ["2235:891", "08 FAQ · Sildenafil"], ["2235:971", "09 Closing · dark"], ["2235:985", "09b Related treatments"], ["2235:1011", "10 Important safety information · #isi"], ["2291:14683", "11 Footer · dark"]], "hero": "2235:578", "price": [34, 40, "As low as $6 a pill (doc)"], "demo": ""}, {"name": "Sildenafil", "kind": "Guide", "cat": "Better Intimacy", "pid": "2212:2", "section": "2315:5888", "desktop": "2315:5889", "mobile": "2315:6641", "sticky": "2315:6632", "specD": "2315:7100", "specM": "2315:7343", "annexD": "2315:7587", "annexM": "2315:7759", "sections": [["2315:5890", "01 Header · Sexual Health active"], ["2315:6577", "02 Guide hero · title + intro + Get Started · im"], ["2315:6597", "02c At a glance · four facts"], ["2315:6612", "02d On this page · anchor links"], ["2315:5994", "03 Understanding Sildenafil"], ["2315:6008", "03b Medication details · table"], ["2315:6041", "04 Treatment benefits · four cards"], ["2315:6069", "05 What to expect · dark"], ["2315:6085", "05b Compare · sildenafil vs tadalafil"], ["2315:6128", "06 Your care with SoviCare"], ["2315:6160", "07 How to get started · dark · three steps"], ["2315:6218", "08 FAQ · Sildenafil"], ["2315:6298", "09 Closing · dark"], ["2315:6312", "09b Related treatments"], ["2315:6338", "10 Important safety information · #isi"], ["2315:6354", "11 Footer · dark"]], "hero": "2315:6577", "price": [34, 40, "As low as $6 a pill (doc)"], "demo": ""}, {"name": "SoviCare Trio", "kind": "PDP", "cat": "Better Intimacy", "pid": "2212:2", "section": "2236:1116", "desktop": "2236:1117", "mobile": "2236:1645", "sticky": "2236:1636", "specD": "2236:2148", "specM": "2236:2340", "annexD": "2236:2532", "annexM": "2236:2704", "sections": [["2236:1118", "01 Header · Sexual Health active"], ["2236:1133", "02 PDP hero · gallery + buy box"], ["2236:1202", "PDP / Press strip · as featured in"], ["2236:1203", "02b In-page nav · sticks under the header on scr"], ["2236:1222", "03 Understanding SoviCare Trio"], ["2236:1236", "03b Medication details · table"], ["2236:1269", "04 Ingredient breakdown · three cards"], ["2236:1297", "05 What to expect · dark"], ["2236:1313", "05b Compare · SoviCare Trio options"], ["2236:1356", "06 Your care with SoviCare"], ["2236:1388", "07 How to get started · dark · three steps"], ["2236:1435", "PDP / Reviews · summary + cards"], ["2236:1446", "08 FAQ · SoviCare Trio"], ["2236:1526", "09 Closing · dark"], ["2236:1540", "09b Related treatments"], ["2236:1566", "10 Important safety information · #isi"], ["2291:14824", "11 Footer · dark"]], "hero": "2236:1133", "price": [59, 69, "Starting as low as $8 per pill (doc)"], "demo": ""}, {"name": "SoviCare Trio", "kind": "Guide", "cat": "Better Intimacy", "pid": "2212:2", "section": "2316:6403", "desktop": "2316:6404", "mobile": "2316:7157", "sticky": "2316:7148", "specD": "2316:7617", "specM": "2316:7860", "annexD": "2316:8104", "annexM": "2316:8276", "sections": [["2316:6405", "01 Header · Sexual Health active"], ["2316:7093", "02 Guide hero · title + intro + Get Started · im"], ["2316:7113", "02c At a glance · four facts"], ["2316:7128", "02d On this page · anchor links"], ["2316:6509", "03 Understanding SoviCare Trio"], ["2316:6523", "03b Medication details · table"], ["2316:6556", "04 Ingredient breakdown · three cards"], ["2316:6585", "05 What to expect · dark"], ["2316:6601", "05b Compare · SoviCare Trio options"], ["2316:6644", "06 Your care with SoviCare"], ["2316:6676", "07 How to get started · dark · three steps"], ["2316:6734", "08 FAQ · SoviCare Trio"], ["2316:6814", "09 Closing · dark"], ["2316:6828", "09b Related treatments"], ["2316:6854", "10 Important safety information · #isi"], ["2316:6870", "11 Footer · dark"]], "hero": "2316:7093", "price": [59, 69, "Starting as low as $8 per pill (doc)"], "demo": ""}, {"name": "NAD+ Injection", "kind": "PDP", "cat": "Longevity", "pid": "2239:2", "section": "2239:3", "desktop": "2239:4", "mobile": "2239:532", "sticky": "2239:523", "specD": "2239:1035", "specM": "2239:1227", "annexD": "2239:1419", "annexM": "2239:1591", "sections": [["2239:2322", "01 Header · Longevity active"], ["2239:20", "02 PDP hero · gallery + buy box"], ["2239:89", "PDP / Press strip · as featured in"], ["2239:90", "02b In-page nav · sticks under the header on scr"], ["2239:109", "03 Understanding NAD+ Injection"], ["2239:123", "03b Medication details · table"], ["2239:156", "04 The science behind the interest · three cards"], ["2239:184", "05 What to expect · dark"], ["2239:200", "05b Compare · NAD+ Injection options"], ["2239:243", "06 Your care with SoviCare"], ["2239:275", "07 How to get started · dark · three steps"], ["2239:322", "PDP / Reviews · summary + cards"], ["2239:333", "08 FAQ · NAD+ Injection"], ["2239:413", "09 Closing · dark"], ["2239:427", "09b Related treatments"], ["2239:453", "10 Important safety information · #isi"], ["2291:14965", "11 Footer · dark"]], "hero": "2239:20", "price": [65, 75, "Starting at $65 (doc)"], "demo": ""}, {"name": "NAD+ Injection", "kind": "Guide", "cat": "Longevity", "pid": "2239:2", "section": "2317:4793", "desktop": "2317:4794", "mobile": "2317:5270", "sticky": "2317:5261", "specD": "2317:5730", "specM": "2317:5973", "annexD": "2317:6217", "annexM": "2317:6389", "sections": [["2317:4795", "01 Header · Longevity active"], ["2317:6781", "02 Guide hero · title + intro + Get Started · im"], ["2317:6801", "02c At a glance · four facts"], ["2317:6816", "02d On this page · anchor links"], ["2317:4897", "03 Understanding NAD+ Injection"], ["2317:4911", "03b Medication details · table"], ["2317:4944", "04 The science behind the interest · three cards"], ["2317:4973", "05 What to expect · dark"], ["2317:4989", "05b Compare · NAD+ Injection options"], ["2317:5032", "06 Your care with SoviCare"], ["2317:5064", "07 How to get started · dark · three steps"], ["2317:5122", "08 FAQ · NAD+ Injection"], ["2317:5202", "09 Closing · dark"], ["2317:5216", "09b Related treatments"], ["2317:5242", "10 Important safety information · #isi"], ["2317:5258", "11 Footer · dark"]], "hero": "2317:6781", "price": [65, 75, "Starting at $65 (doc)"], "demo": ""}, {"name": "NAD+ Capsules", "kind": "PDP", "cat": "Longevity", "pid": "2239:2", "section": "2240:519", "desktop": "2240:520", "mobile": "2240:1048", "sticky": "2240:1039", "specD": "2240:1551", "specM": "2240:1743", "annexD": "2240:1935", "annexM": "2240:2107", "sections": [["2240:2834", "01 Header · Longevity active"], ["2240:536", "02 PDP hero · gallery + buy box"], ["2240:605", "PDP / Press strip · as featured in"], ["2240:606", "02b In-page nav · sticks under the header on scr"], ["2240:625", "03 Understanding NAD+ Capsules"], ["2240:639", "03b Medication details · table"], ["2240:672", "04 Why the capsule format · three cards"], ["2240:700", "05 What to expect · dark"], ["2240:716", "05b Compare · NAD+ Capsules options"], ["2240:791", "07 How to get started · dark · three steps"], ["2240:838", "PDP / Reviews · summary + cards"], ["2240:849", "08 FAQ · NAD+ Capsules"], ["2240:929", "09 Closing · dark"], ["2240:943", "09b Related treatments"], ["2240:969", "10 Important safety information · #isi"], ["2291:15106", "11 Footer · dark"]], "hero": "2240:536", "price": [102, 115, "As low as $102 a month (doc)"], "demo": ""}, {"name": "NAD+ Capsules", "kind": "Guide", "cat": "Longevity", "pid": "2239:2", "section": "2321:5304", "desktop": "2321:5305", "mobile": "2321:5780", "sticky": "2321:5771", "specD": "2321:6239", "specM": "2321:6482", "annexD": "2321:6726", "annexM": "2321:6898", "sections": [["2321:5306", "01 Header · Longevity active"], ["2321:7290", "02 Guide hero · title + intro + Get Started · im"], ["2321:7310", "02c At a glance · four facts"], ["2321:7328", "02d On this page · anchor links"], ["2321:5408", "03 Understanding NAD+ Capsules"], ["2321:5422", "03b Medication details · table"], ["2321:5455", "04 Why the capsule format · three cards"], ["2321:5483", "05 What to expect · dark"], ["2321:5499", "05b Compare · NAD+ Capsules options"], ["2321:5574", "07 How to get started · dark · three steps"], ["2321:5632", "08 FAQ · NAD+ Capsules"], ["2321:5712", "09 Closing · dark"], ["2321:5726", "09b Related treatments"], ["2321:5752", "10 Important safety information · #isi"], ["2321:5768", "11 Footer · dark"]], "hero": "2321:7290", "price": [102, 115, "As low as $102 a month (doc)"], "demo": ""}, {"name": "Metformin", "kind": "PDP", "cat": "Longevity", "pid": "2239:2", "section": "2240:2892", "desktop": "2240:2893", "mobile": "2240:3421", "sticky": "2240:3412", "specD": "2240:3924", "specM": "2240:4116", "annexD": "2240:4308", "annexM": "2240:4480", "sections": [["2240:5207", "01 Header · Longevity active"], ["2240:2909", "02 PDP hero · gallery + buy box"], ["2240:2978", "PDP / Press strip · as featured in"], ["2240:2979", "02b In-page nav · sticks under the header on scr"], ["2240:2998", "03 Understanding Metformin"], ["2240:3012", "03b Medication details · table"], ["2240:3045", "04 Treatment highlights · four cards"], ["2240:3073", "05 What to expect · dark"], ["2240:3132", "06 Your care with SoviCare"], ["2240:3164", "07 How to get started · dark · three steps"], ["2240:3211", "PDP / Reviews · summary + cards"], ["2240:3222", "08 FAQ · Metformin"], ["2240:3302", "09 Closing · dark"], ["2240:3316", "09b Related treatments"], ["2240:3342", "10 Important safety information · #isi"], ["2291:15247", "11 Footer · dark"]], "hero": "2240:2909", "price": [53, 59, "As low as $53 a month (doc)"], "demo": ""}, {"name": "Metformin", "kind": "Guide", "cat": "Longevity", "pid": "2239:2", "section": "2321:8081", "desktop": "2321:8082", "mobile": "2321:8557", "sticky": "2321:8548", "specD": "2321:9016", "specM": "2321:9259", "annexD": "2321:9503", "annexM": "2321:9675", "sections": [["2321:8083", "01 Header · Longevity active"], ["2321:10067", "02 Guide hero · title + intro + Get Started · im"], ["2321:10087", "02c At a glance · four facts"], ["2321:10105", "02d On this page · anchor links"], ["2321:8185", "03 Understanding Metformin"], ["2321:8199", "03b Medication details · table"], ["2321:8232", "04 Treatment highlights · four cards"], ["2321:8260", "05 What to expect · dark"], ["2321:8319", "06 Your care with SoviCare"], ["2321:8351", "07 How to get started · dark · three steps"], ["2321:8409", "08 FAQ · Metformin"], ["2321:8489", "09 Closing · dark"], ["2321:8503", "09b Related treatments"], ["2321:8529", "10 Important safety information · #isi"], ["2321:8545", "11 Footer · dark"]], "hero": "2321:10067", "price": [53, 59, "As low as $53 a month (doc)"], "demo": ""}, {"name": "Sermorelin", "kind": "PDP", "cat": "Longevity", "pid": "2239:2", "section": "2268:1525", "desktop": "2268:1526", "mobile": "2268:2054", "sticky": "2268:2045", "specD": "2268:2557", "specM": "2268:2749", "annexD": "2268:2941", "annexM": "2268:3113", "sections": [["2268:3840", "01 Header · Longevity active"], ["2268:1542", "02 PDP hero · gallery + buy box"], ["2268:1611", "PDP / Press strip · as featured in"], ["2268:1612", "02b In-page nav · sticks under the header on scr"], ["2268:1631", "03 Understanding Sermorelin"], ["2268:1645", "03b Medication details · table"], ["2268:1678", "04 The science behind the interest · three cards"], ["2268:1706", "05 What to expect · dark"], ["2268:1765", "06 Your care with SoviCare"], ["2268:1797", "07 How to get started · dark · three steps"], ["2268:1844", "PDP / Reviews · summary + cards"], ["2268:1855", "08 FAQ · Sermorelin"], ["2268:1935", "09 Closing · dark"], ["2268:1949", "09b Related treatments"], ["2268:1975", "10 Important safety information · #isi"], ["2291:15388", "11 Footer · dark"]], "hero": "2268:1542", "price": [89, 95, "Starting at $89 (illustrative)"], "demo": "DEMO copy"}, {"name": "Methylene Blue", "kind": "PDP", "cat": "Longevity", "pid": "2239:2", "section": "2269:2032", "desktop": "2269:2033", "mobile": "2269:2561", "sticky": "2269:2552", "specD": "2269:3064", "specM": "2269:3256", "annexD": "2269:3448", "annexM": "2269:3620", "sections": [["2269:4347", "01 Header · Longevity active"], ["2269:2049", "02 PDP hero · gallery + buy box"], ["2269:2118", "PDP / Press strip · as featured in"], ["2269:2119", "02b In-page nav · sticks under the header on scr"], ["2269:2138", "03 Understanding Methylene Blue"], ["2269:2152", "03b Medication details · table"], ["2269:2185", "04 The science behind the interest · three cards"], ["2269:2213", "05 What to expect · dark"], ["2269:2272", "06 Your care with SoviCare"], ["2269:2304", "07 How to get started · dark · three steps"], ["2269:2351", "PDP / Reviews · summary + cards"], ["2269:2362", "08 FAQ · Methylene Blue"], ["2269:2442", "09 Closing · dark"], ["2269:2456", "09b Related treatments"], ["2269:2482", "10 Important safety information · #isi"], ["2291:15529", "11 Footer · dark"]], "hero": "2269:2049", "price": [45, 49, "Starting at $45 (illustrative)"], "demo": "DEMO copy"}, {"name": "Hair Growth Spray", "kind": "PDP", "cat": "Hair Loss", "pid": "2243:2", "section": "2243:26", "desktop": "2243:27", "mobile": "2243:555", "sticky": "2243:546", "specD": "2243:1058", "specM": "2243:1250", "annexD": "2243:1442", "annexM": "2243:1614", "sections": [["2243:2345", "01 Header · Hair Loss active"], ["2243:43", "02 PDP hero · gallery + buy box"], ["2243:112", "PDP / Press strip · as featured in"], ["2243:113", "02b In-page nav · sticks under the header on scr"], ["2243:132", "03 Understanding Hair Growth Spray"], ["2243:146", "03b Medication details · table"], ["2243:179", "04 Ingredients · three cards"], ["2243:207", "05 What to expect · dark"], ["2243:223", "05b Compare · Hair Growth Spray options"], ["2243:266", "06 Your care with SoviCare"], ["2243:298", "07 How to get started · dark · three steps"], ["2243:345", "PDP / Reviews · summary + cards"], ["2243:356", "08 FAQ · Hair Growth Spray"], ["2243:436", "09 Closing · dark"], ["2243:450", "09b Related treatments"], ["2243:476", "10 Important safety information · #isi"], ["2291:15670", "11 Footer · dark"]], "hero": "2243:43", "price": [70, 79, "Starting at $70 (doc)"], "demo": ""}, {"name": "Hair Growth Spray", "kind": "Guide", "cat": "Hair Loss", "pid": "2243:2", "section": "2322:1995", "desktop": "2322:1996", "mobile": "2322:2483", "sticky": "2322:2474", "specD": "2322:2955", "specM": "2322:3198", "annexD": "2322:3442", "annexM": "2322:3614", "sections": [["2322:1997", "01 Header · Hair Loss active"], ["2322:4007", "02 Guide hero · title + intro + Get Started · im"], ["2322:4027", "02c At a glance · four facts"], ["2322:4045", "02d On this page · anchor links"], ["2322:2102", "03 Understanding Hair Growth Spray"], ["2322:2116", "03b Medication details · table"], ["2322:2149", "04 Ingredients · three cards"], ["2322:2178", "05 What to expect · dark"], ["2322:2194", "05b Compare · Hair Growth Spray options"], ["2322:2237", "06 Your care with SoviCare"], ["2322:2270", "07 How to get started · dark · three steps"], ["2322:2328", "08 FAQ · Hair Growth Spray"], ["2322:2415", "09 Closing · dark"], ["2322:2429", "09b Related treatments"], ["2322:2455", "10 Important safety information · #isi"], ["2322:2471", "11 Footer · dark"]], "hero": "2322:4007", "price": [70, 79, "Starting at $70 (doc)"], "demo": ""}, {"name": "Finasteride", "kind": "PDP", "cat": "Hair Loss", "pid": "2243:2", "section": "2243:2403", "desktop": "2243:2404", "mobile": "2243:2932", "sticky": "2243:2923", "specD": "2243:3435", "specM": "2243:3627", "annexD": "2243:3819", "annexM": "2243:3991", "sections": [["2243:4718", "01 Header · Hair Loss active"], ["2243:2420", "02 PDP hero · gallery + buy box"], ["2243:2489", "PDP / Press strip · as featured in"], ["2243:2490", "02b In-page nav · sticks under the header on scr"], ["2243:2509", "03 Understanding Finasteride"], ["2243:2523", "03b Medication details · table"], ["2243:2556", "04 Benefits · three cards"], ["2243:2583", "PDP / Clinical results · stats"], ["2243:2584", "05 What to expect · dark"], ["2243:2600", "05b Compare · Finasteride options"], ["2243:2643", "06 Your care with SoviCare"], ["2243:2675", "07 How to get started · dark · three steps"], ["2243:2722", "PDP / Reviews · summary + cards"], ["2243:2733", "08 FAQ · Finasteride"], ["2243:2813", "09 Closing · dark"], ["2243:2827", "09b Related treatments"], ["2243:2853", "10 Important safety information · #isi"], ["2291:15811", "11 Footer · dark"]], "hero": "2243:2420", "price": [60, 69, "Starting at $60 (doc)"], "demo": ""}, {"name": "Finasteride", "kind": "Guide", "cat": "Hair Loss", "pid": "2243:2", "section": "2322:4799", "desktop": "2322:4800", "mobile": "2322:5275", "sticky": "2322:5266", "specD": "2322:5734", "specM": "2322:5977", "annexD": "2322:6221", "annexM": "2322:6393", "sections": [["2322:4801", "01 Header · Hair Loss active"], ["2322:6785", "02 Guide hero · title + intro + Get Started · im"], ["2322:6805", "02c At a glance · four facts"], ["2322:6823", "02d On this page · anchor links"], ["2322:4903", "03 Understanding Finasteride"], ["2322:4917", "03b Medication details · table"], ["2322:4950", "04 Benefits · three cards"], ["2322:4978", "05 What to expect · dark"], ["2322:4994", "05b Compare · Finasteride options"], ["2322:5037", "06 Your care with SoviCare"], ["2322:5069", "07 How to get started · dark · three steps"], ["2322:5127", "08 FAQ · Finasteride"], ["2322:5207", "09 Closing · dark"], ["2322:5221", "09b Related treatments"], ["2322:5247", "10 Important safety information · #isi"], ["2322:5263", "11 Footer · dark"]], "hero": "2322:6785", "price": [60, 69, "Starting at $60 (doc)"], "demo": ""}], "ds": {"V": {"Primitives": {"modes": ["Value"], "vars": ["brand/deep-teal COLOR #264653", "brand/blue COLOR #219EBC", "brand/green COLOR #2A9D8F", "brand/yellow COLOR #FFBE0B", "neutral/mist COLOR #F2F7F9", "neutral/paper COLOR #FFFFFF", "neutral/clay COLOR #CFC6B8", "neutral/coral COLOR #E76F51", "neutral/slate COLOR #55747F", "neutral/slate-light COLOR #7E9AA6", "line/soft COLOR #DDE8ED", "line/default COLOR #D6E2E9", "line/strong COLOR #C6D6DF", "line/mid COLOR #B9CEDA", "line/deep COLOR #A8C2CD", "state/blue-dark COLOR #1F7A94", "state/teal-light COLOR #4B7284", "state/teal-hover COLOR #1C3742", "state/yellow-hover COLOR #E9AD05", "state/coral-wash COLOR #FDEEE9", "state/yellow-wash COLOR #FFF8E3", "brand/pink COLOR #FF007F", "brand/pink-deep COLOR #C2006B", "state/pink-wash COLOR #FFE5F2", "brand/green-deep COLOR #1F7A70", "state/green-wash COLOR #E3F3F1", "brand/blue-deep COLOR #177E97", "brand/sky COLOR #8ECAE6", "brand/coral-deep COLOR #C4553A", "neutral/ink COLOR #1C3742", "state/blue-wash COLOR #E4F4F8"]}, "Color": {"modes": ["Brand"], "vars": ["bg/page COLOR #F2F7F9", "bg/card COLOR #FFFFFF", "bg/dark COLOR #264653", "bg/selected COLOR #FFFFFF", "text/primary COLOR #264653", "text/secondary COLOR #55747F", "text/caption COLOR #7E9AA6", "text/link COLOR #219EBC", "text/urgent COLOR #E76F51", "text/on-dark COLOR #F2F7F9", "text/on-dark-muted COLOR #A8C2CD", "border/soft COLOR #DDE8ED", "border/default COLOR #D6E2E9", "border/strong COLOR #C6D6DF", "border/deep COLOR #A8C2CD", "border/on-dark COLOR #4B7284", "border/hover COLOR #219EBC", "border/selected COLOR #264653", "action/primary COLOR #264653", "action/primary-hover COLOR #1C3742", "action/on-dark COLOR #F2F7F9", "action/result COLOR #FFBE0B", "action/result-hover COLOR #E9AD05", "icon/default COLOR #264653", "icon/selected COLOR #2A9D8F", "icon/secondary COLOR #7E9AA6", "icon/hover COLOR #219EBC", "icon/on-dark COLOR #F2F7F9", "kit/teal COLOR #264653", "kit/blue COLOR #219EBC", "kit/green COLOR #2A9D8F", "kit/yellow COLOR #FFBE0B", "state/in-range COLOR #2A9D8F", "state/out-of-range COLOR #E76F51", "poster/clay COLOR #CFC6B8", "action/on-dark-hover COLOR #FFBE0B", "category/longevity COLOR #2A9D8F", "category/intimacy COLOR #219EBC", "category/hair COLOR #FFBE0B"]}, "Spacing": {"modes": ["Value"], "vars": ["space/1 FLOAT 4", "space/2 FLOAT 12", "space/3 FLOAT 24", "space/4 FLOAT 36", "space/5 FLOAT 48", "space/6 FLOAT 72", "space/7 FLOAT 96", "space/8 FLOAT 144"]}, "Radius": {"modes": ["Value"], "vars": ["radius/round FLOAT 999", "radius/card FLOAT 14", "radius/none FLOAT 0"]}, "Size": {"modes": ["Value"], "vars": ["control/button FLOAT 46", "control/button-nav FLOAT 52", "control/tap-min FLOAT 44", "icon/default FLOAT 24", "icon/inline FLOAT 18", "layout/page-max FLOAT 1180", "layout/desktop FLOAT 1440", "layout/mobile FLOAT 390", "layout/grid FLOAT 48"]}, "Category theme": {"modes": ["Longevity", "Better Intimacy", "Hair Loss"], "vars": ["theme/dominant COLOR Longevity=#2A9D8F Better Intimacy=#219EBC Hair Loss=#264653", "theme/dominant-deep COLOR Longevity=#1F7A70 Better Intimacy=#177E97 Hair Loss=#1C3742", "theme/secondary COLOR Longevity=#FFBE0B Better Intimacy=#FF007F Hair Loss=#E76F51", "theme/secondary-deep COLOR Longevity=#E9AD05 Better Intimacy=#C2006B Hair Loss=#C4553A", "theme/support COLOR Longevity=#219EBC Better Intimacy=#E76F51 Hair Loss=#2A9D8F", "theme/wash COLOR Longevity=#E3F3F1 Better Intimacy=#FFE5F2 Hair Loss=#FDEEE9", "theme/wash-secondary COLOR Longevity=#FFF8E3 Better Intimacy=#E4F4F8 Hair Loss=#E3F3F1"]}}, "TS": ["Desktop/Display | DM Serif Display Regular 68 / 106% / ls 0%", "Desktop/H1 | DM Serif Display Regular 52 / 108% / ls 0%", "Desktop/H2 | DM Serif Display Regular 38 / 114% / ls 0%", "Desktop/Quote | DM Serif Display Regular 30 / 128% / ls 0%", "Desktop/H3 | DM Serif Display Regular 26 / 135% / ls 0%", "Mobile/Display | DM Serif Display Regular 44 / 106% / ls 0%", "Mobile/H1 | DM Serif Display Regular 36 / 108% / ls 0%", "Mobile/H2 | DM Serif Display Regular 30 / 114% / ls 0%", "Mobile/Quote | DM Serif Display Regular 26 / 128% / ls 0%", "Highlight/Italic | DM Serif Display Italic 68 / 106% / ls 0%", "Text/Card Title | Inter Semi Bold 20 / 130% / ls -1%", "Text/Card Title Mobile | Inter Semi Bold 18 / 130% / ls -1%", "Text/Item | Inter Semi Bold 16 / 140% / ls 0%", "Text/Lead | Inter Regular 20 / 155% / ls 0%", "Text/Lead Mobile | Inter Regular 17 / 155% / ls 0%", "Text/Body | Inter Regular 16 / 170% / ls 0%", "Text/Small | Inter Regular 14 / 155% / ls 0%", "Text/Caption | Inter Regular 12.5 / 145% / ls 0%", "Text/Label | Inter Medium 11.5 / 140% / ls 14% UPPER", "Text/Button | Inter Medium 14 / 100% / ls 0%", "Text/Nav | Inter Medium 14 / 140% / ls 0%"], "ES": [], "comps": ["2:1515|Button [4 variants; props: Style]", "2:1524|Nav", "2:1541|Trust Strip", "2:1554|Card", "2:1558|Accordion Row", "2:1561|Footer", "2:1574|Nav / Mobile", "2:1586|Footer / Mobile", "2:5291|Botlles & Mockups/On Dark", "2073:51|Button [24 variants; props: Label, Style, State, Size]", "2079:9|Icon/Left", "2079:12|Icon/Right", "2079:15|Icon/Plus", "2079:18|Icon/Close", "2079:21|Icon/Menu", "2079:24|Icon/Play", "2079:27|Icon/Pause", "2079:64|Icon Button [12 variants; props: Icon, Style, State, Size]", "2084:18|Icon/Duration", "2084:21|Icon/Privacy", "2084:25|Icon/Provider", "2084:28|Icon/Frequency", "2084:32|Icon/Note", "2084:35|Icon/Confirmed", "2084:38|Icon/Arrow", "2084:43|Icon/Instagram", "2084:46|Icon/Facebook", "2084:50|Icon/TikTok", "2084:54|Icon/YouTube", "2084:58|Icon/LinkedIn", "2081:112|Mark [20 variants; props: Mark, Surface]", "2084:73|Logo [2 variants; props: Surface]", "2107:310|Eyebrow", "2107:314|Text Link", "2107:324|Section Head / Desktop", "2107:332|Section Head / Mobile", "2107:341|Chip [2 variants; props: Energy, Recovery, State]", "2107:378|Reassurance [2 variants; props: About 2 minutes, No account to start, Reviewed by a licens, Assessment only Not , Licensedprovider rev, Surface]", "2107:384|Trust Item", "2107:403|Category Card", "2107:473|Goal Card [2 variants; props: Matches what you des, Energy and recovery, Option a provider ma, eg NAD · injectable , Support for cellular, Weekly protocol, Energy and recovery 6, Providerguided dosin, Focus and clarity, eg methylene blue · , Support for focus an, Daily drops, Focus and mood, Low dose to start, Price shown before c, State]", "2107:484|Quote Card", "2107:492|Channel Card", "2107:522|Step Row [2 variants; props: Step 1 · Assess, Answer a few private, Your health what has, About 2 minutes, No account no phone , Step 2 · Test, Labs only where they, State]", "2107:539|FAQ Row [2 variants; props: Privacy, Will anyone know I u, Placeholder Plain pa, Medical, Is the assessment a , State]", "2107:558|Answer Tile [2 variants; props: Energy sleep or reco, Longevity care, State]", "2107:563|DEMO Marker", "2107:578|Header / Desktop", "2107:582|Header / Mobile", "2107:593|Legal Band / Desktop", "2107:662|Footer / Desktop", "2107:708|Footer / Mobile", "2282:126|Motion demo / Button · hover + press", "2282:148|Motion demo / Card · hover", "2282:173|Motion demo / Chip · select", "2282:215|Motion demo / Accordion · open", "2282:252|Motion demo / Segmented · switch", "2282:268|Motion demo / Sticky bar · slide up", "2282:320|Motion demo / Gallery · cross-fade", "2282:350|Motion demo / Header · on scroll", "2284:122|Motion demo / Stats · count up", "2284:147|Motion demo / Menu · open (mobile)", "2284:198|Motion demo / Quiz · best match moves up", "2284:242|Motion demo / Form field · focus", "2284:285|Motion demo / Reveal · on scroll", "2284:323|Motion demo / Kit piece · pivot + wipe", "2284:345|Motion demo / Link · hover", "2284:369|Motion demo / Plan · radio select", "2284:418|Motion demo / Steps · advance", "2289:8443|Guide note"], "ncomps": 70, "demoPage": "2:1490 02.01 — Elements", "demoParent": "2282:123 🎬 MOTION DEMOS — animated examples (Figma Motion) · instances sit next to every spec entry · press Play in the frame to watch", "demoTop": "2282:126 Motion demo / Button · hover + press"}};
+const FK='yimfrnDzbq5g3ga5SxuYAd';
+const F=id=>`https://www.figma.com/design/${FK}/WIP-SOVICARE-WEBSITE?node-id=${String(id).replace(':','-')}`;
+const IMG=id=>`assets/handoff/${String(id).replace(':','-')}.jpg`;
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const L=(id,label)=>`<a class="btn" href="${F(id)}" target="_blank" rel="noopener">${label} <span class="ar">↗</span></a>`;
+$('#figma-root').href=F('2001:2');
+
+/* tabs */
+const panels=$$('.panel[data-tab]');
+$('#tabs').innerHTML=panels.map(p=>`<button class="tab" role="tab" id="tab-${p.dataset.tab}" aria-controls="${p.id}" aria-selected="false" data-t="${p.dataset.tab}">${p.dataset.en}<small>${p.dataset.he}</small></button>`).join('');
+function show(t){ if(!panels.some(p=>p.dataset.tab===t)) t='overview';
+  panels.forEach(p=>p.hidden=p.dataset.tab!==t); $$('.tab').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.t===t)));
+  try{localStorage.setItem('sc-handoff-tab',t)}catch(e){} const tb=document.getElementById('tab-'+t); if(tb) tb.scrollIntoView({block:'nearest',inline:'center'}); }
+$$('.tab').forEach(b=>b.addEventListener('click',()=>{show(b.dataset.t);history.replaceState(null,'','#'+b.dataset.t);scrollTo({top:0})}));
+document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]'); if(!a) return; const t=a.getAttribute('href').slice(1); if(panels.some(p=>p.dataset.tab===t)){e.preventDefault();show(t);history.replaceState(null,'','#'+t);scrollTo({top:0})}});
+let start=location.hash.slice(1); if(!start){try{start=localStorage.getItem('sc-handoff-tab')||''}catch(e){}} show(start||'overview');
+
+/* overview */
+const nP=DATA.products.filter(p=>p.kind==='PDP').length, nG=DATA.products.filter(p=>p.kind==='Guide').length;
+$('#stats').innerHTML=[[DATA.pages.length,'site pages, desktop + mobile'],[nP,'product pages (PDP)'],[nG,'product guides'],[39,'semantic colour tokens'],[21,'text styles'],[17,'Figma Motion demos']].map(([n,t])=>`<div class="stat"><b>${n}</b><span>${t}</span></div>`).join('');
+const FILEMAP=[['00 — README','2001:2','Project notes, Brand exceptions log, approved index','Context and every approved deviation from the brand book'],['01 — CURRENT / APPROVED','2001:3','Index of approved frames','A map of what is approved'],['02.00 — Foundations','2:1064','Foundations doc: colour, type, spacing, category colours','Token reference'],['02.01 — Elements','2:1490','All components, icons, marks, logo, 🎬 Motion demos','Component library'],['02.02 — HP','0:1','Homepage','Page build'],['02.03 — Internal Pages ↓','2:1602','Divider + internal pages map','Navigation of the pages below'],['↳ 02.04 – 02.05b','2:3156','Category pages: Better Intimacy, Longevity, Hair Loss','Category template'],['↳ 02.06 – 02.10','2:3909','How It Works, Contact, FAQ, Telehealth Notice, Terms','Content pages'],['↳ 02.11 – 02.13','2212:2','Products by category: PDPs, product guides, modules','Product templates'],['03 — EXPLORATIONS','2001:4','Earlier directions','Do not build'],['99 — ARCHIVE','2001:5','Retired versions','Do not build']];
+$('#filemap').innerHTML=FILEMAP.map(r=>`<tr><td><a href="${F(r[1])}" target="_blank" rel="noopener">${esc(r[0])} ↗</a></td><td>${esc(r[2])}</td><td class="muted">${esc(r[3])}</td></tr>`).join('');
+
+/* foundations */
+const V=DATA.ds.V; const hexOf=s=>(s.match(/#[0-9A-F]{6}/i)||[''])[0];
+const cssName=n=>'--'+n.replace(/\//g,'-');
+$('#t-color').innerHTML=V.Color.vars.map(r=>{const [n,,v]=r.split(' ');return `<tr><td><span class="sw" style="background:${v}"></span><code>${n}</code></td><td class="num mono">${v}</td><td class="mono muted">${cssName(n)}</td></tr>`}).join('');
+$('#t-prim').innerHTML=V.Primitives.vars.map(r=>{const [n,,v]=r.split(' ');return `<tr><td><span class="sw" style="background:${v}"></span><code>${n}</code></td><td class="num mono">${v}</td></tr>`}).join('');
+$('#t-theme').innerHTML=V['Category theme'].vars.map(r=>{const n=r.split(' ')[0]; const vals=[...r.matchAll(/=(#[0-9A-F]{6})/gi)].map(m=>m[1]);return `<tr><td><code>${n}</code></td>${vals.map(v=>`<td class="mono"><span class="sw" style="background:${v}"></span>${v}</td>`).join('')}</tr>`}).join('');
+$('#t-type').innerHTML=DATA.ds.TS.map(s=>{const [n,rest]=s.split(' | ');const m=rest.match(/^(.*?) (\d+(?:\.\d+)?) \/ (.*)$/);return `<tr><td><code>${n}</code></td><td>${esc(m?m[1]:rest)}</td><td class="mono num">${m?m[2]+'px / '+m[3]:''}</td></tr>`}).join('');
+const sc=[...V.Spacing.vars,...V.Radius.vars,...V.Size.vars].map(r=>r.split(' '));
+$('#t-scale').innerHTML=sc.map(([n,,v])=>`<div><span class="mono muted">${n}</span><b>${v}</b></div>`).join('');
+const sample=V.Color.vars.slice(0,8).map(r=>{const [n,,v]=r.split(' ');return `  ${cssName(n)}: ${v};`}).join('\n');
+const th=V['Category theme'].vars.slice(0,3);
+$('#t-css').textContent=`:root {\n${sample}\n  /* …all Color, Spacing, Radius and Size tokens */\n  --space-3: 24px; --radius-card: 14px; --layout-page-max: 1180px;\n  --font-display: 'DM Serif Display', Georgia, serif;\n  --font-body: 'Inter', system-ui, sans-serif;\n}\n[data-category="longevity"] { ${th.map(r=>cssName(r.split(' ')[0])+': '+r.match(/Longevity=(#\w+)/)[1]).join('; ')}; }\n[data-category="intimacy"]  { ${th.map(r=>cssName(r.split(' ')[0])+': '+r.match(/Intimacy=(#\w+)/)[1]).join('; ')}; }\n[data-category="hair"]      { ${th.map(r=>cssName(r.split(' ')[0])+': '+r.match(/Loss=(#\w+)/)[1]).join('; ')}; }`;
+
+/* components */
+const COMPS=DATA.ds.comps.filter(c=>!/^2:\d{4}\||Motion demo|Botlles|Guide note/.test(c));
+const COMPX=[['2267:573|Category product card · desktop [props: Product name, Category, Description, Note, Mark, Show price line, Price line, Show facts, Fact 1–3, Show note]'],['2267:6458|Category product card · mobile [same props]'],['2289:8443|Guide note (annotation only, do not build)']];
+$('#t-comp').innerHTML=[...COMPS,...COMPX.map(x=>x[0])].map(c=>{const [id,rest]=c.split('|');const m=rest.match(/^(.*?)( \[(.*)\])?$/);const props=(m[3]||'').replace(/props: /,'');return `<tr><td><b>${esc(m[1])}</b></td><td class="muted small">${esc(props.length>140?props.slice(0,140)+'…':props)||'—'}</td><td>${L(id,'Open')}</td></tr>`}).join('');
+const MODS=[['Purchase options · plan + quantity','2223:9',null,'Monthly delivery (Save 15%) / One-time purchase; quantity 4·8·12 or supply 1·3·6 mo. Prices per product.'],['Press strip · as featured in','2223:40','2224:989','DEMO: five fictional outlet wordmarks. Replace with real logo files.'],['Clinical results · stats','2223:56','2224:1005','DEMO: illustrative figures. Hidden on Trio, NAD+ Capsules, Metformin, Sermorelin, MB, Spray. Count-up 900ms at 50% in view.'],['Reviews · summary + cards','2223:76','2224:1025','DEMO: illustrative reviews. Filters: Most recent, Highest rated, All reviews.'],['Rating summary','2223:3',null,'Stars + score + count under the product name.'],['Sticky buy bar (PDP) / Sticky CTA bar (guide)','2216:3','2314:5489','Appears when the hero Get Started leaves the screen; hides when the closing CTA enters.']];
+$('#t-mod').innerHTML=MODS.map(m=>`<tr><td><b>${m[0]}</b></td><td>${L(m[1],'Desktop')}</td><td>${m[2]?L(m[2],m[1]==='2216:3'?'Guide':'Mobile'):'—'}</td><td class="muted small">${m[3]}</td></tr>`).join('');
+
+/* pages */
+const chips=(list)=>`<div class="chips">${list.map(([id,n])=>`<a href="${F(id)}" target="_blank" rel="noopener">${esc(n)}</a>`).join('')}</div>`;
+$('#g-pages').innerHTML=DATA.pages.map(p=>`<article class="pcard"><a class="thumb" href="${F(p.desktop)}" target="_blank" rel="noopener" aria-label="Open ${esc(p.en)} desktop in Figma"><img src="${IMG(p.desktop)}" alt="${esc(p.en)} desktop design" loading="lazy"><span class="hint">hover to scroll</span></a>
+ <div class="pbody"><span class="eyebrow">${p.num}${p.cat?' · '+p.cat+' theme':''}</span><h3>${esc(p.en)} <span class="he">${esc(p.he)}</span></h3><p class="muted small">${esc(p.desc)}</p>
+ <div class="fl"><span class="pill ok">Approved</span></div>
+ <div class="fl">${L(p.desktop,'Desktop 1440')}${L(p.mobile,'Mobile 390')}${L(p.specD,'Spec · desktop')}${L(p.specM,'Spec · mobile')}${p.annexD?L(p.annexD,p.annexM?'States · desktop':'States'):''}${p.annexM?L(p.annexM,'States · mobile'):''}${p.states.map(s=>L(s[0],esc(s[1].replace(/\(.*$/,'')))).join('')}</div>
+ <details><summary>Desktop sections (${p.sectionsD.length})</summary>${chips(p.sectionsD)}</details>
+ <details><summary>Mobile sections (${p.sectionsM.length})</summary>${chips(p.sectionsM)}</details></div></article>`).join('');
+
+/* products */
+const catLabel=c=>c==='Better Intimacy'?'Sexual Health':c;
+const seen={}; $('#t-price').innerHTML=DATA.products.filter(p=>!seen[p.name]&&(seen[p.name]=1)).map(p=>`<tr><td><b>${p.name}</b>${p.demo?' <span class="pill demo">DEMO copy</span>':''}</td><td>${catLabel(p.cat)}</td><td class="num">$${p.price[0]} / mo</td><td class="num">$${p.price[1]}</td><td class="muted small">${p.price[2]}</td></tr>`).join('');
+let PK='all',PC='all';
+function renderP(){const q=$('#psearch').value.trim().toLowerCase();
+ const list=DATA.products.filter(p=>(PK==='all'||p.kind===PK)&&(PC==='all'||p.cat===PC)&&(!q||(p.name+' '+p.kind+' '+p.cat+' '+p.sections.map(s=>s[1]).join(' ')).toLowerCase().includes(q)));
+ $('#pcount').textContent=list.length+' of '+DATA.products.length+' product frames';
+ $('#g-prod').innerHTML=list.map(p=>`<article class="pcard"><a class="thumb hero" href="${F(p.hero)}" target="_blank" rel="noopener" aria-label="Open ${esc(p.name)} hero in Figma"><img src="${IMG(p.hero)}" alt="${esc(p.name)} ${p.kind} hero" loading="lazy"></a>
+ <div class="pbody"><span class="eyebrow">${catLabel(p.cat)} · ${p.kind==='PDP'?'PDP · purchase':'Product guide · no purchase'}</span><h3>${esc(p.name)}</h3>
+ <div class="fl"><span class="pill ok">Approved</span>${p.demo?'<span class="pill demo">DEMO copy</span>':''}${p.name==='SoviCare Trio'?'<span class="pill draft">ISI draft</span>':''}${p.kind==='PDP'?`<span class="pill">$${p.price[0]}/mo · $${p.price[1]}</span>`:''}</div>
+ <div class="fl">${L(p.desktop,'Desktop 1440')}${L(p.mobile,'Mobile 390')}${L(p.sticky,p.kind==='PDP'?'Sticky buy bar':'Sticky CTA bar')}${L(p.specD,'Spec · desktop')}${L(p.specM,'Spec · mobile')}${L(p.annexD,'States · desktop')}${L(p.annexM,'States · mobile')}</div>
+ <details><summary>Sections (${p.sections.length})</summary>${chips(p.sections)}</details></div></article>`).join('')||'<p class="muted">No product matches. Clear the search or pick “All”.</p>';}
+const segs=(sel,fn)=>$$(sel+' button').forEach(b=>b.addEventListener('click',()=>{$$(sel+' button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));fn(b.dataset.v)}));
+segs('#pkind',v=>{PK=v;renderP()}); segs('#pcat',v=>{PC=v;renderP()}); $('#psearch').addEventListener('input',renderP); renderP();
+
+/* motion */
+const ML='motion-library.html#', LAB='motion-lab.html#';
+const MOTION=[
+ ['Button · hover + press','sc','Hover / click','Hover 180ms · press 140ms (scale .97)','All buttons','m-button','2282:126'],
+ ['Card · hover','sc','Hover','Border 180ms · mark pivot 320ms','Category and product cards','m-card','2282:148'],
+ ['Chip · select','sc','Tap','Fill + check 180ms','Quiz answers, FAQ filters, goal chips','m-chip','2282:173'],
+ ['Accordion · open','both','Click','“+” → “×” 180ms · height + opacity 220ms','FAQ page, category and product FAQs; one row open','m-accordion','2282:215','faq'],
+ ['Segmented · switch','sc','Tap','Segment slides 180ms','Quantity / supply length on PDPs','m-segmented','2282:252'],
+ ['Sticky buy bar · slide up','both','Scroll, resize, menu/dialog change','Rises 220ms once the hero CTA has fully left the top; hides as soon as the closing CTA enters; hidden while the mobile menu or assessment dialog is open; re-evaluated on scroll up and resize; button = same 46px CTA','PDPs (buy bar), guides (CTA bar), category pages, mobile homepage','m-sticky','2282:268','final'],
+ ['Gallery · cross-fade','both','Click thumbnail / arrow keys','Cross-fade 220ms; selected thumb 2px border','PDP hero gallery','m-gallery','2282:320','pdp'],
+ ['Header · on scroll','both','Scroll past 8px','Header → Deep Teal 220ms; links invert','Every page','m-header','2282:350','top'],
+ ['Stats · count up','sc','50% in view','900ms, once; DEMO data','Clinical results module','m-stats','2284:122'],
+ ['Menu · open (mobile)','sc','Tap ☰','Panel slides in 320ms, background dims','Mobile header','m-menu','2284:147'],
+ ['Quiz · best match moves up','sc','Answer','Reorder 320ms, badge rises','Category choosers (Longevity five cards, BI, Hair)','m-quiz','2284:198'],
+ ['Form field · focus / error / success','both','Focus, submit','Border + label 140–180ms; error Coral + one line; success card rises 300ms','Contact form','m-field','2284:242','contact'],
+ ['Reveal · on scroll','sc','In view','Rise 10px + fade 320ms, lines 120ms apart, once','Section headings and copy','m-reveal','2284:285'],
+ ['Kit piece · pivot + wipe','both','On reveal','Pivot 320ms · wipe 620ms (content); 820 / 520ms in heroes','Quadrant shapes around photos, max two per surface','m-kit','2284:323','moves'],
+ ['Link · hover','sc','Hover','Underline thickens, arrow moves 4px, 180ms','Text links, “Explore …” links','m-link','2284:345'],
+ ['Plan · radio select','both','Click','Border 2px + dot 180ms; price line updates','“Choose your plan” on PDPs','m-plan','2284:369','pdp'],
+ ['Steps · advance','both','Click tab / arrow keys','Tab 220ms · quarter rotates −90/180/90/0° 520ms · circle shifts 520ms · detail rises 280ms','How It Works, homepage how-it-works','m-steps','2284:418','steps'],
+ ['Brand moves · pivot, wipe, rise, shift','gpt','Section enters view','820 / 520 / 620 / 520ms · cubic-bezier(.22,1,.36,1)','Hero shapes, closing CTAs',null,null,'moves'],
+ ['Hero entrance sequence','gpt','Page load','Copy rises with 120ms stagger; shapes pivot then wipe; hairline draws 900ms','Category heroes, homepage hero',null,null,'top'],
+ ['Category card · hover introduces, click commits','gpt','Hover / click','Hover: dark surface + shape lifts 400ms; click: selected border, light wash, extra line rises 280ms','Category choosers, Longevity starting points',null,null,'category'],
+ ['Cause chips · one note open','gpt','Tap','Chip darkens 180ms; note rises 180ms; selecting another closes the first','Hair Loss causes section',null,null,'category'],
+ ['FAQ filter + deep link','gpt','Click filter / URL hash','Filter 180ms, list fade 220ms; #faq-… opens that question','FAQ page',null,null,'faq'],
+ ['Scroll-spy contents','gpt','Scroll / click','Active link 180ms; smooth scroll 600ms (instant with reduced motion)','Telehealth Notice, Terms of Service',null,null,'legal'],
+ ['Category theme switch','gpt','data-category change','Tokens swap; 220ms colour transition','Category template, motion lab theme switch',null,null,'top'],
+ ['In-page nav · sticks','sc','Scroll','Sticks under header; active tab follows section; mobile scrolls horizontally','PDP section 02b','spec',null],
+ ['On this page · anchor chips','sc','Click','Smooth scroll to section; chip hover 180ms','Product guides 02d','spec',null],
+ ['Guide link on category cards','sc','Hover / click','Link hover 180ms; opens the product guide','Category product cards','spec',null],
+ ['Primary CTA · size','both','Always','46px high on desktop and mobile; same padding and centred label everywhere, including sticky bars','Every primary CTA','m-button',null],
+ ['Goal cards · Energy / Recovery / Focus','codex','Hover / click','Hover: whole card Deep Teal, shape yellow, arrow 3px, 180–250ms; quarters pivot 90° 500ms; Recovery arch rises 10px + stretches to 108% 420ms. Click: “Look closer” line expands 380ms, 3px accent rule stays; click again collapses','Longevity starting points; same pattern on category choosers',null,null,null,'demos/longevity.html'],
+ ['Product option switcher','codex','Click tab / arrow keys','Active tab Deep Teal at once; art colour and geometry shift 380–500ms','Longevity product panel',null,null,null,'demos/longevity.html'],
+ ['Compare all three','codex','Click','Panel rises 10px + fades 320ms; second click closes; table scrolls inside its container on mobile','Longevity comparison',null,null,null,'demos/longevity.html'],
+ ['Four-step waypoints','codex','Hover / click','Hovered number rises 3px, Deep Teal with yellow digit 240ms; 28px quarter builds 460ms; click turns it yellow and opens one paragraph (rises 8px, 360ms); one open at a time','Category how-it-works',null,null,null,'demos/longevity.html'],
+ ['Assessment entry dialog','codex','CTA click; Escape / backdrop closes','Panel rises 10px + fades 260ms; focus trapped and returned; no personal data submitted','Category pages, homepage',null,null,null,'demos/better-intimacy.html'],
+ ['Header link · category accent','codex','Hover','Link colour to category accent 180ms; mobile menu closes after a link tap','Category pages',null,null,null,'demos/better-intimacy.html'],
+ ['Testimonials · manual','codex','Click arrows','Manual only, no auto-advance; quote cross-fade','Homepage stories',null,null,null,'demos/home-v3/index.html'],
+ ['Category chapters','codex','Hover / click','Hover and selected states; chapter detail opens; geometry builds once on reveal','Homepage areas of care',null,null,null,'demos/home-v3/interaction-states.html']];
+let MS='all'; const SC='interactive-showcase/';
+function renderM(){const q=$('#msearch').value.trim().toLowerCase();
+ const rows=MOTION.filter(m=>(MS==='all'||m[1]===MS||(MS==='gpt'&&m[1]==='codex'))&&(!q||m.slice(0,5).join(' ').toLowerCase().includes(q)));
+ $('#mcount').textContent=rows.length+' of '+MOTION.length+' patterns';
+ $('#t-motion').innerHTML=rows.map(m=>{const src={sc:'<span class="src sc">SoviCare</span>',gpt:'<span class="src gpt">Motion lab</span>',codex:'<span class="src gpt">Codex demo</span>',both:'<span class="src both">Both</span>'}[m[1]];
+  const w=[]; if(m[5]&&m[5]!=='spec') w.push(`<a href="${ML}${m[5]}" target="_blank" rel="noopener">Library</a>`); if(m[7]) w.push(`<a href="${LAB}${m[7]}" target="_blank" rel="noopener">Lab</a>`); if(m[6]) w.push(`<a href="${F(m[6])}" target="_blank" rel="noopener">Figma</a>`); if(m[8]) w.push(`<a href="${SC}${m[8]}" target="_blank" rel="noopener">Demo</a>`); if(m[5]==='spec') w.push('<span class="muted">Page spec</span>');
+  return `<tr class="mrow"><td>${esc(m[0])}</td><td>${src}</td><td>${esc(m[2])}</td><td class="small">${esc(m[3])}</td><td class="small muted">${esc(m[4])}</td><td class="small">${w.join(' · ')}</td></tr>`}).join('');}
+segs('#msrc',v=>{MS=v;renderM()}); $('#msearch').addEventListener('input',renderM); renderM();
+
+/* watch out */
+const WATCH=[
+ ['warn','Safety information (ISI)','Always fully visible at #isi, never in an accordion. Linked from the hero, the sticky bar and the in-page nav. The Trio text is a draft.','טקסט הבטיחות תמיד פתוח במלואו. של Trio – טיוטה.'],
+ ['warn','DEMO content must not ship','Illustrative prices, reviews, clinical figures, press wordmarks, “1,234 reviews”, Sermorelin and Methylene Blue copy. Build the components; load real data.','תוכן DEMO לא עולה לאוויר.'],
+ ['warn','Medical and legal claims','Copy says “may”, “if appropriate”, “provider decides”. Do not shorten disclaimers, small print or “Prescription required” tags. Compounded products keep “Not FDA-approved”.','לא לקצר הסתייגויות ואזהרות.'],
+ ['y','Hidden layers','Layers named [hidden] are off on purpose (for example comparison tables, clinical stats, care highlights on some products). Do not rebuild them from the component.','שכבות [hidden] כבויות בכוונה.'],
+ ['y','Annotations are not UI','Magenta pins, the 📘 Guides column, spec panels, annexes and ▶ motion demos are documentation only.','נעצים, הסברים ופאנלים הם תיעוד בלבד.'],
+ ['y','Sticky bars','Show only after the hero CTA has fully left the viewport; hide when the closing CTA enters and while the mobile menu or assessment dialog is open. Keep them inert while hidden, include the bottom safe area, and use the same 46px CTA.','הפס הצף מופיע רק אחרי שה‑CTA של ההירו יוצא מהמסך, ונעלם כשתפריט המובייל או חלונית ההערכה פתוחים.'],
+ ['b','Category theming','One template, three modes. Never fork components per category. The secondary colour (yellow, pink, coral) is used on shapes only, not on text.','צבע משני על צורות בלבד.'],
+ ['b','Buttons on dark','Outline hover → Deep Teal fill. On dark surfaces hover is Yellow with Deep Teal text (logged brand exception).','מצב hover על רקע כהה – צהוב.'],
+ ['b','Assessment boundary','The marketing site never collects health data. Get Started hands off to the assessment app; the first-question block only routes.','האתר לא אוסף מידע רפואי.'],
+ ['b','Images','Hero images use arch masks and kit shapes; export masks as CSS shapes or SVG, not baked into photos, so images can be swapped.','מסכות התמונות כ‑CSS/SVG.'],
+ ['b','No tablet frame','Agree tablet behaviour. Keep 1180 max width, 48px grid, 44px minimum tap target.','אין מסגרת טאבלט – לסכם.'],
+ ['b','Brand exceptions','Every approved deviation is logged in README → Brand exceptions log. Check it before “fixing” something that looks off-brand.','חריגות מותג מתועדות ב‑README.']];
+$('#watch').innerHTML=WATCH.map(w=>`<div class="callout ${w[0]==='warn'?'':w[0]}"><b>${w[1]}</b><span>${w[2]}</span><span class="he small muted">${w[3]}</span></div>`).join('');
+
+/* QA */
+const QA=[['Layout',[['Desktop matches the 1440 frame and mobile the 390 frame for every page','כל עמוד תואם לדסקטופ ולמובייל'],['Content width never exceeds 1180; no horizontal scroll at 320–1920','אין גלילה לרוחב'],['Section order on mobile matches the mobile frame','סדר הסקשנים במובייל נכון']]],
+ ['Tokens and type',[['Only semantic tokens in components; category pages set data-category','רק טוקנים סמנטיים'],['All text uses the 21 text styles; DM Serif Display and Inter load with fallbacks','סגנונות טקסט וגופנים']]],
+ ['Interaction',[['Every numbered row in each Interactions spec is implemented','כל שורה בפאנל האינטראקציות מומשה'],['States match the annexes: hover, focus, selected, open, error, sticky','המצבים תואמים לנספחים'],['Sticky bars appear after the hero CTA and hide at the closing CTA','פס צף מופיע ונעלם נכון'],['Header turns Deep Teal after 8px scroll','הדר משתנה בגלילה']]],
+ ['Motion and accessibility',[['Durations match the Motion tab; reduced motion shows final states','משכי תנועה ותנועה מופחתת'],['Keyboard: tabs, accordions, chips, plans and menu work without a mouse','ניווט מקלדת'],['Visible focus everywhere; tap targets ≥ 44px; colour contrast AA','פוקוס, גודל מגע, ניגודיות'],['Images have alt text; decorative shapes are aria-hidden','טקסט חלופי לתמונות']]],
+ ['Content and compliance',[['No DEMO text, illustrative price or placeholder review is live','אין תוכן DEMO באוויר'],['ISI is fully expanded and reachable from hero, sticky bar and nav','ISI פתוח ונגיש'],['Legal band, Telehealth Notice and Terms use approved text','טקסט משפטי מאושר'],['Prices come from the commerce system','מחירים ממערכת המסחר']]],
+ ['Release',[['Tested on iOS Safari, Android Chrome, desktop Chrome, Safari, Firefox, Edge','נבדק בדפדפנים'],['Forms validate, show errors and success, and never send medical details','טפסים תקינים'],['Analytics and consent banner agreed with the site owner','אנליטיקס והסכמה']]]];
+let saved={}; try{saved=JSON.parse(localStorage.getItem('sc-handoff-qa')||'{}')}catch(e){}
+$('#qa').innerHTML=QA.map(([g,items],gi)=>`<div class="sec"><h2>${g}</h2><div class="check">${items.map(([t,h],i)=>{const id='q'+gi+'-'+i;return `<label for="${id}"><input type="checkbox" id="${id}" ${saved[id]?'checked':''}><span><span class="t">${esc(t)}</span><span class="he">${esc(h)}</span></span></label>`}).join('')}</div></div>`).join('');
+function qcount(){const all=$$('#qa input'),d=all.filter(x=>x.checked).length;$('#qcount').textContent=d+' of '+all.length+' checked';$('#qbar').style.width=(d/all.length*100)+'%'}
+$$('#qa input').forEach(x=>x.addEventListener('change',()=>{saved[x.id]=x.checked;try{localStorage.setItem('sc-handoff-qa',JSON.stringify(saved))}catch(e){}qcount()})); qcount();
+
+/* open items */
+const OPEN=[['Real prices, plans and availability','Illustrative in Figma','SoviCare','PDP buy boxes, sticky bars, category cards'],['Product and people imagery','Brand-matching, non-real','SoviCare','Heroes, galleries, stories'],['Reviews, clinical figures, press logos','DEMO, illustrative','SoviCare + compliance','PDP modules'],['Trio safety information','Draft from the Combo doc §8','Medical / legal','PDP and guide #isi'],['Sermorelin and Methylene Blue copy','DEMO copy written for layout','SoviCare + medical','02.12 PDPs'],['Legal placeholders [ … ]','Bracketed text in Terms, legal band, emergency wording','Legal','02.10, footer legal band'],['Support response times','DEMO · confirm SLA','SoviCare','Contact channel cards'],['Product guide vs PDP routing','Both approved; URL plan open','SoviCare','Category cards “Guide link”'],['Tablet behaviour','No frame; agree breakpoints','Design + dev','All pages'],['Assessment hand-off URL and events','To define','Product + dev','All Get Started buttons'],['Primary CTA hover colour on light surfaces','Figma: darker Deep Teal · Codex demos: Yellow','SoviCare','Button component, all CTAs']];
+$('#t-open').innerHTML=OPEN.map(o=>`<tr><td><b>${o[0]}</b></td><td><span class="pill demo">${o[1]}</span></td><td>${o[2]}</td><td class="muted small">${o[3]}</td></tr>`).join('');
+</script>
+
+</body>
+</html>

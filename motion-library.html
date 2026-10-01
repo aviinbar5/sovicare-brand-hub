@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SoviCare · Motion library</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-14 -10 128 153'%3E%3Cpath fill='%23264653' d='M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z'/%3E%3Cpath fill='%23219EBC' d='M100 2H58A42 42 0 0 0 100 44Z'/%3E%3Cpath fill='%232A9D8F' d='M58 48A41 41 0 0 1 58 130Z'/%3E%3Cpath fill='%23FFBE0B' d='M0 131V89A42 42 0 0 1 42 131Z'/%3E%3C/svg%3E">
+<style>
+:root{--teal:#264653;--teal-h:#1d3843;--blue:#219EBC;--green:#2A9D8F;--yellow:#FFBE0B;--mist:#F2F7F9;--paper:#FFFFFF;--slate:#55747F;--slate-l:#7E9AA6;--line:#C6D6DF;--line-s:#DDE8ED;--loop:2.4s}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:'Inter',sans-serif;color:var(--teal);background:var(--mist);-webkit-font-smoothing:antialiased}
+a{color:#FFBE0B;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto}
+header{position:relative;overflow:hidden;background:var(--teal);padding:64px 56px 58px;color:var(--mist)}
+header .q{position:absolute;right:0;top:0;width:110px;height:110px;background:var(--yellow);border-radius:0 0 0 999px}
+header h1{font:400 42px/1.06 'DM Serif Display',serif;margin:16px 0}
+header p{font:400 15px/1.65 'Inter';color:#A8C2CD;max-width:62ch;margin:0 0 16px}
+header nav{display:flex;gap:20px;font-size:12.5px}
+main{padding:48px 56px 96px}
+.intro{display:grid;grid-template-columns:170px minmax(0,1fr);gap:24px;margin-bottom:36px}
+.intro h2{font:400 26px/1.15 'DM Serif Display',serif;margin:0}
+.intro p{font-size:15px;line-height:1.65;margin:0 0 10px;max-width:68ch}
+.tokens{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.tokens span{font:500 11.5px/1 'Inter';letter-spacing:.14em;text-transform:uppercase;padding:8px 12px;border-radius:999px;background:var(--paper);border:1px solid var(--line-s);color:var(--slate)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px}
+.tile{scroll-margin-top:90px;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer}
+.tile:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.scene{position:relative;height:130px;background:var(--mist);overflow:hidden}
+.meta{padding:14px 16px 16px}
+.meta b{display:block;font:600 14px/1.3 'Inter';margin-bottom:4px}
+.meta span{font:500 11px/1.5 'Inter';letter-spacing:.06em;text-transform:uppercase;color:var(--slate)}
+.meta em{display:block;font:400 12.5px/1.55 'Inter';font-style:normal;color:var(--slate);margin-top:6px}
+.tile.paused *{animation-play-state:paused!important}
+.hint{font-size:12.5px;color:var(--slate);margin:0 0 20px}
+.a{position:absolute;animation-duration:var(--loop);animation-iteration-count:infinite;animation-timing-function:ease}
+.pill{border-radius:999px}.card{border-radius:14px}
+.cur{width:12px;height:12px;border-radius:50%;background:var(--teal);border:2px solid #fff;opacity:.85;z-index:5}
+/* keyframes use % of 2.4s: 0.6s=25%, 0.78s=32.5%, 1.9s=79%, 2.1s=87.5% */
+@keyframes cur1{0%,4%{transform:translate(0,0)}25%,79%{transform:translate(var(--dx),var(--dy))}96%,100%{transform:translate(0,0)}}
+@keyframes btn{0%,25%{background:var(--teal);transform:scale(1)}32.5%{background:var(--teal-h)}46%{transform:scale(1)}52%{transform:scale(.97)}58%{transform:scale(1)}79%{background:var(--teal-h)}87.5%,100%{background:var(--teal)}}
+@keyframes border{0%,25%{border-color:var(--line-s)}32.5%,79%{border-color:var(--teal)}87.5%,100%{border-color:var(--line-s)}}
+@keyframes pivot{0%,25%{transform:rotate(0)}38%,79%{transform:rotate(90deg)}92%,100%{transform:rotate(0)}}
+@keyframes chipOn{0%,25%{background:#fff;color:var(--slate);transform:scale(1)}29%{transform:scale(1.02)}32.5%,79%{background:var(--teal);color:#fff;transform:scale(1)}87.5%,100%{background:#fff;color:var(--slate)}}
+@keyframes open{0%,25%{height:0}34%,79%{height:52px}88%,100%{height:0}}
+@keyframes plus{0%,25%{transform:rotate(0)}32.5%,79%{transform:rotate(45deg)}87%,100%{transform:rotate(0)}}
+@keyframes seg{0%,25%{transform:translateX(0)}32.5%,54%{transform:translateX(100%)}61.5%,81%{transform:translateX(200%)}90%,100%{transform:translateX(0)}}
+@keyframes barUp{0%,37.5%{transform:translateY(100%)}46.5%,81%{transform:translateY(0)}90%,100%{transform:translateY(100%)}}
+@keyframes scrollUp{0%,12%{transform:translateY(0)}50%,79%{transform:translateY(-28px)}96%,100%{transform:translateY(0)}}
+@keyframes fadeOut{0%,25%{opacity:1}34%,79%{opacity:0}88%,100%{opacity:1}}
+@keyframes hdr{0%,33%{background:var(--mist)}42.5%,79%{background:var(--teal)}88%,100%{background:var(--mist)}}
+@keyframes grow{0%,16%{width:2%}54%,79%{width:var(--w)}92%,100%{width:2%}}
+@keyframes slideIn{0%,25%{transform:translateX(110%)}38%,79%{transform:translateX(0)}92%,100%{transform:translateX(110%)}}
+@keyframes dim{0%,25%{opacity:0}38%,79%{opacity:.35}92%,100%{opacity:0}}
+@keyframes down{0%,25%{transform:translateY(0)}38%,79%{transform:translateY(48px)}92%,100%{transform:translateY(0)}}
+@keyframes up{0%,25%{transform:translateY(0);border-color:var(--line-s)}38%,79%{transform:translateY(-48px);border-color:var(--teal)}92%,100%{transform:translateY(0);border-color:var(--line-s)}}
+@keyframes badge{0%,38%{opacity:0;transform:translateY(10px)}47%,79%{opacity:1;transform:translateY(0)}86%,100%{opacity:0}}
+@keyframes focus{0%,25%{border-color:var(--line);box-shadow:none}32.5%,79%{border-color:var(--green);box-shadow:0 0 0 1px var(--green)}87.5%,100%{border-color:var(--line);box-shadow:none}}
+@keyframes label{0%,25%{transform:translateY(0) scale(1)}32.5%,79%{transform:translateY(-12px) scale(.82)}87.5%,100%{transform:translateY(0) scale(1)}}
+@keyframes caret{0%,33%{opacity:0}34%,46%{opacity:1}47%,58%{opacity:0}59%,75%{opacity:1}76%,100%{opacity:0}}
+@keyframes rise{0%,20%{opacity:0;transform:translateY(10px)}34%,79%{opacity:1;transform:translateY(0)}88%,100%{opacity:0;transform:translateY(10px)}}
+@keyframes wipe{0%,25%{clip-path:inset(100% 0 0 0)}51%,79%{clip-path:inset(0 0 0 0)}92%,100%{clip-path:inset(100% 0 0 0)}}
+@keyframes pop{0%,37.5%{transform:scale(0)}50%,79%{transform:scale(1)}92%,100%{transform:scale(0)}}
+@keyframes under{0%,25%{height:1px}32.5%,79%{height:2px}87.5%,100%{height:1px}}
+@keyframes arrow{0%,25%{transform:translateX(0)}32.5%,79%{transform:translateX(4px)}87.5%,100%{transform:translateX(0)}}
+@keyframes selA{0%,25%{border-color:var(--teal);border-width:2px}32.5%,79%{border-color:var(--line-s);border-width:1px}87.5%,100%{border-color:var(--teal);border-width:2px}}
+@keyframes selB{0%,25%{border-color:var(--line-s);border-width:1px}32.5%,79%{border-color:var(--teal);border-width:2px}87.5%,100%{border-color:var(--line-s);border-width:1px}}
+@keyframes dotA{0%,25%{transform:scale(1)}32.5%,79%{transform:scale(0)}87.5%,100%{transform:scale(1)}}
+@keyframes dotB{0%,25%{transform:scale(0)}32.5%,79%{transform:scale(1)}87.5%,100%{transform:scale(0)}}
+@keyframes prog{0%,12%{width:0}26%,50%{width:50%}63%,81%{width:100%}92%,100%{width:0}}
+@keyframes piece{0%,12%{transform:translateX(-50px) rotate(0);background:var(--blue)}26%,50%{transform:translateX(0) rotate(90deg);background:var(--green)}63%,81%{transform:translateX(50px) rotate(180deg);background:var(--teal)}92%,100%{transform:translateX(-50px) rotate(0);background:var(--blue)}}
+@media (prefers-reduced-motion:reduce){.a,.a *{animation:none!important}}
+@media (max-width:700px){header{padding:48px 24px}main{padding:36px 16px 72px}.intro{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="q"></div>
+  <nav><a href="index.html">Hub</a><a href="foundations.html">Foundations</a><a href="components.html">Components</a><a href="ux-patterns.html">UX patterns</a><a href="motion-lab.html">Motion lab</a><a href="developer-handoff.html">Developer handoff</a></nav>
+  <h1>Motion library.</h1>
+  <p>Every interaction pattern used on the website, playing live. The same 17 patterns are Figma Motion components in the working file (02.01 — Elements · 🎬 Motion demos) and sit next to each card in every Interactions panel.</p>
+</header>
+<main>
+  <section class="intro">
+    <h2>The rule</h2>
+    <div>
+      <p><strong>Motion confirms, it never performs.</strong> One easing (ease), one distance (10px up), four durations. Selection is a 1.02 scale plus a border. With reduced motion switched on, every state appears instantly.</p>
+      <div class="tokens"><span>140ms · press</span><span>180ms · hover / select</span><span>220ms · open / slide</span><span>320ms · reveal / reorder</span></div>
+    </div>
+  </section>
+  <p class="hint">Each tile loops every 2.4s. Click a tile to pause it.</p>
+  <div class="grid" id="grid">
+
+  <div class="tile" tabindex="0" id="m-button"><div class="scene">
+    <div class="a pill" style="left:50%;top:50%;width:132px;height:36px;margin:-18px 0 0 -66px;background:var(--teal);animation-name:btn;display:flex;align-items:center;justify-content:center;color:#fff;font:500 12px 'Inter'">Get Started</div>
+    <div class="a cur" style="right:20px;bottom:14px;--dx:-78px;--dy:-44px;animation-name:cur1"></div>
+  </div><div class="meta"><b>Button · hover + press</b><span>Hover 180ms · press 140ms</span><em>Fill darkens on hover; a light 0.97 press on click.</em></div></div>
+
+  <div class="tile" tabindex="0" id="m-card"><div class="scene">
+    <div class="a card" style="left:40px;top:18px;right:40px;bottom:18px;background:#fff;border:1.5px solid var(--line-s);animation-name:border"></div>
+    <div class="a" style="left:56px;top:32px;width:22px;height:22px;background:var(--green);border-radius:22px 0 0 0;animation-name:pivot"></div>
+    <div style="position:absolute;left:56px;top:66px;width:90px;height:7px;border-radius:9px;background:var(--line-s)"></div>
+    <div style="position:absolute;left:56px;top:80px;width:60px;height:7px;border-radius:9px;background:var(--line-s)"></div>
+  </div><div class="meta"><b>Card · hover</b><span>Border 180ms · mark pivot 320ms</span><em>Product and category cards: border to Deep Teal, the mark turns once.</em></div></div>
+
+  <div class="tile" tabindex="0" id="m-chip"><div class="scene" style="display:flex;align-items:center;justify-content:center;gap:8px">
+    <span class="pill" style="padding:6px 12px;background:#fff;border:1px solid var(--line);font:500 11px 'Inter';color:var(--slate)">Daily</span>
+    <span class="a pill" style="position:relative;padding:6px 12px;border:1px solid var(--line);font:500 11px 'Inter';animation-name:chipOn">✓ As needed</span>
+    <span class="pill" style="padding:6px 12px;background:#fff;border:1px solid var(--line);font:500 11px 'Inter';color:var(--slate)">Not sure</span>
+  </div><div class="meta"><b>Chip · select</b><span>Tap · fill + check 180ms</span><em>Quiz answers and FAQ filters. One choice per group.</em></div></div>
+
+  <div class="tile" tabindex="0" id="m-accordion"><div class="scene">
+    <div style="position:absolute;left:20px;right:20px;top:16px;height:32px;background:#fff;border:1px solid var(--line-s);border-radius:10px"></div>
+    <div style="position:absolute;left:34px;top:28px;width:100px;height:7px;border-radius:9px;background:var(--slate);opacity:.45"></div>
+    <div class="a" style="right:32px;top:18px;font:500 18px 'Inter';color:var(--teal);animation-name:plus">+</div>
+    <div class="a" style="left:20px;right:20px;top:52px;height:0;background:#fff;border-radius:10px;overflow:hidden;animation-name:open">
+      <div style="margin:12px 14px 0;height:6px;border-radius:9px;background:var(--line-s)"></div>
+      <div style="margin:8px 14px 0;width:60%;height:6px;border-radius:9px;background:var(--line-s)"></div>
+    </div>
+  </div><div class="meta"><b>Accordion · open</b><span>“+” → “×” 180ms · open 220ms</span><em>FAQ rows. One row open at a time.</em></div></div>
+
+  <div class="tile" tabindex="0" id="m-segmented"><div class="scene" style="display:flex;align-items:center;justify-content:center">
+    <div style="position:relative;width:180px;height:32px;border:1px solid var(--line);border-radius:999px;background:#fff">
+      <div class="a pill" style="left:3px;top:3px;width:58px;height:24px;background:var(--yellow-wash,#DDE8ED);border:1.5px solid var(--teal);animation-name:seg"></div>
+      <div style="position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);place-items:center;font:500 11px 'Inter';color:var(--slate);z-index:2"><span>1 mo</span><span>3 mo</span><span>6 mo</span></div>
+    </div>
+  </div><div class="meta"><b>Segmented · switch</b><span>Tap · segment slides 180ms</span><em>Supply length on product pages.</em></div></div>
+
+  <div class="tile" tabindex="0" id="m-sticky"><div class="scene">
+    <div class="a" style="left:20px;right:20px;top:12px;animation-name:scrollUp">
+      <div style="height:7px;border-radius:9px;background:var(--line-s);margin-bottom:10px"></div><div style="height:7px;width:70%;border-radius:9px;background:var(--line-s);margin-bottom:10px"></div><div style="height:7px;border-radius:9px;background:var(--line-s);margin-bottom:10px"></div><div style="height:7px;width:60%;border-radius:9px;background:var(--line-s)"></div>
+    </div>
+    <div class="a" style="left:0;right:0;bottom:0;height:34px;background:var(--teal);display:flex;align-items:center;justify-content:space-between;padding:0 12px;color:#fff;font:500 10.5px 'Inter';animation-name:barUp">Starting at $36/mo<span class="pill" style="background:#fff;color:var(--teal);padding:4px 10px">Get Started</span></div>
+  </div><div class="meta"><b>Sticky buy bar · slide up</b><span>Scroll · slides up 220ms</span><em>Appears when the hero button leaves the screen.</em></div></div>
+
+  <div class="tile" tabindex="0" id="m-gallery"><div class="scene">
+    <div class="card" style="position:absolute;left:18px;top:14px;width:130px;height:102px;background:var(--green)"></div>
+    <div class="a card" style="left:18px;top:14px;width:130px;height:102px;background:var(--blue);animation-name:fadeOut"></div>
+    <div style="position:absolute;right:18px;top:14px;width:60px;height:46px;border-radius:8px;background:var(--blue)"></div>
+    <div style="position:absolute;right:18px;top:70px;width:60px;height:46px;border-radius:8px;background:var(--green)"></div>
+  </div><div class="meta"><b>Gallery · cross-fade</b><span>Click thumb · cross-fade 220ms</span><em>Product image gallery; the selected thumbnail gets a 2px border.</em></div></div>
+
+  <div class="tile" tabindex="0" id="m-header"><div class="scene">
+    <div class="a" style="left:0;right:0;top:0;height:28px;border-bottom:1px solid var(--line-s);animation-name:hdr;z-index:2"></div>
+    <div class="a" style="left:20px;right:20px;top:44px;animation-name:scrollUp">
+      <div style="height:7px;border-radius:9px;background:var(--line-s);margin-bottom:10px"></div><div style="height:7px;width:66%;border-radius:9px;background:var(--line-s);margin-bottom:10px"></div><div style="height:7px;border-radius:9px;background:var(--line-s)"></div>
+    </div>
+  </div><div class="meta"><b>Header · on scroll</b><span>After 8px · header → Deep Teal 220ms</span><em>Links and buttons invert to their on-dark versions.</em></div></div>
+
+  <div class="tile" tabindex="0" id="m-stats"><div class="scene" style="padding:26px 20px">
+    <div style="position:relative;height:9px;border-radius:9px;background:var(--line-s);margin-bottom:16px"><div class="a pill" style="left:0;top:0;height:9px;background:var(--green);--w:72%;animation-name:grow"></div></div>
+    <div style="position:relative;height:9px;border-radius:9px;background:var(--line-s);margin-bottom:16px"><div class="a pill" style="left:0;top:0;height:9px;background:var(--blue);--w:54%;animation-name:grow;animation-delay:.12s"></div></div>
+    <div style="position:relative;height:9px;border-radius:9px;background:var(--line-s)"><div class="a pill" style="left:0;top:0;height:9px;background:var(--green);--w:90%;animation-name:grow;animation-delay:.24s"></div></div>
+  </div><div class="meta"><b>Stats · count up</b><span>50% in view · 900ms · DEMO data</span><em>Clinical results module. Numbers only after approval.</em></div></div>
+
+  <div class="tile" tabindex="0" id="m-menu"><div class="scene">
+    <div style="position:absolute;left:0;right:0;top:0;height:26px;background:var(--teal)"></div>
+    <div class="a" style="left:0;right:0;top:26px;bottom:0;background:var(--teal);animation-name:dim"></div>
+    <div class="a" style="right:0;top:26px;bottom:0;width:55%;background:#fff;padding:14px;animation-name:slideIn">
+      <div style="height:7px;width:70%;border-radius:9px;background:var(--teal);margin-bottom:12px"></div><div style="height:7px;width:55%;border-radius:9px;background:var(--line);margin-bottom:12px"></div><div style="height:7px;width:60%;border-radius:9px;background:var(--line)"></div>
+    </div>
+  </div><div class="meta"><b>Menu · open (mobile)</b><span>Tap ☰ · panel slides in 320ms</span><em>Background dims; tap outside or × to close.</em></div></div>
+
+  <div class="tile" tabindex="0" id="m-quiz"><div class="scene">
+    <div class="a card" style="left:30px;right:30px;top:14px;height:40px;background:#fff;border:1px solid var(--line-s);animation-name:down"></div>
+    <div class="a card" style="left:30px;right:30px;top:62px;height:40px;background:#fff;border:1.5px solid var(--line-s);animation-name:up"></div>
+    <div class="a pill" style="right:42px;top:26px;width:48px;height:16px;background:var(--yellow);animation-name:badge;z-index:3"></div>
+  </div><div class="meta"><b>Quiz · best match moves up</b><span>Answer · reorder 320ms · badge rises</span><em>Category pages: the closest option moves to first place.</em></div></div>
+
+  <div class="tile" tabindex="0" id="m-field"><div class="scene">
+    <div class="a" style="left:20px;right:20px;top:42px;height:44px;background:#fff;border:1px solid var(--line);border-radius:10px;animation-name:focus"></div>
+    <div class="a" style="left:34px;top:56px;font:400 12px 'Inter';color:var(--slate-l);transform-origin:left center;animation-name:label">Email address</div>
+    <div class="a" style="left:34px;top:62px;width:1px;height:14px;background:var(--teal);animation-name:caret"></div>
+  </div><div class="meta"><b>Form field · focus</b><span>Focus · border + label 180ms</span><em>Contact form; errors show in Coral with one line of help.</em></div></div>
+
+  <div class="tile" tabindex="0" id="m-reveal"><div class="scene" style="padding:18px 20px">
+    <div style="width:70px;height:7px;border-radius:9px;background:var(--green);margin-bottom:14px"></div>
+    <div class="a" style="position:relative;height:12px;border-radius:9px;background:var(--teal);margin-bottom:10px;animation-name:rise"></div>
+    <div class="a" style="position:relative;height:12px;width:78%;border-radius:9px;background:var(--teal);margin-bottom:12px;animation-name:rise;animation-delay:.12s"></div>
+    <div class="a" style="position:relative;height:7px;width:88%;border-radius:9px;background:var(--slate-l);animation-name:rise;animation-delay:.24s"></div>
+  </div><div class="meta"><b>Reveal · on scroll</b><span>In view · rise 10px + fade 320ms</span><em>Lines enter 120ms apart. Plays once per visit.</em></div></div>
+
+  <div class="tile" tabindex="0" id="m-kit"><div class="scene">
+    <div class="a" style="left:52px;top:28px;width:64px;height:64px;background:var(--green);border-radius:0 64px 0 0;animation-name:pivot"></div>
+    <div class="a" style="left:128px;top:28px;width:32px;height:64px;background:var(--blue);border-radius:32px 0 0 32px;animation-name:wipe"></div>
+    <div class="a" style="left:172px;top:28px;width:24px;height:24px;border-radius:50%;background:var(--yellow);animation-name:pop"></div>
+  </div><div class="meta"><b>Kit piece · pivot + wipe</b><span>On reveal · pivot 320ms · wipe 620ms</span><em>Quadrant Kit pieces around photos. Max two per surface.</em></div></div>
+
+  <div class="tile" tabindex="0" id="m-link"><div class="scene" style="display:flex;align-items:center;justify-content:center">
+    <span style="position:relative;font:500 14px 'Inter';color:var(--teal);padding-bottom:4px">Explore NAD+ <span class="a" style="position:relative;display:inline-block;animation-name:arrow">→</span>
+      <span class="a" style="left:0;right:22px;bottom:0;height:1px;background:var(--teal);animation-name:under"></span></span>
+  </div><div class="meta"><b>Link · hover</b><span>Hover · underline thickens · arrow 4px 180ms</span><em>Text links and “Explore …” links on cards.</em></div></div>
+
+  <div class="tile" tabindex="0" id="m-plan"><div class="scene" style="padding:14px 20px">
+    <div class="a card" style="position:relative;height:42px;background:#fff;border:2px solid var(--teal);border-radius:10px;margin-bottom:10px;animation-name:selA">
+      <span style="position:absolute;left:12px;top:12px;width:16px;height:16px;border:1.5px solid var(--teal);border-radius:50%"></span><span class="a" style="left:16px;top:16px;width:8px;height:8px;border-radius:50%;background:var(--teal);animation-name:dotA"></span></div>
+    <div class="a card" style="position:relative;height:42px;background:#fff;border:1px solid var(--line-s);border-radius:10px;animation-name:selB">
+      <span style="position:absolute;left:12px;top:12px;width:16px;height:16px;border:1.5px solid var(--teal);border-radius:50%"></span><span class="a" style="left:16px;top:16px;width:8px;height:8px;border-radius:50%;background:var(--teal);animation-name:dotB"></span></div>
+  </div><div class="meta"><b>Plan · radio select</b><span>Click · border 2px + dot 180ms</span><em>“Choose your plan”; the price line updates.</em></div></div>
+
+  <div class="tile" tabindex="0" id="m-steps"><div class="scene">
+    <div style="position:absolute;left:30px;right:30px;top:96px;height:3px;border-radius:9px;background:var(--line-s)"><div class="a" style="left:0;top:0;height:3px;background:var(--teal);animation-name:prog"></div></div>
+    <div class="a" style="left:50%;top:22px;width:44px;height:44px;margin-left:-22px;border-radius:44px 0 0 0;animation-name:piece"></div>
+  </div><div class="meta"><b>Steps · advance</b><span>Step → step · progress 320ms · piece moves</span><em>How It Works: the kit piece rotates, recolours and moves on every step.</em></div></div>
+
+  </div>
+</main>
+</div>
+<script>
+document.querySelectorAll('.tile').forEach(t=>{const f=()=>t.classList.toggle('paused');t.addEventListener('click',f);t.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();f()}})});
+</script>
+</body>
+</html>

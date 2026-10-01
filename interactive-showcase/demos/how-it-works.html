@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#264653">
+  <title>SoviCare | How It Works · Standalone Section</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--deep:#264653;--blue:#219EBC;--green:#2A9D8F;--yellow:#FFBE0B;--mist:#F2F7F9;--paper:#FFFFFF;--slate:#55747F;--line:#D6E2E9;--line-mid:#B9CEDA;--line-strong:#C6D6DF;--ease:cubic-bezier(.22,1,.36,1)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--deep);font:400 16px/1.7 Inter,Arial,sans-serif;color:var(--mist);-webkit-font-smoothing:antialiased}button{font:inherit;cursor:pointer}button:focus-visible{outline:2px solid var(--blue);outline-offset:3px}h1,h2,p{margin:0}.how{min-height:100vh;background:var(--deep);padding:clamp(48px,6vw,88px) 0 36px}.wrap{width:min(calc(100% - 96px),1180px);margin-inline:auto}.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:11.5px;font-weight:700;letter-spacing:.15em;line-height:1.3}.eyebrow:before{content:"";width:7px;height:7px;flex:none;border-radius:50%;background:var(--blue)}.intro{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:end;margin:26px 0 72px}.intro h1{font:400 clamp(32px,3.2vw,38px)/1.12 'DM Serif Display',Georgia,serif;max-width:580px}.intro p{max-width:445px;color:var(--line-mid);font-size:16px;line-height:1.7;margin-left:auto}.layout{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:stretch}.steps{border-top:1px solid var(--line-mid)}.step{display:grid;grid-template-columns:52px 1fr 26px;gap:24px;align-items:center;width:100%;min-height:105px;padding:12px 24px;text-align:left;border:0;border-bottom:1px solid var(--line-mid);background:transparent;color:var(--mist);transition:background .22s,color .22s}.step:hover{background:#4B7284}.step[aria-selected="true"]{background:var(--paper);color:var(--deep)}.step-number{width:38px;height:38px;display:grid;place-items:center;border:1px solid currentColor;border-radius:50%;font-size:11.5px;font-weight:700}.step-title{font:400 26px/1.18 'DM Serif Display',Georgia,serif}.step-arrow{font:400 20px/1 Inter,Arial,sans-serif}.stage{position:relative;min-height:450px;overflow:hidden;border-radius:14px;background:var(--mist);color:var(--deep);isolation:isolate}.stage-counter{position:absolute;top:27px;left:36px;z-index:2;font-size:11.5px;font-weight:700;letter-spacing:.14em}.stage-art{position:absolute;inset:0;overflow:hidden;pointer-events:none}.stage-line{position:absolute;top:12%;left:9%;width:60%;height:1px;background:var(--line-mid);transform:rotate(-28deg) scaleX(0);transform-origin:left center;transition:transform .42s var(--ease)}.stage-quarter{position:absolute;width:235px;height:235px;right:12%;top:12%;border-radius:0 0 0 100%;background:var(--blue);clip-path:inset(100% 0 0 0);transform:rotate(0);transition:clip-path .52s var(--ease),transform .52s var(--ease),background .52s var(--ease)}.stage-circle{position:absolute;right:10%;top:8%;width:64px;height:64px;border-radius:50%;background:var(--green);clip-path:circle(0 at center);transition:clip-path .42s var(--ease),transform .52s var(--ease)}.how.is-visible .stage-line{transform:rotate(-28deg) scaleX(1)}.how.is-visible .stage-quarter{clip-path:inset(0 0 0 0)}.how.is-visible .stage-circle{clip-path:circle(72% at center)}.stage[data-step="0"] .stage-quarter{transform:rotate(-90deg);background:var(--blue)}.stage[data-step="1"] .stage-quarter{transform:rotate(180deg);background:var(--green)}.stage[data-step="2"] .stage-quarter{transform:rotate(90deg);background:var(--deep)}.stage[data-step="3"] .stage-quarter{transform:rotate(0);background:var(--blue)}.stage[data-step="0"] .stage-circle{transform:translate(-160px,160px)}.stage[data-step="1"] .stage-circle{transform:translate(-165px,10px)}.stage[data-step="2"] .stage-circle{transform:translate(-20px,170px)}.stage[data-step="3"] .stage-circle{transform:translate(0,0)}.stage-copy{position:absolute;left:36px;right:72px;bottom:36px;z-index:2;min-height:138px;padding:24px;border:1px solid var(--line-strong);border-radius:14px;background:var(--paper)}.stage-copy h2{font:400 26px/1.2 'DM Serif Display',Georgia,serif}.stage-copy p{margin-top:12px;color:var(--slate);font-size:14px;line-height:1.55}.stage-copy.is-changing{animation:copyRise .28s var(--ease) both}.footer-actions{display:flex;align-items:center;gap:24px;margin-top:48px}.cta{height:46px;display:inline-flex;align-items:center;justify-content:center;gap:24px;padding:0 26px;border:1px solid var(--paper);border-radius:999px;background:var(--paper);color:var(--deep);font:500 14px/1 Inter,Arial,sans-serif;transition:background .18s,border-color .18s,transform .18s}.cta:hover{background:var(--yellow);border-color:var(--yellow)}.cta:active{transform:translateY(1px)}.cta span{font-size:19px;line-height:0}.footer-actions small{color:var(--line-mid);font-size:11.5px}.cta-note{display:none;color:var(--line-mid);font-size:12px}.cta-note.show{display:inline}.stage:after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:14px;border:1px solid var(--line);opacity:.25}@keyframes copyRise{from{opacity:.35;transform:translateY(12px)}to{opacity:1;transform:none}}
+    @media(max-width:900px){.wrap{width:calc(100% - 48px)}.how{padding:72px 0}.intro{margin-bottom:48px}.layout{gap:24px}.step{gap:12px;padding:12px}.step-title{font-size:26px}.stage{min-height:420px}.stage-copy{right:24px;left:24px;bottom:24px}}
+    @media(max-width:700px){.how{padding:48px 0 72px}.intro{display:block;margin:24px 0 36px}.intro h1{font-size:32px}.intro p{margin:24px 0 0;font-size:14px}.layout{display:block}.steps{display:grid;grid-template-columns:1fr 1fr;gap:12px;border:0;margin-bottom:12px}.step{min-height:118px;grid-template-columns:32px 1fr;gap:8px;align-content:start;border:1px solid var(--line-mid);border-radius:14px;padding:12px}.step-number{width:32px;height:32px}.step-title{font-size:26px}.step-arrow{display:none}.stage{min-height:365px}.stage-quarter{width:185px;height:185px}.stage-circle{width:50px;height:50px}.stage-copy{min-height:120px}.stage-counter{top:24px;left:24px}.footer-actions{margin-top:36px;flex-wrap:wrap;gap:12px}}
+    @media(max-width:390px){.wrap{width:calc(100% - 40px)}.intro h1{font-size:30px}.step-title{font-size:26px}.stage-copy{padding:12px}.stage-copy p{font-size:12.5px}.stage{min-height:345px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important;scroll-behavior:auto!important}.stage-line{transform:rotate(-28deg) scaleX(1)!important}.stage-quarter{clip-path:none!important}.stage-circle{clip-path:none!important}}
+  </style>
+</head>
+<body>
+  <section class="how" id="how" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="eyebrow">03 / HOW IT WORKS</div>
+      <div class="intro"><h1 id="how-title">Personalized care,<br>without the usual runaround.</h1><p>From what you have noticed to a care plan reviewed by a licensed provider.</p></div>
+      <div class="layout">
+        <div class="steps" role="tablist" aria-label="The four steps of SoviCare">
+          <button class="step" type="button" id="step-1" role="tab" aria-controls="step-panel" aria-selected="false" tabindex="-1" data-step="0"><span class="step-number">01</span><span class="step-title">Tell us what’s changed.</span><span class="step-arrow" aria-hidden="true">↗</span></button>
+          <button class="step" type="button" id="step-2" role="tab" aria-controls="step-panel" aria-selected="false" tabindex="-1" data-step="1"><span class="step-number">02</span><span class="step-title">A licensed provider reviews your information.</span><span class="step-arrow" aria-hidden="true">↗</span></button>
+          <button class="step" type="button" id="step-3" role="tab" aria-controls="step-panel" aria-selected="false" tabindex="-1" data-step="2"><span class="step-number">03</span><span class="step-title">Receive a personalized care plan.</span><span class="step-arrow" aria-hidden="true">↗</span></button>
+          <button class="step" type="button" id="step-4" role="tab" aria-controls="step-panel" aria-selected="true" tabindex="0" data-step="3"><span class="step-number">04</span><span class="step-title">Stay supported.</span><span class="step-arrow" aria-hidden="true">↗</span></button>
+        </div>
+        <div class="stage" id="step-panel" role="tabpanel" aria-labelledby="step-4" aria-live="polite" data-step="3"><div class="stage-art" aria-hidden="true"><div class="stage-line"></div><div class="stage-quarter"></div><div class="stage-circle"></div></div><span class="stage-counter">04 / 04</span><div class="stage-copy"><h2>Stay supported.</h2><p>Access ongoing guidance, follow-up, and adjustments based on your care plan.</p></div></div>
+      </div>
+      <div class="footer-actions"><button class="cta" id="get-started" type="button">Get Started <span aria-hidden="true">↗</span></button><small>Assessment only. Not a diagnosis.</small><span class="cta-note" id="cta-note" role="status">Assessment flow is outside this section preview.</span></div>
+    </div>
+  </section>
+  <script>
+    const details=[
+      {heading:'Tell us what’s changed.',body:'Complete a private online assessment covering your health, symptoms, and goals.'},
+      {heading:'A licensed provider reviews your information.',body:'Labs may be requested when clinically appropriate.'},
+      {heading:'Receive a personalized care plan.',body:'If treatment is appropriate, your provider will explain the recommended options.'},
+      {heading:'Stay supported.',body:'Access ongoing guidance, follow-up, and adjustments based on your care plan.'}
+    ];
+    const tabs=[...document.querySelectorAll('.step')],stage=document.querySelector('.stage'),copy=document.querySelector('.stage-copy');
+    const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+    function selectStep(index,focus=false){
+      tabs.forEach((tab,n)=>{const active=n===index;tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1});
+      stage.dataset.step=String(index);stage.setAttribute('aria-labelledby',tabs[index].id);
+      stage.querySelector('.stage-counter').textContent=`0${index+1} / 04`;
+      copy.querySelector('h2').textContent=details[index].heading;
+      copy.querySelector('p').textContent=details[index].body;
+      copy.classList.remove('is-changing');
+      if(!reduced.matches){void copy.offsetWidth;copy.classList.add('is-changing')}
+      if(focus)tabs[index].focus();
+    }
+    tabs.forEach((tab,index)=>{tab.addEventListener('click',()=>selectStep(index));tab.addEventListener('keydown',event=>{if(!['ArrowRight','ArrowLeft','ArrowUp','ArrowDown','Home','End'].includes(event.key))return;event.preventDefault();const next=event.key==='Home'?0:event.key==='End'?tabs.length-1:(index+(['ArrowRight','ArrowDown'].includes(event.key)?1:-1)+tabs.length)%tabs.length;selectStep(next,true)})});
+    const section=document.querySelector('.how');
+    if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){section.classList.add('is-visible');observer.disconnect()}},{threshold:.12});observer.observe(section)}else section.classList.add('is-visible');
+    document.querySelector('#get-started').addEventListener('click',()=>document.querySelector('#cta-note').classList.add('show'));
+  </script>
+</body>
+</html>
