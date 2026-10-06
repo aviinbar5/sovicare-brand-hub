@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SoviCare · Navigation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-14 -10 128 153'%3E%3Cpath fill='%23264653' d='M44.5 2A42.7 42.7 0 0 0 44.5 87.4Z'/%3E%3Cpath fill='%23219EBC' d='M100 2H58A42 42 0 0 0 100 44Z'/%3E%3Cpath fill='%232A9D8F' d='M58 48A41 41 0 0 1 58 130Z'/%3E%3Cpath fill='%23FFBE0B' d='M0 131V89A42 42 0 0 1 42 131Z'/%3E%3C/svg%3E">
+<style>
+:root{--teal:#264653;--teal-h:#1C3742;--blue:#219EBC;--green:#2A9D8F;--yellow:#FFBE0B;--mist:#F2F7F9;--paper:#FFFFFF;--slate:#55747F;--slate-l:#7E9AA6;--line:#C6D6DF;--line-s:#DDE8ED}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:'Inter',sans-serif;color:var(--teal);background:var(--mist);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+header{position:relative;overflow:hidden;background:var(--teal);padding:64px 56px 58px;color:var(--mist)}
+header .q{position:absolute;right:0;top:0;width:110px;height:110px;background:var(--blue);border-radius:0 0 0 999px;opacity:.9}
+header .k{font:500 11.5px/1 'Inter';letter-spacing:.14em;text-transform:uppercase;color:#A8C2CD}
+header h1{font:400 42px/1.06 'DM Serif Display',serif;margin:16px 0}
+header p{font:400 15px/1.65 'Inter';color:#A8C2CD;max-width:64ch;margin:0 0 18px}
+header nav{display:flex;flex-wrap:wrap;gap:20px;font-size:12.5px}
+header nav a{color:var(--yellow)}
+header nav a:hover{text-decoration:underline;text-underline-offset:3px}
+main{padding:48px 56px 96px;max-width:1272px;margin:0 auto}
+h2{font:400 28px/1.15 'DM Serif Display',serif;margin:0 0 6px}
+.lead{font-size:15px;line-height:1.65;color:var(--slate);margin:0 0 24px;max-width:72ch}
+section{margin-bottom:56px}
+.chip{display:inline-block;font:600 10.5px/1 'Inter';letter-spacing:.12em;text-transform:uppercase;padding:6px 10px;border-radius:999px;border:1px solid var(--line-s);background:var(--paper);color:var(--slate)}
+.chip.cur{background:var(--green);border-color:var(--green);color:#fff}
+.chip.app{background:var(--teal);border-color:var(--teal);color:#fff}
+.chip.kept{background:#fff;color:var(--slate-l)}
+/* current */
+.current{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:24px}
+.panel{background:var(--paper);border:1px solid var(--line-s);border-radius:14px;padding:28px}
+.panel h3{font:600 15px/1.3 'Inter';margin:14px 0 8px}
+.panel ul{margin:0;padding-left:18px;font-size:14px;line-height:1.7;color:#334a52}
+.mock{border:1px solid var(--line-s);border-radius:14px;overflow:hidden;background:#E8E7E1;margin-top:18px}
+.mock .bar{height:64px;background:#FEFCF6;display:flex;align-items:center;justify-content:space-between;padding:0 22px;border-bottom:1px solid var(--line-s);font:500 13px 'Inter'}
+.mock .logo{font:400 18px 'DM Serif Display',serif;display:flex;align-items:center;gap:8px}
+.mock .logo i{width:12px;height:16px;background:linear-gradient(var(--blue) 50%,var(--green) 50%);border-radius:6px 0 0 6px;display:inline-block}
+.mock .items{display:flex;gap:22px}.mock .items span{position:relative;cursor:default}
+.mock .items span::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1.5px;background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform 220ms ease}
+.mock .items span:hover::after{transform:scaleX(1)}
+.mock .act{display:flex;gap:14px;align-items:center;color:var(--slate)}
+.mock .btn{height:36px;padding:0 16px;border-radius:999px;background:var(--teal);color:#F2F7F9;display:inline-flex;align-items:center;transition:background 180ms ease}
+.mock .btn:hover{background:var(--teal-h)}
+.mock .body{height:120px}
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+.card{display:flex;flex-direction:column;gap:12px;padding:26px 26px 28px;border-radius:18px;background:var(--paper);border:1px solid var(--line-s);transition:transform 180ms ease,border-color 180ms ease}
+.card:hover{transform:translateY(-2px);border-color:var(--blue)}
+.card:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.card .t{font:400 25px/1.1 'DM Serif Display',serif}
+.card p{margin:0;font-size:13.5px;line-height:1.6;color:var(--slate)}
+.card .go{margin-top:auto;font:500 13px 'Inter';color:var(--blue)}
+.kit{display:flex;gap:6px;align-items:flex-end;height:22px}
+.kit span{display:block}
+/* timeline */
+.tl{list-style:none;margin:0;padding:0;border-left:1.5px solid var(--line);margin-left:6px}
+.tl li{position:relative;padding:0 0 22px 24px}
+.tl li::before{content:"";position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:1.5px solid var(--teal)}
+.tl li.on::before{background:var(--green);border-color:var(--green)}
+.tl b{font:600 14px 'Inter'}.tl p{margin:4px 0 0;font-size:13.5px;line-height:1.6;color:var(--slate)}
+.tl .d{font:500 11.5px 'Inter';letter-spacing:.1em;text-transform:uppercase;color:var(--slate-l);margin-left:8px}
+table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line-s);border-radius:14px;overflow:hidden;font-size:13.5px}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line-s);vertical-align:top}
+th{font:600 11px 'Inter';letter-spacing:.12em;text-transform:uppercase;color:var(--slate);background:#F7FAFB}
+td a{color:var(--blue)}td a:hover{text-decoration:underline}
+footer{padding:28px 56px;font-size:12.5px;color:var(--slate-l);border-top:1px solid var(--line-s)}
+@media (max-width:860px){header{padding:48px 24px 44px}main{padding:36px 24px 72px}.current{grid-template-columns:1fr}.mock .items{display:none}header h1{font-size:34px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <span class="q" aria-hidden="true"></span>
+  <div class="k">SoviCare brand hub · Website · Navigation</div>
+  <h1>The main menu.</h1>
+  <p>Every menu direction we explored, the one we approved and the version that is live in Figma now, with the developer rules and direct Figma links.</p>
+  <nav><a href="index.html">← Brand hub</a><a href="#current">Current menu</a><a href="#directions">All directions</a><a href="#history">Decision history</a><a href="#figma">Figma links</a></nav>
+</header>
+
+<main>
+  <section id="current">
+    <span class="chip cur">Current · v3 · 05.10.2026</span>
+    <h2 style="margin-top:14px">Main menu v3.</h2>
+    <p class="lead">Option F, a classic dropdown with no sub-menu, reduced after the website review: Longevity and Hair loss left the site, and Help became a direct FAQ link.</p>
+    <div class="current">
+      <div class="panel">
+        <span class="chip">Structure</span>
+        <div class="mock" aria-label="Menu v3 sketch">
+          <div class="bar">
+            <span class="logo"><i></i>SoviCare</span>
+            <span class="items"><span>Sexual health ⌄</span><span>How it works</span><span>FAQ</span></span>
+            <span class="act">Sign in <span class="btn">Get started</span></span>
+          </div>
+          <div class="body"></div>
+        </div>
+        <h3>Desktop</h3>
+        <ul>
+          <li>Sexual health opens a dropdown with Tadalafil, Sildenafil and SoviCare Trio, each with a thumbnail and one meta line, plus “View all”.</li>
+          <li>How it works and FAQ are direct links.</li>
+          <li>Sign in (text link) and Get started (primary button) on the right.</li>
+        </ul>
+        <h3>Mobile</h3>
+        <ul>
+          <li>Menu button opens a full-screen panel: Sexual health (accordion) · How it works · FAQ · Sign in.</li>
+          <li>Get started is fixed at the bottom with the line “Assessment only. Not a diagnosis.”</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <span class="chip">Behaviour</span>
+        <h3>Motion and hover (brand hub tokens)</h3>
+        <ul>
+          <li>Nav item hover: underline grows left → right, 220ms ease.</li>
+          <li>Dropdown open/close, item hover and focus: timings and colours exactly as in the Figma interactions spec (motion tokens 140 / 180 / 220 / 320ms, one easing: ease).</li>
+          <li>Buttons: Primary #264653 → #1C3742; Outline fills Deep Teal; 180ms ease.</li>
+          <li>Focus-visible: 2px Blue outline, 3px offset. Full keyboard support (Enter/Space opens, Esc closes).</li>
+          <li>Sticky header. prefers-reduced-motion → instant.</li>
+        </ul>
+        <h3>Source of truth</h3>
+        <ul>
+          <li><a style="color:var(--blue)" href="https://www.figma.com/design/CsrbxWkbDM9okLlQeKkNKH?node-id=4046-606" target="_blank" rel="noopener">Figma · Main menu v3 (current)</a></li>
+          <li><a style="color:var(--blue)" href="https://www.figma.com/design/CsrbxWkbDM9okLlQeKkNKH?node-id=4010-609" target="_blank" rel="noopener">Figma · Interactions spec (dev hand-off)</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="directions">
+    <h2>All directions.</h2>
+    <p class="lead">The explorations behind the decision, kept for reference. These pages still show the five-item menu (with Longevity and Hair loss) as it was when we explored it.</p>
+    <div class="cards">
+      <a class="card" href="menu-options.html">
+        <div class="kit"><span style="width:22px;height:22px;background:#219EBC;border-radius:22px 0 0 0"></span><span style="width:22px;height:22px;background:#FFBE0B;border-radius:50%"></span></div>
+        <span class="chip kept" style="align-self:flex-start">Explored · A – H</span>
+        <div class="t">Menu directions A – H</div>
+        <p>Eight inner-menu directions, from richer product panels to “classic” dropdowns, all with the real product packshots. F was chosen.</p>
+        <span class="go">Open directions →</span>
+      </a>
+      <a class="card" href="menu-F-subcategories.html">
+        <div class="kit"><span style="width:22px;height:22px;background:#2A9D8F;border-radius:0 22px 0 0"></span><span style="width:11px;height:22px;background:#219EBC;border-radius:11px 0 0 11px"></span></div>
+        <span class="chip kept" style="align-self:flex-start">Explored · future</span>
+        <div class="t">Option F with sub-categories</div>
+        <p>For a future with more products: a flyout version, a two-pane alternative and a mobile drill-down.</p>
+        <span class="go">Open sub-categories →</span>
+      </a>
+      <a class="card" href="menu-F-mobile.html">
+        <div class="kit"><span style="width:22px;height:22px;background:#264653;border-radius:22px 0 0 0"></span><span style="width:22px;height:22px;background:#2A9D8F;border-radius:50%"></span></div>
+        <span class="chip app" style="align-self:flex-start">Approved · mobile</span>
+        <div class="t">Option F on mobile</div>
+        <p>The accordion mobile menu: closed, open and each category expanded, plus one live phone you can tap through.</p>
+        <span class="go">Open mobile →</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="history">
+    <h2>Decision history.</h2>
+    <p class="lead">How we got here.</p>
+    <ol class="tl">
+      <li><b>Directions A – H explored</b><span class="d">05.10.2026</span><p>Inner-menu restyle, identical structure for every category, real packshots.</p></li>
+      <li><b>Option F chosen, without sub-menu</b><span class="d">05.10.2026</span><p>Classic dropdown. Mobile accordion approved after the mobile preview.</p></li>
+      <li><b>v2 built in Figma</b><span class="d">05.10.2026</span><p>Components, 6 desktop + 6 mobile states, interactions spec and Dev Mode notes. Five items: Longevity · Sexual health · Hair loss · How it works · Help.</p></li>
+      <li class="on"><b>v3 · current</b><span class="d">05.10.2026</span><p>After the v4 website review: Longevity and Hair loss removed from the site, Help replaced by a direct FAQ link. Final: Sexual health · How it works · FAQ.</p></li>
+    </ol>
+  </section>
+
+  <section id="figma">
+    <h2>Figma links.</h2>
+    <p class="lead">File: 05.10.26 NOA SoviCare — Foundations, page “🧭 Main menu · Option F”.</p>
+    <table>
+      <thead><tr><th>What</th><th>Status</th><th>Link</th></tr></thead>
+      <tbody>
+        <tr><td>Main menu v3 · desktop + mobile states, header component</td><td><span class="chip cur">Current</span></td><td><a href="https://www.figma.com/design/CsrbxWkbDM9okLlQeKkNKH?node-id=4046-606" target="_blank" rel="noopener">node 4046-606</a></td></tr>
+        <tr><td>Interactions spec · dev hand-off (applies to v3)</td><td><span class="chip cur">Current</span></td><td><a href="https://www.figma.com/design/CsrbxWkbDM9okLlQeKkNKH?node-id=4010-609" target="_blank" rel="noopener">node 4010-609</a></td></tr>
+        <tr><td>Homepage v3 with the new menu</td><td><span class="chip cur">Current</span></td><td><a href="https://www.figma.com/design/CsrbxWkbDM9okLlQeKkNKH?node-id=4046-2114" target="_blank" rel="noopener">node 4046-2114</a></td></tr>
+        <tr><td>Main menu v2 · five items</td><td><span class="chip kept">Kept for future</span></td><td><a href="https://www.figma.com/design/CsrbxWkbDM9okLlQeKkNKH?node-id=4008-4" target="_blank" rel="noopener">node 4008-4</a></td></tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+<footer>SoviCare brand hub · Navigation · updated 06.10.2026</footer>
+</body>
+</html>
